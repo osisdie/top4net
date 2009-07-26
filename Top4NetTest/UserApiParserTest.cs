@@ -1,35 +1,37 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Taobao.Top.Api.Request;
 using Taobao.Top.Api.Parser;
 using Taobao.Top.Api.Domain;
 
 namespace Taobao.Top.Api.Test
 {
     [TestClass]
-    public class UserGetApiTest
+    public class UserApiParserTest
     {
-        public void GetUserByJson()
+        [TestMethod]
+        public void ParseJsonAsUser()
         {
-            GetUser("json", new UserGetJsonParser());
+            UserGetJsonParser parser = new UserGetJsonParser();
+            string body = TestUtils.readResource("taobao.user.get.json");
+            User user = parser.Parse(body);
+            AssertResult(user);
         }
 
         [TestMethod]
-        public void GetUserByXml()
+        public void ParseXmlAsUser()
         {
-            GetUser("xml", new UserGetXmlParser());
+            UserGetXmlParser parser = new UserGetXmlParser();
+            string body = TestUtils.readResource("taobao.user.get.xml");
+            User user = parser.Parse(body);
+            AssertResult(user);
         }
 
-        private void GetUser(string format, ITopParser<User> parser)
+        private void AssertResult(User user)
         {
-            ITopClient client = new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test", format);
-            UserGetRequest request = new UserGetRequest();
-            request.Fields = "user_id,nick,sex,created,location";
-            request.Nick = "tbtest520";
-
-            User user = client.Execute(request, parser);
             Assert.AreEqual("65753281", user.UserId);
             Assert.AreEqual("tbtest520", user.Nick);
             Assert.AreEqual("m", user.Sex);

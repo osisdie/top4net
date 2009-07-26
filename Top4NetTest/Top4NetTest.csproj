@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUtils.cs" />
-    <Compile Include="UserGetApiTest.cs" />
-    <Compile Include="UserGetParserTest.cs" />
+    <Compile Include="UserApiTest.cs" />
+    <Compile Include="UserApiParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
