@@ -92,11 +92,11 @@ namespace Taobao.Top.Api
 
             // 每次读取不大于256个字符，并写入字符串
             char[] buffer = new char[256];
-            int count = reader.Read(buffer, 0, 256);
+            int count = reader.Read(buffer, 0, buffer.Length);
             while (count > 0)
             {
                 result.Append(buffer, 0, count);
-                count = reader.Read(buffer, 0, 256);
+                count = reader.Read(buffer, 0, buffer.Length);
             }
 
             // 释放资源
