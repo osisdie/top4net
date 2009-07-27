@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// TOP API: taobao.user.get的JSON响应解释器。
     /// </summary>
-    public class UserGetJsonParser : ITopParser<User>
+    public class UserJsonParser : ITopParser<User>
     {
         #region ITopParser<User> Members
 

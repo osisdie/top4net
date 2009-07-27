@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\taobao.user.get.xml" />
+    <Content Include="Resources\taobao.users.get.xml" />
+    <None Include="Resources\taobao.users.get.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

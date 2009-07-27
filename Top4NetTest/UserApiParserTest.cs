@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,7 +16,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void ParseJsonAsUser()
         {
-            UserGetJsonParser parser = new UserGetJsonParser();
+            UserJsonParser parser = new UserJsonParser();
             string body = TestUtils.readResource("taobao.user.get.json");
             User user = parser.Parse(body);
             AssertResult(user);
@@ -24,10 +25,30 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void ParseXmlAsUser()
         {
-            UserGetXmlParser parser = new UserGetXmlParser();
+            UserXmlParser parser = new UserXmlParser();
             string body = TestUtils.readResource("taobao.user.get.xml");
             User user = parser.Parse(body);
             AssertResult(user);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsUserList()
+        {
+            UserListJsonParser parser = new UserListJsonParser();
+            string body = TestUtils.readResource("taobao.users.get.json");
+            List<User> users = parser.Parse(body);
+            Assert.AreEqual(2, users.Count);
+            AssertResult(users[0]);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsUserList()
+        {
+            UserListXmlParser parser = new UserListXmlParser();
+            string body = TestUtils.readResource("taobao.users.get.xml");
+            List<User> users = parser.Parse(body);
+            Assert.AreEqual(2, users.Count);
+            AssertResult(users[0]);
         }
 
         private void AssertResult(User user)

@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// TOP API: taobao.user.get的XML响应解释器。
     /// </summary>
-    public class UserGetXmlParser : ITopParser<User>
+    public class UserXmlParser : ITopParser<User>
     {
         #region ITopParser<User> Members
 
@@ -17,7 +17,6 @@ namespace Taobao.Top.Api.Parser
         {
             XmlSerializer serializer = new XmlSerializer(typeof(UserResponse));
             object obj = serializer.Deserialize(new StringReader(body));
-
             return (obj as UserResponse).User;
         }
 
