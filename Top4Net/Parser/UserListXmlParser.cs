@@ -4,7 +4,6 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 
 using Taobao.Top.Api.Domain;
-using System.Text;
 
 namespace Taobao.Top.Api.Parser
 {
