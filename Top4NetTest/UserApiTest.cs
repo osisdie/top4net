@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Test
 
         private void GetUser(string format, ITopParser<User> parser)
         {
-            ITopClient client = new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test", format);
+            ITopClient client = TestUtils.GetTestTopClient(format);
             UserGetRequest request = new UserGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nick = "tbtest520";
@@ -49,7 +49,7 @@ namespace Taobao.Top.Api.Test
 
         private void GetUsers(string format, ITopParser<List<User>> parser)
         {
-            ITopClient client = new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test", format);
+            ITopClient client = TestUtils.GetTestTopClient(format);
             UsersGetRequest request = new UsersGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";

@@ -17,7 +17,7 @@ namespace Taobao.Top.Api.Test
         public void ParseJsonAsUser()
         {
             UserJsonParser parser = new UserJsonParser();
-            string body = TestUtils.readResource("taobao.user.get.json");
+            string body = TestUtils.ReadResource("taobao.user.get.json");
             User user = parser.Parse(body);
             AssertResult(user);
         }
@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Test
         public void ParseXmlAsUser()
         {
             UserXmlParser parser = new UserXmlParser();
-            string body = TestUtils.readResource("taobao.user.get.xml");
+            string body = TestUtils.ReadResource("taobao.user.get.xml");
             User user = parser.Parse(body);
             AssertResult(user);
         }
@@ -35,7 +35,7 @@ namespace Taobao.Top.Api.Test
         public void ParseJsonAsUserList()
         {
             UserListJsonParser parser = new UserListJsonParser();
-            string body = TestUtils.readResource("taobao.users.get.json");
+            string body = TestUtils.ReadResource("taobao.users.get.json");
             List<User> users = parser.Parse(body);
             Assert.AreEqual(2, users.Count);
             AssertResult(users[0]);
@@ -45,7 +45,7 @@ namespace Taobao.Top.Api.Test
         public void ParseXmlAsUserList()
         {
             UserListXmlParser parser = new UserListXmlParser();
-            string body = TestUtils.readResource("taobao.users.get.xml");
+            string body = TestUtils.ReadResource("taobao.users.get.xml");
             List<User> users = parser.Parse(body);
             Assert.AreEqual(2, users.Count);
             AssertResult(users[0]);
