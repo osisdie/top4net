@@ -3,8 +3,10 @@ using System.IO;
 using System.Net;
 using System.Xml;
 using System.Text;
+using System.Collections;
 using System.Collections.Generic;
 
+using Taobao.Top.Api.Util;
 using Taobao.Top.Api.Request;
 using Taobao.Top.Api.Parser;
 
@@ -18,15 +20,16 @@ namespace Taobao.Top.Api
     /// </summary>
     public class TopRestClient : ITopClient
     {
-        public static readonly string APP_KEY = "app_key";
-        public static readonly string FORMAT = "format";
-        public static readonly string METHOD = "method";
-        public static readonly string TIMESTAMP = "timestamp";
-        public static readonly string VERSION = "v";
-        public static readonly string SIGN = "sign";
-
-        public static readonly string FORMAT_JSON = "json";
-        public static readonly string FORMAT_XML = "xml";
+        public const string APP_KEY = "api_key";
+        public const string FORMAT = "format";
+        public const string METHOD = "method";
+        public const string TIMESTAMP = "timestamp";
+        public const string VERSION = "v";
+        public const string SIGN = "sign";
+        public const string PARTNER_ID = "partner_id";
+        public const string SESSION = "session";
+        public const string FORMAT_JSON = "json";
+        public const string FORMAT_XML = "xml";
 
         private string serverUrl;
         private string appKey;
@@ -65,9 +68,18 @@ namespace Taobao.Top.Api
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded";
 
-            // 封装请求参数
+            // 添加协议级请求参数
+            IDictionary<string, string> allParams = new Dictionary<string, string>(request.GetParameters());
+            allParams.Add(METHOD, request.GetApiName());
+            allParams.Add(VERSION, "1.0");
+            allParams.Add(APP_KEY, appKey);
+            allParams.Add(FORMAT, format);
+            allParams.Add(PARTNER_ID, partnerId + "");
+            allParams.Add(TIMESTAMP, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+
+            // 封装HTTP请求参数串
             UTF8Encoding encoder = new UTF8Encoding();
-            byte[] postData = encoder.GetBytes(BuildPostData(request.GetApiName(), request.GetParameters()));
+            byte[] postData = encoder.GetBytes(BuildPostData(allParams));
             Stream reqStream = req.GetRequestStream();
             reqStream.Write(postData, 0, postData.Length);
             reqStream.Close();
@@ -103,35 +115,19 @@ namespace Taobao.Top.Api
         /// <param name="apiName">TOP API名称</param>
         /// <param name="parameters">Key-Value形式请求参数字典</param>
         /// <returns>URL编码后的请求数据</returns>
-        private string BuildPostData(string apiName, Dictionary<string, string> parameters)
+        private string BuildPostData(IDictionary<string, string> parameters)
         {
             StringBuilder postData = new StringBuilder();
-            AppendPostData(postData, VERSION, "1.0", false);
-            AppendPostData(postData, APP_KEY, appKey);
-            AppendPostData(postData, FORMAT, format);
-            AppendPostData(postData, METHOD, apiName);
-            AppendPostData(postData, TIMESTAMP, DateTime.Today.ToString("yyyy-MM-dd hh:mm:ss"));
 
-            Dictionary<string, string>.Enumerator den = parameters.GetEnumerator();
-            while (den.MoveNext())
+            IEnumerator<KeyValuePair<string, string>> dem = parameters.GetEnumerator();
+            while (dem.MoveNext())
             {
-                AppendPostData(postData, den.Current.Key, den.Current.Value);
+                AppendPostData(postData, dem.Current.Key, dem.Current.Value, true);
             }
 
-            AppendPostData(postData, SIGN, Guid.NewGuid().ToString());
+            AppendPostData(postData, SIGN, EncryptUtils.SignTopRequest(parameters, appSecret), false);
 
             return postData.ToString();
-        }
-
-        /// <summary>
-        /// 附加请求参数，并在参数前面添加&符号。
-        /// </summary>
-        /// <param name="postData">参数串</param>
-        /// <param name="name">参数名</param>
-        /// <param name="value">参数值</param>
-        private void AppendPostData(StringBuilder postData, string name, string value)
-        {
-            AppendPostData(postData, name, value, true);
         }
 
         /// <summary>
@@ -140,19 +136,20 @@ namespace Taobao.Top.Api
         /// <param name="postData">参数串</param>
         /// <param name="name">参数名</param>
         /// <param name="value">参数值</param>
-        /// <param name="hasAnd">是否在参数前添加&符号</param>
+        /// <param name="hasAnd">是否在参数后添加&符号</param>
         private void AppendPostData(StringBuilder postData, string name, string value, bool hasAnd)
         {
             // 忽略参数名或参数值为空的参数
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(value))
             {
+                postData.Append(name);
+                postData.Append("=");
+                postData.Append(Uri.EscapeUriString(value));
+
                 if (hasAnd)
                 {
                     postData.Append("&");
                 }
-                postData.Append(name);
-                postData.Append("=");
-                postData.Append(Uri.EscapeUriString(value));
             }
         }
 
