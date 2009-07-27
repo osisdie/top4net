@@ -84,7 +84,7 @@ namespace Taobao.Top.Api
             reqStream.Write(postData, 0, postData.Length);
             reqStream.Close();
 
-            // 以字符流的方向读取HTTP响应
+            // 以字符流的方式读取HTTP响应
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
             Stream rspStream = rsp.GetResponseStream();
             StreamReader reader = new StreamReader(rspStream);
