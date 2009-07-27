@@ -27,8 +27,6 @@ namespace Taobao.Top.Api.Util
                 query.Append(dem.Current.Key).Append(dem.Current.Value);
             }
 
-            Console.WriteLine(query.ToString());
-
             // 第三步：使用MD5加密
             MD5 md5 = MD5.Create();
             byte[] bytes = md5.ComputeHash(UTF8Encoding.Default.GetBytes(query.ToString()));
@@ -40,7 +38,6 @@ namespace Taobao.Top.Api.Util
                 result.Append(bytes[i].ToString("X"));
             }
 
-            Console.WriteLine(result.ToString());
             return result.ToString();
         }
     }
