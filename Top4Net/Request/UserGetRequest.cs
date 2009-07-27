@@ -15,9 +15,9 @@ namespace Taobao.Top.Api.Request
             return "taobao.user.get";
         }
 
-        public Dictionary<string, string> GetParameters()
+        public IDictionary<string, string> GetParameters()
         {
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", Fields);
             parameters.Add("nick", Nick);
