@@ -19,6 +19,6 @@ namespace Taobao.Top.Api.Request
         /// 获取所有的Key-Value形式的请求参数字典。
         /// </summary>
         /// <returns>请求参数字典</returns>
-        Dictionary<string, string> GetParameters();
+        IDictionary<string, string> GetParameters();
     }
 }
