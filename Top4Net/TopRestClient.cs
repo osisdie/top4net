@@ -118,8 +118,6 @@ namespace Taobao.Top.Api
                 AppendPostData(postData, den.Current.Key, den.Current.Value);
             }
 
-            Console.WriteLine(postData.ToString());
-
             AppendPostData(postData, SIGN, Guid.NewGuid().ToString());
 
             return postData.ToString();
