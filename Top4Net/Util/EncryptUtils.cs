@@ -24,7 +24,12 @@ namespace Taobao.Top.Api.Util
             StringBuilder query = new StringBuilder(secret);
             while (dem.MoveNext())
             {
-                query.Append(dem.Current.Key).Append(dem.Current.Value);
+                string key = dem.Current.Key;
+                string value = dem.Current.Value;
+                if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
+                {
+                    query.Append(key).Append(value);
+                }
             }
 
             // 第三步：使用MD5加密
