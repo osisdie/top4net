@@ -17,7 +17,7 @@ namespace Taobao.Top.Api.Test
             parameters.Add("fields", "nick,sex");
             parameters.Add("nick", "winwindg");
             string signature = EncryptUtils.SignTopRequest(parameters, "carver");
-            Assert.AreEqual("E780A69E4E438846FAF25AD2847415", signature);
+            Assert.AreEqual("E780A69E04E438846FAF25AD28047415", signature);
         }
     }
 }
