@@ -8,7 +8,7 @@ using Taobao.Top.Api.Domain;
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// 产品对象的XML响应解释器。
+    /// 产品列表的XML响应解释器。
     /// </summary>
     public class ProductListXmlParser : ITopParser<List<Product>>
     {
@@ -16,11 +16,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<Product> Parse(string body)
         {
-            // 重写User类型的XML标签名称
+            // 重写Product类型的XML标签名称
             XmlAttributes attrs = new XmlAttributes();
             attrs.XmlElements.Add(new XmlElementAttribute("product", typeof(Product)));
 
-            // 重写UserListResponse类型里面的Users属性的标签名称
+            // 重写ProductListResponse类型里面的Products属性的标签名称
             XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
             attrOvrs.Add(typeof(ProductListResponse), "Products", attrs);
 
