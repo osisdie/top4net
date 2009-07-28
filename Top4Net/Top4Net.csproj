@@ -44,15 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\BaseObject.cs" />
+    <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\ProductImg.cs" />
+    <Compile Include="Domain\ProductPropImg.cs" />
     <Compile Include="Domain\UserLocation.cs" />
     <Compile Include="Domain\UserCredit.cs" />
     <Compile Include="ITopClient.cs" />
     <Compile Include="Parser\ITopParser.cs" />
+    <Compile Include="Parser\ProductListJsonParser.cs" />
+    <Compile Include="Parser\ProductListXmlParser.cs" />
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserListJsonParser.cs" />
     <Compile Include="Parser\UserListXmlParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\ITopRequest.cs" />
+    <Compile Include="Request\ProductsSearchRequest.cs" />
     <Compile Include="Request\UsersGetRequest.cs" />
     <Compile Include="TopException.cs" />
     <Compile Include="TopRestClient.cs" />

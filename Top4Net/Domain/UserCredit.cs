@@ -8,8 +8,8 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 用户信用信息。
     /// </summary>
-    [JsonObject]
     [Serializable]
+    [JsonObject]
     [XmlRoot("credit")]
     public class UserCredit
     {

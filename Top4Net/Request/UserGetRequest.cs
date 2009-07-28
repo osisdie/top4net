@@ -10,7 +10,14 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class UserGetRequest : ITopRequest
     {
+        /// <summary>
+        /// 返回字段列表，以逗号分隔。
+        /// </summary>
         public string Fields { get; set; }
+
+        /// <summary>
+        /// 查询用户昵称。
+        /// </summary>
         public string Nick { get; set; }
 
         public string GetApiName()

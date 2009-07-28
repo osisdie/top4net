@@ -16,11 +16,18 @@ namespace Taobao.Top.Api.Parser
 
         public User Parse(string body)
         {
+            User user = null;
+
             JObject jsonBody = JObject.Parse(body);
             JArray jsonUsers = jsonBody["rsp"]["users"] as JArray;
-            JsonSerializer js = new JsonSerializer();
-            object user = js.Deserialize(jsonUsers[0].CreateReader(), typeof(User));
-            return user as User;
+
+            if (jsonUsers != null && jsonUsers.Count > 0)
+            {
+                JsonSerializer js = new JsonSerializer();
+                user = js.Deserialize(jsonUsers[0].CreateReader(), typeof(User)) as User;
+            }
+
+            return user;
         }
 
         #endregion

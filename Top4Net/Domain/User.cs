@@ -8,13 +8,11 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 用户信息。
     /// </summary>
-    [JsonObject]
     [Serializable]
+    [JsonObject]
     [XmlRoot("user")]
-    public class User
+    public class User : BaseObject
     {
-        public const string DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
         /// <summary>
         /// 用户编号。
         /// </summary>

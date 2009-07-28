@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncryptUtilsTest.cs" />
+    <Compile Include="ProductApiTest.cs" />
+    <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUtils.cs" />
     <Compile Include="UserApiTest.cs" />
-    <Compile Include="UserApiParserTest.cs" />
+    <Compile Include="UserParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -60,6 +62,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\taobao.products.json" />
+    <Content Include="Resources\taobao.products.xml" />
     <Content Include="Resources\taobao.user.get.xml" />
     <Content Include="Resources\taobao.users.get.xml" />
     <None Include="Resources\taobao.users.get.json" />

@@ -11,7 +11,7 @@ using Taobao.Top.Api.Domain;
 namespace Taobao.Top.Api.Test
 {
     [TestClass]
-    public class UserApiParserTest
+    public class UserParserTest
     {
         [TestMethod]
         public void ParseJsonAsUser()

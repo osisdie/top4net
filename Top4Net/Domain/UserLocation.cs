@@ -8,8 +8,8 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 用户地址信息。
     /// </summary>
-    [JsonObject]
     [Serializable]
+    [JsonObject]
     [XmlRoot("location")]
     public class UserLocation
     {
