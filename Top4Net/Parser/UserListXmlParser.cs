@@ -16,9 +16,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<User> Parse(string body)
         {
+            // 重写User类型的XML标签名称
             XmlAttributes attrs = new XmlAttributes();
             attrs.XmlElements.Add(new XmlElementAttribute("user", typeof(User)));
 
+            // 重写UserListResponse类型里面的Users属性的标签名称
             XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
             attrOvrs.Add(typeof(UserListResponse), "Users", attrs);
 
@@ -31,6 +33,9 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
 
+        /// <summary>
+        /// 用户列表响应，用于XML反序列化。
+        /// </summary>
         [Serializable]
         [XmlRoot("rsp")]
         public class UserListResponse
