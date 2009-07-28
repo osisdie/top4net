@@ -6,6 +6,9 @@ using System.Security.Cryptography;
 
 namespace Taobao.Top.Api.Util
 {
+    /// <summary>
+    /// 加密工具类。
+    /// </summary>
     public abstract class EncryptUtils
     {
         /// <summary>

@@ -5,6 +5,9 @@ using Taobao.Top.Api;
 
 namespace Taobao.Top.Api.Request
 {
+    /// <summary>
+    /// 获取单个用户信息。
+    /// </summary>
     public class UserGetRequest : ITopRequest
     {
         public string Fields { get; set; }

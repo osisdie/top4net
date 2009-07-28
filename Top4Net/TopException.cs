@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace Taobao.Top.Api
 {
+    /// <summary>
+    /// TOP客户端异常。
+    /// </summary>
     public class TopException : Exception
     {
         private int errorCode;
