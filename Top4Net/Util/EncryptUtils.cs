@@ -40,7 +40,12 @@ namespace Taobao.Top.Api.Util
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < bytes.Length; i++)
             {
-                result.Append(bytes[i].ToString("X"));
+                string hex = bytes[i].ToString("X");
+                if (hex.Length == 1)
+                {
+                    result.Append("0");
+                }
+                result.Append(hex);
             }
 
             return result.ToString();
