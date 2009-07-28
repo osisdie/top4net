@@ -53,7 +53,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\taobao.user.get.json" />
+    <None Include="Resources\taobao.user.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Top4Net\Top4Net.csproj">
@@ -64,9 +64,9 @@
   <ItemGroup>
     <None Include="Resources\taobao.products.json" />
     <Content Include="Resources\taobao.products.xml" />
-    <Content Include="Resources\taobao.user.get.xml" />
-    <Content Include="Resources\taobao.users.get.xml" />
-    <None Include="Resources\taobao.users.get.json" />
+    <Content Include="Resources\taobao.user.xml" />
+    <Content Include="Resources\taobao.users.xml" />
+    <None Include="Resources\taobao.users.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
