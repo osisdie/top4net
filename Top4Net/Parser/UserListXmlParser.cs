@@ -8,7 +8,7 @@ using Taobao.Top.Api.Domain;
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// TOP API: taobao.users.get的XML响应解释器。
+    /// 用户列表的XML响应解释器。
     /// </summary>
     public class UserListXmlParser : ITopParser<List<User>>
     {

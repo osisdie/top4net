@@ -19,6 +19,11 @@ namespace Taobao.Top.Api.Test
             return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "10011201", format);
         }
 
+        public static ITopClient GetInternalTopClient(string format)
+        {
+            return new TopRestClient("http://192.168.207.127:8080/top/router/rest", "sns", "sns", format);
+        }
+
         public static string ReadResource(string fileName)
         {
             return File.ReadAllText("../../../Top4NetTest/Resources/" + fileName, Encoding.UTF8);

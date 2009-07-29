@@ -1,14 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 using Taobao.Top.Api.Domain;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// TOP API: taobao.user.get的JSON响应解释器。
+    /// 用户对象的JSON响应解释器。
     /// </summary>
     public class UserJsonParser : ITopParser<User>
     {
@@ -16,18 +14,17 @@ namespace Taobao.Top.Api.Parser
 
         public User Parse(string body)
         {
-            User user = null;
+            ITopParser<List<User>> parser = new UserListJsonParser();
+            List<User> users = parser.Parse(body);
 
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonUsers = jsonBody["rsp"]["users"] as JArray;
-
-            if (jsonUsers != null && jsonUsers.Count > 0)
+            if (users != null && users.Count > 0)
             {
-                JsonSerializer js = new JsonSerializer();
-                user = js.Deserialize(jsonUsers[0].CreateReader(), typeof(User)) as User;
+                return users[0];
             }
-
-            return user;
+            else
+            {
+                return null;
+            }
         }
 
         #endregion

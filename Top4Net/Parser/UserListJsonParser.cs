@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// 用户对象的JSON响应解释器。
+    /// 用户列表对象的JSON响应解释器。
     /// </summary>
     public class UserListJsonParser : ITopParser<List<User>>
     {

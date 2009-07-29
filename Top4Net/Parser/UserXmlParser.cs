@@ -7,7 +7,7 @@ using System.IO;
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// TOP API: taobao.user.get的XML响应解释器。
+    /// 用户对象的XML响应解释器。
     /// </summary>
     public class UserXmlParser : ITopParser<User>
     {

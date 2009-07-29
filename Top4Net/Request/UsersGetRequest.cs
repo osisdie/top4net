@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Request
     public class UsersGetRequest : ITopRequest
     {
         /// <summary>
-        /// 返回字段列表，以逗号分隔。
+        ///  需要返回的字段列表，以逗号分隔。
         /// </summary>
         public string Fields { get; set; }
 

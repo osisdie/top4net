@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// 搜索产品信息。
+    /// 获取多个产品信息。
     /// </summary>
-    public class ProductsSearchRequest : ITopRequest
+    public class ProductsGetRequest : ITopRequest
     {
         /// <summary>
         ///  需要返回的字段列表，以逗号分隔。
@@ -15,19 +14,9 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索关键词。
+        /// 用户昵称。
         /// </summary>
-        public string Query { get; set; }
-
-        /// <summary>
-        /// 商品类目编号。
-        /// </summary>
-        public string CategoryId { get; set; }
-
-        /// <summary>
-        /// 商品属性值集合。
-        /// </summary>
-        public string PropList { get; set; }
+        public string Nick { get; set; }
 
         /// <summary>
         /// 返回每页记录数。
@@ -43,7 +32,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.products.search";
+            return "taobao.products.get";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -51,9 +40,7 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", Fields);
-            parameters.Add("q", Query);
-            parameters.Add("cid", CategoryId);
-            parameters.Add("props", PropList);
+            parameters.Add("nick", Nick);
             parameters.Add("page_size", PageSize + "");
             parameters.Add("page_no", PageNo + "");
 
