@@ -88,7 +88,7 @@ namespace Taobao.Top.Api.Test
         }
 
         //[TestMethod]
-        public void AddProductAsJson()
+        public void AddProductByJson()
         {
             ITopClient client = TestUtils.GetTestTopClient("json");
             ProductAddRequest request = new ProductAddRequest("1d18b80e119ac788179a4a8deaae2d2af");
