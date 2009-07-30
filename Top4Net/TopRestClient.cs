@@ -78,8 +78,8 @@ namespace Taobao.Top.Api
             allParams.Add(TIMESTAMP, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
             // 封装HTTP请求参数串
-            UTF8Encoding encoder = new UTF8Encoding();
-            byte[] postData = encoder.GetBytes(BuildPostData(allParams));
+            UTF8Encoding encoding = new UTF8Encoding(true, true);
+            byte[] postData = encoding.GetBytes(BuildPostData(allParams));
             Stream reqStream = req.GetRequestStream();
             reqStream.Write(postData, 0, postData.Length);
             reqStream.Close();
@@ -144,7 +144,7 @@ namespace Taobao.Top.Api
             {
                 postData.Append(name);
                 postData.Append("=");
-                postData.Append(Uri.EscapeUriString(value));
+                postData.Append(Uri.EscapeDataString(value));
 
                 if (hasAnd)
                 {

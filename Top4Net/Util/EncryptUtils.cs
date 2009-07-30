@@ -37,7 +37,8 @@ namespace Taobao.Top.Api.Util
 
             // 第三步：使用MD5加密
             MD5 md5 = MD5.Create();
-            byte[] bytes = md5.ComputeHash(UTF8Encoding.Default.GetBytes(query.ToString()));
+            UTF8Encoding enconding = new UTF8Encoding(true, true);
+            byte[] bytes = md5.ComputeHash(enconding.GetBytes(query.ToString()));
 
             // 第四步：把二进制转化为大写的十六进制
             StringBuilder result = new StringBuilder();
