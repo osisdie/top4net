@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\BaseObject.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Domain\Product.cs" />
     <Compile Include="Domain\ProductImg.cs" />
     <Compile Include="Domain\ProductPropImg.cs" />
@@ -67,6 +67,7 @@
     <Compile Include="Request\ProductGetRequest.cs" />
     <Compile Include="Request\ProductsGetRequest.cs" />
     <Compile Include="Request\ProductsSearchRequest.cs" />
+    <Compile Include="Request\ITopPrivateRequest.cs" />
     <Compile Include="Request\UsersGetRequest.cs" />
     <Compile Include="TopException.cs" />
     <Compile Include="TopRestClient.cs" />

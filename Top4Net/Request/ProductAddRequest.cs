@@ -6,7 +6,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// 上传一个产品。
     /// </summary>
-    public class ProductAddRequest : ITopRequest
+    public class ProductAddRequest : ITopPrivateRequest
     {
         /// <summary>
         /// 会话码。
@@ -85,10 +85,18 @@ namespace Taobao.Top.Api.Request
             parameters.Add("binds", BindPropList);
             parameters.Add("sale_props", SalePropList);
             parameters.Add("customer_props", CustomPropList);
-            parameters.Add("session", sessionKey);
             // image parameter
 
             return parameters;
+        }
+
+        #endregion
+
+        #region ITopPrivateRequest Members
+
+        public string GetSessionKey()
+        {
+            return this.sessionKey;
         }
 
         #endregion

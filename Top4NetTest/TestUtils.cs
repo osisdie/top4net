@@ -11,17 +11,12 @@ namespace Taobao.Top.Api.Test
     {
         public static ITopClient GetTestTopClient(string format)
         {
-            return new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test", format);
+            return new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "sns", "sns", format);
         }
 
         public static ITopClient GetProductTopClient(string format)
         {
             return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "10011201", format);
-        }
-
-        public static ITopClient GetInternalTopClient(string format)
-        {
-            return new TopRestClient("http://192.168.207.127:8080/top/router/rest", "sns", "sns", format);
         }
 
         public static string ReadResource(string fileName)

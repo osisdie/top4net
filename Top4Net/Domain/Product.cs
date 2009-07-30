@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
+using Taobao.Top.Api;
+
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
@@ -12,7 +14,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("product")]
-    public class Product : BaseObject
+    public class Product
     {
         /// <summary>
         /// 产品编号。
@@ -128,8 +130,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("created")]
         public string CreatedStr
         {
-            get { return Created.ToString(DATE_TIME_FORMAT); }
-            set { Created = DateTime.ParseExact(value, DATE_TIME_FORMAT, null); }
+            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
         }
 
         /// <summary>
@@ -142,8 +144,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("modified")]
         public string ModifiedStr
         {
-            get { return Modified.ToString(DATE_TIME_FORMAT); }
-            set { Modified = DateTime.ParseExact(value, DATE_TIME_FORMAT, null); }
+            get { return Modified.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Modified = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
         }
 
         /// <summary>

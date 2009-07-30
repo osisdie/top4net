@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Taobao.Top.Api.Domain
+namespace Taobao.Top.Api
 {
     /// <summary>
-    /// 基础领域对象。
+    /// 公用常量类。
     /// </summary>
-    [Serializable]
-    public abstract class BaseObject
+    public abstract class Constants
     {
         /// <summary>
         /// TOP默认时间格式。

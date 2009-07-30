@@ -75,7 +75,17 @@ namespace Taobao.Top.Api
             allParams.Add(APP_KEY, appKey);
             allParams.Add(FORMAT, format);
             allParams.Add(PARTNER_ID, partnerId + "");
-            allParams.Add(TIMESTAMP, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
+
+            // 为私有API添加访问授权
+            if (request is ITopPrivateRequest)
+            {
+                ITopPrivateRequest privateRequest = request as ITopPrivateRequest;
+                if (!allParams.ContainsKey(SESSION))
+                {
+                    allParams.Add(SESSION, privateRequest.GetSessionKey());
+                }
+            }
 
             // 封装HTTP请求参数串
             UTF8Encoding encoding = new UTF8Encoding(true, true);

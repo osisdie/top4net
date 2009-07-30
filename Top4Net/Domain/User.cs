@@ -3,6 +3,8 @@ using System.Xml.Serialization;
 
 using Newtonsoft.Json;
 
+using Taobao.Top.Api;
+
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
@@ -11,7 +13,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("user")]
-    public class User : BaseObject
+    public class User
     {
         /// <summary>
         /// 用户编号。
@@ -65,8 +67,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("created")]
         public string CreatedStr
         {
-            get { return Created.ToString(DATE_TIME_FORMAT); }
-            set { Created = DateTime.ParseExact(value, DATE_TIME_FORMAT, null); }
+            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
         }
 
         /// <summary>
@@ -79,8 +81,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("last_visit")]
         public string LastVisitStr
         {
-            get { return LastVisit.ToString(DATE_TIME_FORMAT); }
-            set { LastVisit = DateTime.ParseExact(value, DATE_TIME_FORMAT, null); }
+            get { return LastVisit.ToString(Constants.DATE_TIME_FORMAT); }
+            set { LastVisit = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
         }
 
         /// <summary>
@@ -93,8 +95,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("birthday")]
         public string BirthdayStr
         {
-            get { return Birthday.ToString(DATE_TIME_FORMAT); }
-            set { Birthday = DateTime.ParseExact(value, DATE_TIME_FORMAT, null); }
+            get { return Birthday.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Birthday = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
         }
 
         /// <summary>
