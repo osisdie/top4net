@@ -81,10 +81,7 @@ namespace Taobao.Top.Api
             if (request is ITopPrivateRequest)
             {
                 ITopPrivateRequest privateRequest = request as ITopPrivateRequest;
-                if (!allParams.ContainsKey(SESSION))
-                {
-                    allParams.Add(SESSION, privateRequest.GetSessionKey());
-                }
+                allParams.Add(SESSION, privateRequest.GetSessionKey());
             }
 
             // 封装HTTP请求参数串
