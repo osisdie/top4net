@@ -132,7 +132,7 @@ namespace Taobao.Top.Api
                 AppendPostData(postData, dem.Current.Key, dem.Current.Value, true);
             }
 
-            AppendPostData(postData, SIGN, EncryptUtils.SignTopRequest(parameters, appSecret), false);
+            AppendPostData(postData, SIGN, SystemUtils.SignTopRequest(parameters, appSecret), false);
 
             return postData.ToString();
         }

@@ -1,16 +1,20 @@
 ﻿using System;
+using System.IO;
+using System.Net;
 using System.Text;
-using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 
 namespace Taobao.Top.Api.Util
 {
     /// <summary>
-    /// 加密工具类。
+    /// 系统工具类。
     /// </summary>
-    public abstract class EncryptUtils
+    public abstract class SystemUtils
     {
+        private const string TOP_AUTHORIZE_URL = "http://open.taobao.com/isv/authorize.php";
+        private const string TOP_CONTAINER_URL = "http://container.sandbox.taobao.com/container";
+
         /// <summary>
         /// 给TOP请求签名。
         /// </summary>
@@ -53,6 +57,11 @@ namespace Taobao.Top.Api.Util
             }
 
             return result.ToString();
+        }
+
+        public static string GetSessionKey(string appKey, string nick)
+        {
+            return null;
         }
     }
 }

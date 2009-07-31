@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EncryptUtilsTest.cs" />
+    <Compile Include="SystemUtilsTest.cs" />
     <Compile Include="ProductApiTest.cs" />
     <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
