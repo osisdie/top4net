@@ -12,9 +12,6 @@ namespace Taobao.Top.Api.Util
     /// </summary>
     public abstract class SystemUtils
     {
-        private const string TOP_AUTHORIZE_URL = "http://open.taobao.com/isv/authorize.php";
-        private const string TOP_CONTAINER_URL = "http://container.sandbox.taobao.com/container";
-
         /// <summary>
         /// 给TOP请求签名。
         /// </summary>
@@ -41,8 +38,7 @@ namespace Taobao.Top.Api.Util
 
             // 第三步：使用MD5加密
             MD5 md5 = MD5.Create();
-            UTF8Encoding enconding = new UTF8Encoding(true, true);
-            byte[] bytes = md5.ComputeHash(enconding.GetBytes(query.ToString()));
+            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(query.ToString()));
 
             // 第四步：把二进制转化为大写的十六进制
             StringBuilder result = new StringBuilder();
@@ -57,11 +53,6 @@ namespace Taobao.Top.Api.Util
             }
 
             return result.ToString();
-        }
-
-        public static string GetSessionKey(string appKey, string nick)
-        {
-            return null;
         }
     }
 }

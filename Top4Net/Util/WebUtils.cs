@@ -12,39 +12,176 @@ namespace Taobao.Top.Api.Util
     /// </summary>
     public abstract class WebUtils
     {
+        /// <summary>
+        /// 执行HTTP POST请求。
+        /// </summary>
+        /// <param name="url">请求地址</param>
+        /// <param name="parameters">请求参数</param>
+        /// <returns>HTTP响应</returns>
         public static string DoPost(string url, IDictionary<string, string> parameters)
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
+            req.KeepAlive = true;
             req.ContentType = "application/x-www-form-urlencoded";
 
-            UTF8Encoding encoding = new UTF8Encoding(true, true);
-            byte[] postData = encoding.GetBytes(BuildPostData(parameters));
+            byte[] postData = Encoding.UTF8.GetBytes(BuildPostData(parameters));
             Stream reqStream = req.GetRequestStream();
             reqStream.Write(postData, 0, postData.Length);
             reqStream.Close();
 
-            // 以字符流的方式读取HTTP响应
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            Stream rspStream = rsp.GetResponseStream();
-            StreamReader reader = new StreamReader(rspStream);
-            StringBuilder result = new StringBuilder();
+            return GetResponseAsString(rsp, Encoding.UTF8);
+        }
 
-            // 每次读取不大于256个字符，并写入字符串
-            char[] buffer = new char[256];
-            int count = reader.Read(buffer, 0, buffer.Length);
-            while (count > 0)
+        /// <summary>
+        /// 执行HTTP GET请求。
+        /// </summary>
+        /// <param name="url">请求地址</param>
+        /// <param name="parameters">请求参数</param>
+        /// <returns>HTTP响应</returns>
+        public static string DoGet(string url, IDictionary<string, string> parameters)
+        {
+            if (parameters != null && parameters.Count > 0)
             {
-                result.Append(buffer, 0, count);
-                count = reader.Read(buffer, 0, buffer.Length);
+                if (url.Contains("?"))
+                {
+                    url = url + "&" + BuildPostData(parameters);
+                }
+                else
+                {
+                    url = url + "?" + BuildPostData(parameters);
+                }
             }
 
-            // 释放资源
-            reader.Close();
-            rspStream.Close();
-            rsp.Close();
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            req.Method = "GET";
+            req.KeepAlive = true;
+            req.ContentType = "application/x-www-form-urlencoded";
+
+            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
+            return GetResponseAsString(rsp, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 执行带文件上传的HTTP POST请求。
+        /// </summary>
+        /// <param name="url">请求地址</param>
+        /// <param name="textParams">请求文本参数</param>
+        /// <param name="fileParams">请求文件参数</param>
+        /// <returns>HTTP响应</returns>
+        public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, string> fileParams)
+        {
+            string boundary = DateTime.Now.Ticks.ToString("x"); // 随机分隔线
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            req.Method = "POST";
+            req.KeepAlive = true;
+            req.ContentType = "multipart/form-data;boundary=" + boundary;
+
+            Stream reqStream = req.GetRequestStream();
+            byte[] itemBoundaryBytes = Encoding.UTF8.GetBytes("\r\n--" + boundary + "\r\n");
+            byte[] endBoundaryBytes = Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
+
+            // 组装文本请求参数
+            string entryTemplate = "Content-Disposition:form-data;name=\"{0}\"\r\nContent-Type:text/plain\r\n\r\n{1}";
+            IEnumerator<KeyValuePair<string, string>> textEnum = textParams.GetEnumerator();
+            while (textEnum.MoveNext())
+            {
+                string formItem = string.Format(entryTemplate, textEnum.Current.Key, textEnum.Current.Value);
+                byte[] itemBytes = Encoding.UTF8.GetBytes(formItem);
+                reqStream.Write(itemBoundaryBytes, 0, itemBoundaryBytes.Length);
+                reqStream.Write(itemBytes, 0, itemBytes.Length);
+            }
+
+            // 组装文件请求参数
+            string fileTemplate = "Content-Disposition:form-data;name=\"{0}\";filename=\"{1}\"\r\nContent-Type:{2}\r\n\r\n";
+            IEnumerator<KeyValuePair<string, string>> fileEnum = fileParams.GetEnumerator();
+            while (fileEnum.MoveNext())
+            {
+                string key = fileEnum.Current.Key;
+                string path = fileEnum.Current.Value;
+                string fileItem = string.Format(fileTemplate, key, path, GetMimeType(path));
+                byte[] itemBytes = Encoding.UTF8.GetBytes(fileItem);
+                reqStream.Write(itemBoundaryBytes, 0, itemBoundaryBytes.Length);
+                reqStream.Write(itemBytes, 0, itemBytes.Length);
+
+                using (Stream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    byte[] buffer = new byte[1024];
+                    int readBytes = 0;
+                    while ((readBytes = fileStream.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        reqStream.Write(buffer, 0, readBytes);
+                    }
+                }
+            }
+
+            reqStream.Write(endBoundaryBytes, 0, endBoundaryBytes.Length);
+            reqStream.Close();
+
+            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
+            return GetResponseAsString(rsp, Encoding.UTF8);
+        }
+
+        /// <summary>
+        /// 把响应流转换为文本。
+        /// </summary>
+        /// <param name="rsp">响应流对象</param>
+        /// <param name="encoding">编码方式</param>
+        /// <returns>响应文本</returns>
+        private static string GetResponseAsString(HttpWebResponse rsp, Encoding encoding)
+        {
+            StringBuilder result = new StringBuilder();
+            Stream stream = null;
+            StreamReader reader = null;
+
+            try
+            {
+                // 以字符流的方式读取HTTP响应
+                stream = rsp.GetResponseStream();
+                reader = new StreamReader(stream, encoding);
+
+                // 每次读取不大于512个字符，并写入字符串
+                char[] buffer = new char[512];
+                int readBytes = 0;
+                while ((readBytes = reader.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    result.Append(buffer, 0, readBytes);
+                }
+            }
+            finally
+            {
+                // 释放资源
+                if (reader != null) reader.Close();
+                if (stream != null) stream.Close();
+                if (rsp != null) rsp.Close();
+            }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// 根据文件名后缀获取图片型文件的Mime-Type。
+        /// </summary>
+        /// <param name="filePath">文件全名</param>
+        /// <returns>图片文件的Mime-Type</returns>
+        private static string GetMimeType(string filePath)
+        {
+            string mimeType;
+
+            switch (Path.GetExtension(filePath).ToLower())
+            {
+                case ".bmp": mimeType = "image/bmp"; break;
+                case ".gif": mimeType = "image/gif"; break;
+                case ".ico": mimeType = "image/x-icon"; break;
+                case ".jpeg": mimeType = "image/jpeg"; break;
+                case ".jpg": mimeType = "image/jpeg"; break;
+                case ".png": mimeType = "image/png"; break;
+                default: mimeType = "application/octet-stream"; break;
+            }
+
+            return mimeType;
         }
 
         /// <summary>

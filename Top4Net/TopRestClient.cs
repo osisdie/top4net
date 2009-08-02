@@ -64,10 +64,6 @@ namespace Taobao.Top.Api
 
         public T Execute<T>(ITopRequest request, ITopParser<T> parser)
         {
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(this.serverUrl);
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-
             // 添加协议级请求参数
             IDictionary<string, string> allParams = new Dictionary<string, string>(request.GetParameters());
             allParams.Add(METHOD, request.GetApiName());
@@ -76,6 +72,7 @@ namespace Taobao.Top.Api
             allParams.Add(FORMAT, format);
             allParams.Add(PARTNER_ID, partnerId + "");
             allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
+            allParams.Add(SIGN, SystemUtils.SignTopRequest(allParams, appSecret));
 
             // 为私有API添加访问授权
             if (request is ITopPrivateRequest)
@@ -84,80 +81,9 @@ namespace Taobao.Top.Api
                 allParams.Add(SESSION, privateRequest.GetSessionKey());
             }
 
-            // 封装HTTP请求参数串
-            UTF8Encoding encoding = new UTF8Encoding(true, true);
-            byte[] postData = encoding.GetBytes(BuildPostData(allParams));
-            Stream reqStream = req.GetRequestStream();
-            reqStream.Write(postData, 0, postData.Length);
-            reqStream.Close();
-
-            // 以字符流的方式读取HTTP响应
-            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            Stream rspStream = rsp.GetResponseStream();
-            StreamReader reader = new StreamReader(rspStream);
-            StringBuilder result = new StringBuilder();
-
-            // 每次读取不大于256个字符，并写入字符串
-            char[] buffer = new char[256];
-            int count = reader.Read(buffer, 0, buffer.Length);
-            while (count > 0)
-            {
-                result.Append(buffer, 0, count);
-                count = reader.Read(buffer, 0, buffer.Length);
-            }
-
-            // 释放资源
-            reader.Close();
-            rspStream.Close();
-            rsp.Close();
-
-            string response = result.ToString();
+            string response = WebUtils.DoPost(this.serverUrl, allParams);
             TryParseException(response);
             return parser.Parse(response);
-        }
-
-        /// <summary>
-        /// 组装普通文本请求参数。
-        /// </summary>
-        /// <param name="apiName">TOP API名称</param>
-        /// <param name="parameters">Key-Value形式请求参数字典</param>
-        /// <returns>URL编码后的请求数据</returns>
-        private string BuildPostData(IDictionary<string, string> parameters)
-        {
-            StringBuilder postData = new StringBuilder();
-
-            IEnumerator<KeyValuePair<string, string>> dem = parameters.GetEnumerator();
-            while (dem.MoveNext())
-            {
-                AppendPostData(postData, dem.Current.Key, dem.Current.Value, true);
-            }
-
-            AppendPostData(postData, SIGN, SystemUtils.SignTopRequest(parameters, appSecret), false);
-
-            return postData.ToString();
-        }
-
-        /// <summary>
-        /// 附加请求参数。
-        /// </summary>
-        /// <param name="postData">参数串</param>
-        /// <param name="name">参数名</param>
-        /// <param name="value">参数值</param>
-        /// <param name="hasAnd">是否在参数后添加&符号</param>
-        private void AppendPostData(StringBuilder postData, string name, string value, bool hasAnd)
-        {
-            // 忽略参数名或参数值为空的参数
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(value))
-            {
-                postData.Append(name);
-                postData.Append("=");
-                postData.Append(Uri.EscapeDataString(value));
-
-                if (hasAnd)
-                {
-                    postData.Append("&");
-                }
-            }
         }
 
         /// <summary>
