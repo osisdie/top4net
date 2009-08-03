@@ -15,46 +15,49 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetUserByJson()
         {
-            GetUser("json", new UserJsonParser());
+            ITopClient client = TestUtils.GetTestTopClient("json");
+            UserGetRequest request = new UserGetRequest();
+            request.Fields = "user_id,nick,sex,created,location";
+            request.Nick = "tbtest520";
+
+            User user = client.Execute(request, new UserJsonParser());
+            AssertUser(user);
         }
 
         [TestMethod]
         public void GetUserByXml()
         {
-            GetUser("xml", new UserXmlParser());
+            ITopClient client = TestUtils.GetTestTopClient("xml");
+            UserGetRequest request = new UserGetRequest();
+            request.Fields = "user_id,nick,sex,created,location";
+            request.Nick = "tbtest520";
+
+            User user = client.Execute(request, new UserXmlParser());
+            AssertUser(user);
         }
 
         [TestMethod]
         public void GetUsersByJson()
         {
-            GetUsers("json", new UserListJsonParser());
+            ITopClient client = TestUtils.GetTestTopClient("json");
+            UsersGetRequest request = new UsersGetRequest();
+            request.Fields = "user_id,nick,sex,created,location";
+            request.Nicks = "tbtest520,tbtest562";
+
+            List<User> users = client.Execute(request, new UserListJsonParser());
+            Assert.AreEqual(2, users.Count);
+            AssertUser(users[0]);
         }
 
         [TestMethod]
         public void GetUsersByXml()
         {
-            GetUsers("xml", new UserListXmlParser());
-        }
-
-        private void GetUser(string format, ITopParser<User> parser)
-        {
-            ITopClient client = TestUtils.GetTestTopClient(format);
-            UserGetRequest request = new UserGetRequest();
-            request.Fields = "user_id,nick,sex,created,location";
-            request.Nick = "tbtest520";
-
-            User user = client.Execute(request, parser);
-            AssertUser(user);
-        }
-
-        private void GetUsers(string format, ITopParser<List<User>> parser)
-        {
-            ITopClient client = TestUtils.GetTestTopClient(format);
+            ITopClient client = TestUtils.GetTestTopClient("xml");
             UsersGetRequest request = new UsersGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";
 
-            List<User> users = client.Execute(request, parser);
+            List<User> users = client.Execute(request, new UserListXmlParser());
             Assert.AreEqual(2, users.Count);
             AssertUser(users[0]);
         }
