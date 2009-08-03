@@ -46,7 +46,7 @@
     <Compile Include="ProductApiTest.cs" />
     <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestUtils.cs" />
+    <Compile Include="Util\TestUtils.cs" />
     <Compile Include="Request\TopPrivateRequestProxy.cs" />
     <Compile Include="UserApiTest.cs" />
     <Compile Include="UserParserTest.cs" />
