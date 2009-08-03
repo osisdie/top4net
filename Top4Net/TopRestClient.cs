@@ -72,7 +72,6 @@ namespace Taobao.Top.Api
             allParams.Add(FORMAT, format);
             allParams.Add(PARTNER_ID, partnerId + "");
             allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
-            allParams.Add(SIGN, SystemUtils.SignTopRequest(allParams, appSecret));
 
             // 为私有API添加访问授权
             if (request is ITopPrivateRequest)
@@ -81,7 +80,22 @@ namespace Taobao.Top.Api
                 allParams.Add(SESSION, privateRequest.GetSessionKey());
             }
 
-            string response = WebUtils.DoPost(this.serverUrl, allParams);
+            // 添加签名参数
+            allParams = SysUtils.CleanupDictionary(allParams);
+            allParams.Add(SIGN, SysUtils.SignTopRequest(allParams, appSecret));
+
+            // 是否需要上传文件
+            string response;
+            if (request is ITopUploadRequest)
+            {
+                ITopUploadRequest uploadRequest = request as ITopUploadRequest;
+                response = WebUtils.DoPost(this.serverUrl, allParams, uploadRequest.GetFileParameters());
+            }
+            else
+            {
+                response = WebUtils.DoPost(this.serverUrl, allParams);
+            }
+
             TryParseException(response);
             return parser.Parse(response);
         }

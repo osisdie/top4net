@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SystemUtilsTest.cs" />
+    <Compile Include="SysUtilsTest.cs" />
     <Compile Include="ProductApiTest.cs" />
     <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\taobao.products.json" />
+    <Content Include="Resources\product.jpg" />
     <Content Include="Resources\taobao.products.xml" />
     <Content Include="Resources\taobao.user.xml" />
     <Content Include="Resources\taobao.users.xml" />

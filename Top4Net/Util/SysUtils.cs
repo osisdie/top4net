@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Util
     /// <summary>
     /// 系统工具类。
     /// </summary>
-    public abstract class SystemUtils
+    public abstract class SysUtils
     {
         /// <summary>
         /// 给TOP请求签名。
@@ -53,6 +53,29 @@ namespace Taobao.Top.Api.Util
             }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// 清除字典中值为空的项。
+        /// </summary>
+        /// <param name="dict">待清除的字典</param>
+        /// <returns>清除后的字典</returns>
+        public static IDictionary<string, string> CleanupDictionary(IDictionary<string, string> dict)
+        {
+            IDictionary<string, string> newDict = new Dictionary<string, string>();
+            IEnumerator<KeyValuePair<string, string>> dem = dict.GetEnumerator();
+
+            while (dem.MoveNext())
+            {
+                string name = dem.Current.Key;
+                string value = dem.Current.Value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    newDict.Add(name, value);
+                }
+            }
+
+            return newDict;
         }
     }
 }

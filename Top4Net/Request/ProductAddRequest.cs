@@ -6,7 +6,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// 上传一个产品。
     /// </summary>
-    public class ProductAddRequest : ITopPrivateRequest
+    public class ProductAddRequest : ITopUploadRequest
     {
         /// <summary>
         /// 会话码。
@@ -58,7 +58,10 @@ namespace Taobao.Top.Api.Request
         /// </summary>
         public string CustomPropList { get; set; }
 
-        public byte[] Image { get; set; }
+        /// <summary>
+        /// 图片绝对地址。
+        /// </summary>
+        public string Image { get; set; }
 
         public ProductAddRequest(string sessionKey)
         {
@@ -85,7 +88,6 @@ namespace Taobao.Top.Api.Request
             parameters.Add("binds", BindPropList);
             parameters.Add("sale_props", SalePropList);
             parameters.Add("customer_props", CustomPropList);
-            // image parameter
 
             return parameters;
         }
@@ -97,6 +99,18 @@ namespace Taobao.Top.Api.Request
         public string GetSessionKey()
         {
             return this.sessionKey;
+        }
+
+        #endregion
+
+        #region ITopUploadRequest Members
+
+        public IDictionary<string, string> GetFileParameters()
+        {
+            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("image", this.Image);
+
+            return parameters;
         }
 
         #endregion

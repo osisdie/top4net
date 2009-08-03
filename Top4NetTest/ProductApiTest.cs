@@ -91,18 +91,16 @@ namespace Taobao.Top.Api.Test
         public void AddProductByJson()
         {
             ITopClient client = TestUtils.GetTestTopClient("json");
-            ProductAddRequest request = new ProductAddRequest("1d18b80e119ac788179a4a8deaae2d2af");
+            String sessionKey = TestUtils.GetTestSessionKey("alipublic05");
+            ProductAddRequest request = new ProductAddRequest(sessionKey);
             request.Name = "Nokia N73";
             request.Price = "3000.00";
             request.Description = "Nokia N73, Cool";
-            request.CategoryId = "50008165";
-            request.OuterId = "200612";
-            request.PropList = "20000:30812;1632501:31578;21861:3683581";
-            request.BindPropList = "1637400:4606395;21862:31578";
-            request.SalePropList = "1627207:28324";
-            request.CustomPropList = "21861:MyValue";
-            string result = client.Execute(request, new StringParser());
-            Console.WriteLine(result);
+            request.CategoryId = "50012286";
+            request.PropList = "1637400:4606395;21862:31578;21861:3683581";
+            request.Image = TestUtils.GetResourcePath("product.jpg");
+            List<Product> products = client.Execute(request, new ProductListJsonParser());
+            //Assert.AreEqual(1, products.Count);
         }
     }
 }

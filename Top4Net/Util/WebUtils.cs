@@ -31,7 +31,8 @@ namespace Taobao.Top.Api.Util
             reqStream.Close();
 
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            return GetResponseAsString(rsp, Encoding.UTF8);
+            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            return GetResponseAsString(rsp, encoding);
         }
 
         /// <summary>
@@ -60,7 +61,8 @@ namespace Taobao.Top.Api.Util
             req.ContentType = "application/x-www-form-urlencoded";
 
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            return GetResponseAsString(rsp, Encoding.UTF8);
+            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            return GetResponseAsString(rsp, encoding);
         }
 
         /// <summary>
@@ -72,7 +74,7 @@ namespace Taobao.Top.Api.Util
         /// <returns>HTTP响应</returns>
         public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, string> fileParams)
         {
-            string boundary = DateTime.Now.Ticks.ToString("x"); // 随机分隔线
+            string boundary = DateTime.Now.Ticks.ToString("X"); // 随机分隔线
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
@@ -121,7 +123,8 @@ namespace Taobao.Top.Api.Util
             reqStream.Close();
 
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            return GetResponseAsString(rsp, Encoding.UTF8);
+            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            return GetResponseAsString(rsp, encoding);
         }
 
         /// <summary>

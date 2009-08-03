@@ -28,19 +28,24 @@ namespace Taobao.Top.Api.Test
 
         public static string ReadResource(string fileName)
         {
-            return File.ReadAllText("../../../Top4NetTest/Resources/" + fileName, Encoding.UTF8);
+            return File.ReadAllText(GetResourcePath(fileName), Encoding.UTF8);
+        }
+
+        public static string GetResourcePath(string fileName)
+        {
+            string path = System.Environment.CurrentDirectory + "/../../../Top4NetTest/Resources/" + fileName;
+            return Path.GetFullPath(path);
         }
 
         /// <summary>
-        /// 获取用户会话授权码。
+        /// 获取测试环境下的用户会话授权码。
         /// </summary>
-        /// <param name="appKey">应用码</param>
         /// <param name="nick">用户昵称</param>
         /// <returns>用户会话授权码</returns>
-        public static string GetSessionKey(string appKey, string nick)
+        public static string GetTestSessionKey(string nick)
         {
             IDictionary<string, string> authCodeParams = new Dictionary<string, string>();
-            authCodeParams.Add("appkey", appKey);
+            authCodeParams.Add("appkey", "sns");
             authCodeParams.Add("nick", nick);
 
             string authCodeRsp = WebUtils.DoPost(TOP_AUTHORIZE_URL, authCodeParams);

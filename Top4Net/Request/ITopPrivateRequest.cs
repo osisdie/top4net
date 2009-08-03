@@ -7,6 +7,10 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public interface ITopPrivateRequest : ITopRequest
     {
+        /// <summary>
+        /// 获取用户会话授权码。
+        /// </summary>
+        /// <returns></returns>
         string GetSessionKey();
     }
 }
