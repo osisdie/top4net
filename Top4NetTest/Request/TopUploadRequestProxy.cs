@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Taobao.Top.Api.Request;
 
-namespace Taobao.Top.Api.Test.Request
+namespace Taobao.Top.Api.Test
 {
     /// <summary>
     /// TOP带文件上传API请求代理。

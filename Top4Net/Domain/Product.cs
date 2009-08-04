@@ -118,7 +118,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
-        public string MainPicUrl { get; set; }
+        public string PrimaryPicUrl { get; set; }
 
         /// <summary>
         /// 产品的创建时间。

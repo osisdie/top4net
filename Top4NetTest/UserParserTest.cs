@@ -17,41 +17,41 @@ namespace Taobao.Top.Api.Test
         public void ParseJsonAsUser()
         {
             UserJsonParser parser = new UserJsonParser();
-            string body = TestUtils.ReadResource("taobao.user.json");
+            string body = TestUtils.ReadResource("user.json");
             User user = parser.Parse(body);
-            AssertResult(user);
+            AssertUser(user);
         }
 
         [TestMethod]
         public void ParseXmlAsUser()
         {
             UserXmlParser parser = new UserXmlParser();
-            string body = TestUtils.ReadResource("taobao.user.xml");
+            string body = TestUtils.ReadResource("user.xml");
             User user = parser.Parse(body);
-            AssertResult(user);
+            AssertUser(user);
         }
 
         [TestMethod]
         public void ParseJsonAsUserList()
         {
             UserListJsonParser parser = new UserListJsonParser();
-            string body = TestUtils.ReadResource("taobao.users.json");
+            string body = TestUtils.ReadResource("users.json");
             List<User> users = parser.Parse(body);
             Assert.AreEqual(2, users.Count);
-            AssertResult(users[0]);
+            AssertUser(users[0]);
         }
 
         [TestMethod]
         public void ParseXmlAsUserList()
         {
             UserListXmlParser parser = new UserListXmlParser();
-            string body = TestUtils.ReadResource("taobao.users.xml");
+            string body = TestUtils.ReadResource("users.xml");
             List<User> users = parser.Parse(body);
             Assert.AreEqual(2, users.Count);
-            AssertResult(users[0]);
+            AssertUser(users[0]);
         }
 
-        private void AssertResult(User user)
+        private void AssertUser(User user)
         {
             Assert.AreEqual("65753281", user.UserId);
             Assert.AreEqual("tbtest520", user.Nick);

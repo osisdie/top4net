@@ -15,7 +15,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetUserByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
+            ITopClient client = TestUtils.GetSandboxTopClient("json");
             UserGetRequest request = new UserGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nick = "tbtest520";
@@ -27,7 +27,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetUserByXml()
         {
-            ITopClient client = TestUtils.GetTestTopClient("xml");
+            ITopClient client = TestUtils.GetSandboxTopClient("xml");
             UserGetRequest request = new UserGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nick = "tbtest520";
@@ -39,7 +39,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetUsersByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
+            ITopClient client = TestUtils.GetSandboxTopClient("json");
             UsersGetRequest request = new UsersGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";
@@ -52,7 +52,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetUsersByXml()
         {
-            ITopClient client = TestUtils.GetTestTopClient("xml");
+            ITopClient client = TestUtils.GetSandboxTopClient("xml");
             UsersGetRequest request = new UsersGetRequest();
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";

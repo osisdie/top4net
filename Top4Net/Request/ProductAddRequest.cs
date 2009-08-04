@@ -59,12 +59,16 @@ namespace Taobao.Top.Api.Request
         public string CustomPropList { get; set; }
 
         /// <summary>
-        /// 图片绝对地址。
+        /// 产品主图文件绝对地址。
         /// </summary>
-        public string Image { get; set; }
+        public string PrimaryPicPath { get; set; }
 
         public ProductAddRequest(string sessionKey)
         {
+            if (string.IsNullOrEmpty(sessionKey))
+            {
+                throw new ArgumentNullException("sessionKey");
+            }
             this.sessionKey = sessionKey;
         }
 
@@ -108,7 +112,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetFileParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("image", this.Image);
+            parameters.Add("image", this.PrimaryPicPath);
 
             return parameters;
         }

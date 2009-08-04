@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("product")]
+    [XmlRoot("product_img")]
     public class ProductImg
     {
         /// <summary>
@@ -18,7 +18,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pic_id")]
         [XmlElement("pic_id")]
-        public string ImgId { get; set; }
+        public string PicId { get; set; }
+
+        /// <summary>
+        /// 产品图片绝对地址。
+        /// </summary>
+        [JsonProperty("url")]
+        [XmlElement("url")]
+        public string PicUrl { get; set; }
+
+        /// <summary>
+        /// 产品图片序号。
+        /// </summary>
+        [JsonProperty("position")]
+        [XmlElement("position")]
+        public int PicOrder { get; set; }
 
         /// <summary>
         /// 图片所属产品的编号。
@@ -28,17 +42,31 @@ namespace Taobao.Top.Api.Domain
         public string ProductId { get; set; }
 
         /// <summary>
-        /// 图片绝对地址。
+        /// 产品图片的创建时间。
         /// </summary>
-        [JsonProperty("url")]
-        [XmlElement("url")]
-        public string Url { get; set; }
+        [JsonProperty("created")]
+        [XmlIgnore]
+        public DateTime Created { get; set; }
+
+        [XmlElement("created")]
+        public string CreatedStr
+        {
+            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
+        }
 
         /// <summary>
-        /// 图片序号。
+        /// 产品图片的修改时间。
         /// </summary>
-        [JsonProperty("position")]
-        [XmlElement("position")]
-        public int Position { get; set; }
+        [JsonProperty("modified")]
+        [XmlIgnore]
+        public DateTime Modified { get; set; }
+
+        [XmlElement("modified")]
+        public string ModifiedStr
+        {
+            get { return Modified.ToString(Constants.DATE_TIME_FORMAT); }
+            set { Modified = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
+        }
     }
 }

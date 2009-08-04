@@ -15,92 +15,109 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void SearchProductsByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
+            ITopClient client = TestUtils.GetSandboxTopClient("json");
             ProductsSearchRequest request = new ProductsSearchRequest();
-            request.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
+            request.Fields = "product_id,name,pic_patch,cid,props,price,modified";
             request.Query = "N73";
-            request.PageSize = 10;
+            request.PageNo = 1;
+            request.PageSize = 3;
             List<Product> products = client.Execute(request, new ProductListJsonParser());
-            Assert.AreEqual(0, products.Count);
+
+            Assert.AreEqual(3, products.Count);
         }
 
         [TestMethod]
         public void SearchProductsByXml()
         {
-            ITopClient client = TestUtils.GetTestTopClient("xml");
+            ITopClient client = TestUtils.GetSandboxTopClient("xml");
             ProductsSearchRequest request = new ProductsSearchRequest();
             request.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
             request.Query = "N73";
-            request.PageSize = 10;
+            request.PageNo = 2;
+            request.PageSize = 5;
             List<Product> products = client.Execute(request, new ProductListXmlParser());
-            Assert.AreEqual(0, products.Count);
+
+            Assert.AreEqual(5, products.Count);
         }
 
         [TestMethod]
         public void GetProductByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
+            ITopClient client = TestUtils.GetProductTopClient("json");
             ProductGetRequest request = new ProductGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.ProductId = "84510855";
+            request.ProductId = "38982136";
             Product product = client.Execute(request, new ProductJsonParser());
-            //AssertProduct(product);
+
+            Assert.IsNotNull(product);
+            Assert.AreEqual("50012587", product.CategoryId);
         }
 
         [TestMethod]
         public void GetProductByXml()
         {
-            ITopClient client = TestUtils.GetTestTopClient("xml");
+            ITopClient client = TestUtils.GetProductTopClient("xml");
             ProductGetRequest request = new ProductGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.ProductId = "84510855";
+            request.ProductId = "38982136";
             Product product = client.Execute(request, new ProductXmlParser());
-            //AssertProduct(product);
-        }
 
-        private void AssertProduct(Product product)
-        {
-            Assert.AreEqual("50010850", product.CategoryId);
-            Assert.AreEqual("2009-06-11 13:57:32", product.CreatedStr);
-            Assert.AreEqual("20000:3716986", product.PropList);
+            Assert.IsNotNull(product);
+            Assert.AreEqual("50012587", product.CategoryId);
         }
 
         [TestMethod]
         public void GetProductsByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
+            ITopClient client = TestUtils.GetProductTopClient("json");
             ProductsGetRequest request = new ProductsGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.Nick = "tbtest520";
+            request.Nick = "驴友之家";
             List<Product> products = client.Execute(request, new ProductListJsonParser());
-            Assert.AreEqual(0, products.Count);
+
+            Assert.AreEqual(1, products.Count);
         }
 
         [TestMethod]
         public void GetProductsByXml()
         {
-            ITopClient client = TestUtils.GetTestTopClient("xml");
+            ITopClient client = TestUtils.GetProductTopClient("xml");
             ProductsGetRequest request = new ProductsGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.Nick = "tbtest520";
+            request.Nick = "驴友之家";
             List<Product> products = client.Execute(request, new ProductListXmlParser());
-            Assert.AreEqual(0, products.Count);
+
+            Assert.AreEqual(1, products.Count);
         }
 
         //[TestMethod]
         public void AddProductByJson()
         {
-            ITopClient client = TestUtils.GetTestTopClient("json");
-            String sessionKey = TestUtils.GetTestSessionKey("alipublic05");
-            ProductAddRequest request = new ProductAddRequest(sessionKey);
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductAddRequest request = new ProductAddRequest("xxx");
             request.Name = "Nokia N73";
             request.Price = "3000.00";
             request.Description = "Nokia N73, Cool";
             request.CategoryId = "50012286";
             request.PropList = "1637400:4606395;21862:31578;21861:3683581";
-            request.Image = TestUtils.GetResourcePath("product.jpg");
-            List<Product> products = client.Execute(request, new ProductListJsonParser());
-            //Assert.AreEqual(1, products.Count);
+            request.PrimaryPicPath = TestUtils.GetResourcePath("product.jpg");
+
+            ITopRequest proxy = new TopUploadRequestProxy(request, "b2ctest125");
+            List<Product> products = client.Execute(proxy, new ProductListJsonParser());
+        }
+
+        //[TestMethod]
+        public void UploadProductImage()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductImageUploadRequest request = new ProductImageUploadRequest("xxx");
+            request.ProductId = "203940";
+            request.PicPath = TestUtils.GetResourcePath("product.jpg");
+            request.PicOrder = 7;
+
+            ITopRequest proxy = new TopUploadRequestProxy(request, "admin");
+            string response = client.Execute(proxy, new StringParser());
+            Console.WriteLine(response);
         }
     }
 }

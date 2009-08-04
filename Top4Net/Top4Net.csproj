@@ -52,6 +52,8 @@
     <Compile Include="Domain\UserCredit.cs" />
     <Compile Include="ITopClient.cs" />
     <Compile Include="Parser\ITopParser.cs" />
+    <Compile Include="Parser\ProductImgJsonParser.cs" />
+    <Compile Include="Parser\ProductImgXmlParser.cs" />
     <Compile Include="Parser\ProductJsonParser.cs" />
     <Compile Include="Parser\ProductListJsonParser.cs" />
     <Compile Include="Parser\ProductListXmlParser.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Request\ITopRequest.cs" />
     <Compile Include="Request\ITopUploadRequest.cs" />
     <Compile Include="Request\ProductAddRequest.cs" />
+    <Compile Include="Request\ProductImageUploadRequest.cs" />
     <Compile Include="Request\ProductUpdateRequest.cs" />
     <Compile Include="Request\ProductGetRequest.cs" />
     <Compile Include="Request\ProductsGetRequest.cs" />

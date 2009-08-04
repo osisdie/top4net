@@ -16,14 +16,19 @@ namespace Taobao.Top.Api.Test
         private const string TOP_AUTHORIZE_URL = "http://open.taobao.com/isv/authorize.php";
         private const string TOP_CONTAINER_URL = "http://container.sandbox.taobao.com/container";
 
-        public static ITopClient GetTestTopClient(string format)
+        public static ITopClient GetDevelopTopClient(string format)
+        {
+            return new TopRestClient("http://192.168.207.127:8080/top/private/services/rest", "sns", "sns", format);
+        }
+
+        public static ITopClient GetSandboxTopClient(string format)
         {
             return new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "sns", "sns", format);
         }
 
         public static ITopClient GetProductTopClient(string format)
         {
-            return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "10011201", format);
+            return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "InYQcoRSjNqszqMOMEsAdJDHbewbCAMJ", format);
         }
 
         public static string ReadResource(string fileName)
