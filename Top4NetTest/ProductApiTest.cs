@@ -19,8 +19,8 @@ namespace Taobao.Top.Api.Test
             ProductsSearchRequest request = new ProductsSearchRequest();
             request.Fields = "product_id,name,pic_patch,cid,props,price,modified";
             request.Query = "N73";
-            request.PageNo = 1;
-            request.PageSize = 3;
+            request.PageNo = "1";
+            request.PageSize = "3";
             List<Product> products = client.Execute(request, new ProductListJsonParser());
 
             Assert.AreEqual(3, products.Count);
@@ -33,8 +33,8 @@ namespace Taobao.Top.Api.Test
             ProductsSearchRequest request = new ProductsSearchRequest();
             request.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
             request.Query = "N73";
-            request.PageNo = 2;
-            request.PageSize = 5;
+            request.PageNo = "2";
+            request.PageSize = "5";
             List<Product> products = client.Execute(request, new ProductListXmlParser());
 
             Assert.AreEqual(5, products.Count);
@@ -100,7 +100,7 @@ namespace Taobao.Top.Api.Test
             request.Description = "Nokia N73, Cool";
             request.CategoryId = "50012286";
             request.PropList = "1637400:4606395;21862:31578;21861:3683581";
-            request.PrimaryPicPath = TestUtils.GetResourcePath("product.jpg");
+            request.PicPath = TestUtils.GetResourcePath("product.jpg");
 
             ITopRequest proxy = new TopUploadRequestProxy(request, "b2ctest125");
             List<Product> products = client.Execute(proxy, new ProductListJsonParser());
@@ -110,10 +110,10 @@ namespace Taobao.Top.Api.Test
         public void UploadProductImage()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            ProductImageUploadRequest request = new ProductImageUploadRequest("xxx");
+            ProductImgUploadRequest request = new ProductImgUploadRequest("xxx");
             request.ProductId = "203940";
             request.PicPath = TestUtils.GetResourcePath("product.jpg");
-            request.PicOrder = 7;
+            request.PicOrder = "7";
 
             ITopRequest proxy = new TopUploadRequestProxy(request, "admin");
             string response = client.Execute(proxy, new StringParser());

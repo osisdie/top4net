@@ -6,17 +6,17 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.shop.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class ShopGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 需要获取的店铺信息字段。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 卖家昵称。
         /// </summary>
         public string Nick { get; set; }
 
@@ -24,7 +24,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.shop.get";
         }
 
         public IDictionary<string, string> GetParameters()

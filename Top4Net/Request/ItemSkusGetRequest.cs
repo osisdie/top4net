@@ -6,17 +6,22 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.item.skus.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class ItemSkusGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 商品的id列表，逗号分隔,最多40个。
+        /// </summary>
+        public string Iids { get; set; }
+
+        /// <summary>
+        /// 商品所属卖家昵称。
         /// </summary>
         public string Nick { get; set; }
 
@@ -24,7 +29,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.item.skus.get";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -32,6 +37,7 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
+            parameters.Add("iids", this.Iids);
             parameters.Add("nick", this.Nick);
 
             return parameters;

@@ -6,25 +6,25 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.logisticcompanies.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class LogisticsCompaniesGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 查询字段 。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 是否查询推荐物流公司,如果不提供此参数,将会返回所有的查询结果。
         /// </summary>
-        public string Nick { get; set; }
+        public string IsRecommended { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.logisticcompanies.get";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -32,7 +32,7 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("nick", this.Nick);
+            parameters.Add("is_recommended", this.IsRecommended);
 
             return parameters;
         }

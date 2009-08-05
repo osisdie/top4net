@@ -6,37 +6,37 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.products.search
+    /// TOP API: taobao.traderates.get
     /// </summary>
-    public class ProductsSearchRequest : ITopRequest
+    public class TradeRatesGetRequest : ITopRequest
     {
         /// <summary>
-        /// Product 目前返回值(product_id,name,pic_patch,cid,props,price,modified,tsc)。
+        /// 评价数据结构字段列表。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索的关键词(q,cid和props必须至少传一个)。
+        /// 评价状态（得到:get;给出:give）。
         /// </summary>
-        public string Query { get; set; }
+        public string RateType { get; set; }
 
         /// <summary>
-        /// 类目ID。
+        /// 评价者加角色（卖家：seller; 买家：buyer）。
         /// </summary>
-        public string CategoryId { get; set; }
+        public string Role { get; set; }
 
         /// <summary>
-        /// 属性、属性值的组合，格式：pid:vid;pid:vid。
+        /// 评价结果.（好评：good;中评：neutral;差评: bad）。
         /// </summary>
-        public string PropList { get; set; }
+        public string Result { get; set; }
 
         /// <summary>
-        /// 每页显示条数。
+        /// 页码。
         /// </summary>
         public string PageNo { get; set; }
 
         /// <summary>
-        /// 页码。
+        /// 每页条数。
         /// </summary>
         public string PageSize { get; set; }
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.products.search";
+            return "taobao.traderates.get";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -52,9 +52,9 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("q", this.Query);
-            parameters.Add("cid", this.CategoryId);
-            parameters.Add("props", this.PropList);
+            parameters.Add("rate_type", this.RateType);
+            parameters.Add("role", this.Role);
+            parameters.Add("result", this.Result);
             parameters.Add("page_no", this.PageNo);
             parameters.Add("page_size", this.PageSize);
 

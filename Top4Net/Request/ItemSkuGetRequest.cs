@@ -6,33 +6,39 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.item.sku.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class ItemSkuGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 需要返回的字段。
         /// </summary>
-        public string Fields { get; set; }
+        public string SkuId { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// Sku的id。
         /// </summary>
         public string Nick { get; set; }
+
+        /// <summary>
+        /// Sku所属用户的昵称。
+        /// </summary>
+        public string Fields { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.item.sku.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", this.Fields);
+            parameters.Add("sku_id", this.SkuId);
             parameters.Add("nick", this.Nick);
+            parameters.Add("fields", this.Fields);
 
             return parameters;
         }

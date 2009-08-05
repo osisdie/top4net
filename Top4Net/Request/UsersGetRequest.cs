@@ -1,20 +1,22 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+
+using Taobao.Top.Api;
 
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// 获取多个用户信息。
+    /// TOP API: taobao.users.get
     /// </summary>
     public class UsersGetRequest : ITopRequest
     {
         /// <summary>
-        ///  需要返回的字段列表，以逗号分隔。
+        /// User数据结构字段列表，以半角逗号(,)分隔。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 查询用户昵称列表，以逗号分隔。
+        /// 用户昵称，多个用逗号分隔。
         /// </summary>
         public string Nicks { get; set; }
 
@@ -29,8 +31,8 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", Fields);
-            parameters.Add("nicks", Nicks);
+            parameters.Add("fields", this.Fields);
+            parameters.Add("nicks", this.Nicks);
 
             return parameters;
         }

@@ -6,33 +6,27 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.suites.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class SuitesGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 用户订购服务的服务码(申请服务的时候会得到)。
         /// </summary>
-        public string Fields { get; set; }
-
-        /// <summary>
-        /// 用户昵称。
-        /// </summary>
-        public string Nick { get; set; }
+        public string ServiceCode { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.suites.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", this.Fields);
-            parameters.Add("nick", this.Nick);
+            parameters.Add("service_code", this.ServiceCode);
 
             return parameters;
         }

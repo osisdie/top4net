@@ -6,45 +6,45 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.products.get
+    /// TOP API: taobao.sns.pictures.get
     /// </summary>
-    public class ProductsGetRequest : ITopRequest
+    public class SnsPicturesGetRequest : ITopRequest
     {
         /// <summary>
-        /// Product数据结构字段列表，以半角逗号(,)分隔。
+        /// 用户id。
         /// </summary>
-        public string Fields { get; set; }
+        public string Uid { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 相册id。
         /// </summary>
-        public string Nick { get; set; }
+        public string AlbumId { get; set; }
 
         /// <summary>
-        /// 页码。
+        /// 开始条数。
         /// </summary>
-        public string PageNo { get; set; }
+        public string StartRow { get; set; }
 
         /// <summary>
-        /// 每页条数。
+        /// 查询个数。
         /// </summary>
-        public string PageSize { get; set; }
+        public string Count { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.products.get";
+            return "taobao.sns.pictures.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", this.Fields);
-            parameters.Add("nick", this.Nick);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("uid", this.Uid);
+            parameters.Add("album_id", this.AlbumId);
+            parameters.Add("start_row", this.StartRow);
+            parameters.Add("count", this.Count);
 
             return parameters;
         }

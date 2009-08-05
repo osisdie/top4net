@@ -6,35 +6,35 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.products.get
+    /// TOP API: taobao.itempropvalues.get
     /// </summary>
-    public class ProductsGetRequest : ITopRequest
+    public class ItemPropValuesGetRequest : ITopRequest
     {
         /// <summary>
-        /// Product数据结构字段列表，以半角逗号(,)分隔。
+        /// 需要返回的字段(不包括is_parent)。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 叶子类目ID。
         /// </summary>
-        public string Nick { get; set; }
+        public string CategoryId { get; set; }
 
         /// <summary>
-        /// 页码。
+        /// 属性和属性值id串，格式pid:vid;pid:vid(pvs和datetime只传其中一个)。
         /// </summary>
-        public string PageNo { get; set; }
+        public string Pvs { get; set; }
 
         /// <summary>
-        /// 每页条数。
+        /// 增量时间戳，如果传1970-1-1 00:00:00，则取所有的属性和子属性值(状态为删除的属性值不返回prop_name)。
         /// </summary>
-        public string PageSize { get; set; }
+        public string Datetime { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.products.get";
+            return "taobao.itempropvalues.get";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -42,9 +42,9 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("nick", this.Nick);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("cid", this.CategoryId);
+            parameters.Add("pvs", this.Pvs);
+            parameters.Add("datetime", this.Datetime);
 
             return parameters;
         }

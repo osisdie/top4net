@@ -6,33 +6,39 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.user.get
+    /// TOP API: taobao.sns.friends.get
     /// </summary>
-    public class UserGetRequest : ITopRequest
+    public class SnsFriendsGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 用户id。
         /// </summary>
-        public string Fields { get; set; }
+        public string Uid { get; set; }
 
         /// <summary>
-        /// 用户昵称。
+        /// 开始条数。
         /// </summary>
-        public string Nick { get; set; }
+        public string StartRow { get; set; }
+
+        /// <summary>
+        /// 总条数。
+        /// </summary>
+        public string Count { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.user.get";
+            return "taobao.sns.friends.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", this.Fields);
-            parameters.Add("nick", this.Nick);
+            parameters.Add("uid", this.Uid);
+            parameters.Add("start_row", this.StartRow);
+            parameters.Add("count", this.Count);
 
             return parameters;
         }
