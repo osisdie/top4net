@@ -6,14 +6,14 @@ using Taobao.Top.Api.Request;
 namespace Taobao.Top.Api.Test
 {
     /// <summary>
-    /// TOP私有API请求代理。
+    /// TOP内部API请求代理，仅用于内部测试。
     /// </summary>
-    public class TopPrivateRequestProxy : ITopPrivateRequest
+    public class TopRequestProxy : ITopRequest
     {
-        private ITopPrivateRequest request;
+        private ITopRequest request;
         private string nick;
 
-        public TopPrivateRequestProxy(ITopPrivateRequest request, string nick)
+        public TopRequestProxy(ITopRequest request, string nick)
         {
             this.request = request;
             this.nick = nick;
@@ -29,18 +29,10 @@ namespace Taobao.Top.Api.Test
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = request.GetParameters();
-            parameters.Add("session_nick", this.nick);
+            parameters.Add("session", Guid.NewGuid().ToString());
             parameters.Add("session_id", Guid.NewGuid().ToString());
+            parameters.Add("session_nick", this.nick);
             return parameters;
-        }
-
-        #endregion
-
-        #region ITopPrivateRequest Members
-
-        public string GetSessionKey()
-        {
-            return request.GetSessionKey();
         }
 
         #endregion

@@ -21,13 +21,13 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("product_id")]
         [XmlElement("product_id")]
-        public string Id { get; set; }
+        public string ProductId { get; set; }
         /// <summary>
         /// 产品名称。
         /// </summary>
         [JsonProperty("name")]
         [XmlElement("name")]
-        public string Name { get; set; }
+        public string ProductName { get; set; }
 
         /// <summary>
         /// 外部产品编号。
@@ -62,42 +62,42 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("props")]
         [XmlElement("props")]
-        public string PropList { get; set; }
+        public string Props { get; set; }
 
         /// <summary>
         /// 产品的关键属性字符串列表。
         /// </summary>
         [JsonProperty("props_str")]
         [XmlElement("props_str")]
-        public string PropStrList { get; set; }
+        public string PropStrs { get; set; }
 
         /// <summary>
         /// 产品的非关键（绑定）属性列表。
         /// </summary>
         [JsonProperty("binds")]
         [XmlElement("binds")]
-        public string BindPropList { get; set; }
+        public string BindProps { get; set; }
 
         /// <summary>
         /// 产品的非关键（绑定）字符串列表。
         /// </summary>
         [JsonProperty("binds_str")]
         [XmlElement("binds_str")]
-        public string BindPropStrList { get; set; }
+        public string BindPropStrs { get; set; }
 
         /// <summary>
         /// 产品的销售属性列表。
         /// </summary>
         [JsonProperty("sale_props")]
         [XmlElement("sale_props")]
-        public string SalePropList { get; set; }
+        public string SaleProps { get; set; }
 
         /// <summary>
         /// 产品的销售属性字符串列表。
         /// </summary>
         [JsonProperty("sale_props_str")]
         [XmlElement("sale_props_str")]
-        public string SalePropStrList { get; set; }
+        public string SalePropStrs { get; set; }
 
         /// <summary>
         /// 产品的市场价。
@@ -151,11 +151,11 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 产品的子图片。
         /// </summary>
-        public List<ProductImg> ProductImgList { get; set; }
+        public List<ProductImg> ProductImgs { get; set; }
 
         /// <summary>
         /// 产品的属性图片。
         /// </summary>
-        public List<ProductPropImg> ProductPropImgList { get; set; }
+        public List<ProductPropImg> ProductPropImgs { get; set; }
     }
 }

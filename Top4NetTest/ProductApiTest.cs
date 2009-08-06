@@ -94,15 +94,15 @@ namespace Taobao.Top.Api.Test
         public void AddProductByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            ProductAddRequest request = new ProductAddRequest("xxx");
+            ProductAddRequest request = new ProductAddRequest();
             request.Name = "Nokia N73";
             request.Price = "3000.00";
-            request.Description = "Nokia N73, Cool";
-            request.CategoryId = "50012286";
-            request.PropList = "1637400:4606395;21862:31578;21861:3683581";
-            request.PicPath = TestUtils.GetResourcePath("product.jpg");
+            request.Desc = "Nokia N73, Cool";
+            request.Cid = "50012286";
+            request.Props = "1637400:4606395;21862:31578;21861:3683581";
+            request.Image = TestUtils.GetResourceAsFile("product.jpg");
 
-            ITopRequest proxy = new TopUploadRequestProxy(request, "b2ctest125");
+            ITopRequest proxy = new TopRequestProxy(request, "b2ctest125");
             List<Product> products = client.Execute(proxy, new ProductListJsonParser());
         }
 
@@ -110,12 +110,12 @@ namespace Taobao.Top.Api.Test
         public void UploadProductImage()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            ProductImgUploadRequest request = new ProductImgUploadRequest("xxx");
+            ProductImgUploadRequest request = new ProductImgUploadRequest();
             request.ProductId = "203940";
-            request.PicPath = TestUtils.GetResourcePath("product.jpg");
-            request.PicOrder = "7";
+            request.Image = TestUtils.GetResourceAsFile("product.jpg");
+            request.Position = "7";
 
-            ITopRequest proxy = new TopUploadRequestProxy(request, "admin");
+            ITopRequest proxy = new TopRequestProxy(request, "admin");
             string response = client.Execute(proxy, new StringParser());
             Console.WriteLine(response);
         }

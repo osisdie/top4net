@@ -32,7 +32,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("props")]
         [XmlElement("props")]
-        public string PropList { get; set; }
+        public string Props { get; set; }
 
         /// <summary>
         /// 图片绝对地址。

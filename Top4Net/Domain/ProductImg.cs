@@ -18,21 +18,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pic_id")]
         [XmlElement("pic_id")]
-        public string PicId { get; set; }
+        public string ImgId { get; set; }
 
         /// <summary>
         /// 产品图片绝对地址。
         /// </summary>
         [JsonProperty("url")]
         [XmlElement("url")]
-        public string PicUrl { get; set; }
+        public string ImgUrl { get; set; }
 
         /// <summary>
         /// 产品图片序号。
         /// </summary>
         [JsonProperty("position")]
         [XmlElement("position")]
-        public int PicOrder { get; set; }
+        public int Position { get; set; }
 
         /// <summary>
         /// 图片所属产品的编号。

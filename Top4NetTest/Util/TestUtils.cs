@@ -31,15 +31,15 @@ namespace Taobao.Top.Api.Test
             return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "InYQcoRSjNqszqMOMEsAdJDHbewbCAMJ", format);
         }
 
-        public static string ReadResource(string fileName)
+        public static string GetResourceAsText(string fileName)
         {
-            return File.ReadAllText(GetResourcePath(fileName), Encoding.UTF8);
+            return File.ReadAllText(GetResourceAsFile(fileName).FullName, Encoding.UTF8);
         }
 
-        public static string GetResourcePath(string fileName)
+        public static FileInfo GetResourceAsFile(string fileName)
         {
             string path = System.Environment.CurrentDirectory + "/../../../Top4NetTest/Resources/" + fileName;
-            return Path.GetFullPath(path);
+            return new FileInfo(Path.GetFullPath(path));
         }
 
         /// <summary>

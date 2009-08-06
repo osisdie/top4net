@@ -64,6 +64,11 @@ namespace Taobao.Top.Api
 
         public T Execute<T>(ITopRequest request, ITopParser<T> parser)
         {
+            return Execute(request, parser, null);
+        }
+
+        public T Execute<T>(ITopRequest request, ITopParser<T> parser, string session)
+        {
             // 添加协议级请求参数
             IDictionary<string, string> allParams = new Dictionary<string, string>(request.GetParameters());
             allParams.Add(METHOD, request.GetApiName());
@@ -72,16 +77,12 @@ namespace Taobao.Top.Api
             allParams.Add(FORMAT, format);
             allParams.Add(PARTNER_ID, partnerId + "");
             allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
+            allParams.Add(SESSION, session);
 
-            // 为私有API添加访问授权
-            if (request is ITopPrivateRequest)
-            {
-                ITopPrivateRequest privateRequest = request as ITopPrivateRequest;
-                allParams.Add(SESSION, privateRequest.GetSessionKey());
-            }
+            // 清除空值参数
+            allParams = SysUtils.CleanupDictionary(allParams);
 
             // 添加签名参数
-            allParams = SysUtils.CleanupDictionary(allParams);
             allParams.Add(SIGN, SysUtils.SignTopRequest(allParams, appSecret));
 
             // 是否需要上传文件

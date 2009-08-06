@@ -41,13 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Request\TopUploadRequestProxy.cs" />
     <Compile Include="SysUtilsTest.cs" />
     <Compile Include="ProductApiTest.cs" />
     <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\TestUtils.cs" />
-    <Compile Include="Request\TopPrivateRequestProxy.cs" />
+    <Compile Include="Request\TopRequestProxy.cs" />
     <Compile Include="UserApiTest.cs" />
     <Compile Include="UserParserTest.cs" />
   </ItemGroup>

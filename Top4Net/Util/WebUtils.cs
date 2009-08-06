@@ -72,7 +72,7 @@ namespace Taobao.Top.Api.Util
         /// <param name="textParams">请求文本参数</param>
         /// <param name="fileParams">请求文件参数</param>
         /// <returns>HTTP响应</returns>
-        public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, string> fileParams)
+        public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, FileInfo> fileParams)
         {
             string boundary = DateTime.Now.Ticks.ToString("X"); // 随机分隔线
 
@@ -98,17 +98,17 @@ namespace Taobao.Top.Api.Util
 
             // 组装文件请求参数
             string fileTemplate = "Content-Disposition:form-data;name=\"{0}\";filename=\"{1}\"\r\nContent-Type:{2}\r\n\r\n";
-            IEnumerator<KeyValuePair<string, string>> fileEnum = fileParams.GetEnumerator();
+            IEnumerator<KeyValuePair<string, FileInfo>> fileEnum = fileParams.GetEnumerator();
             while (fileEnum.MoveNext())
             {
                 string key = fileEnum.Current.Key;
-                string path = fileEnum.Current.Value;
-                string fileItem = string.Format(fileTemplate, key, path, GetMimeType(path));
+                FileInfo file = fileEnum.Current.Value;
+                string fileItem = string.Format(fileTemplate, key, file.FullName, GetMimeType(file.FullName));
                 byte[] itemBytes = Encoding.UTF8.GetBytes(fileItem);
                 reqStream.Write(itemBoundaryBytes, 0, itemBoundaryBytes.Length);
                 reqStream.Write(itemBytes, 0, itemBytes.Length);
 
-                using (Stream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                using (Stream fileStream = file.OpenRead())
                 {
                     byte[] buffer = new byte[1024];
                     int readBytes = 0;

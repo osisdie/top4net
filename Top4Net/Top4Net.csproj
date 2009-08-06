@@ -112,14 +112,13 @@
     <Compile Include="Request\PostagesGetRequest.cs" />
     <Compile Include="Request\PostageUpdateRequest.cs" />
     <Compile Include="Request\ProductAddRequest.cs" />
+    <Compile Include="Request\ProductGetRequest.cs" />
     <Compile Include="Request\ProductImgDeleteRequest.cs" />
     <Compile Include="Request\ProductImgUploadRequest.cs" />
-    <Compile Include="Request\ProductGetRequest.cs" />
     <Compile Include="Request\ProductPropImgDeleteRequest.cs" />
     <Compile Include="Request\ProductPropImgUploadRequest.cs" />
     <Compile Include="Request\ProductsGetRequest.cs" />
     <Compile Include="Request\ProductsSearchRequest.cs" />
-    <Compile Include="Request\ITopPrivateRequest.cs" />
     <Compile Include="Request\ProductUpdateRequest.cs" />
     <Compile Include="Request\RefundGetRequest.cs" />
     <Compile Include="Request\RefundMessagesGetRequest.cs" />
@@ -146,7 +145,7 @@
     <Compile Include="Request\SuitesGetRequest.cs" />
     <Compile Include="Request\TaobaokeItemsConvertRequest.cs" />
     <Compile Include="Request\TaobaokeItemsGetRequest.cs" />
-    <Compile Include="Request\TaobaokeListurlGetRequest.cs" />
+    <Compile Include="Request\TaobaokeListUrlGetRequest.cs" />
     <Compile Include="Request\TaobaokeReportGetRequest.cs" />
     <Compile Include="Request\TaobaokeShopsConvertRequest.cs" />
     <Compile Include="Request\TradeCloseRequest.cs" />
@@ -160,12 +159,12 @@
     <Compile Include="Request\TradesBoughtGetRequest.cs" />
     <Compile Include="Request\TradesGetRequest.cs" />
     <Compile Include="Request\TradesSoldGetRequest.cs" />
+    <Compile Include="Request\UserGetRequest.cs" />
     <Compile Include="Request\UsersGetRequest.cs" />
     <Compile Include="TopException.cs" />
     <Compile Include="TopRestClient.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\UserGetRequest.cs" />
     <Compile Include="Util\SysUtils.cs" />
     <Compile Include="Util\WebUtils.cs" />
   </ItemGroup>
