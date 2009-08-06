@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot( "productPropImg" )]
+    [XmlRoot("productPropImg")]
     public class ProductPropImg
     {
         /// <summary>

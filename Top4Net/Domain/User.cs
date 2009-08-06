@@ -55,7 +55,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("location")]
         [XmlElement("location")]
-        public UserLocation Location { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// 用户注册时间。

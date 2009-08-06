@@ -10,30 +10,28 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot( "shipping" )]
+    [XmlRoot("shipping")]
     public class LogisticCompany
     {
         /// <summary>
         /// 物流公司标识
         /// </summary>
-        [JsonProperty( "company_id" )]
-        [XmlElement( "company_id" )]
+        [JsonProperty("company_id")]
+        [XmlElement("company_id")]
         public string CompanyId { get; set; }
 
         /// <summary>
         /// 物流公司代码
         /// </summary>
-        [JsonProperty( "company_code" )]
-        [XmlElement( "company_code" )]
+        [JsonProperty("company_code")]
+        [XmlElement("company_code")]
         public string CompanyCode { get; set; }
 
         /// <summary>
         /// 物流公司简称
         /// </summary>
-        [JsonProperty( "company_name" )]
-        [XmlElement( "company_name" )]
+        [JsonProperty("company_name")]
+        [XmlElement("company_name")]
         public string CompanyName { get; set; }
-
-
     }
 }

@@ -10,44 +10,49 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot( "location" )]
+    [XmlRoot("location")]
     public class Location
     {
         /// <summary>
         /// 邮政编码
         /// </summary>
-        [JsonProperty( "zip" )]
-        [XmlElement( "zip" )]
+        [JsonProperty("zip")]
+        [XmlElement("zip")]
         public string Zip { get; set; }
+
         /// <summary>
         /// 详细地址
         /// </summary>
-        [JsonProperty( "address" )]
-        [XmlElement( "address" )]
+        [JsonProperty("address")]
+        [XmlElement("address")]
         public string Address { get; set; }
+
         /// <summary>
         /// 所在城市（中文名称）
         /// </summary>
-        [JsonProperty( "city" )]
-        [XmlElement( "city" )]
+        [JsonProperty("city")]
+        [XmlElement("city")]
         public string City { get; set; }
+
         /// <summary>
         /// 所在省份（中文名称）
         /// </summary>
-        [JsonProperty( "state" )]
-        [XmlElement( "state" )]
+        [JsonProperty("state")]
+        [XmlElement("state")]
         public string State { get; set; }
+
         /// <summary>
         /// 国家名称
         /// </summary>
-        [JsonProperty( "country" )]
-        [XmlElement( "country" )]
+        [JsonProperty("country")]
+        [XmlElement("country")]
         public string Country { get; set; }
+
         /// <summary>
         /// 区/县（只适用于物流API）
         /// </summary>
-        [JsonProperty( "district" )]
-        [XmlElement( "district" )]
+        [JsonProperty("district")]
+        [XmlElement("district")]
         public string District { get; set; }
     }
 }

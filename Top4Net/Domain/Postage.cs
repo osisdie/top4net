@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -10,91 +11,91 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot( "postage" )]
+    [XmlRoot("postage")]
     public class Postage
     {
         /// <summary>
         /// 运费模板ID
         /// </summary>
-        [JsonProperty( "postage_id" )]
-        [XmlElement( "postage_id" )]
+        [JsonProperty("postage_id")]
+        [XmlElement("postage_id")]
         public string PostageId { get; set; }
 
         /// <summary>
         /// 运费模板名称
         /// </summary>
-        [JsonProperty( "name" )]
-        [XmlElement( "name" )]
+        [JsonProperty("name")]
+        [XmlElement("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
-        [JsonProperty( "memo" )]
-        [XmlElement( "memo" )]
+        [JsonProperty("memo")]
+        [XmlElement("memo")]
         public string Memo { get; set; }
 
         /// <summary>
         /// 创建日期
         /// </summary>
-        [JsonProperty( "created" )]
-        [XmlElement( "created" )]
-        public date Created { get; set; }
+        [JsonProperty("created")]
+        [XmlElement("created")]
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// 最后修改日期
         /// </summary>
-        [JsonProperty( "modified" )]
-        [XmlElement( "modified" )]
-        public date Modified { get; set; }
+        [JsonProperty("modified")]
+        [XmlElement("modified")]
+        public DateTime Modified { get; set; }
 
         /// <summary>
         /// 平邮收费
         /// </summary>
-        [JsonProperty( "post_price" )]
-        [XmlElement( "post_price" )]
+        [JsonProperty("post_price")]
+        [XmlElement("post_price")]
         public string PostPrice { get; set; }
 
         /// <summary>
         /// 平邮加件收费
         /// </summary>
-        [JsonProperty( "post_increase" )]
-        [XmlElement( "post_increase" )]
+        [JsonProperty("post_increase")]
+        [XmlElement("post_increase")]
         public string PostIncrease { get; set; }
 
         /// <summary>
         /// 快递收费
         /// </summary>
-        [JsonProperty( "express_price" )]
-        [XmlElement( "express_price" )]
+        [JsonProperty("express_price")]
+        [XmlElement("express_price")]
         public string ExpressPrice { get; set; }
 
         /// <summary>
         /// 快递加件费用
         /// </summary>
-        [JsonProperty( "express_increase" )]
-        [XmlElement( "express_increase" )]
+        [JsonProperty("express_increase")]
+        [XmlElement("express_increase")]
         public string ExpressIncrease { get; set; }
 
         /// <summary>
         /// EMS收费
         /// </summary>
-        [JsonProperty( "ems_price" )]
-        [XmlElement( "ems_price" )]
+        [JsonProperty("ems_price")]
+        [XmlElement("ems_price")]
         public string EmsPrice { get; set; }
 
         /// <summary>
         /// EMS加件费用
         /// </summary>
-        [JsonProperty( "ems_increase" )]
-        [XmlElement( "ems_increase" )]
+        [JsonProperty("ems_increase")]
+        [XmlElement("ems_increase")]
         public string EmsIncrease { get; set; }
 
         /// <summary>
         /// 运费方式模板收费方式
         /// </summary>
-        [JsonProperty( "postage_mode_list" )]
-        [XmlElement( "postage_mode_list" )]
-        public PostageMode PostageModeList { get; set; }
+        [JsonProperty("postage_mode_list")]
+        [XmlElement("postage_mode_list")]
+        public List<PostageMode> PostageModeList { get; set; }
     }
 }
