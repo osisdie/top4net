@@ -71,6 +71,7 @@
     <Compile Include="Domain\Shop.cs" />
     <Compile Include="Domain\ShopCategory.cs" />
     <Compile Include="Domain\Sku.cs" />
+    <Compile Include="Domain\TaobaokeItem.cs" />
     <Compile Include="Domain\TaobaokeReport.cs" />
     <Compile Include="Domain\TaobaokeReportMember.cs" />
     <Compile Include="Domain\TaobaokeShop.cs" />
