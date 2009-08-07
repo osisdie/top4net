@@ -15,7 +15,6 @@ namespace Taobao.Top.Api.Parser
         public List<TaobaokeItem> Parse(string body)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(TaobaokeItemListResponse));
-
             object obj = serializer.Deserialize(new StringReader(body));
             TaobaokeItemListResponse tir = obj as TaobaokeItemListResponse;
             return tir == null ? null : tir.TaobaokeItems;

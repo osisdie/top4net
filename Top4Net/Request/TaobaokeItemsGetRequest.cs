@@ -63,7 +63,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 默认排序 : default 价格从高到低: price_desc 价格从低到高: price_asc 信用等级从高到低: credit_desc。
         /// </summary>
-        public string Sort { get; set; }
+        public string OrderBy { get; set; }
 
         /// <summary>
         /// 是否查询消保卖家，true或false。
@@ -131,7 +131,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("area", this.Area);
             parameters.Add("start_credit", this.StartCredit);
             parameters.Add("end_credit", this.EndCredit);
-            parameters.Add("sort", this.Sort);
+            parameters.Add("sort", this.OrderBy);
             parameters.Add("is_guarantee", this.IsGuarantee);
             parameters.Add("start_commission", this.StartCommission);
             parameters.Add("end_commission", this.EndCommission);

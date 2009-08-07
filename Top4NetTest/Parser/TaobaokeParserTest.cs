@@ -31,18 +31,46 @@ namespace Taobao.Top.Api.Test.Parser
             AssertTaobaokeItem(items[0]);
         }
 
-        private void AssertTaobaokeItem(TaobaokeItem taobaokeItem)
+        private void AssertTaobaokeItem(TaobaokeItem item)
         {
-            Assert.AreEqual("72b31835f55b6b6c35beab8c753989c1", taobaokeItem.ItemId);
-            Assert.AreEqual("淘宝客测试数据商品名称:1", taobaokeItem.Title);
-            Assert.AreEqual("100", taobaokeItem.Price);
-            Assert.AreEqual("淘宝客测试数据卖家昵称:1", taobaokeItem.Nick);
-            Assert.AreEqual("22.05", taobaokeItem.Commission);
-            Assert.AreEqual("350.00", taobaokeItem.CommissionRate);
-            Assert.AreEqual("10", taobaokeItem.CommissionNum);
-            Assert.AreEqual("54", taobaokeItem.CommissionVolume);
-            Assert.IsNotNull(taobaokeItem.ClickUrl);
-            Assert.IsNotNull(taobaokeItem.PicUrl);
+            Assert.AreEqual("72b31835f55b6b6c35beab8c753989c1", item.ItemId);
+            Assert.AreEqual("淘宝客测试数据商品名称:1", item.Title);
+            Assert.AreEqual("100", item.Price);
+            Assert.AreEqual("淘宝客测试数据卖家昵称:1", item.Nick);
+            Assert.AreEqual("22.05", item.Commission);
+            Assert.AreEqual("350.00", item.CommissionRate);
+            Assert.AreEqual("10", item.CommissionNum);
+            Assert.AreEqual("54", item.CommissionVolume);
+            Assert.IsNotNull(item.ClickUrl);
+            Assert.IsNotNull(item.PicUrl);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsTaobaokeShops()
+        {
+            TaobaokeShopListJsonParser parser = new TaobaokeShopListJsonParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.shops.json");
+            List<TaobaokeShop> shops = parser.Parse(body);
+            Assert.AreEqual(3, shops.Count);
+            AssertTaobaokeShop(shops[0]);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsTaobaokeShops()
+        {
+            TaobaokeShopListXmlParser parser = new TaobaokeShopListXmlParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.shops.xml");
+            List<TaobaokeShop> shops = parser.Parse(body);
+            Assert.AreEqual(3, shops.Count);
+            AssertTaobaokeShop(shops[0]);
+        }
+
+        private void AssertTaobaokeShop(TaobaokeShop shop)
+        {
+            Assert.AreEqual("12343", shop.UserId);
+            Assert.AreEqual("淘客店铺测试数据1", shop.Title);
+            Assert.AreEqual("http://top.taobao.com/test1", shop.ClickUrl);
+            Assert.AreEqual("10.1", shop.CommissionRate);
         }
     }
 }

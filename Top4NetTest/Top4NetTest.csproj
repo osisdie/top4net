@@ -71,9 +71,11 @@
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
     <Content Include="Resources\taobaoke.items.xml" />
+    <Content Include="Resources\taobaoke.shops.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
     <None Include="Resources\taobaoke.items.json" />
+    <None Include="Resources\taobaoke.shops.json" />
     <None Include="Resources\users.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

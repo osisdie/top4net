@@ -11,11 +11,6 @@ namespace Taobao.Top.Api.Request
     public class TaobaokeListUrlGetRequest : ITopRequest
     {
         /// <summary>
-        /// 需返回的字段列表.可选值:TaobaokeItem淘宝客商品结构体中的所有字段;。
-        /// </summary>
-        public string Fields { get; set; }
-
-        /// <summary>
         /// 关键词。
         /// </summary>
         public string Query { get; set; }
@@ -41,7 +36,6 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("fields", this.Fields);
             parameters.Add("q", this.Query);
             parameters.Add("nick", this.Nick);
             parameters.Add("outerCode", this.OuterCode);

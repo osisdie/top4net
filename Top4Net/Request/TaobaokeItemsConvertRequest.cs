@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class TaobaokeItemsConvertRequest : ITopRequest
     {
         /// <summary>
-        /// 需返回的字段列表.可选值:TaobaokeItem淘宝客商品结构体中的所有字段;。
+        /// 需返回的字段列表.可选值:TaobaokeItem淘宝客商品结构体中的所有字段。
         /// </summary>
         public string Fields { get; set; }
 

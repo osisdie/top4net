@@ -14,28 +14,31 @@ namespace Taobao.Top.Api.Domain
     public class TaobaokeShop
     {
         /// <summary>
-        /// 店铺用户id
+        /// 店铺用户名
         /// </summary>
         [JsonProperty("user_id")]
         [XmlElement("user_id")]
         public string UserId { get; set; }
+
         /// <summary>
         /// 店铺名称
         /// </summary>
         [JsonProperty("shop_title")]
         [XmlElement("shop_title")]
-        public string ShopTitle { get; set; }
+        public string Title { get; set; }
+
         /// <summary>
         /// 店铺推广URL
         /// </summary>
         [JsonProperty("click_url")]
         [XmlElement("click_url")]
         public string ClickUrl { get; set; }
+
         /// <summary>
         /// 淘宝客店铺佣金比率
         /// </summary>
-        [JsonProperty("shop_commissionRate")]
-        [XmlElement("shop_commissionRate")]
-        public string ShopCommissionRate { get; set; }
+        [JsonProperty("shop_commission_rate")]
+        [XmlElement("shop_commission.rate")]
+        public string CommissionRate { get; set; }
     }
 }

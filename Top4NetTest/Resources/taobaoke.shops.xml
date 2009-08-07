@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rsp>
+  <taobaokeShop>
+    <click_url>http://top.taobao.com/test1</click_url>
+    <user_id><![CDATA[12343]]></user_id>
+    <shop_title><![CDATA[淘客店铺测试数据1]]></shop_title>
+    <shop_commission.rate><![CDATA[10.1]]></shop_commission.rate>
+  </taobaokeShop>
+  <taobaokeShop>
+    <click_url>http://top.taobao.com/test2</click_url>
+    <user_id><![CDATA[12344]]></user_id>
+    <shop_title><![CDATA[淘客店铺测试数据2]]></shop_title>
+    <shop_commission.rate><![CDATA[10.2]]></shop_commission.rate>
+  </taobaokeShop>
+  <taobaokeShop>
+    <click_url>http://top.taobao.com/test3</click_url>
+    <user_id><![CDATA[12345]]></user_id>
+    <shop_title><![CDATA[淘客店铺测试数据3]]></shop_title>
+    <shop_commission.rate><![CDATA[10.3]]></shop_commission.rate>
+  </taobaokeShop>
+</rsp>
+<!--xvm176.sqa-->
