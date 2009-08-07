@@ -45,6 +45,7 @@
     <Compile Include="ProductApiTest.cs" />
     <Compile Include="ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaobaokeItemApiTest.cs" />
     <Compile Include="Util\TestUtils.cs" />
     <Compile Include="Request\TopRequestProxy.cs" />
     <Compile Include="UserApiTest.cs" />
@@ -68,8 +69,10 @@
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
+    <Content Include="Resources\taobaokeItem.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
+    <None Include="Resources\taobaoke.item.json" />
     <None Include="Resources\users.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

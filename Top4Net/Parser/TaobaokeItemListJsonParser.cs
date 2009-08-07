@@ -20,15 +20,15 @@ namespace Taobao.Top.Api.Parser
             List<TaobaokeItem> taobaokeItems = new List<TaobaokeItem>();
 
             JObject jsonBody = JObject.Parse(body);
-            JArray jsonTaobaokeItems = jsonBody["rsp"]["taobaokeItem"] as JArray;
+            JArray jsonTaobaokeItems = jsonBody["rsp"]["taobaokeItems"] as JArray;
 
-            if ( jsonTaobaokeItems != null )
+            if (jsonTaobaokeItems != null)
             {
-                for ( int i = 0; i < jsonTaobaokeItems.Count; i++ )
+                for (int i = 0; i < jsonTaobaokeItems.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
-                    object taobaokeItem = js.Deserialize( jsonTaobaokeItems[i].CreateReader(), typeof( TaobaokeItem ) );
-                    taobaokeItems.Add( taobaokeItem as TaobaokeItem );
+                    object taobaokeItem = js.Deserialize(jsonTaobaokeItems[i].CreateReader(), typeof(TaobaokeItem));
+                    taobaokeItems.Add(taobaokeItem as TaobaokeItem);
                 }
             }
 

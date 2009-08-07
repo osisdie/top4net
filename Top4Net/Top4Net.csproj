@@ -88,6 +88,7 @@
     <Compile Include="Parser\ProductListXmlParser.cs" />
     <Compile Include="Parser\ProductXmlParser.cs" />
     <Compile Include="Parser\StringParser.cs" />
+    <Compile Include="Parser\TaobaokeItemListJsonParser.cs" />
     <Compile Include="Parser\TaobaokeItemListXmlParser.cs" />
     <Compile Include="Parser\TaobaokeItemXmlParser.cs" />
     <Compile Include="Parser\UserJsonParser.cs" />
