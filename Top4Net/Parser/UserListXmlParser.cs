@@ -16,16 +16,7 @@ namespace Taobao.Top.Api.Parser
 
         public List<User> Parse(string body)
         {
-            // 重写User类型的XML标签名称
-            XmlAttributes attrs = new XmlAttributes();
-            attrs.XmlElements.Add(new XmlElementAttribute("user", typeof(User)));
-
-            // 重写UserListResponse类型里面的Users属性的标签名称
-            XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
-            attrOvrs.Add(typeof(UserListResponse), "Users", attrs);
-
-            XmlSerializer serializer = new XmlSerializer(typeof(UserListResponse), attrOvrs);
-
+            XmlSerializer serializer = new XmlSerializer(typeof(UserListResponse));
             object obj = serializer.Deserialize(new StringReader(body));
             UserListResponse ulr = obj as UserListResponse;
             return ulr == null ? null : ulr.Users;
@@ -40,6 +31,7 @@ namespace Taobao.Top.Api.Parser
         [XmlRoot("rsp")]
         public class UserListResponse
         {
+            [XmlElement("user")]
             public List<User> Users { get; set; }
         }
 
