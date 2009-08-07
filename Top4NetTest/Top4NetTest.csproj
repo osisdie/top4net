@@ -41,15 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SysUtilsTest.cs" />
-    <Compile Include="ProductApiTest.cs" />
-    <Compile Include="ProductParserTest.cs" />
+    <Compile Include="Parser\TaobaokeParserTest.cs" />
+    <Compile Include="Util\SysUtilsTest.cs" />
+    <Compile Include="Request\ProductApiTest.cs" />
+    <Compile Include="Parser\ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaobaokeItemApiTest.cs" />
+    <Compile Include="Request\TaobaokeApiTest.cs" />
     <Compile Include="Util\TestUtils.cs" />
     <Compile Include="Request\TopRequestProxy.cs" />
-    <Compile Include="UserApiTest.cs" />
-    <Compile Include="UserParserTest.cs" />
+    <Compile Include="Request\UserApiTest.cs" />
+    <Compile Include="Parser\UserParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -69,10 +70,10 @@
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
-    <Content Include="Resources\taobaokeItem.xml" />
+    <Content Include="Resources\taobaoke.items.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
-    <None Include="Resources\taobaoke.item.json" />
+    <None Include="Resources\taobaoke.items.json" />
     <None Include="Resources\users.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

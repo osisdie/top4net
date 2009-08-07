@@ -1,1 +1,21 @@
-﻿{"rsp":{"users":[{"created":"2008-03-09 02:19:35","location":{"city":"杭州","state":"浙江"},"nick":"tbtest520","sex":"m","user_id":65753281},{"created":"2008-03-09 02:27:01","location":{"city":"北京","country":"中国","state":"北京"},"nick":"tbtest562","sex":"m","user_id":175754639}]}}
+﻿{ "rsp" : { "users" : [ { 
+            "created" : "2008-03-09 02:19:35",
+            "location" : { 
+                "city" : "杭州",
+                "state" : "浙江"
+              },
+            "nick" : "tbtest520",
+            "sex" : "m",
+            "user_id" : 65753281
+          },
+          { "created" : "2008-03-09 02:27:01",
+            "location" : { 
+                "city" : "北京",
+                "country" : "中国",
+                "state" : "北京"
+              },
+            "nick" : "tbtest562",
+            "sex" : "m",
+            "user_id" : 175754639
+          }
+] } }

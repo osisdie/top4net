@@ -1,1 +1,6 @@
-﻿{"rsp":{"productImgs":[{"created":"2009-08-04 21:43:14","modified":"2009-08-04 21:43:14","pic_id":"380745","url":"http://img06.taobao.net/bao/uploaded/i6/T1CpXXXg7KutMoEn_a_092459.jpg"}]}}
+﻿{ "rsp" : { "productImgs" : [ {
+            "created" : "2009-08-04 21:43:14",
+            "modified" : "2009-08-04 21:43:14",
+            "pic_id" : "380745",
+            "url" : "http://img06.taobao.net/bao/uploaded/i6/T1CpXXXg7KutMoEn_a_092459.jpg"
+} ] } }
