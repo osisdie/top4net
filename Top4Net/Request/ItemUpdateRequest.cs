@@ -142,7 +142,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 属性值别名，如pid:vid:别名; pid1:vid1:别名1 pid:属性id vid:值id。总长度不超过512字节。
         /// </summary>
-        public string PropertyAlias { get; set; }
+        public string PropAlias { get; set; }
 
         /// <summary>
         /// 用户自行输入的类目属性ID串，结构如：pid1,pid2。
@@ -152,7 +152,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// xx山寨|系列|xx系列,材质|xx材质,……，input_str需要与input_pids一一对应，因为有可能一件商品有多个可以自输入的属性。 长度小于4000字节。
         /// </summary>
-        public string InputStr { get; set; }
+        public string InputStrs { get; set; }
 
         /// <summary>
         /// 更新的sku的数量串，结构如：2,3,.。
@@ -177,7 +177,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 商品文字的版本，繁体传入”zh_HK”，简体传入”zh_CN”，不传默认为简体。
         /// </summary>
-        public string Lang { get; set; }
+        public string Language { get; set; }
 
         /// <summary>
         /// 商家外部编码。
@@ -220,14 +220,14 @@ namespace Taobao.Top.Api.Request
             parameters.Add("increment", this.Increment);
             parameters.Add("stuff_status", this.StuffStatus);
             parameters.Add("auction_point", this.AuctionPoint);
-            parameters.Add("property_alias", this.PropertyAlias);
+            parameters.Add("property_alias", this.PropAlias);
             parameters.Add("input_pids", this.InputPids);
-            parameters.Add("input_str", this.InputStr);
+            parameters.Add("input_str", this.InputStrs);
             parameters.Add("sku_quantities", this.SkuQuantities);
             parameters.Add("sku_prices", this.SkuPrices);
             parameters.Add("sku_properties", this.SkuProps);
             parameters.Add("postage_id", this.PostageId);
-            parameters.Add("lang", this.Lang);
+            parameters.Add("lang", this.Language);
             parameters.Add("outer_id", this.OuterId);
 
             return parameters;

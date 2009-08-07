@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// sku文字的版本，繁体传入zh_HK，简体传入zh_CN，不传默认为简体。
         /// </summary>
-        public string Lang { get; set; }
+        public string Language { get; set; }
 
         #region ITopRequest Members
 
@@ -56,7 +56,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("quantity", this.Quantity);
             parameters.Add("price", this.Price);
             parameters.Add("outer_id", this.OuterId);
-            parameters.Add("lang", this.Lang);
+            parameters.Add("lang", this.Language);
 
             return parameters;
         }

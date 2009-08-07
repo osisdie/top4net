@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 属性图片ID,如果是新增不需要填写。
         /// </summary>
-        public string PropImgId { get; set; }
+        public string ImgId { get; set; }
 
         /// <summary>
         /// 商品ID。
@@ -45,7 +45,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("propimg_id", this.PropImgId);
+            parameters.Add("propimg_id", this.ImgId);
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
             parameters.Add("position", this.Position);

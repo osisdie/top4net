@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ProductImgDeleteRequest : ITopRequest
     {
         /// <summary>
-        /// 多图图片ID。
+        /// 产品多图图片ID。
         /// </summary>
         public string ImgId { get; set; }
 

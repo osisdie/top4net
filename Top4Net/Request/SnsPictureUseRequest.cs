@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 图片文件ids，例如：value1,value2,value3。
         /// </summary>
-        public string Ids { get; set; }
+        public string PicIds { get; set; }
 
         #region ITopRequest Members
 
@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("ids", this.Ids);
+            parameters.Add("ids", this.PicIds);
 
             return parameters;
         }

@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 接收者id。
         /// </summary>
-        public string ToUid { get; set; }
+        public string ReceiverId { get; set; }
 
         /// <summary>
         /// 系统信息。
@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("to_uid", this.ToUid);
+            parameters.Add("to_uid", this.ReceiverId);
             parameters.Add("content", this.Content);
 
             return parameters;

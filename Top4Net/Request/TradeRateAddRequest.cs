@@ -33,7 +33,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否匿名（是:true;否:false;）卖家评不能匿名。
         /// </summary>
-        public string Anony { get; set; }
+        public string Anonymous { get; set; }
 
         /// <summary>
         /// 评价角色。
@@ -55,7 +55,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("order_id", this.OrderId);
             parameters.Add("content", this.Content);
             parameters.Add("result", this.Result);
-            parameters.Add("anony", this.Anony);
+            parameters.Add("anony", this.Anonymous);
             parameters.Add("role", this.Role);
 
             return parameters;

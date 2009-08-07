@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 退款单号。
         /// </summary>
-        public string RefundId { get; set; }
+        public string Rid { get; set; }
 
         /// <summary>
         /// 需要返回的字段。
@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("refund_id", this.RefundId);
+            parameters.Add("refund_id", this.Rid);
             parameters.Add("fields", this.Fields);
 
             return parameters;

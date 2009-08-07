@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 关闭原因。
         /// </summary>
-        public string CloseReason { get; set; }
+        public string Reason { get; set; }
 
         #region ITopRequest Members
 
@@ -32,7 +32,7 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("tid", this.Tid);
-            parameters.Add("close_reason", this.CloseReason);
+            parameters.Add("close_reason", this.Reason);
 
             return parameters;
         }

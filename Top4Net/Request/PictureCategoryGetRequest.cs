@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.picture.category.get
     /// </summary>
-    public class PictureCatGetRequest : ITopRequest
+    public class PictureCategoryGetRequest : ITopRequest
     {
         /// <summary>
         /// 需要返回的字段,根据PictureCategory中的以下字段：picture_category_id,picture_category_name,position,type,total,created,modified ,多个字段用“,”分隔。如：type,total,created,modified。

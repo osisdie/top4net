@@ -134,7 +134,7 @@
     <Compile Include="Request\LogisticsOrderDetailGetRequest.cs" />
     <Compile Include="Request\LogisticsOrderGetRequest.cs" />
     <Compile Include="Request\OrdersGetRequest.cs" />
-    <Compile Include="Request\PictureCatGetRequest.cs" />
+    <Compile Include="Request\PictureCategoryGetRequest.cs" />
     <Compile Include="Request\PictureDeleteRequest.cs" />
     <Compile Include="Request\PictureGetRequest.cs" />
     <Compile Include="Request\PictureUploadRequest.cs" />

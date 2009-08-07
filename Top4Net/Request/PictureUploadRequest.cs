@@ -27,7 +27,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 图片标题,如果为空,传的图片标题就取去掉后缀名的image_input_title,超过50字符长度会截取50字符,重名会在标题末尾加(1);标题末尾已经有(数字)了，则数字加1。
         /// </summary>
-        public string ShotTitle { get; set; }
+        public string ShortTitle { get; set; }
 
         #region ITopRequest Members
 
@@ -42,7 +42,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("picture_category_id", this.PicCategoryId);
             parameters.Add("image_input_title", this.LongTitle);
-            parameters.Add("title", this.ShotTitle);
+            parameters.Add("title", this.ShortTitle);
 
             return parameters;
         }
