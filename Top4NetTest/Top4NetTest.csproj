@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parser\ItemParserTest.cs" />
     <Compile Include="Parser\TaobaokeParserTest.cs" />
+    <Compile Include="Request\ItemApiTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
     <Compile Include="Request\ProductApiTest.cs" />
     <Compile Include="Parser\ProductParserTest.cs" />
@@ -65,6 +67,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\item.props.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
     <Content Include="Resources\product.image.xml" />

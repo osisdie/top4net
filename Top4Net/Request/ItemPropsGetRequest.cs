@@ -16,17 +16,17 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 叶子类目ID，如果只传cid，则只返回一级属性。
+        /// 叶子类目编号，如果只传cid，则只返回一级属性。
         /// </summary>
-        public string Cid { get; set; }
+        public string LeafCid { get; set; }
 
         /// <summary>
-        /// 属性id (取类目属性时，传pid，不用同时传PID和parent_pid)。
+        /// 属性编号 (取类目属性时，传pid，不用同时传PID和parent_pid)。
         /// </summary>
         public string Pid { get; set; }
 
         /// <summary>
-        /// 父属性ID。
+        /// 父属性编号。
         /// </summary>
         public string ParentPid { get; set; }
 
@@ -77,7 +77,7 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("cid", this.Cid);
+            parameters.Add("cid", this.LeafCid);
             parameters.Add("pid", this.Pid);
             parameters.Add("parent_pid", this.ParentPid);
             parameters.Add("is_key_prop", this.IsKeyProp);

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 using Taobao.Top.Api.Domain;
 
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
-    /// 产品对象的JSON响应解释器。
+    /// 产品的JSON响应解释器。
     /// </summary>
     public class ProductJsonParser : ITopParser<Product>
     {
@@ -25,6 +28,67 @@ namespace Taobao.Top.Api.Parser
             {
                 return null;
             }
+        }
+
+        #endregion
+    }
+
+
+    /// <summary>
+    /// 产品列表的JSON响应解释器。
+    /// </summary>
+    public class ProductListJsonParser : ITopParser<List<Product>>
+    {
+        #region ITopParser<List<Product>> Members
+
+        public List<Product> Parse(string body)
+        {
+            List<Product> products = new List<Product>();
+
+            JObject jsonBody = JObject.Parse(body);
+            JArray jsonProducts = jsonBody["rsp"]["products"] as JArray;
+
+            if (jsonProducts != null)
+            {
+                for (int i = 0; i < jsonProducts.Count; i++)
+                {
+                    JsonSerializer js = new JsonSerializer();
+                    object product = js.Deserialize(jsonProducts[i].CreateReader(), typeof(Product));
+                    products.Add(product as Product);
+                }
+            }
+
+            return products;
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 产品图片的JSON响应解释器。
+    /// </summary>
+    public class ProductImgJsonParser : ITopParser<ProductImg>
+    {
+        #region ITopParser<ProductImg> Members
+
+        public ProductImg Parse(string body)
+        {
+            List<ProductImg> productImgs = new List<ProductImg>();
+
+            JObject jsonBody = JObject.Parse(body);
+            JArray jsonProductImgs = jsonBody["rsp"]["productImgs"] as JArray;
+
+            if (jsonProductImgs != null)
+            {
+                for (int i = 0; i < jsonProductImgs.Count; i++)
+                {
+                    JsonSerializer js = new JsonSerializer();
+                    object productImg = js.Deserialize(jsonProductImgs[i].CreateReader(), typeof(ProductImg));
+                    productImgs.Add(productImg as ProductImg);
+                }
+            }
+
+            return productImgs.Count == 0 ? null : productImgs[0];
         }
 
         #endregion

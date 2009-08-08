@@ -1,0 +1,51 @@
+﻿{ "rsp" : { "item_props" : [ {
+            "name" : "成色",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "20879",
+            "sort_order" : 0,
+            "status" : "normal"
+          },
+          { "name" : "品牌",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "20000",
+            "sort_order" : 1,
+            "status" : "normal"
+          },
+          { "name" : "屏幕比例",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "31356",
+            "sort_order" : 2,
+            "status" : "normal"
+          },
+          { "name" : "屏幕尺寸",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "20100",
+            "sort_order" : 3,
+            "status" : "normal"
+          },
+          { "name" : "CPU平台",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "20143",
+            "sort_order" : 4,
+            "status" : "normal"
+          },
+          { "name" : "CPU频率量级",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "22572",
+            "sort_order" : 5,
+            "status" : "normal"
+          },
+          { "name" : "显存容量",
+            "parent_pid" : "0",
+            "parent_vid" : "0",
+            "pid" : "20121",
+            "sort_order" : 6,
+            "status" : "normal"
+          }
+] } }
