@@ -33,21 +33,12 @@ namespace Taobao.Top.Api.Parser
     {
         public List<TaobaokeItem> Parse(string body)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(TaobaokeItemListRsp));
-            object obj = serializer.Deserialize(new StringReader(body));
-            TaobaokeItemListRsp rsp = obj as TaobaokeItemListRsp;
-            return rsp == null ? null : rsp.Items;
-        }
+            TopListResponse<TaobaokeItem> topRsp = new TopListResponse<TaobaokeItem>("taobaokeItem");
+            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<TaobaokeItem>), topRsp.GetOverrides());
 
-        /// <summary>
-        /// 淘宝客商品列表响应，用于XML反序列化。
-        /// </summary>
-        [Serializable]
-        [XmlRoot("rsp")]
-        public class TaobaokeItemListRsp
-        {
-            [XmlElement("taobaokeItem")]
-            public List<TaobaokeItem> Items { get; set; }
+            object obj = serializer.Deserialize(new StringReader(body));
+            TopListResponse<TaobaokeItem> rsp = obj as TopListResponse<TaobaokeItem>;
+            return rsp == null ? null : rsp.Content;
         }
     }
 
@@ -60,24 +51,15 @@ namespace Taobao.Top.Api.Parser
 
         public List<TaobaokeShop> Parse(string body)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(TaobaokeShopListRsp));
+            TopListResponse<TaobaokeShop> topRsp = new TopListResponse<TaobaokeShop>("taobaokeShop");
+            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<TaobaokeShop>), topRsp.GetOverrides());
+
             object obj = serializer.Deserialize(new StringReader(body));
-            TaobaokeShopListRsp rsp = obj as TaobaokeShopListRsp;
-            return rsp == null ? null : rsp.Shops;
+            TopListResponse<TaobaokeShop> rsp = obj as TopListResponse<TaobaokeShop>;
+            return rsp == null ? null : rsp.Content;
         }
 
         #endregion
-
-        /// <summary>
-        /// 淘宝客店铺列表响应，用于XML反序列化。
-        /// </summary>
-        [Serializable]
-        [XmlRoot("rsp")]
-        public class TaobaokeShopListRsp
-        {
-            [XmlElement("taobaokeShop")]
-            public List<TaobaokeShop> Shops { get; set; }
-        }
     }
 
     /// <summary>

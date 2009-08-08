@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Test.Request
     public class ItemApiTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GetItemPropsByJson()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("json");
             ItemPropsGetRequest req = new ItemPropsGetRequest();

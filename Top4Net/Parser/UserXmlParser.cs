@@ -16,25 +16,16 @@ namespace Taobao.Top.Api.Parser
 
         public User Parse(string body)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(UserRsp));
+            TopResponse<User> topRsp = new TopResponse<User>("user");
+            XmlSerializer serializer = new XmlSerializer(typeof(TopResponse<User>), topRsp.GetOverrides());
+
             object obj = serializer.Deserialize(new StringReader(body));
-            return (obj as UserRsp).User;
+            TopResponse<User> rsp = obj as TopResponse<User>;
+            return rsp == null ? null : rsp.Content;
         }
 
         #endregion
-
-        /// <summary>
-        /// 用户响应类，用于XML反序列化。
-        /// </summary>
-        [Serializable]
-        [XmlRoot("rsp")]
-        public class UserRsp
-        {
-            [XmlElement("user")]
-            public User User { get; set; }
-        }
     }
-
 
     /// <summary>
     /// 用户列表的XML响应解释器。
@@ -45,24 +36,14 @@ namespace Taobao.Top.Api.Parser
 
         public List<User> Parse(string body)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(UserListRsp));
+            TopListResponse<User> topRsp = new TopListResponse<User>("user");
+            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<User>), topRsp.GetOverrides());
+
             object obj = serializer.Deserialize(new StringReader(body));
-            UserListRsp rsp = obj as UserListRsp;
-            return rsp == null ? null : rsp.Users;
+            TopListResponse<User> rsp = obj as TopListResponse<User>;
+            return rsp == null ? null : rsp.Content;
         }
 
         #endregion
-
-        /// <summary>
-        /// 用户列表响应，用于XML反序列化。
-        /// </summary>
-        [Serializable]
-        [XmlRoot("rsp")]
-        public class UserListRsp
-        {
-            [XmlElement("user")]
-            public List<User> Users { get; set; }
-        }
-
     }
 }
