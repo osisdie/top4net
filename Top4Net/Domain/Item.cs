@@ -89,7 +89,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("input_str")]
         [XmlElement("input_str")]
-        public string InputStr { get; set; }
+        public string InputStrs { get; set; }
 
         /// <summary>
         /// 商品描述,字数要大于5个字节，小于25000个字节
