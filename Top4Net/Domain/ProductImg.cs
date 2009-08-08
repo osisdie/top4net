@@ -45,28 +45,14 @@ namespace Taobao.Top.Api.Domain
         /// 产品图片的创建时间。
         /// </summary>
         [JsonProperty("created")]
-        [XmlIgnore]
-        public DateTime Created { get; set; }
-
         [XmlElement("created")]
-        public string CreatedStr
-        {
-            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Created { get; set; }
 
         /// <summary>
         /// 产品图片的修改时间。
         /// </summary>
         [JsonProperty("modified")]
-        [XmlIgnore]
-        public DateTime Modified { get; set; }
-
         [XmlElement("modified")]
-        public string ModifiedStr
-        {
-            get { return Modified.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Modified = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Modified { get; set; }
     }
 }

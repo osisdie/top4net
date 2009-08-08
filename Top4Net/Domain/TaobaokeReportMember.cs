@@ -39,7 +39,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pay_time")]
         [XmlElement("pay_time")]
-        public DateTime PayTime { get; set; }
+        public string PayTime { get; set; }
 
         /// <summary>
         /// 成交价格
@@ -49,7 +49,7 @@ namespace Taobao.Top.Api.Domain
         public double PayPrice { get; set; }
 
         /// <summary>
-        /// 商品ID
+        /// 商品编号
         /// </summary>
         [JsonProperty("auction_id")]
         [XmlElement("auction_id")]
@@ -70,7 +70,7 @@ namespace Taobao.Top.Api.Domain
         public long AuctionNumber { get; set; }
 
         /// <summary>
-        /// 所购买商品的类目ID
+        /// 所购买商品的类目编号
         /// </summary>
         [JsonProperty("category_id")]
         [XmlElement("category_id")]

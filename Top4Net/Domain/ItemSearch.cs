@@ -17,11 +17,15 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 商品列表
         /// </summary>
+        [JsonProperty("itemList")]
+        [XmlElement("itemList")]
         public List<Item> ItemList { get; set; }
 
         /// <summary>
-        /// 商品搜索分类
+        /// 商品分类列表
         /// </summary>
+        [JsonProperty("categoryList")]
+        [XmlElement("categoryList")]
         public List<ItemCategory> CategoryList { get; set; }
     }
 }

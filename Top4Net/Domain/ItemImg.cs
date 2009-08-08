@@ -14,21 +14,21 @@ namespace Taobao.Top.Api.Domain
     public class ItemImg
     {
         /// <summary>
-        /// S商品图片的id
+        /// 商品图片的编号
         /// </summary>
         [JsonProperty("itemimg_id")]
         [XmlElement("itemimg_id")]
-        public string ItemimgId { get; set; }
+        public string ImgId { get; set; }
 
         /// <summary>
-        /// S图片链接地址
+        /// 商品图片链接地址
         /// </summary>
         [JsonProperty("url")]
         [XmlElement("url")]
-        public string Url { get; set; }
+        public string ImgUrl { get; set; }
 
         /// <summary>
-        /// S图片放在第几张（多图时可设置 )
+        /// 图片放在第几张（多图时可设置 )
         /// </summary>
         [JsonProperty("position")]
         [XmlElement("position")]

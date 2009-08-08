@@ -33,7 +33,7 @@ namespace Taobao.Top.Api.Test.Parser
 
         private void AssertTaobaokeItem(TaobaokeItem item)
         {
-            Assert.AreEqual("72b31835f55b6b6c35beab8c753989c1", item.ItemId);
+            Assert.AreEqual("72b31835f55b6b6c35beab8c753989c1", item.Iid);
             Assert.AreEqual("淘宝客测试数据商品名称:1", item.Title);
             Assert.AreEqual("100", item.Price);
             Assert.AreEqual("淘宝客测试数据卖家昵称:1", item.Nick);
@@ -67,7 +67,7 @@ namespace Taobao.Top.Api.Test.Parser
 
         private void AssertTaobaokeShop(TaobaokeShop shop)
         {
-            Assert.AreEqual("12343", shop.UserId);
+            Assert.AreEqual("12343", shop.Uid);
             Assert.AreEqual("淘客店铺测试数据1", shop.Title);
             Assert.AreEqual("http://top.taobao.com/test1", shop.ClickUrl);
             Assert.AreEqual("10.1", shop.CommissionRate);

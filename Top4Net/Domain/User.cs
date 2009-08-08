@@ -61,29 +61,15 @@ namespace Taobao.Top.Api.Domain
         /// 用户注册时间。
         /// </summary>
         [JsonProperty("created")]
-        [XmlIgnore]
-        public DateTime Created { get; set; }
-
         [XmlElement("created")]
-        public string CreatedStr
-        {
-            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Created { get; set; }
 
         /// <summary>
         /// 最近登陆时间。
         /// </summary>
         [JsonProperty("last_visit")]
-        [XmlIgnore]
-        public DateTime LastVisit { get; set; }
-
         [XmlElement("last_visit")]
-        public string LastVisitStr
-        {
-            get { return LastVisit.ToString(Constants.DATE_TIME_FORMAT); }
-            set { LastVisit = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string LastVisit { get; set; }
 
         /// <summary>
         /// 用户生日日期。

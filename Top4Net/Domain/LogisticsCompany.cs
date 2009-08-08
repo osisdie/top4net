@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("shipping")]
-    public class LogisticCompany
+    public class LogisticsCompany
     {
         /// <summary>
         /// 物流公司标识

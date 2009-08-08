@@ -15,11 +15,11 @@ namespace Taobao.Top.Api.Domain
     public class Postage
     {
         /// <summary>
-        /// 运费模板ID
+        /// 运费模板编号
         /// </summary>
         [JsonProperty("postage_id")]
         [XmlElement("postage_id")]
-        public string PostageId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 运费模板名称

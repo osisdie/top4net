@@ -14,7 +14,7 @@ namespace Taobao.Top.Api.Domain
     public class Shipping
     {
         /// <summary>
-        /// 交易ID
+        /// 交易编号
         /// </summary>
         [JsonProperty("tid")]
         [XmlElement("tid")]
@@ -39,14 +39,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("delivery_start")]
         [XmlElement("delivery_start")]
-        public DateTime DeliveryStart { get; set; }
+        public DateTime StartDelivery { get; set; }
 
         /// <summary>
         /// 预约取货结束时间
         /// </summary>
         [JsonProperty("delivery_end")]
         [XmlElement("delivery_end")]
-        public DateTime DeliveryEnd { get; set; }
+        public DateTime EndDelivery { get; set; }
 
         /// <summary>
         /// 运单号.具体一个物流公司的运单号码.
@@ -133,6 +133,6 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("company_name")]
         [XmlElement("company_name")]
-        public string CompanyName { get; set; }
+        public string LogisticsCompany { get; set; }
     }
 }

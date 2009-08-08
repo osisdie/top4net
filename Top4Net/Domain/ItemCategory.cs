@@ -6,13 +6,20 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 商品查询分类结果
+    /// 商品分类
     /// </summary>
     [Serializable]
     [JsonObject]
     [XmlRoot("itemCategory")]
     public class ItemCategory
     {
+        /// <summary>
+        /// 分类编号
+        /// </summary>
+        [JsonProperty("category_id")]
+        [XmlElement("category_id")]
+        public string CategoryId { get; set; }
+
         /// <summary>
         /// 分类名称
         /// </summary>
@@ -21,24 +28,17 @@ namespace Taobao.Top.Api.Domain
         public string CategoryName { get; set; }
 
         /// <summary>
-        /// 分类ID
+        /// 分类地址
         /// </summary>
-        [JsonProperty("category_id")]
-        [XmlElement("category_id")]
-        public string CategoryId { get; set; }
+        [JsonProperty("url")]
+        [XmlElement("url")]
+        public string CategoryUrl { get; set; }
 
         /// <summary>
         /// 商品数量
         /// </summary>
         [JsonProperty("count")]
         [XmlElement("count")]
-        public string Count { get; set; }
-
-        /// <summary>
-        /// 分类地址
-        /// </summary>
-        [JsonProperty("url")]
-        [XmlElement("url")]
-        public string Url { get; set; }
+        public long ItemCount { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 using Newtonsoft.Json;
 
@@ -14,6 +14,34 @@ namespace Taobao.Top.Api.Domain
     [XmlRoot("trade")]
     class Trade
     {
+        /// <summary>
+        /// 淘宝交易编号(父订单的交易编号)
+        /// </summary>
+        [JsonProperty("tid")]
+        [XmlElement("tid")]
+        public string Tid { get; set; }
+
+        /// <summary>
+        /// 交易标题.以店铺名作为此标题的值.注:taobao.trades.get接口返回的Trade中的title是商品名称
+        /// </summary>
+        [JsonProperty("title")]
+        [XmlElement("title")]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// 交易类型。可选值:fixed(一口价),auction(拍卖),guarantee_trade(一口价、拍卖),auto_delivery(自动发货),independent_shop_trade(外部网店),ec(直冲),cod(货到付款)
+        /// </summary>
+        [JsonProperty("type")]
+        [XmlElement("type")]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// 交易创建时间。格式:yyyy-MM-dd HH:mm:ss
+        /// </summary>
+        [JsonProperty("created")]
+        [XmlElement("created")]
+        public DateTime Created { get; set; }
+
         /// <summary>
         /// 卖家昵称
         /// </summary>
@@ -29,28 +57,14 @@ namespace Taobao.Top.Api.Domain
         public string BuyerNick { get; set; }
 
         /// <summary>
-        /// 交易title.以店铺名作为此title的值.注:taobao.trades.get接口返回的Trade中的title是商品名称
+        /// 买家留言
         /// </summary>
-        [JsonProperty("title")]
-        [XmlElement("title")]
-        public string Title { get; set; }
+        [JsonProperty("buyer_message")]
+        [XmlElement("buyer_message")]
+        public string BuyerMessage { get; set; }
 
         /// <summary>
-        /// 交易类型。可选值:fixed(一口价),auction(拍卖),guarantee_trade(一口价、拍卖),auto_delivery(自动发货),independent_shop_trade(外部网店),ec(直冲),cod(货到付款)
-        /// </summary>
-        [JsonProperty("type")]
-        [XmlElement("type")]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// 交易创建时间。格式:yyyy-MM-ddHH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// 商品Item的id.可以通过taobao.item.get获取详细的商品Item的信息
+        /// 商品的编号.可以通过taobao.item.get获取详细的商品Item的信息
         /// </summary>
         [JsonProperty("iid")]
         [XmlElement("iid")]
@@ -61,45 +75,31 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("price")]
         [XmlElement("price")]
-        public string Price { get; set; }
+        public string ItemPrice { get; set; }
 
         /// <summary>
-        /// 商品图片绝对途径
+        /// 商品图片绝对地址
         /// </summary>
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
-        public string PicPath { get; set; }
+        public string ItemPicUrl { get; set; }
 
         /// <summary>
         /// 商品购买数量。取值范围:大于零的整数
         /// </summary>
         [JsonProperty("num")]
         [XmlElement("num")]
-        public int Num { get; set; }
+        public int ItemNum { get; set; }
 
         /// <summary>
-        /// 淘宝交易Trade的id(父订单的交易id)
-        /// </summary>
-        [JsonProperty("tid")]
-        [XmlElement("tid")]
-        public string Tid { get; set; }
-
-        /// <summary>
-        /// 买家留言
-        /// </summary>
-        [JsonProperty("buyer_message")]
-        [XmlElement("buyer_message")]
-        public string BuyerMessage { get; set; }
-
-        /// <summary>
-        /// 物流Shipping的id
+        /// 物流编号
         /// </summary>
         [JsonProperty("sid")]
         [XmlElement("sid")]
         public string Sid { get; set; }
 
         /// <summary>
-        /// 创建交易时的物流方式（交易完成前，物流方式有可能改变，但tc里的这个字段一直不变）。可选值:free(卖家承担运费),post(平邮),express(快递),ems(EMS),virtual(虚拟物品)
+        /// 创建交易时的物流方式。可选值:free(卖家承担运费),post(平邮),express(快递),ems(EMS),virtual(虚拟物品)
         /// </summary>
         [JsonProperty("shipping_type")]
         [XmlElement("shipping_type")]
@@ -190,21 +190,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pay_time")]
         [XmlElement("pay_time")]
-        public DateTime PayTime { get; set; }
+        public string PayTime { get; set; }
 
         /// <summary>
         /// 交易成功时间(更新交易状态为成功的同时更新)/确认收货时间。格式:yyyy-MM-ddHH:mm:ss
         /// </summary>
         [JsonProperty("end_time")]
         [XmlElement("end_time")]
-        public DateTime EndTime { get; set; }
+        public string EndTime { get; set; }
 
         /// <summary>
         /// 交易修改时间(用户对订单的操作会更新此字段)。格式:yyyy-MM-ddHH:mm:ss
         /// </summary>
         [JsonProperty("modified")]
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         /// <summary>
         /// 买家获得积分,返点的积分。格式:100,单位:个
@@ -218,17 +218,17 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("point_fee")]
         [XmlElement("point_fee")]
-        public string PointFee { get; set; }
+        public string BuyerUsePointFee { get; set; }
 
         /// <summary>
         /// 买家实际使用积分。格式:100,单位:个.
         /// </summary>
         [JsonProperty("real_point_fee")]
         [XmlElement("real_point_fee")]
-        public string RealPointFee { get; set; }
+        public string BuyerRealPointFee { get; set; }
 
         /// <summary>
-        /// 商品金额。精确到2位小数
+        /// 金额。精确到2位小数
         /// </summary>
         [JsonProperty("total_fee")]
         [XmlElement("total_fee")]
@@ -305,11 +305,11 @@ namespace Taobao.Top.Api.Domain
         public string ReceiverPhone { get; set; }
 
         /// <summary>
-        /// 卖家发货时间。格式:yyyy-MM-ddHH:mm:ss
+        /// 卖家发货时间。格式:yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("consign_time")]
         [XmlElement("consign_time")]
-        public DateTime ConsignTime { get; set; }
+        public string ConsignTime { get; set; }
 
         /// <summary>
         /// 买家Email
@@ -389,18 +389,17 @@ namespace Taobao.Top.Api.Domain
         public string CodFee { get; set; }
 
         /// <summary>
-        /// 超时到期时间。格式:yyyy-MM-ddHH:mm:ss。业务规则：
-        /// (1)前提条件:只有在买家已付款,卖家已发货的情况下才有效;
-        /// (2)如果申请了退款,那么超时会落在子订单上;比如说3笔ABC,A申请了,那么返回的是BC的list,Parent不存在;
-        /// (3)如果没有申请过退款,那么超时会挂在主定单上;比如ABC,返回Parent,ABC的超时和Parent相同.
+        /// 超时到期时间。格式:yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("timeout_action_time")]
         [XmlElement("timeout_action_time")]
-        public DateTime TimeoutActionTime { get; set; }
+        public string TimeoutActionTime { get; set; }
 
         /// <summary>
         /// 订单列表
         /// </summary>
+        [JsonProperty("orders")]
+        [XmlElement("orders")]
         public List<Order> Orders { get; set; }
     }
 }

@@ -25,13 +25,13 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("exist_timeout")]
         [XmlElement("exist_timeout")]
-        public bool ExistTimeout { get; set; }
+        public bool IsTimeout { get; set; }
 
         /// <summary>
         /// 超时时间。格式:yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("timeout")]
         [XmlElement("timeout")]
-        public DateTime Timeout { get; set; }
+        public string TimeoutTime { get; set; }
     }
 }

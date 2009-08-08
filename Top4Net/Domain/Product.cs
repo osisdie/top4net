@@ -19,13 +19,13 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("product_id")]
         [XmlElement("product_id")]
-        public string ProductId { get; set; }
+        public string Id { get; set; }
         /// <summary>
         /// 产品名称。
         /// </summary>
         [JsonProperty("name")]
         [XmlElement("name")]
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// 外部产品编号。
@@ -116,44 +116,34 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
-        public string PrimaryPicUrl { get; set; }
+        public string PrimaryImgUrl { get; set; }
 
         /// <summary>
         /// 产品的创建时间。
         /// </summary>
         [JsonProperty("created")]
-        [XmlIgnore]
-        public DateTime Created { get; set; }
-
         [XmlElement("created")]
-        public string CreatedStr
-        {
-            get { return Created.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Created = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Created { get; set; }
 
         /// <summary>
         /// 产品的修改时间。
         /// </summary>
         [JsonProperty("modified")]
-        [XmlIgnore]
-        public DateTime Modified { get; set; }
-
         [XmlElement("modified")]
-        public string ModifiedStr
-        {
-            get { return Modified.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Modified = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Modified { get; set; }
 
         /// <summary>
         /// 产品的子图片。
-        /// </summary>
+        /// </summary>       
+        [JsonProperty("productImg")]
+        [XmlElement("productImg")]
         public List<ProductImg> ProductImgs { get; set; }
 
         /// <summary>
         /// 产品的属性图片。
         /// </summary>
+        [JsonProperty("productPropImg")]
+        [XmlElement("productPropImg")]
         public List<ProductPropImg> ProductPropImgs { get; set; }
     }
 }

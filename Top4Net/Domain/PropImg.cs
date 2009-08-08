@@ -14,25 +14,25 @@ namespace Taobao.Top.Api.Domain
     public class PropImg
     {
         /// <summary>
-        /// 属性图片的id
+        /// 属性图片的编号
         /// </summary>
         [JsonProperty("propimg_id")]
         [XmlElement("propimg_id")]
-        public string PropimgId { get; set; }
+        public string ImgId { get; set; }
 
         /// <summary>
         /// 图片链接地址
         /// </summary>
         [JsonProperty("url")]
         [XmlElement("url")]
-        public string Url { get; set; }
+        public string ImgUrl { get; set; }
 
         /// <summary>
         /// 图片所对应的属性组合的字符串
         /// </summary>
         [JsonProperty("properties")]
         [XmlElement("properties")]
-        public string Properties { get; set; }
+        public string Props { get; set; }
 
         /// <summary>
         /// 图片放在第几张（多图时可设置）

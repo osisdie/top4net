@@ -52,7 +52,7 @@
     <Compile Include="Domain\ItemImg.cs" />
     <Compile Include="Domain\ItemSearch.cs" />
     <Compile Include="Domain\Location.cs" />
-    <Compile Include="Domain\LogisticCompany.cs" />
+    <Compile Include="Domain\LogisticsCompany.cs" />
     <Compile Include="Domain\Order.cs" />
     <Compile Include="Domain\Picture.cs" />
     <Compile Include="Domain\PictureCategory.cs" />

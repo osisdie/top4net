@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("refund_id")]
         [XmlElement("refund_id")]
-        public string RefundId { get; set; }
+        public string Rid { get; set; }
 
         /// <summary>
         /// 淘宝交易单号
@@ -50,14 +50,14 @@ namespace Taobao.Top.Api.Domain
         public string TotalFee { get; set; }
 
         /// <summary>
-        /// 买家nick
+        /// 买家昵称
         /// </summary>
         [JsonProperty("buyer_nick")]
         [XmlElement("buyer_nick")]
         public string BuyerNick { get; set; }
 
         /// <summary>
-        /// 卖家nick
+        /// 卖家昵称
         /// </summary>
         [JsonProperty("seller_nick")]
         [XmlElement("seller_nick")]
@@ -69,14 +69,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("created")]
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         /// <summary>
         /// 更新时间。格式:yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("modified")]
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         /// <summary>
         /// 退款对应的订单交易状态。可选值:WAIT_BUYER_PAY(等待买家付款),WAIT_BUYER_CONFIRM_GOODS(卖家已发货),WAIT_SELLER_SEND_GOODS(买家已付款),TRADE_FINISHED(交易成功),TRADE_CLOSED(交易关闭),TRADE_CLOSED_BY_TAOBAO(交易被淘宝关闭),RADE_NO_CREATE_PAY(没有创建外部交易(支付宝交易))
@@ -90,7 +90,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]
-        public string Status { get; set; }
+        public string RefundStatus { get; set; }
 
         /// <summary>
         /// 货物状态.可选值:BUYER_NOT_RECEIVED(买家未收到货),BUYER_RECEIVED(买家已收到货),买家已退货(BUYER_RETURNED_GOODS)
@@ -132,12 +132,12 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("desc")]
         [XmlElement("desc")]
-        public string Desc { get; set; }
+        public string Description { get; set; }
         #endregion
 
         #region 申请退款的商品相关字段
         /// <summary>
-        /// 申请退款的商品ID
+        /// 申请退款的商品编号
         /// </summary>
         [JsonProperty("iid")]
         [XmlElement("iid")]
@@ -148,21 +148,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("title")]
         [XmlElement("title")]
-        public string Title { get; set; }
+        public string ItemTitle { get; set; }
 
         /// <summary>
         /// 商品价格。精确到2位小数
         /// </summary>
         [JsonProperty("price")]
         [XmlElement("price")]
-        public string Price { get; set; }
+        public string ItemPrice { get; set; }
 
         /// <summary>
         /// 商品购买数量
         /// </summary>
         [JsonProperty("num")]
         [XmlElement("num")]
-        public int Num { get; set; }
+        public int ItemNum { get; set; }
         #endregion
 
         #region 退货信息相关字段
@@ -171,14 +171,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("good_return_time")]
         [XmlElement("good_return_time")]
-        public DateTime GoodReturnTime { get; set; }
+        public string GoodReturnTime { get; set; }
 
         /// <summary>
         /// 物流公司名称
         /// </summary>
         [JsonProperty("company_name")]
         [XmlElement("company_name")]
-        public string CompanyName { get; set; }
+        public string LogisticsCompany { get; set; }
 
         /// <summary>
         /// 退货运单号
@@ -192,7 +192,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("address")]
         [XmlElement("address")]
-        public string Address { get; set; }
+        public string SellerAddress { get; set; }
         #endregion
     }
 }

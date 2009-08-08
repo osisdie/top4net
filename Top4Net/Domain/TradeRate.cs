@@ -14,14 +14,14 @@ namespace Taobao.Top.Api.Domain
     class TradeRate
     {
         /// <summary>
-        /// 交易ID
+        /// 交易编号
         /// </summary>
         [JsonProperty("tid")]
         [XmlElement("tid")]
         public string Tid { get; set; }
 
         /// <summary>
-        /// 子订单ID
+        /// 子订单编号
         /// </summary>
         [JsonProperty("order_id")]
         [XmlElement("order_id")]
@@ -39,7 +39,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("nick")]
         [XmlElement("nick")]
-        public string Nick { get; set; }
+        public string RaterNick { get; set; }
+
+        /// <summary>
+        /// 被评价者昵称
+        /// </summary>
+        [JsonProperty("rated_nick")]
+        [XmlElement("rated_nick")]
+        public string RatedNick { get; set; }
 
         /// <summary>
         /// 评价结果,可选值:good(好评),neutral(中评),bad(差评)
@@ -53,14 +60,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("created")]
         [XmlElement("created")]
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// 被评价者昵称
-        /// </summary>
-        [JsonProperty("rated_nick")]
-        [XmlElement("rated_nick")]
-        public string RatedNick { get; set; }
+        public string Created { get; set; }
 
         /// <summary>
         /// 商品标题

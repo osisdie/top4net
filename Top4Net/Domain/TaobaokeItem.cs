@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("id")]
         [XmlElement("iid")]
-        public string ItemId { get; set; }
+        public string Iid { get; set; }
 
         /// <summary>
         /// 宝贝名称
@@ -35,7 +35,7 @@ namespace Taobao.Top.Api.Domain
         public string Nick { get; set; }
 
         /// <summary>
-        /// 图片url
+        /// 图片地址
         /// </summary>
         [JsonProperty("pict_url")]
         [XmlElement("pic_url")]

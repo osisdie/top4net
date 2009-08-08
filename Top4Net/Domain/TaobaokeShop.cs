@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("user_id")]
         [XmlElement("user_id")]
-        public string UserId { get; set; }
+        public string Uid { get; set; }
 
         /// <summary>
         /// 店铺名称
@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Domain
         public string Title { get; set; }
 
         /// <summary>
-        /// 店铺推广URL
+        /// 店铺推广地址
         /// </summary>
         [JsonProperty("click_url")]
         [XmlElement("click_url")]

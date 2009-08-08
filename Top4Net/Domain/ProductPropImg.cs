@@ -21,6 +21,13 @@ namespace Taobao.Top.Api.Domain
         public string ImgId { get; set; }
 
         /// <summary>
+        /// 图片绝对地址。
+        /// </summary>
+        [JsonProperty("url")]
+        [XmlElement("url")]
+        public string ImgUrl { get; set; }
+
+        /// <summary>
         /// 图片所属产品的编号。
         /// </summary>
         [JsonProperty("product_id")]
@@ -33,13 +40,6 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("props")]
         [XmlElement("props")]
         public string Props { get; set; }
-
-        /// <summary>
-        /// 图片绝对地址。
-        /// </summary>
-        [JsonProperty("url")]
-        [XmlElement("url")]
-        public string Url { get; set; }
 
         /// <summary>
         /// 图片序号。

@@ -67,7 +67,7 @@ namespace Taobao.Top.Api.Test
             Assert.AreEqual("65753281", user.UserId);
             Assert.AreEqual("tbtest520", user.Nick);
             Assert.AreEqual("m", user.Sex);
-            Assert.AreEqual("2008-03-09 02:19:35", user.CreatedStr);
+            Assert.AreEqual("2008-03-09 02:19:35", user.Created);
             Assert.AreEqual("浙江", user.Location.State);
             Assert.AreEqual("杭州", user.Location.City);
         }

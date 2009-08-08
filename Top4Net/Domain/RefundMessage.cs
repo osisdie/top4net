@@ -14,28 +14,35 @@ namespace Taobao.Top.Api.Domain
     class RefundMessage
     {
         /// <summary>
-        /// 留言id
+        /// 留言编号
         /// </summary>
         [JsonProperty("message_id")]
         [XmlElement("message_id")]
-        public string MessageId { get; set; }
+        public string MsgId { get; set; }
 
         /// <summary>
-        /// 退款id。Refund数据结构的refund_id
+        /// 留言内容。最大长度: 400个字节
+        /// </summary>
+        [JsonProperty("content")]
+        [XmlElement("content")]
+        public string MsgContent { get; set; }
+
+        /// <summary>
+        /// 退款编号
         /// </summary>
         [JsonProperty("refund_id")]
         [XmlElement("refund_id")]
         public string RefundId { get; set; }
 
         /// <summary>
-        /// 留言者id
+        /// 留言者编号
         /// </summary>
         [JsonProperty("owner_id")]
         [XmlElement("owner_id")]
         public string OwnerId { get; set; }
 
         /// <summary>
-        /// 留言者nick
+        /// 留言者昵称
         /// </summary>
         [JsonProperty("owner_nick")]
         [XmlElement("owner_nick")]
@@ -49,24 +56,17 @@ namespace Taobao.Top.Api.Domain
         public string OwnerRole { get; set; }
 
         /// <summary>
-        /// 留言内容。最大长度: 400个字节
-        /// </summary>
-        [JsonProperty("content")]
-        [XmlElement("content")]
-        public string Content { get; set; }
-
-        /// <summary>
         /// 凭证附件地址（图片）
         /// </summary>
         [JsonProperty("picture_urls")]
         [XmlElement("picture_urls")]
-        public string PictureUrls { get; set; }
+        public string PicUrls { get; set; }
 
         /// <summary>
         /// 留言创建时间。格式:yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("created")]
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
     }
 }

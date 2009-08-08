@@ -14,58 +14,66 @@ namespace Taobao.Top.Api.Domain
     public class Shop
     {
         /// <summary>
-        /// 店铺ID。
+        /// 店铺编号
         /// </summary>
         [JsonProperty("sid")]
         [XmlElement("sid")]
         public string Sid { get; set; }
+
         /// <summary>
-        /// 店铺所属的类目ID。
+        /// 店铺所属的类目编号
         /// </summary>
         [JsonProperty("cid")]
         [XmlElement("cid")]
         public string Cid { get; set; }
+
         /// <summary>
-        /// 卖家昵称。
+        /// 卖家昵称
         /// </summary>
         [JsonProperty("nick")]
         [XmlElement("nick")]
-        public string Nick { get; set; }
+        public string SellerNick { get; set; }
+
         /// <summary>
-        /// 店铺标题。
+        /// 店铺标题
         /// </summary>
         [JsonProperty("title")]
         [XmlElement("title")]
         public string Title { get; set; }
+
         /// <summary>
-        /// 店铺描述。
+        /// 店铺描述
         /// </summary>
         [JsonProperty("desc")]
         [XmlElement("desc")]
-        public string Desc { get; set; }
+        public string Description { get; set; }
+
         /// <summary>
-        /// 店铺公告。
+        /// 店铺公告
         /// </summary>
         [JsonProperty("bulletin")]
         [XmlElement("bulletin")]
         public string Bulletin { get; set; }
+
         /// <summary>
-        /// 店标地址。返回相对路径，可以用"http://logo.taobao.com/shop-logo/"来拼接成绝对路径。
+        /// 店标地址
         /// </summary>
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
-        public string PicPath { get; set; }
+        public string LogoUrl { get; set; }
+
         /// <summary>
-        /// 开店时间。格式：yyyy-MM-dd HH:mm:ss。
+        /// 开店时间。格式：yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("created")]
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
+
         /// <summary>
-        /// 最后修改时间。格式：yyyy-MM-dd HH:mm:ss。
+        /// 最后修改时间。格式：yyyy-MM-dd HH:mm:ss
         /// </summary>
         [JsonProperty("modified")]
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
     }
 }

@@ -14,32 +14,32 @@ namespace Taobao.Top.Api.Domain
     public class PostageMode
     {
         /// <summary>
-        /// 运费模板ID
+        /// 运费模板编号
         /// </summary>
         [JsonProperty("postage_id")]
         [XmlElement("postage_id")]
         public string PostageId { get; set; }
 
         /// <summary>
-        /// 运费方式项id
+        /// 运费方式项编号
         /// </summary>
         [JsonProperty("postage_mode_id")]
         [XmlElement("postage_mode_id")]
-        public string PostageModeId { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// 运费方式(目前提供):平邮(post),快递公司(express),EMS(ems)
         /// </summary>
         [JsonProperty("postage_mode.type")]
         [XmlElement("postage_mode.type")]
-        public string PostageModeType { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
-        /// 邮费子项涉及的地区,多个地区用逗号连接数量串
+        /// 邮费子项涉及的地区,多个地区用逗号连接数量串，如：110000;310000;320000,330000
         /// </summary>
         [JsonProperty("dest")]
         [XmlElement("dest")]
-        public string Dest { get; set; }
+        public string Districts { get; set; }
 
         /// <summary>
         /// 运费单价
@@ -54,7 +54,5 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("increase")]
         [XmlElement("increase")]
         public string Increase { get; set; }
-
-
     }
 }

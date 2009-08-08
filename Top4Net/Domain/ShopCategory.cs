@@ -14,28 +14,38 @@ namespace Taobao.Top.Api.Domain
     public class ShopCategory
     {
         /// <summary>
-        /// 类目ID。
+        /// 卖家自定义类目编号
         /// </summary>
         [JsonProperty("cid")]
         [XmlElement("cid")]
         public string Cid { get; set; }
+
         /// <summary>
-        /// 注：此类目指前台类目，值等于0：表示此类目为一级类目，值不等于0：表示此类目有父类目
+        /// 父类目cid，值等于0：表示此类目为店铺下的一级类目，值不等于0：表示此类目有父类目
         /// </summary>
         [JsonProperty("parent_cid")]
         [XmlElement("parent_cid")]
         public string ParentCid { get; set; }
+
         /// <summary>
-        /// 类目名称。
+        /// 卖家自定义类目名称
         /// </summary>
         [JsonProperty("name")]
         [XmlElement("name")]
         public string Name { get; set; }
+
         /// <summary>
-        /// 该类目是否为父类目。即：该类目是否还有子类目。
+        /// 链接图片地址
         /// </summary>
-        [JsonProperty("is_parent")]
-        [XmlElement("is_parent")]
-        public bool IsParent { get; set; }
+        [JsonProperty("pict_url")]
+        [XmlElement("pict_url")]
+        public string PicUrl { get; set; }
+
+        /// <summary>
+        /// 该类目在页面上的排序位置
+        /// </summary>
+        [JsonProperty("sort_order")]
+        [XmlElement("sort_order")]
+        public int Position { get; set; }
     }
 }
