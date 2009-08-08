@@ -47,7 +47,7 @@ namespace Taobao.Top.Api.Test
         /// </summary>
         /// <param name="nick">用户昵称</param>
         /// <returns>用户会话授权码</returns>
-        public static string GetTestSessionKey(string nick)
+        public static string GetSandboxSessionKey(string nick)
         {
             IDictionary<string, string> authCodeParams = new Dictionary<string, string>();
             authCodeParams.Add("appkey", "sns");

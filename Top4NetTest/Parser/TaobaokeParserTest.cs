@@ -72,5 +72,23 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual("http://top.taobao.com/test1", shop.ClickUrl);
             Assert.AreEqual("10.1", shop.CommissionRate);
         }
+
+        [TestMethod]
+        public void ParseJsonAsTaobaokeListUrl()
+        {
+            TaobaokeListUrlJsonParser parser = new TaobaokeListUrlJsonParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.listurl.json");
+            string url = parser.Parse(body);
+            Assert.IsNotNull(url);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsTaobaokeListUrl()
+        {
+            TaobaokeListUrlXmlParser parser = new TaobaokeListUrlXmlParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.listurl.xml");
+            string url = parser.Parse(body);
+            Assert.IsNotNull(url);
+        }
     }
 }

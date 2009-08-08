@@ -37,6 +37,8 @@ namespace Taobao.Top.Api
         private long partnerId = 300L;
         private string format = FORMAT_JSON;
 
+        #region TopRestClient Constructors
+
         public TopRestClient(string serverUrl, string appKey, string appSecret)
         {
             this.appKey = appKey;
@@ -62,12 +64,26 @@ namespace Taobao.Top.Api
             this.format = format;
         }
 
+        #endregion
+
+        #region ITopClient Members
+
         public T Execute<T>(ITopRequest request, ITopParser<T> parser)
         {
-            return Execute(request, parser, null);
+            return Execute<T>(request, parser.Parse, null);
         }
 
         public T Execute<T>(ITopRequest request, ITopParser<T> parser, string session)
+        {
+            return Execute<T>(request, parser.Parse, session);
+        }
+
+        public T Execute<T>(ITopRequest request, DTopParser<T> parser)
+        {
+            return Execute<T>(request, parser, null);
+        }
+
+        public T Execute<T>(ITopRequest request, DTopParser<T> parser, string session)
         {
             // 添加协议级请求参数
             IDictionary<string, string> allParams = new Dictionary<string, string>(request.GetParameters());
@@ -77,7 +93,11 @@ namespace Taobao.Top.Api
             allParams.Add(FORMAT, format);
             allParams.Add(PARTNER_ID, partnerId + "");
             allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
-            allParams.Add(SESSION, session);
+
+            if (!string.IsNullOrEmpty(session))
+            {
+                allParams.Add(SESSION, session);
+            }
 
             // 清除空值参数
             allParams = SysUtils.CleanupDictionary(allParams);
@@ -98,8 +118,10 @@ namespace Taobao.Top.Api
             }
 
             TryParseException(response);
-            return parser.Parse(response);
+            return parser(response);
         }
+
+        #endregion
 
         /// <summary>
         /// 尝试把错误响应转化为异常。
