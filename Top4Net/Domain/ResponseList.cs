@@ -17,7 +17,7 @@ namespace Taobao.Top.Api.Domain
     public class ResponseList<T>
     {
         /// <summary>
-        /// 所有记录数。一般情况下比Content.Count大。
+        /// 所有记录数，主要用于分页显示。
         /// </summary>
         [JsonProperty("totalResults")]
         [XmlElement("totalResults")]
@@ -45,11 +45,11 @@ namespace Taobao.Top.Api.Domain
         }
 
         /// <summary>
-        /// 解释XML响应为相应的对象列表。
+        /// 解释XML响应为相应的领域对象列表。
         /// </summary>
         /// <param name="element">XML标签名字</param>
         /// <param name="body">XML响应字符串</param>
-        /// <returns>对象列表</returns>
+        /// <returns>领域对象列表</returns>
         public static ResponseList<T> ParseXmlResponse(string element, string body)
         {
             XmlAttributes attrs = new XmlAttributes();
@@ -62,11 +62,11 @@ namespace Taobao.Top.Api.Domain
         }
 
         /// <summary>
-        /// 解释JSON响应为相应的对象列表。
+        /// 解释JSON响应为相应的领域对象列表。
         /// </summary>
         /// <param name="property">JSON属性名称</param>
         /// <param name="body">JSON响应字符串</param>
-        /// <returns>对象列表</returns>
+        /// <returns>领域对象列表</returns>
         public static ResponseList<T> ParseJsonResponse(string property, string body)
         {
             ResponseList<T> rspList = new ResponseList<T>();

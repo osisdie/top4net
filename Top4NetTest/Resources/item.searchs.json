@@ -1,0 +1,97 @@
+﻿{ "rsp" : { "itemsearchs" : [ { "category_list" : [ { "category_id" : "50012579",
+                  "count" : "176"
+                },
+                { "category_id" : "150704",
+                  "count" : "61"
+                },
+                { "category_id" : "150706",
+                  "count" : "1"
+                },
+                { "category_id" : "50005050",
+                  "count" : "53"
+                },
+                { "category_id" : "50012587",
+                  "count" : "2"
+                },
+                { "category_id" : "50001401",
+                  "count" : "1"
+                },
+                { "category_id" : "50012584",
+                  "count" : "85"
+                },
+                { "category_id" : "50010726",
+                  "count" : "2"
+                },
+                { "category_id" : "50011150",
+                  "count" : "2"
+                },
+                { "category_id" : "50005266",
+                  "count" : "5"
+                },
+                { "category_id" : "50010259",
+                  "count" : "1"
+                },
+                { "category_id" : "50008681",
+                  "count" : "9"
+                },
+                { "category_id" : "50003774",
+                  "count" : "2"
+                },
+                { "category_id" : "50003327",
+                  "count" : "2"
+                },
+                { "category_id" : "50003775",
+                  "count" : "46"
+                },
+                { "category_id" : "150701",
+                  "count" : "7"
+                },
+                { "category_id" : "50005729",
+                  "count" : "21"
+                },
+                { "category_id" : "1512",
+                  "count" : "79"
+                },
+                { "category_id" : "50002928",
+                  "count" : "5"
+                }
+              ],
+            "item_list" : [ { "cid" : "150701",
+                  "iid" : "00e7f671a6f49b0ab9b1de97f4632900",
+                  "nick" : "飞毛腿总代理2",
+                  "price" : "9.00",
+                  "title" : "三皇冠 诺基亚N73 N93 6233 6288 N73ie N77 N93S原装挂绳NB30",
+                  "type" : "fixed"
+                },
+                { "cid" : "50012584",
+                  "iid" : "b468c6fb1fb3e4bf01205a0391aef496",
+                  "nick" : "飞毛腿总代理2",
+                  "price" : "30.00",
+                  "title" : "三皇冠 诺基亚N73ie N77 N93S 6234 6280羽博座充充电器YB16",
+                  "type" : "fixed"
+                },
+                { "cid" : "50012579",
+                  "iid" : "1ccb4d75b4f3296ed945bb65d68fd4db",
+                  "nick" : "钟潭通讯科技",
+                  "price" : "50.00",
+                  "title" : "(BP-6M)诺基亚 N73ie 9300i 6234 6151 N77 原芯电池",
+                  "type" : "fixed"
+                },
+                { "cid" : "50012579",
+                  "iid" : "ce0b583e03de74d38751a5f54fd8546a",
+                  "nick" : "飞毛腿移动通讯专家",
+                  "price" : "30.00",
+                  "title" : "双冠 诺基亚 N73ie N77 N93S 6234 6280 飞毛腿原装电池FN11",
+                  "type" : "fixed"
+                },
+                { "cid" : "50012584",
+                  "iid" : "2e27ac5bd7e86a53cc335a46f7a94731",
+                  "nick" : "qq81238",
+                  "price" : "32.00",
+                  "title" : "皇冠 诺基亚 N73ie N93S 6151 6280 羽博YOOBAO座充",
+                  "type" : "fixed"
+                }
+              ]
+          } ],
+      "totalResults" : "560"
+    } }

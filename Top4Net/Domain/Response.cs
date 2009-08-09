@@ -11,20 +11,9 @@ namespace Taobao.Top.Api.Domain
     [XmlRoot("rsp")]
     public class Response<T>
     {
-        public T Content { get; set; }
-
         /// <summary>
-        /// 根据指定的名字重写对象标签的名字。
+        /// 解释后的具体对象。
         /// </summary>
-        /// <param name="element">标签名字</param>
-        /// <returns>重写逻辑</returns>
-        public static XmlAttributeOverrides GetOverrides(string element)
-        {
-            XmlAttributes attrs = new XmlAttributes();
-            attrs.XmlElements.Add(new XmlElementAttribute(element, typeof(T)));
-            XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
-            attrOvrs.Add(typeof(Response<T>), "Content", attrs);
-            return attrOvrs;
-        }
+        public T Content { get; set; }
     }
 }

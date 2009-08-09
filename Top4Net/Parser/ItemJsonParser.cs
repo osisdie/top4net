@@ -20,6 +20,22 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
+    /// 商品的JSON响应解释器。
+    /// </summary>
+    public class ItemJsonParser : ITopParser<Item>
+    {
+        #region ITopParser<Item> Members
+
+        public Item Parse(string body)
+        {
+            ItemListJsonParser parser = new ItemListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// 商品属性列表的JSON响应解释器。
     /// </summary>
     public class ItemPropListJsonParser : ITopParser<ResponseList<ItemProp>>
@@ -75,6 +91,21 @@ namespace Taobao.Top.Api.Parser
         public ResponseList<PropValue> Parse(string body)
         {
             return ResponseList<PropValue>.ParseJsonResponse("prop_values", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 商品搜索结果的JSON响应解释器。
+    /// </summary>
+    public class ItemSearchListJsonParser : ITopParser<ResponseList<ItemSearch>>
+    {
+        #region ITopParser<ResponseList<ItemSearch>> Members
+
+        public ResponseList<ItemSearch> Parse(string body)
+        {
+            return ResponseList<ItemSearch>.ParseJsonResponse("itemsearchs", body);
         }
 
         #endregion

@@ -11,21 +11,23 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("itemSearch")]
+    [XmlRoot("itemsearch")]
     public class ItemSearch
     {
         /// <summary>
         /// 商品列表
         /// </summary>
-        [JsonProperty("itemList")]
-        [XmlElement("itemList")]
+        [JsonProperty("item_list")]
+        [XmlArray("item_lists")]
+        [XmlArrayItem("item_list")]
         public List<Item> ItemList { get; set; }
 
         /// <summary>
         /// 商品分类列表
         /// </summary>
-        [JsonProperty("categoryList")]
-        [XmlElement("categoryList")]
-        public List<ItemCategory> CategoryList { get; set; }
+        [JsonProperty("category_list")]
+        [XmlArray("category_lists")]
+        [XmlArrayItem("category_list")]
+        public List<ItemCategory> ItemCatList { get; set; }
     }
 }

@@ -70,5 +70,51 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual(192, cats.Count);
             Assert.AreEqual("50012081", cats[0].Cid);
         }
+
+        [TestMethod]
+        public void ParseJsonAsItems()
+        {
+            string body = TestUtils.GetResourceAsText("items.json");
+            ItemListJsonParser parser = new ItemListJsonParser();
+            ResponseList<Item> items = parser.Parse(body);
+            Assert.AreEqual(52316, items.TotalResults);
+            Assert.AreEqual(5, items.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsItems()
+        {
+            string body = TestUtils.GetResourceAsText("items.xml");
+            ItemListXmlParser parser = new ItemListXmlParser();
+            ResponseList<Item> items = parser.Parse(body);
+            Assert.AreEqual(52315, items.TotalResults);
+            Assert.AreEqual(5, items.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsItemSearchs()
+        {
+            string body = TestUtils.GetResourceAsText("item.searchs.json");
+            ItemSearchListJsonParser parser = new ItemSearchListJsonParser();
+            ResponseList<ItemSearch> result = parser.Parse(body);
+            Assert.AreEqual(560, result.TotalResults);
+            Assert.AreEqual(1, result.Content.Count);
+            ItemSearch search = result.Content[0];
+            Assert.AreEqual(19, search.ItemCatList.Count);
+            Assert.AreEqual(5, search.ItemList.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsItemSearchs()
+        {
+            string body = TestUtils.GetResourceAsText("item.searchs.xml");
+            ItemSearchListXmlParser parser = new ItemSearchListXmlParser();
+            ResponseList<ItemSearch> result = parser.Parse(body);
+            Assert.AreEqual(560, result.TotalResults);
+            Assert.AreEqual(1, result.Content.Count);
+            ItemSearch search = result.Content[0];
+            Assert.AreEqual(19, search.ItemCatList.Count);
+            Assert.AreEqual(5, search.ItemList.Count);
+        }
     }
 }

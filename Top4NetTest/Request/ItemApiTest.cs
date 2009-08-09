@@ -152,12 +152,51 @@ namespace Taobao.Top.Api.Test.Request
         {
             ITopClient client = TestUtils.GetProductTopClient("json");
             ItemsGetRequest req = new ItemsGetRequest();
-            req.Fields = "iid,title,nick,pic_path,cid,price,type,location.city,delist_time,post_fee";
-            req.Query = "N73";
+            req.Fields = "iid,title,nick,cid,price,type";
+            req.Query = "N73 IE";
             req.PageNo = 1;
             req.PageSize = 5;
-            string rsp = client.Execute(req, new StringParser());
-            Console.WriteLine(rsp);
+            ResponseList<Item> rsp = client.Execute(req, new ItemListJsonParser());
+            Assert.AreEqual(5, rsp.Content.Count);
+            Assert.IsTrue(rsp.TotalResults > 5);
+        }
+
+        [TestMethod]
+        public void GetItemsByXml()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ItemsGetRequest req = new ItemsGetRequest();
+            req.Fields = "iid,title,nick,cid,price,type";
+            req.Query = "N73 IE";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ResponseList<Item> rsp = client.Execute(req, new ItemListXmlParser());
+            Assert.AreEqual(5, rsp.Content.Count);
+            Assert.IsTrue(rsp.TotalResults > 5);
+        }
+
+        [TestMethod]
+        public void GetItemByJson()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            ItemGetRequest req = new ItemGetRequest();
+            req.Fields = "iid,title,nick,pic_path,cid,price,type,location.city,delist_time,post_fee";
+            req.Nick = "钟潭通讯科技";
+            req.Iid = "1ccb4d75b4f3296ed945bb65d68fd4db";
+            Item item = client.Execute(req, new ItemJsonParser());
+            Assert.AreEqual("50012579", item.Cid);
+        }
+
+        [TestMethod]
+        public void GetItemByXml()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ItemGetRequest req = new ItemGetRequest();
+            req.Fields = "iid,title,nick,pic_path,cid,price,type,location.city,delist_time,post_fee";
+            req.Nick = "钟潭通讯科技";
+            req.Iid = "1ccb4d75b4f3296ed945bb65d68fd4db";
+            Item item = client.Execute(req, new ItemXmlParser());
+            Assert.AreEqual("50012579", item.Cid);
         }
     }
 }

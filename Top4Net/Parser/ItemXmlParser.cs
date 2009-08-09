@@ -95,4 +95,19 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 商品搜索结果的XML响应解释器。
+    /// </summary>
+    public class ItemSearchListXmlParser : ITopParser<ResponseList<ItemSearch>>
+    {
+        #region ITopParser<ResponseList<ItemSearch>> Members
+
+        public ResponseList<ItemSearch> Parse(string body)
+        {
+            return ResponseList<ItemSearch>.ParseXmlResponse("itemsearch", body);
+        }
+
+        #endregion
+    }
 }

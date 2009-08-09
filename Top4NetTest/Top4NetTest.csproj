@@ -69,6 +69,8 @@
   <ItemGroup>
     <None Include="Resources\item.cats.json" />
     <None Include="Resources\item.props.json" />
+    <None Include="Resources\item.searchs.json" />
+    <Content Include="Resources\item.searchs.xml" />
     <None Include="Resources\items.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
