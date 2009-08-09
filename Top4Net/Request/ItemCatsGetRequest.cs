@@ -16,19 +16,19 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 父商品类目id，0表示根节点, 传输该参数返回所有子类目。 Cids、parent_cid至少传一个。
-        /// </summary>
-        public string ParentCid { get; set; }
-
-        /// <summary>
         /// 类目ID列表，用半角逗号(,)分隔。
         /// </summary>
         public string Cids { get; set; }
 
         /// <summary>
+        /// 父商品类目编号，0表示根节点, 传输该参数返回所有子类目。 cids、parent_cid至少传一个。
+        /// </summary>
+        public string ParentCid { get; set; }
+
+        /// <summary>
         /// 时间戳，如果没有传，则取所有的类目信息(如果传了parent_cid或者cids，则忽略datetime)。
         /// </summary>
-        public string Datetime { get; set; }
+        public string DateTime { get; set; }
 
         #region ITopRequest Members
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("parent_cid", this.ParentCid);
             parameters.Add("cids", this.Cids);
-            parameters.Add("datetime", this.Datetime);
+            parameters.Add("datetime", this.DateTime);
 
             return parameters;
         }

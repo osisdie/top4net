@@ -1,0 +1,72 @@
+﻿{ "rsp" : { "item_cats" : [ {
+            "cid" : "50008825",
+            "is_parent" : false,
+            "name" : "保健品/滋补品",
+            "parent_cid" : "0",
+            "sort_order" : 17,
+            "status" : "normal"
+          },
+          { "cid" : "1512",
+            "is_parent" : false,
+            "name" : "手机",
+            "parent_cid" : "0",
+            "sort_order" : 21,
+            "status" : "normal"
+          },
+          { "cid" : "50012081",
+            "is_parent" : false,
+            "name" : "国货精品手机",
+            "parent_cid" : "0",
+            "sort_order" : 22,
+            "status" : "normal"
+          },
+          { "cid" : "1101",
+            "is_parent" : false,
+            "name" : "笔记本电脑",
+            "parent_cid" : "0",
+            "sort_order" : 47,
+            "status" : "normal"
+          },
+          { "cid" : "50010388",
+            "is_parent" : false,
+            "name" : "运动鞋",
+            "parent_cid" : "0",
+            "sort_order" : 64,
+            "status" : "normal"
+          },
+          { "cid" : "2203",
+            "is_parent" : false,
+            "name" : "户外/登山/野营/涉水",
+            "parent_cid" : "0",
+            "sort_order" : 77,
+            "status" : "normal"
+          },
+          { "cid" : "50005700",
+            "is_parent" : false,
+            "name" : "品牌手表/流行手表",
+            "parent_cid" : "0",
+            "sort_order" : 83,
+            "status" : "normal"
+          },
+          { "cid" : "1705",
+            "is_parent" : false,
+            "name" : "饰品/流行首饰/时尚饰品",
+            "parent_cid" : "0",
+            "sort_order" : 85,
+            "status" : "normal"
+          },
+          { "cid" : "50006842",
+            "is_parent" : false,
+            "name" : "箱包皮具/热销女包/男包",
+            "parent_cid" : "0",
+            "sort_order" : 157,
+            "status" : "normal"
+          },
+          { "cid" : "50012002",
+            "is_parent" : false,
+            "name" : "四级子属性2级模板",
+            "parent_cid" : "0",
+            "sort_order" : 190,
+            "status" : "normal"
+          }
+] } }

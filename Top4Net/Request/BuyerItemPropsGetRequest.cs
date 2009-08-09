@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class BuyerItemPropsGetRequest : ITopRequest
     {
         /// <summary>
-        /// 叶子类目id。
+        /// 叶子类目编号
         /// </summary>
         public string Cid { get; set; }
 

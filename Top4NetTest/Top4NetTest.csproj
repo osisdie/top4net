@@ -67,17 +67,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\item.cats.json" />
     <None Include="Resources\item.props.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
+    <Content Include="Resources\aa.xml" />
+    <Content Include="Resources\item.cats.xml" />
+    <Content Include="Resources\item.props.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
+    <Content Include="Resources\prop.values.xml" />
     <Content Include="Resources\taobaoke.items.xml" />
     <Content Include="Resources\taobaoke.listurl.xml" />
     <Content Include="Resources\taobaoke.shops.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
+    <None Include="Resources\prop.values.json" />
     <None Include="Resources\taobaoke.items.json" />
     <None Include="Resources\taobaoke.listurl.json" />
     <None Include="Resources\taobaoke.shops.json" />

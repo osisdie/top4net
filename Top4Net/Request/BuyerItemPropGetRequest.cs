@@ -11,19 +11,19 @@ namespace Taobao.Top.Api.Request
     public class BuyerItemPropGetRequest : ITopRequest
     {
         /// <summary>
-        /// 叶子类目id。
+        /// 叶子类目编号
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 类目属性ID，取类目属性需要传cid和pid。
+        /// 类目属性编号，取类目属性需要传cid和pid。
         /// </summary>
         public string Pid { get; set; }
 
         /// <summary>
         /// 类目子属性路径,由该子属性上层的类目属性和类目属性值组成,格式pid:vid;pid:vid.取类目子属性需要传child_path,cid。
         /// </summary>
-        public string ChildPath { get; set; }
+        public string ChildPropPath { get; set; }
 
         #region ITopRequest Members
 
@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("cid", this.Cid);
             parameters.Add("pid", this.Pid);
-            parameters.Add("child_path", this.ChildPath);
+            parameters.Add("child_path", this.ChildPropPath);
 
             return parameters;
         }

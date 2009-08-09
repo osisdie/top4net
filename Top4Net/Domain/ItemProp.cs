@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -106,8 +107,9 @@ namespace Taobao.Top.Api.Domain
         /// 属性值对象
         /// </summary>
         [JsonProperty("prop_values")]
-        [XmlElement("prop_values")]
-        public PropValue PropValue { get; set; }
+        [XmlArray("prop_values")]
+        [XmlArrayItem("prop_value")]
+        public List<PropValue> PropValueList { get; set; }
 
         /// <summary>
         /// 属性状态。可选值:normal(正常),deleted(删除) 

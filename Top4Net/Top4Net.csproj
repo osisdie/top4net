@@ -85,6 +85,7 @@
     <Compile Include="ITopClient.cs" />
     <Compile Include="Parser\DTopParser.cs" />
     <Compile Include="Parser\ItemJsonParser.cs" />
+    <Compile Include="Parser\ItemXmlParser.cs" />
     <Compile Include="Parser\ITopParser.cs" />
     <Compile Include="Parser\TaobaokeJsonParser.cs" />
     <Compile Include="Parser\TaobaokeXmlParser.cs" />

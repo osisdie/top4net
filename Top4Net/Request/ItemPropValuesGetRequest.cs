@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 增量时间戳，如果传1970-1-1 00:00:00，则取所有的属性和子属性值(状态为删除的属性值不返回prop_name)。
         /// </summary>
-        public string Datetime { get; set; }
+        public DateTime DateTime { get; set; }
 
         #region ITopRequest Members
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("cid", this.Cid);
             parameters.Add("pvs", this.Pvs);
-            parameters.Add("datetime", this.Datetime);
+            parameters.Add("datetime", this.DateTime.ToString(Constants.DATE_TIME_FORMAT));
 
             return parameters;
         }
