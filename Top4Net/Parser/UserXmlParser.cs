@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Xml.Serialization;
 
 using Taobao.Top.Api.Domain;
-using System.IO;
-using System.Collections.Generic;
 
 namespace Taobao.Top.Api.Parser
 {
@@ -17,16 +14,7 @@ namespace Taobao.Top.Api.Parser
         public User Parse(string body)
         {
             UserListXmlParser parser = new UserListXmlParser();
-            List<User> users = parser.Parse(body).Content;
-
-            if (users != null && users.Count > 0)
-            {
-                return users[0];
-            }
-            else
-            {
-                return null;
-            }
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion
@@ -41,11 +29,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<User> Parse(string body)
         {
-            XmlAttributeOverrides attrs = ResponseList<User>.GetOverrides("user");
-            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<User>), attrs);
-
-            object obj = serializer.Deserialize(new StringReader(body));
-            return obj as ResponseList<User>;
+            return ResponseList<User>.ParseXmlResponse("user", body);
         }
 
         #endregion

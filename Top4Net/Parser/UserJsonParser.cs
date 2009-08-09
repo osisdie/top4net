@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 using Taobao.Top.Api.Domain;
 
@@ -18,16 +14,7 @@ namespace Taobao.Top.Api.Parser
         public User Parse(string body)
         {
             UserListJsonParser parser = new UserListJsonParser();
-            List<User> users = parser.Parse(body).Content;
-
-            if (users != null && users.Count > 0)
-            {
-                return users[0];
-            }
-            else
-            {
-                return null;
-            }
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion
@@ -42,25 +29,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<User> Parse(string body)
         {
-            ResponseList<User> rspList = new ResponseList<User>();
-
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonUsers = jsonBody["rsp"]["users"] as JArray;
-            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
-
-            if (jsonUsers != null)
-            {
-                List<User> users = new List<User>();
-                for (int i = 0; i < jsonUsers.Count; i++)
-                {
-                    JsonSerializer js = new JsonSerializer();
-                    object user = js.Deserialize(jsonUsers[i].CreateReader(), typeof(User));
-                    users.Add(user as User);
-                }
-                rspList.Content = users;
-            }
-
-            return rspList;
+            return ResponseList<User>.ParseJsonResponse("users", body);
         }
 
         #endregion

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -34,6 +33,37 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
+    /// 淘宝客商品列表的JSON响应解释器。
+    /// </summary>
+    public class TaobaokeItemListJsonParser : ITopParser<ResponseList<TaobaokeItem>>
+    {
+        #region ITopParser<ResponseList<TaobaokeItem>> Members
+
+        public ResponseList<TaobaokeItem> Parse(string body)
+        {
+            return ResponseList<TaobaokeItem>.ParseJsonResponse("taobaokeItems", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 淘宝客商品的JSON响应解释器。
+    /// </summary>
+    public class TaobaokeItemJsonParser : ITopParser<TaobaokeItem>
+    {
+        #region ITopParser<TaobaokeItem> Members
+
+        public TaobaokeItem Parse(string body)
+        {
+            TaobaokeItemListJsonParser parser = new TaobaokeItemListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// 淘宝客店铺列表的JSON响应解释器。
     /// </summary>
     public class TaobaokeShopListJsonParser : ITopParser<ResponseList<TaobaokeShop>>
@@ -43,59 +73,23 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<TaobaokeShop> Parse(string body)
         {
-            ResponseList<TaobaokeShop> rspList = new ResponseList<TaobaokeShop>();
-
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonShops = jsonBody["rsp"]["taobaokeShops"] as JArray;
-            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
-
-            if (jsonShops != null)
-            {
-                List<TaobaokeShop> shops = new List<TaobaokeShop>();
-                for (int i = 0; i < jsonShops.Count; i++)
-                {
-                    JsonSerializer js = new JsonSerializer();
-                    object shop = js.Deserialize(jsonShops[i].CreateReader(), typeof(TaobaokeShop));
-                    shops.Add(shop as TaobaokeShop);
-                }
-                rspList.Content = shops;
-            }
-
-            return rspList;
+            return ResponseList<TaobaokeShop>.ParseJsonResponse("taobaokeShops", body);
         }
 
         #endregion
     }
 
     /// <summary>
-    /// 淘宝客商品列表的JSON响应解释器。
+    /// 淘宝客店铺的JSON响应解释器。
     /// </summary>
-    public class TaobaokeItemListJsonParser : ITopParser<ResponseList<TaobaokeItem>>
+    public class TaobaokeShopJsonParser : ITopParser<TaobaokeShop>
     {
-        #region ITopParser<ResponseList<TaobaokeItem>> Members
+        #region ITopParser<TaobaokeShop> Members
 
-        public ResponseList<TaobaokeItem> Parse(string body)
+        public TaobaokeShop Parse(string body)
         {
-            ResponseList<TaobaokeItem> rspList = new ResponseList<TaobaokeItem>();
-
-
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonItems = jsonBody["rsp"]["taobaokeItems"] as JArray;
-            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
-
-            if (jsonItems != null)
-            {
-                List<TaobaokeItem> items = new List<TaobaokeItem>();
-                for (int i = 0; i < jsonItems.Count; i++)
-                {
-                    JsonSerializer js = new JsonSerializer();
-                    object item = js.Deserialize(jsonItems[i].CreateReader(), typeof(TaobaokeItem));
-                    items.Add(item as TaobaokeItem);
-                }
-                rspList.Content = items;
-            }
-
-            return rspList;
+            TaobaokeShopListJsonParser parser = new TaobaokeShopListJsonParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion

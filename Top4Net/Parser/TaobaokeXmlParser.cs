@@ -1,8 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Xml;
-using System.Xml.Serialization;
-using System.Collections.Generic;
 
 using Taobao.Top.Api.Domain;
 
@@ -36,30 +33,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<TaobaokeItem> Parse(string body)
         {
-            XmlAttributeOverrides attrs = ResponseList<TaobaokeItem>.GetOverrides("taobaokeItem");
-            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeItem>), attrs);
-
-            object obj = serializer.Deserialize(new StringReader(body));
-            return obj as ResponseList<TaobaokeItem>;
-        }
-
-        #endregion
-    }
-
-    /// <summary>
-    /// 淘宝客店铺列表的XML响应解释器。
-    /// </summary>
-    public class TaobaokeShopListXmlParser : ITopParser<ResponseList<TaobaokeShop>>
-    {
-        #region ITopParser<ResponseList<TaobaokeShop>> Members
-
-        public ResponseList<TaobaokeShop> Parse(string body)
-        {
-            XmlAttributeOverrides attrs = ResponseList<TaobaokeShop>.GetOverrides("taobaokeShop");
-            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeShop>), attrs);
-
-            object obj = serializer.Deserialize(new StringReader(body));
-            return obj as ResponseList<TaobaokeShop>;
+            return ResponseList<TaobaokeItem>.ParseXmlResponse("taobaokeItem", body);
         }
 
         #endregion
@@ -75,16 +49,38 @@ namespace Taobao.Top.Api.Parser
         public TaobaokeItem Parse(string body)
         {
             TaobaokeItemListXmlParser parser = new TaobaokeItemListXmlParser();
-            List<TaobaokeItem> items = parser.Parse(body).Content;
+            return parser.Parse(body).GetFirst();
+        }
 
-            if (items != null && items.Count > 0)
-            {
-                return items[0];
-            }
-            else
-            {
-                return null;
-            }
+        #endregion
+    }
+
+    /// <summary>
+    /// 淘宝客店铺列表的XML响应解释器。
+    /// </summary>
+    public class TaobaokeShopListXmlParser : ITopParser<ResponseList<TaobaokeShop>>
+    {
+        #region ITopParser<ResponseList<TaobaokeShop>> Members
+
+        public ResponseList<TaobaokeShop> Parse(string body)
+        {
+            return ResponseList<TaobaokeShop>.ParseXmlResponse("taobaokeShop", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 淘宝客店铺的XML响应解释器。
+    /// </summary>
+    public class TaobaokeShopXmlParser : ITopParser<TaobaokeShop>
+    {
+        #region ITopParser<TaobaokeShop> Members
+
+        public TaobaokeShop Parse(string body)
+        {
+            TaobaokeShopListXmlParser parser = new TaobaokeShopListXmlParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion

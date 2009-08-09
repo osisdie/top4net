@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 using Taobao.Top.Api.Domain;
 
@@ -18,16 +14,7 @@ namespace Taobao.Top.Api.Parser
         public Product Parse(string body)
         {
             ITopParser<ResponseList<Product>> parser = new ProductListJsonParser();
-            List<Product> products = parser.Parse(body).Content;
-
-            if (products != null && products.Count > 0)
-            {
-                return products[0];
-            }
-            else
-            {
-                return null;
-            }
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion
@@ -43,25 +30,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<Product> Parse(string body)
         {
-            ResponseList<Product> rspList = new ResponseList<Product>();
-
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonProducts = jsonBody["rsp"]["products"] as JArray;
-            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
-
-            if (jsonProducts != null)
-            {
-                List<Product> products = new List<Product>();
-                for (int i = 0; i < jsonProducts.Count; i++)
-                {
-                    JsonSerializer js = new JsonSerializer();
-                    object product = js.Deserialize(jsonProducts[i].CreateReader(), typeof(Product));
-                    products.Add(product as Product);
-                }
-                rspList.Content = products;
-            }
-
-            return rspList;
+            return ResponseList<Product>.ParseJsonResponse("products", body);
         }
 
         #endregion
@@ -76,22 +45,23 @@ namespace Taobao.Top.Api.Parser
 
         public ProductImg Parse(string body)
         {
-            List<ProductImg> productImgs = new List<ProductImg>();
+            ProductImgListJsonParser parser = new ProductImgListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
 
-            JObject jsonBody = JObject.Parse(body);
-            JArray jsonProductImgs = jsonBody["rsp"]["productImgs"] as JArray;
+        #endregion
+    }
 
-            if (jsonProductImgs != null)
-            {
-                for (int i = 0; i < jsonProductImgs.Count; i++)
-                {
-                    JsonSerializer js = new JsonSerializer();
-                    object productImg = js.Deserialize(jsonProductImgs[i].CreateReader(), typeof(ProductImg));
-                    productImgs.Add(productImg as ProductImg);
-                }
-            }
+    /// <summary>
+    /// 产品图片列表的JSON响应解释器。
+    /// </summary>
+    public class ProductImgListJsonParser : ITopParser<ResponseList<ProductImg>>
+    {
+        #region ITopParser<ResponseList<ProductImg>> Members
 
-            return productImgs.Count == 0 ? null : productImgs[0];
+        public ResponseList<ProductImg> Parse(string body)
+        {
+            return ResponseList<ProductImg>.ParseJsonResponse("productImgs", body);
         }
 
         #endregion

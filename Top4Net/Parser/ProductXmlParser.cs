@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Xml.Serialization;
-using System.Collections.Generic;
 
 using Taobao.Top.Api.Domain;
 
@@ -16,12 +13,8 @@ namespace Taobao.Top.Api.Parser
 
         public Product Parse(string body)
         {
-            XmlAttributeOverrides attrs = Response<Product>.GetOverrides("product");
-            XmlSerializer serializer = new XmlSerializer(typeof(Response<Product>), attrs);
-
-            object obj = serializer.Deserialize(new StringReader(body));
-            Response<Product> rsp = obj as Response<Product>;
-            return rsp == null ? null : rsp.Content;
+            ProductListXmlParser parser = new ProductListXmlParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion
@@ -36,11 +29,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<Product> Parse(string body)
         {
-            XmlAttributeOverrides attrs = ResponseList<Product>.GetOverrides("product");
-            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<Product>), attrs);
-
-            object obj = serializer.Deserialize(new StringReader(body));
-            return obj as ResponseList<Product>;
+            return ResponseList<Product>.ParseXmlResponse("product", body);
         }
 
         #endregion
@@ -55,12 +44,24 @@ namespace Taobao.Top.Api.Parser
 
         public ProductImg Parse(string body)
         {
-            XmlAttributeOverrides attrs = Response<ProductImg>.GetOverrides("productImg");
-            XmlSerializer serializer = new XmlSerializer(typeof(Response<ProductImg>), attrs);
+            ProductImgListXmlParser parser = new ProductImgListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
 
-            object obj = serializer.Deserialize(new StringReader(body));
-            Response<ProductImg> rsp = obj as Response<ProductImg>;
-            return rsp == null ? null : rsp.Content;
+        #endregion
+    }
+
+    /// <summary>
+    /// 产品图片列表的XML响应解释器。
+    /// </summary>
+    public class ProductImgListXmlParser : ITopParser<ResponseList<ProductImg>>
+    {
+
+        #region ITopParser<ResponseList<ProductImg>> Members
+
+        public ResponseList<ProductImg> Parse(string body)
+        {
+            return ResponseList<ProductImg>.ParseXmlResponse("productImg", body);
         }
 
         #endregion
