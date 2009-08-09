@@ -103,21 +103,20 @@ namespace Taobao.Top.Api.Test
             request.Image = TestUtils.GetResourceAsFile("product.jpg");
 
             ITopRequest proxy = new TopRequestProxy(request, "b2ctest125");
-            List<Product> products = client.Execute(proxy, new ProductListJsonParser());
+            Product product = client.Execute(proxy, new ProductJsonParser());
         }
 
         //[TestMethod]
         public void UploadProductImage()
         {
-            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductImgUploadRequest request = new ProductImgUploadRequest();
             request.ProductId = "203940";
             request.Image = TestUtils.GetResourceAsFile("product.jpg");
             request.Position = "7";
 
             ITopRequest proxy = new TopRequestProxy(request, "admin");
-            string response = client.Execute(proxy, new StringParser());
-            Console.WriteLine(response);
+            ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());
         }
     }
 }

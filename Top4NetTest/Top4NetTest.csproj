@@ -69,11 +69,12 @@
   <ItemGroup>
     <None Include="Resources\item.cats.json" />
     <None Include="Resources\item.props.json" />
+    <None Include="Resources\items.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
-    <Content Include="Resources\aa.xml" />
     <Content Include="Resources\item.cats.xml" />
     <Content Include="Resources\item.props.xml" />
+    <Content Include="Resources\items.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />

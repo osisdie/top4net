@@ -33,11 +33,11 @@ namespace Taobao.Top.Api.Parser
     {
         public List<TaobaokeItem> Parse(string body)
         {
-            TopListResponse<TaobaokeItem> topRsp = new TopListResponse<TaobaokeItem>("taobaokeItem");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<TaobaokeItem>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<TaobaokeItem>.GetOverrides("taobaokeItem");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeItem>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<TaobaokeItem> rsp = obj as TopListResponse<TaobaokeItem>;
+            ResponseList<TaobaokeItem> rsp = obj as ResponseList<TaobaokeItem>;
             return rsp == null ? null : rsp.Content;
         }
     }
@@ -51,11 +51,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<TaobaokeShop> Parse(string body)
         {
-            TopListResponse<TaobaokeShop> topRsp = new TopListResponse<TaobaokeShop>("taobaokeShop");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<TaobaokeShop>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<TaobaokeShop>.GetOverrides("taobaokeShop");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeShop>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<TaobaokeShop> rsp = obj as TopListResponse<TaobaokeShop>;
+            ResponseList<TaobaokeShop> rsp = obj as ResponseList<TaobaokeShop>;
             return rsp == null ? null : rsp.Content;
         }
 

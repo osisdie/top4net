@@ -146,5 +146,18 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsNotNull(rsp);
             Assert.AreEqual(43, rsp.PropValueList.Count);
         }
+
+        [TestMethod]
+        public void GetItemsByJson()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            ItemsGetRequest req = new ItemsGetRequest();
+            req.Fields = "iid,title,nick,pic_path,cid,price,type,location.city,delist_time,post_fee";
+            req.Query = "N73";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            string rsp = client.Execute(req, new StringParser());
+            Console.WriteLine(rsp);
+        }
     }
 }

@@ -16,11 +16,11 @@ namespace Taobao.Top.Api.Parser
 
         public Product Parse(string body)
         {
-            TopResponse<Product> topRsp = new TopResponse<Product>("product");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopResponse<Product>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = Response<Product>.GetOverrides("product");
+            XmlSerializer serializer = new XmlSerializer(typeof(Response<Product>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopResponse<Product> rsp = obj as TopResponse<Product>;
+            Response<Product> rsp = obj as Response<Product>;
             return rsp == null ? null : rsp.Content;
         }
 
@@ -36,11 +36,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<Product> Parse(string body)
         {
-            TopListResponse<Product> topRsp = new TopListResponse<Product>("product");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<Product>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<Product>.GetOverrides("product");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<Product>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<Product> rsp = obj as TopListResponse<Product>;
+            ResponseList<Product> rsp = obj as ResponseList<Product>;
             return rsp == null ? null : rsp.Content;
         }
 
@@ -56,11 +56,11 @@ namespace Taobao.Top.Api.Parser
 
         public ProductImg Parse(string body)
         {
-            TopResponse<ProductImg> topRsp = new TopResponse<ProductImg>("productImg");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopResponse<ProductImg>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = Response<ProductImg>.GetOverrides("productImg");
+            XmlSerializer serializer = new XmlSerializer(typeof(Response<ProductImg>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopResponse<ProductImg> rsp = obj as TopResponse<ProductImg>;
+            Response<ProductImg> rsp = obj as Response<ProductImg>;
             return rsp == null ? null : rsp.Content;
         }
 

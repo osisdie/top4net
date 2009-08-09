@@ -16,11 +16,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<ItemProp> Parse(string body)
         {
-            TopListResponse<ItemProp> topRsp = new TopListResponse<ItemProp>("item_prop");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<ItemProp>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<ItemProp>.GetOverrides("item_prop");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<ItemProp>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<ItemProp> rsp = obj as TopListResponse<ItemProp>;
+            ResponseList<ItemProp> rsp = obj as ResponseList<ItemProp>;
             return rsp == null ? null : rsp.Content;
         }
 
@@ -61,11 +61,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<ItemCategory> Parse(string body)
         {
-            TopListResponse<ItemCategory> topRsp = new TopListResponse<ItemCategory>("item_cat");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<ItemCategory>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<ItemCategory>.GetOverrides("item_cat");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<ItemCategory>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<ItemCategory> rsp = obj as TopListResponse<ItemCategory>;
+            ResponseList<ItemCategory> rsp = obj as ResponseList<ItemCategory>;
             return rsp == null ? null : rsp.Content;
         }
 
@@ -81,11 +81,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<PropValue> Parse(string body)
         {
-            TopListResponse<PropValue> topRsp = new TopListResponse<PropValue>("prop_value");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<PropValue>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<PropValue>.GetOverrides("prop_value");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<PropValue>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<PropValue> rsp = obj as TopListResponse<PropValue>;
+            ResponseList<PropValue> rsp = obj as ResponseList<PropValue>;
             return rsp == null ? null : rsp.Content;
         }
 

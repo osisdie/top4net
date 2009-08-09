@@ -16,11 +16,11 @@ namespace Taobao.Top.Api.Parser
 
         public User Parse(string body)
         {
-            TopResponse<User> topRsp = new TopResponse<User>("user");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopResponse<User>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = Response<User>.GetOverrides("user");
+            XmlSerializer serializer = new XmlSerializer(typeof(Response<User>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopResponse<User> rsp = obj as TopResponse<User>;
+            Response<User> rsp = obj as Response<User>;
             return rsp == null ? null : rsp.Content;
         }
 
@@ -36,11 +36,11 @@ namespace Taobao.Top.Api.Parser
 
         public List<User> Parse(string body)
         {
-            TopListResponse<User> topRsp = new TopListResponse<User>("user");
-            XmlSerializer serializer = new XmlSerializer(typeof(TopListResponse<User>), topRsp.GetOverrides());
+            XmlAttributeOverrides attrs = ResponseList<User>.GetOverrides("user");
+            XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<User>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            TopListResponse<User> rsp = obj as TopListResponse<User>;
+            ResponseList<User> rsp = obj as ResponseList<User>;
             return rsp == null ? null : rsp.Content;
         }
 

@@ -2,6 +2,8 @@
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
@@ -10,24 +12,20 @@ namespace Taobao.Top.Api.Domain
     /// <typeparam name="T">任何一种可序列化的领域对象列表</typeparam>
     [Serializable]
     [XmlRoot("rsp")]
-    public class TopListResponse<T>
+    public class ResponseList<T>
     {
-        private string element;
+        [JsonProperty("totalResults")]
+        [XmlElement("totalResults")]
+        public long TotalResults { get; set; }
+
         public List<T> Content { get; set; }
 
-        public TopListResponse() { }
-
-        public TopListResponse(string element)
-        {
-            this.element = element;
-        }
-
-        public XmlAttributeOverrides GetOverrides()
+        public static XmlAttributeOverrides GetOverrides(string element)
         {
             XmlAttributes attrs = new XmlAttributes();
-            attrs.XmlElements.Add(new XmlElementAttribute(this.element, typeof(T)));
+            attrs.XmlElements.Add(new XmlElementAttribute(element, typeof(T)));
             XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
-            attrOvrs.Add(typeof(TopListResponse<T>), "Content", attrs);
+            attrOvrs.Add(typeof(ResponseList<T>), "Content", attrs);
             return attrOvrs;
         }
     }

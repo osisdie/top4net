@@ -16,39 +16,39 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索字段.q,cid,nicks,props,product_id中至少要一个。
+        /// 搜索字段。q,cid,nicks,props,product_id中至少要一个。
         /// </summary>
         public string Query { get; set; }
 
         /// <summary>
-        /// 卖家昵称列表,逗号分隔(目前最多支持5个卖家昵称，格式为nick1,nick2,nick3…). Q,cid,nicks,props,product_id中至少要一个。
+        /// 卖家昵称列表,逗号分隔(目前最多支持5个卖家昵称，格式为nick1,nick2,nick3…). q,cid,nicks,props,product_id中至少要一个。
         /// </summary>
         public string Nicks { get; set; }
 
         /// <summary>
-        /// 商品所属类目Id. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品所属类目编号。q,cid,nicks,props,product_id中至少要一个。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 商品最低价格. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品最低价格。q,cid,nicks,props,product_id中至少要一个。
         /// </summary>
         public string StartPrice { get; set; }
 
         /// <summary>
-        /// 商品最高价格. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品最高价格。q,cid,nicks,props,product_id中至少要一个。
         /// </summary>
         public string EndPrice { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         /// <summary>
         /// 排序方式.格式为column:asc/desc,column可选值为: price, delist_time, seller_credit.如price:asc表示按价格升序排列. 没有这个参数表示按默认排序方式。
@@ -61,7 +61,7 @@ namespace Taobao.Top.Api.Request
         public string Props { get; set; }
 
         /// <summary>
-        /// 可以根据产品Id搜索属于这个spu的商品。
+        /// 可以根据产品编号搜索属于这个spu的商品。
         /// </summary>
         public string ProductId { get; set; }
 
@@ -102,8 +102,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("start_price", this.StartPrice);
             parameters.Add("end_price", this.EndPrice);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
             parameters.Add("order_by", this.OrderBy);
             parameters.Add("props", this.Props);
             parameters.Add("product_id", this.ProductId);

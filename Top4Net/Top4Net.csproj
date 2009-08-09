@@ -76,8 +76,8 @@
     <Compile Include="Domain\TaobaokeReport.cs" />
     <Compile Include="Domain\TaobaokeReportMember.cs" />
     <Compile Include="Domain\TaobaokeShop.cs" />
-    <Compile Include="Domain\TopListResponse.cs" />
-    <Compile Include="Domain\TopResponse.cs" />
+    <Compile Include="Domain\ResponseList.cs" />
+    <Compile Include="Domain\Response.cs" />
     <Compile Include="Domain\Trade.cs" />
     <Compile Include="Domain\TradeConfirmFee.cs" />
     <Compile Include="Domain\TradeRate.cs" />
@@ -87,11 +87,13 @@
     <Compile Include="Parser\ItemJsonParser.cs" />
     <Compile Include="Parser\ItemXmlParser.cs" />
     <Compile Include="Parser\ITopParser.cs" />
+    <Compile Include="Parser\MiscJsonParser.cs" />
     <Compile Include="Parser\TaobaokeJsonParser.cs" />
     <Compile Include="Parser\TaobaokeXmlParser.cs" />
     <Compile Include="Parser\ProductJsonParser.cs" />
     <Compile Include="Parser\ProductXmlParser.cs" />
     <Compile Include="Parser\StringParser.cs" />
+    <Compile Include="Parser\MiscXmlParser.cs" />
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
