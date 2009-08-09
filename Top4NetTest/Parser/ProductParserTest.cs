@@ -16,9 +16,10 @@ namespace Taobao.Top.Api.Test
         {
             ProductListJsonParser parser = new ProductListJsonParser();
             string body = TestUtils.GetResourceAsText("products.json");
-            List<Product> products = parser.Parse(body);
-            Assert.AreEqual(2, products.Count);
-            AssertProduct(products);
+            ResponseList<Product> products = parser.Parse(body);
+            Assert.AreEqual(919, products.TotalResults);
+            Assert.AreEqual(2, products.Content.Count);
+            AssertProduct(products.Content);
         }
 
         [TestMethod]
@@ -26,9 +27,10 @@ namespace Taobao.Top.Api.Test
         {
             ProductListXmlParser parser = new ProductListXmlParser();
             string body = TestUtils.GetResourceAsText("products.xml");
-            List<Product> products = parser.Parse(body);
-            Assert.AreEqual(2, products.Count);
-            AssertProduct(products);
+            ResponseList<Product> products = parser.Parse(body);
+            Assert.AreEqual(919, products.TotalResults);
+            Assert.AreEqual(2, products.Content.Count);
+            AssertProduct(products.Content);
         }
 
         [TestMethod]

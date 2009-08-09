@@ -29,34 +29,37 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 淘宝客商品列表的XML响应解释器。
     /// </summary>
-    public class TaobaokeItemListXmlParser : ITopParser<List<TaobaokeItem>>
+    public class TaobaokeItemListXmlParser : ITopParser<ResponseList<TaobaokeItem>>
     {
-        public List<TaobaokeItem> Parse(string body)
+
+        #region ITopParser<ResponseList<TaobaokeItem>> Members
+
+        public ResponseList<TaobaokeItem> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<TaobaokeItem>.GetOverrides("taobaokeItem");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeItem>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<TaobaokeItem> rsp = obj as ResponseList<TaobaokeItem>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<TaobaokeItem>;
         }
+
+        #endregion
     }
 
     /// <summary>
     /// 淘宝客店铺列表的XML响应解释器。
     /// </summary>
-    public class TaobaokeShopListXmlParser : ITopParser<List<TaobaokeShop>>
+    public class TaobaokeShopListXmlParser : ITopParser<ResponseList<TaobaokeShop>>
     {
-        #region ITopParser<List<TaobaokeShop>> Members
+        #region ITopParser<ResponseList<TaobaokeShop>> Members
 
-        public List<TaobaokeShop> Parse(string body)
+        public ResponseList<TaobaokeShop> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<TaobaokeShop>.GetOverrides("taobaokeShop");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<TaobaokeShop>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<TaobaokeShop> rsp = obj as ResponseList<TaobaokeShop>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<TaobaokeShop>;
         }
 
         #endregion
@@ -72,7 +75,7 @@ namespace Taobao.Top.Api.Parser
         public TaobaokeItem Parse(string body)
         {
             TaobaokeItemListXmlParser parser = new TaobaokeItemListXmlParser();
-            List<TaobaokeItem> items = parser.Parse(body);
+            List<TaobaokeItem> items = parser.Parse(body).Content;
 
             if (items != null && items.Count > 0)
             {

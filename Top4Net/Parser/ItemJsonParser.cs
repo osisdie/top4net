@@ -11,28 +11,31 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 商品属性列表的JSON响应解释器。
     /// </summary>
-    public class ItemPropListJsonParser : ITopParser<List<ItemProp>>
+    public class ItemPropListJsonParser : ITopParser<ResponseList<ItemProp>>
     {
-        #region ITopParser<ItemProp> Members
+        #region ITopParser<ResponseList<ItemProp>> Members
 
-        public List<ItemProp> Parse(string body)
+        public ResponseList<ItemProp> Parse(string body)
         {
-            List<ItemProp> props = new List<ItemProp>();
+            ResponseList<ItemProp> rspList = new ResponseList<ItemProp>();
 
             JObject jsonBody = JObject.Parse(body);
             JArray jsonProps = jsonBody["rsp"]["item_props"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
             if (jsonProps != null)
             {
+                List<ItemProp> props = new List<ItemProp>();
                 for (int i = 0; i < jsonProps.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
                     object prop = js.Deserialize(jsonProps[i].CreateReader(), typeof(ItemProp));
                     props.Add(prop as ItemProp);
                 }
+                rspList.Content = props;
             }
 
-            return props;
+            return rspList;
         }
 
         #endregion
@@ -48,7 +51,7 @@ namespace Taobao.Top.Api.Parser
         public ItemProp Parse(string body)
         {
             ItemPropListJsonParser parser = new ItemPropListJsonParser();
-            List<ItemProp> props = parser.Parse(body);
+            List<ItemProp> props = parser.Parse(body).Content;
 
             if (props != null && props.Count > 0)
             {
@@ -66,28 +69,31 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 商品类目列表的JSON响应解释器。
     /// </summary>
-    public class ItemCatListJsonParser : ITopParser<List<ItemCategory>>
+    public class ItemCatListJsonParser : ITopParser<ResponseList<ItemCategory>>
     {
-        #region ITopParser<List<ItemCategory>> Members
+        #region ITopParser<ResponseList<ItemCategory>> Members
 
-        public List<ItemCategory> Parse(string body)
+        public ResponseList<ItemCategory> Parse(string body)
         {
-            List<ItemCategory> props = new List<ItemCategory>();
+            ResponseList<ItemCategory> rspList = new ResponseList<ItemCategory>();
 
             JObject jsonBody = JObject.Parse(body);
             JArray jsonProps = jsonBody["rsp"]["item_cats"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
             if (jsonProps != null)
             {
+                List<ItemCategory> props = new List<ItemCategory>();
                 for (int i = 0; i < jsonProps.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
                     object prop = js.Deserialize(jsonProps[i].CreateReader(), typeof(ItemCategory));
                     props.Add(prop as ItemCategory);
                 }
+                rspList.Content = props;
             }
 
-            return props;
+            return rspList;
         }
 
         #endregion
@@ -96,28 +102,32 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 属性值列表的JSON响应解释器。
     /// </summary>
-    public class PropValueListJsonParser : ITopParser<List<PropValue>>
+    public class PropValueListJsonParser : ITopParser<ResponseList<PropValue>>
     {
-        #region ITopParser<List<PropValue>> Members
+        #region ITopParser<ResponseList<PropValue>> Members
 
-        public List<PropValue> Parse(string body)
+        public ResponseList<PropValue> Parse(string body)
         {
-            List<PropValue> values = new List<PropValue>();
+            ResponseList<PropValue> rspList = new ResponseList<PropValue>();
+
 
             JObject jsonBody = JObject.Parse(body);
             JArray jsonProps = jsonBody["rsp"]["prop_values"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
             if (jsonProps != null)
             {
+                List<PropValue> values = new List<PropValue>();
                 for (int i = 0; i < jsonProps.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
                     object value = js.Deserialize(jsonProps[i].CreateReader(), typeof(PropValue));
                     values.Add(value as PropValue);
                 }
+                rspList.Content = values;
             }
 
-            return values;
+            return rspList;
         }
 
         #endregion

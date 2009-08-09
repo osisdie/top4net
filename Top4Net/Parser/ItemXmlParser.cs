@@ -10,18 +10,17 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 商品属性列表的XML响应解释器。
     /// </summary>
-    public class ItemPropListXmlParser : ITopParser<List<ItemProp>>
+    public class ItemPropListXmlParser : ITopParser<ResponseList<ItemProp>>
     {
-        #region ITopParser<List<ItemProp>> Members
+        #region ITopParser<ResponseList<ItemProp>> Members
 
-        public List<ItemProp> Parse(string body)
+        public ResponseList<ItemProp> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<ItemProp>.GetOverrides("item_prop");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<ItemProp>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<ItemProp> rsp = obj as ResponseList<ItemProp>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<ItemProp>;
         }
 
         #endregion
@@ -37,7 +36,7 @@ namespace Taobao.Top.Api.Parser
         public ItemProp Parse(string body)
         {
             ItemPropListXmlParser parser = new ItemPropListXmlParser();
-            List<ItemProp> props = parser.Parse(body);
+            List<ItemProp> props = parser.Parse(body).Content;
 
             if (props != null && props.Count > 0)
             {
@@ -55,18 +54,17 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 商品类目列表的XML响应解释器。
     /// </summary>
-    public class ItemCatListXmlParser : ITopParser<List<ItemCategory>>
+    public class ItemCatListXmlParser : ITopParser<ResponseList<ItemCategory>>
     {
-        #region ITopParser<List<ItemCategory>> Members
+        #region ITopParser<ResponseList<ItemCategory>> Members
 
-        public List<ItemCategory> Parse(string body)
+        public ResponseList<ItemCategory> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<ItemCategory>.GetOverrides("item_cat");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<ItemCategory>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<ItemCategory> rsp = obj as ResponseList<ItemCategory>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<ItemCategory>;
         }
 
         #endregion
@@ -75,18 +73,17 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 属性值列表的XML响应解释器。
     /// </summary>
-    public class PropValueListXmlParser : ITopParser<List<PropValue>>
+    public class PropValueListXmlParser : ITopParser<ResponseList<PropValue>>
     {
-        #region ITopParser<List<PropValue>> Members
+        #region ITopParser<ResponseList<PropValue>> Members
 
-        public List<PropValue> Parse(string body)
+        public ResponseList<PropValue> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<PropValue>.GetOverrides("prop_value");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<PropValue>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<PropValue> rsp = obj as ResponseList<PropValue>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<PropValue>;
         }
 
         #endregion

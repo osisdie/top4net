@@ -36,29 +36,32 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 淘宝客店铺列表的JSON响应解释器。
     /// </summary>
-    public class TaobaokeShopListJsonParser : ITopParser<List<TaobaokeShop>>
+    public class TaobaokeShopListJsonParser : ITopParser<ResponseList<TaobaokeShop>>
     {
 
-        #region ITopParser<List<TaobaokeShop>> Members
+        #region ITopParser<ResponseList<TaobaokeShop>> Members
 
-        public List<TaobaokeShop> Parse(string body)
+        public ResponseList<TaobaokeShop> Parse(string body)
         {
-            List<TaobaokeShop> shops = new List<TaobaokeShop>();
+            ResponseList<TaobaokeShop> rspList = new ResponseList<TaobaokeShop>();
 
             JObject jsonBody = JObject.Parse(body);
             JArray jsonShops = jsonBody["rsp"]["taobaokeShops"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
             if (jsonShops != null)
             {
+                List<TaobaokeShop> shops = new List<TaobaokeShop>();
                 for (int i = 0; i < jsonShops.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
                     object shop = js.Deserialize(jsonShops[i].CreateReader(), typeof(TaobaokeShop));
                     shops.Add(shop as TaobaokeShop);
                 }
+                rspList.Content = shops;
             }
 
-            return shops;
+            return rspList;
         }
 
         #endregion
@@ -67,28 +70,32 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 淘宝客商品列表的JSON响应解释器。
     /// </summary>
-    public class TaobaokeItemListJsonParser : ITopParser<List<TaobaokeItem>>
+    public class TaobaokeItemListJsonParser : ITopParser<ResponseList<TaobaokeItem>>
     {
-        #region ITopParser<List<TaobaokeItem>> Members
+        #region ITopParser<ResponseList<TaobaokeItem>> Members
 
-        public List<TaobaokeItem> Parse(string body)
+        public ResponseList<TaobaokeItem> Parse(string body)
         {
-            List<TaobaokeItem> taobaokeItems = new List<TaobaokeItem>();
+            ResponseList<TaobaokeItem> rspList = new ResponseList<TaobaokeItem>();
+
 
             JObject jsonBody = JObject.Parse(body);
-            JArray jsonTaobaokeItems = jsonBody["rsp"]["taobaokeItems"] as JArray;
+            JArray jsonItems = jsonBody["rsp"]["taobaokeItems"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
-            if (jsonTaobaokeItems != null)
+            if (jsonItems != null)
             {
-                for (int i = 0; i < jsonTaobaokeItems.Count; i++)
+                List<TaobaokeItem> items = new List<TaobaokeItem>();
+                for (int i = 0; i < jsonItems.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
-                    object taobaokeItem = js.Deserialize(jsonTaobaokeItems[i].CreateReader(), typeof(TaobaokeItem));
-                    taobaokeItems.Add(taobaokeItem as TaobaokeItem);
+                    object item = js.Deserialize(jsonItems[i].CreateReader(), typeof(TaobaokeItem));
+                    items.Add(item as TaobaokeItem);
                 }
+                rspList.Content = items;
             }
 
-            return taobaokeItems;
+            return rspList;
         }
 
         #endregion

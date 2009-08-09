@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+
+using Taobao.Top.Api.Domain;
 
 namespace Taobao.Top.Api.Parser
 {
-    class MiscJsonParser
-    {
-    }
 }

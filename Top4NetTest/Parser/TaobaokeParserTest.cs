@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             TaobaokeItemListJsonParser parser = new TaobaokeItemListJsonParser();
             string body = TestUtils.GetResourceAsText("taobaoke.items.json");
-            List<TaobaokeItem> items = parser.Parse(body);
+            List<TaobaokeItem> items = parser.Parse(body).Content;
             Assert.AreEqual(2, items.Count);
             AssertTaobaokeItem(items[0]);
         }
@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             TaobaokeItemListXmlParser parser = new TaobaokeItemListXmlParser();
             string body = TestUtils.GetResourceAsText("taobaoke.items.xml");
-            List<TaobaokeItem> items = parser.Parse(body);
+            List<TaobaokeItem> items = parser.Parse(body).Content;
             Assert.AreEqual(2, items.Count);
             AssertTaobaokeItem(items[0]);
         }
@@ -50,7 +50,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             TaobaokeShopListJsonParser parser = new TaobaokeShopListJsonParser();
             string body = TestUtils.GetResourceAsText("taobaoke.shops.json");
-            List<TaobaokeShop> shops = parser.Parse(body);
+            List<TaobaokeShop> shops = parser.Parse(body).Content;
             Assert.AreEqual(3, shops.Count);
             AssertTaobaokeShop(shops[0]);
         }
@@ -60,7 +60,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             TaobaokeShopListXmlParser parser = new TaobaokeShopListXmlParser();
             string body = TestUtils.GetResourceAsText("taobaoke.shops.xml");
-            List<TaobaokeShop> shops = parser.Parse(body);
+            List<TaobaokeShop> shops = parser.Parse(body).Content;
             Assert.AreEqual(3, shops.Count);
             AssertTaobaokeShop(shops[0]);
         }

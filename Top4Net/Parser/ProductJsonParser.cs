@@ -17,8 +17,8 @@ namespace Taobao.Top.Api.Parser
 
         public Product Parse(string body)
         {
-            ITopParser<List<Product>> parser = new ProductListJsonParser();
-            List<Product> products = parser.Parse(body);
+            ITopParser<ResponseList<Product>> parser = new ProductListJsonParser();
+            List<Product> products = parser.Parse(body).Content;
 
             if (products != null && products.Count > 0)
             {
@@ -37,28 +37,31 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 产品列表的JSON响应解释器。
     /// </summary>
-    public class ProductListJsonParser : ITopParser<List<Product>>
+    public class ProductListJsonParser : ITopParser<ResponseList<Product>>
     {
-        #region ITopParser<List<Product>> Members
+        #region ITopParser<ResponseList<Product>> Members
 
-        public List<Product> Parse(string body)
+        public ResponseList<Product> Parse(string body)
         {
-            List<Product> products = new List<Product>();
+            ResponseList<Product> rspList = new ResponseList<Product>();
 
             JObject jsonBody = JObject.Parse(body);
             JArray jsonProducts = jsonBody["rsp"]["products"] as JArray;
+            rspList.TotalResults = jsonBody["rsp"].Value<long>("totalResults");
 
             if (jsonProducts != null)
             {
+                List<Product> products = new List<Product>();
                 for (int i = 0; i < jsonProducts.Count; i++)
                 {
                     JsonSerializer js = new JsonSerializer();
                     object product = js.Deserialize(jsonProducts[i].CreateReader(), typeof(Product));
                     products.Add(product as Product);
                 }
+                rspList.Content = products;
             }
 
-            return products;
+            return rspList;
         }
 
         #endregion

@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Test
             request.Query = "N73";
             request.PageNo = "1";
             request.PageSize = "3";
-            List<Product> products = client.Execute(request, new ProductListJsonParser());
+            List<Product> products = client.Execute(request, new ProductListJsonParser()).Content;
 
             Assert.AreEqual(3, products.Count);
         }
@@ -35,7 +35,7 @@ namespace Taobao.Top.Api.Test
             request.Query = "N73";
             request.PageNo = "2";
             request.PageSize = "5";
-            List<Product> products = client.Execute(request, new ProductListXmlParser());
+            List<Product> products = client.Execute(request, new ProductListXmlParser()).Content;
 
             Assert.AreEqual(5, products.Count);
         }
@@ -73,7 +73,7 @@ namespace Taobao.Top.Api.Test
             ProductsGetRequest request = new ProductsGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
             request.Nick = "驴友之家";
-            List<Product> products = client.Execute(request, new ProductListJsonParser());
+            List<Product> products = client.Execute(request, new ProductListJsonParser()).Content;
 
             Assert.AreEqual(1, products.Count);
         }
@@ -85,7 +85,7 @@ namespace Taobao.Top.Api.Test
             ProductsGetRequest request = new ProductsGetRequest();
             request.Fields = "name,cid,props,props_str,name,binds,created";
             request.Nick = "驴友之家";
-            List<Product> products = client.Execute(request, new ProductListXmlParser());
+            List<Product> products = client.Execute(request, new ProductListXmlParser()).Content;
 
             Assert.AreEqual(1, products.Count);
         }

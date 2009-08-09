@@ -30,18 +30,17 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 产品列表的XML响应解释器。
     /// </summary>
-    public class ProductListXmlParser : ITopParser<List<Product>>
+    public class ProductListXmlParser : ITopParser<ResponseList<Product>>
     {
-        #region ITopParser<List<Product>> Members
+        #region ITopParser<ResponseList<Product>> Members
 
-        public List<Product> Parse(string body)
+        public ResponseList<Product> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<Product>.GetOverrides("product");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<Product>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<Product> rsp = obj as ResponseList<Product>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<Product>;
         }
 
         #endregion

@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Test
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";
 
-            List<User> users = client.Execute(request, new UserListJsonParser());
+            List<User> users = client.Execute(request, new UserListJsonParser()).Content;
             Assert.AreEqual(2, users.Count);
             AssertUser(users[0]);
         }
@@ -57,7 +57,7 @@ namespace Taobao.Top.Api.Test
             request.Fields = "user_id,nick,sex,created,location";
             request.Nicks = "tbtest520,tbtest562";
 
-            List<User> users = client.Execute(request, new UserListXmlParser());
+            List<User> users = client.Execute(request, new UserListXmlParser()).Content;
             Assert.AreEqual(2, users.Count);
             AssertUser(users[0]);
         }

@@ -30,7 +30,7 @@ namespace Taobao.Top.Api.Test
             request.IsGuarantee = "true";
             request.PageSize = "6";
             request.PageNo = "1";
-            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser());
+            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser()).Content;
             Assert.AreEqual(6, items.Count);
         }
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Test
             request.Keyword = "test";
             request.PageSize = "5";
 
-            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser());
+            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser()).Content;
             Assert.AreEqual(5, items.Count);
         }
 
@@ -57,7 +57,7 @@ namespace Taobao.Top.Api.Test
             request.Iids = "18052f24da6a89ef989cdc401036300f,18052f24da6a89ef989cdc401036300f";
             request.Nick = "tbtest520";
             request.OuterCode = "54321";
-            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser());
+            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser()).Content;
             Assert.AreEqual(2, items.Count);
         }
 
@@ -70,7 +70,7 @@ namespace Taobao.Top.Api.Test
             request.Iids = "18052f24da6a89ef989cdc401036300f,18052f24da6a89ef989cdc401036300f";
             request.Nick = "tbtest520";
             request.OuterCode = "54321";
-            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser());
+            List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser()).Content;
             Assert.AreEqual(2, items.Count);
         }
 
@@ -83,7 +83,7 @@ namespace Taobao.Top.Api.Test
             request.Sids = "79852143,456,789";
             request.Nick = "tbtest520";
             request.OuterCode = "54321";
-            List<TaobaokeShop> shops = client.Execute(request, new TaobaokeShopListJsonParser());
+            List<TaobaokeShop> shops = client.Execute(request, new TaobaokeShopListJsonParser()).Content;
             Assert.AreEqual(3, shops.Count);
         }
 
@@ -96,7 +96,7 @@ namespace Taobao.Top.Api.Test
             request.Sids = "79852143,456,789";
             request.Nick = "tbtest520";
             request.OuterCode = "54321";
-            List<TaobaokeShop> shops = client.Execute(request, new TaobaokeShopListXmlParser());
+            List<TaobaokeShop> shops = client.Execute(request, new TaobaokeShopListXmlParser()).Content;
             Assert.AreEqual(3, shops.Count);
         }
 

@@ -16,12 +16,17 @@ namespace Taobao.Top.Api.Parser
 
         public User Parse(string body)
         {
-            XmlAttributeOverrides attrs = Response<User>.GetOverrides("user");
-            XmlSerializer serializer = new XmlSerializer(typeof(Response<User>), attrs);
+            UserListXmlParser parser = new UserListXmlParser();
+            List<User> users = parser.Parse(body).Content;
 
-            object obj = serializer.Deserialize(new StringReader(body));
-            Response<User> rsp = obj as Response<User>;
-            return rsp == null ? null : rsp.Content;
+            if (users != null && users.Count > 0)
+            {
+                return users[0];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         #endregion
@@ -30,18 +35,17 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 用户列表的XML响应解释器。
     /// </summary>
-    public class UserListXmlParser : ITopParser<List<User>>
+    public class UserListXmlParser : ITopParser<ResponseList<User>>
     {
-        #region ITopParser<List<User>> Members
+        #region ITopParser<ResponseList<User>> Members
 
-        public List<User> Parse(string body)
+        public ResponseList<User> Parse(string body)
         {
             XmlAttributeOverrides attrs = ResponseList<User>.GetOverrides("user");
             XmlSerializer serializer = new XmlSerializer(typeof(ResponseList<User>), attrs);
 
             object obj = serializer.Deserialize(new StringReader(body));
-            ResponseList<User> rsp = obj as ResponseList<User>;
-            return rsp == null ? null : rsp.Content;
+            return obj as ResponseList<User>;
         }
 
         #endregion
