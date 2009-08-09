@@ -198,5 +198,31 @@ namespace Taobao.Top.Api.Test.Request
             Item item = client.Execute(req, new ItemXmlParser());
             Assert.AreEqual("50012579", item.Cid);
         }
+
+        [TestMethod]
+        public void SearchItemsByJson()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            ItemsSearchRequest req = new ItemsSearchRequest();
+            req.Fields = "iid,title,nick,cid,price,type";
+            req.Query = "N73 IE";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ResponseList<ItemSearch> result = client.Execute(req, new ItemSearchListJsonParser());
+            Assert.AreEqual(1, result.Content.Count);
+        }
+
+        [TestMethod]
+        public void SearchItemsByXml()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ItemsSearchRequest req = new ItemsSearchRequest();
+            req.Fields = "iid,title,nick,cid,price,type";
+            req.Query = "N73 IE";
+            req.PageNo = 1;
+            req.PageSize = 2;
+            ResponseList<ItemSearch> result = client.Execute(req, new ItemSearchListXmlParser());
+            Assert.AreEqual(1, result.Content.Count);
+        }
     }
 }

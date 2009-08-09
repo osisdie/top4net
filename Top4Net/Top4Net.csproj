@@ -77,7 +77,6 @@
     <Compile Include="Domain\TaobaokeReportMember.cs" />
     <Compile Include="Domain\TaobaokeShop.cs" />
     <Compile Include="Domain\ResponseList.cs" />
-    <Compile Include="Domain\Response.cs" />
     <Compile Include="Domain\Trade.cs" />
     <Compile Include="Domain\TradeConfirmFee.cs" />
     <Compile Include="Domain\TradeRate.cs" />
