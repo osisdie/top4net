@@ -82,6 +82,22 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
+    /// 商品类目的JSON响应解释器。
+    /// </summary>
+    public class ItemCatJsonParser : ITopParser<ItemCategory>
+    {
+        #region ITopParser<ItemCategory> Members
+
+        public ItemCategory Parse(string body)
+        {
+            ItemCatListJsonParser parser = new ItemCatListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// 属性值列表的JSON响应解释器。
     /// </summary>
     public class PropValueListJsonParser : ITopParser<ResponseList<PropValue>>
@@ -106,6 +122,68 @@ namespace Taobao.Top.Api.Parser
         public ResponseList<ItemSearch> Parse(string body)
         {
             return ResponseList<ItemSearch>.ParseJsonResponse("itemsearchs", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 商品图片列表的JSON响应解释器。
+    /// </summary>
+    public class ItemImgListJsonParser : ITopParser<ResponseList<ItemImg>>
+    {
+        #region ITopParser<ResponseList<ItemImg>> Members
+
+        public ResponseList<ItemImg> Parse(string body)
+        {
+            return ResponseList<ItemImg>.ParseJsonResponse("itemImgs", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 商品图片的JSON响应解释器。
+    /// </summary>
+    public class ItemImgJsonParser : ITopParser<ItemImg>
+    {
+        #region ITopParser<ItemImg> Members
+
+        public ItemImg Parse(string body)
+        {
+            ItemImgListJsonParser parser = new ItemImgListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 属性图片列表的JSON响应解释器。
+    /// </summary>
+    public class PropImgListJsonParser : ITopParser<ResponseList<PropImg>>
+    {
+        #region ITopParser<ResponseList<PropImg>> Members
+
+        public ResponseList<PropImg> Parse(string body)
+        {
+            return ResponseList<PropImg>.ParseJsonResponse("propImgs", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 属性图片的JSON响应解释器。
+    /// </summary>
+    public class PropImgJsonParser : ITopParser<PropImg>
+    {
+        #region ITopParser<PropImg> Members
+
+        public PropImg Parse(string body)
+        {
+            PropImgListJsonParser parser = new PropImgListJsonParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion

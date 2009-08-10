@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rsp>
+  <refund>
+    <refund_id><![CDATA[117468]]></refund_id>
+    <tid><![CDATA[11549380]]></tid>
+    <alipay_no><![CDATA[2009060403921720]]></alipay_no>
+    <total_fee><![CDATA[2100.00]]></total_fee>
+    <buyer_nick><![CDATA[tbtest1061]]></buyer_nick>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <created>2009-06-04 00:00:00</created>
+    <status><![CDATA[WAIT_BUYER_RETURN_GOODS]]></status>
+    <good_status><![CDATA[BUYER_RECEIVED]]></good_status>
+    <has_good_return>true</has_good_return>
+    <refund_fee><![CDATA[2100.00]]></refund_fee>
+    <payment><![CDATA[0.00]]></payment>
+    <reason><![CDATA[收到的商品不符]]></reason>
+    <desc><![CDATA[收到商品不符]]></desc>
+    <iid><![CDATA[7f6f243fdf97a1b42897645ffac02d7d]]></iid>
+    <title><![CDATA[诺基亚测试退款]]></title>
+    <price><![CDATA[2100.00]]></price>
+    <num><![CDATA[1]]></num>
+    <good_return_time>2009-06-03 00:00:00</good_return_time>
+    <company_name><![CDATA[圆通速递 ]]></company_name>
+    <sid><![CDATA[012345678]]></sid>
+    <refund_remind_timeout>
+      <remind_type>7</remind_type>
+      <exist_timeout>true</exist_timeout>
+      <timeout>2009-06-19 00:00:00</timeout>
+    </refund_remind_timeout>
+    <oid><![CDATA[11549380]]></oid>
+  </refund>
+</rsp>
+<!--vm110a.sqa-->

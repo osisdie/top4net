@@ -215,7 +215,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("modified")]
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
+
+        /// <summary>
+        /// 商品创建时间（格式：yyyy-MM-dd HH:mm:ss）
+        /// </summary>
+        [JsonProperty("created")]
+        [XmlElement("created")]
+        public string Created { get; set; }
 
         /// <summary>
         /// 加价幅度。如果为0，代表系统代理幅度

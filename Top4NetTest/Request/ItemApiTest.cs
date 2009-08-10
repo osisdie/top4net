@@ -224,5 +224,37 @@ namespace Taobao.Top.Api.Test.Request
             ResponseList<ItemSearch> result = client.Execute(req, new ItemSearchListXmlParser());
             Assert.AreEqual(1, result.Content.Count);
         }
+
+        public void AddItemByJson()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            ItemAddRequest req = new ItemAddRequest();
+            // TODO
+            Item item = client.Execute(req, new ItemJsonParser());
+        }
+
+        public void AddItemByXml()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ItemAddRequest req = new ItemAddRequest();
+            // TODO
+            Item item = client.Execute(req, new ItemXmlParser());
+        }
+
+        public void DeleteItemByJson()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            ItemDeleteRequest req = new ItemDeleteRequest();
+            // TODO
+            Item item = client.Execute(req, new ItemJsonParser());
+        }
+
+        public void DeleteItemByXml()
+        {
+            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ItemDeleteRequest req = new ItemDeleteRequest();
+            // TODO
+            Item item = client.Execute(req, new ItemXmlParser());
+        }
     }
 }

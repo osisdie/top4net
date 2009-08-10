@@ -82,6 +82,22 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
+    /// 商品类目的XML响应解释器。
+    /// </summary>
+    public class ItemCatXmlParser : ITopParser<ItemCategory>
+    {
+        #region ITopParser<ItemCategory> Members
+
+        public ItemCategory Parse(string body)
+        {
+            ItemCatListXmlParser parser = new ItemCatListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// 属性值列表的XML响应解释器。
     /// </summary>
     public class PropValueListXmlParser : ITopParser<ResponseList<PropValue>>
@@ -106,6 +122,68 @@ namespace Taobao.Top.Api.Parser
         public ResponseList<ItemSearch> Parse(string body)
         {
             return ResponseList<ItemSearch>.ParseXmlResponse("itemsearch", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 商品图片列表的XML响应解释器。
+    /// </summary>
+    public class ItemImgListXmlParser : ITopParser<ResponseList<ItemImg>>
+    {
+        #region ITopParser<ResponseList<ItemImg>> Members
+
+        public ResponseList<ItemImg> Parse(string body)
+        {
+            return ResponseList<ItemImg>.ParseXmlResponse("itemImg", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 商品图片的XML响应解释器。
+    /// </summary>
+    public class ItemImgXmlParser : ITopParser<ItemImg>
+    {
+        #region ITopParser<ItemImg> Members
+
+        public ItemImg Parse(string body)
+        {
+            ItemImgListXmlParser parser = new ItemImgListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 属性图片列表的XML响应解释器。
+    /// </summary>
+    public class PropImgListXmlParser : ITopParser<ResponseList<PropImg>>
+    {
+        #region ITopParser<ResponseList<PropImg>> Members
+
+        public ResponseList<PropImg> Parse(string body)
+        {
+            return ResponseList<PropImg>.ParseXmlResponse("propImg", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 属性图片的XML响应解释器。
+    /// </summary>
+    public class PropImgXmlParser : ITopParser<PropImg>
+    {
+        #region ITopParser<PropImg> Members
+
+        public PropImg Parse(string body)
+        {
+            PropImgListXmlParser parser = new PropImgListXmlParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion

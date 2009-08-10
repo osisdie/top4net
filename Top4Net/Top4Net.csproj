@@ -86,6 +86,8 @@
     <Compile Include="Parser\ItemJsonParser.cs" />
     <Compile Include="Parser\ItemXmlParser.cs" />
     <Compile Include="Parser\ITopParser.cs" />
+    <Compile Include="Parser\LogisticsJsonParser.cs" />
+    <Compile Include="Parser\LogisticsXmlParser.cs" />
     <Compile Include="Parser\MiscJsonParser.cs" />
     <Compile Include="Parser\TaobaokeJsonParser.cs" />
     <Compile Include="Parser\TaobaokeXmlParser.cs" />

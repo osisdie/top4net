@@ -116,5 +116,45 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual(19, search.ItemCatList.Count);
             Assert.AreEqual(5, search.ItemList.Count);
         }
+
+        [TestMethod]
+        public void ParseJsonAsItemImgs()
+        {
+            string body = TestUtils.GetResourceAsText("item.imgs.json");
+            ItemImgListJsonParser parser = new ItemImgListJsonParser();
+            ResponseList<ItemImg> imgs = parser.Parse(body);
+            Assert.AreEqual(1, imgs.Content.Count);
+            Assert.AreEqual("11842400", imgs.Content[0].ImgId);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsItemImgs()
+        {
+            string body = TestUtils.GetResourceAsText("item.imgs.xml");
+            ItemImgListXmlParser parser = new ItemImgListXmlParser();
+            ResponseList<ItemImg> imgs = parser.Parse(body);
+            Assert.AreEqual(1, imgs.Content.Count);
+            Assert.AreEqual("11842369", imgs.Content[0].ImgId);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsPropImgs()
+        {
+            string body = TestUtils.GetResourceAsText("prop.imgs.json");
+            PropImgListJsonParser parser = new PropImgListJsonParser();
+            ResponseList<PropImg> imgs = parser.Parse(body);
+            Assert.AreEqual(1, imgs.Content.Count);
+            Assert.AreEqual("11842402", imgs.Content[0].ImgId);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsPropImgs()
+        {
+            string body = TestUtils.GetResourceAsText("prop.imgs.xml");
+            PropImgListXmlParser parser = new PropImgListXmlParser();
+            ResponseList<PropImg> imgs = parser.Parse(body);
+            Assert.AreEqual(1, imgs.Content.Count);
+            Assert.AreEqual("11842373", imgs.Content[0].ImgId);
+        }
     }
 }

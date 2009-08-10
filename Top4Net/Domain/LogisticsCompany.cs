@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("shipping")]
+    [XmlRoot("logistic_company")]
     public class LogisticsCompany
     {
         /// <summary>

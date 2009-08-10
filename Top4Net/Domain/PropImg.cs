@@ -21,24 +21,31 @@ namespace Taobao.Top.Api.Domain
         public string ImgId { get; set; }
 
         /// <summary>
-        /// 图片链接地址
+        /// 属性图片链接地址
         /// </summary>
         [JsonProperty("url")]
         [XmlElement("url")]
         public string ImgUrl { get; set; }
 
         /// <summary>
-        /// 图片所对应的属性组合的字符串
+        /// 属性图片所对应的属性组合的字符串
         /// </summary>
         [JsonProperty("properties")]
         [XmlElement("properties")]
         public string Props { get; set; }
 
         /// <summary>
-        /// 图片放在第几张（多图时可设置）
+        /// 属性图片放在第几张（多图时可设置）
         /// </summary>
         [JsonProperty("position")]
         [XmlElement("position")]
         public string Position { get; set; }
+
+        /// <summary>
+        /// 属性图片创建时间
+        /// </summary>
+        [JsonProperty("created")]
+        [XmlElement("created")]
+        public string Created { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Taobao.Top.Api.Request
         public string ApproveStatus { get; set; }
 
         /// <summary>
-        /// 叶子类目id。
+        /// 叶子类目编号。
         /// </summary>
         public string Cid { get; set; }
 
@@ -190,7 +190,7 @@ namespace Taobao.Top.Api.Request
         public string OuterId { get; set; }
 
         /// <summary>
-        /// 商品所属的产品ID(B商家发布商品需要用)。
+        /// 商品所属的产品编号(B商家发布商品需要用)。
         /// </summary>
         public string ProductId { get; set; }
 

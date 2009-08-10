@@ -28,10 +28,17 @@ namespace Taobao.Top.Api.Domain
         public string ImgUrl { get; set; }
 
         /// <summary>
-        /// 图片放在第几张（多图时可设置 )
+        /// 图片放在第几张(多图时可设置)
         /// </summary>
         [JsonProperty("position")]
         [XmlElement("position")]
         public string Position { get; set; }
+
+        /// <summary>
+        /// 商品图片创建时间
+        /// </summary>
+        [JsonProperty("created")]
+        [XmlElement("created")]
+        public string Created { get; set; }
     }
 }

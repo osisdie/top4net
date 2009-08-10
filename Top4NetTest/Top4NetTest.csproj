@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parser\ItemParserTest.cs" />
+    <Compile Include="Parser\LogisticsParserTest.cs" />
     <Compile Include="Parser\TaobaokeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
@@ -68,28 +69,44 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\item.cats.json" />
+    <None Include="Resources\item.imgs.json" />
     <None Include="Resources\item.props.json" />
     <None Include="Resources\item.searchs.json" />
+    <Content Include="Resources\item.imgs.xml" />
     <Content Include="Resources\item.searchs.xml" />
     <None Include="Resources\items.json" />
+    <None Include="Resources\logistics.companies.json" />
+    <None Include="Resources\postages.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
     <Content Include="Resources\item.cats.xml" />
     <Content Include="Resources\item.props.xml" />
     <Content Include="Resources\items.xml" />
+    <Content Include="Resources\logistics.companies.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
+    <Content Include="Resources\prop.imgs.xml" />
     <Content Include="Resources\prop.values.xml" />
+    <Content Include="Resources\areas.xml" />
+    <Content Include="Resources\refunds.xml" />
+    <Content Include="Resources\shop.cats.xml" />
+    <Content Include="Resources\shops.xml" />
     <Content Include="Resources\taobaoke.items.xml" />
     <Content Include="Resources\taobaoke.listurl.xml" />
     <Content Include="Resources\taobaoke.shops.xml" />
+    <Content Include="Resources\trades.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
+    <None Include="Resources\prop.imgs.json" />
     <None Include="Resources\prop.values.json" />
+    <None Include="Resources\refunds.json" />
+    <None Include="Resources\shop.cats.json" />
+    <None Include="Resources\shops.json" />
     <None Include="Resources\taobaoke.items.json" />
     <None Include="Resources\taobaoke.listurl.json" />
     <None Include="Resources\taobaoke.shops.json" />
+    <None Include="Resources\trades.json" />
     <None Include="Resources\users.json" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
