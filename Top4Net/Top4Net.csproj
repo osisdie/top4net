@@ -96,6 +96,8 @@
     <Compile Include="Parser\ProductXmlParser.cs" />
     <Compile Include="Parser\StringParser.cs" />
     <Compile Include="Parser\MiscXmlParser.cs" />
+    <Compile Include="Parser\TradeJsonParser.cs" />
+    <Compile Include="Parser\TradeXmlParser.cs" />
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />

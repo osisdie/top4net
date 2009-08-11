@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("trade")]
-    class Trade : BaseObject
+    public class Trade : BaseObject
     {
         /// <summary>
         /// 淘宝交易编号（父订单的交易编号）
@@ -375,7 +375,8 @@ namespace Taobao.Top.Api.Domain
         /// 订单列表
         /// </summary>
         [JsonProperty("orders")]
-        [XmlElement("orders")]
+        [XmlArray("orders")]
+        [XmlArrayItem("order")]
         public List<Order> OrderList { get; set; }
     }
 }

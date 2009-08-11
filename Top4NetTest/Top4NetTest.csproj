@@ -44,6 +44,7 @@
     <Compile Include="Parser\ItemParserTest.cs" />
     <Compile Include="Parser\LogisticsParserTest.cs" />
     <Compile Include="Parser\TaobaokeParserTest.cs" />
+    <Compile Include="Parser\TradeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
     <Compile Include="Request\ProductApiTest.cs" />
@@ -76,6 +77,9 @@
     <Content Include="Resources\item.searchs.xml" />
     <None Include="Resources\items.json" />
     <None Include="Resources\logistics.companies.json" />
+    <None Include="Resources\orders.json" />
+    <None Include="Resources\picture.categories.json" />
+    <None Include="Resources\pictures.json" />
     <None Include="Resources\postages.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
@@ -83,6 +87,9 @@
     <Content Include="Resources\item.props.xml" />
     <Content Include="Resources\items.xml" />
     <Content Include="Resources\logistics.companies.xml" />
+    <Content Include="Resources\orders.xml" />
+    <Content Include="Resources\picture.categories.xml" />
+    <Content Include="Resources\pictures.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
