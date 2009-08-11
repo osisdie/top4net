@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 订单数据结构
     /// </summary>
-    public class Order
+    public class Order : BaseObject
     {
         /// <summary>
         /// 商品编号
@@ -25,14 +25,14 @@ namespace Taobao.Top.Api.Domain
         public string SkuId { get; set; }
 
         /// <summary>
-        /// Sku的值，如：机身颜色:黑色;手机套餐:官方标配 
+        /// Sku的值
         /// </summary>
         [JsonProperty("sku_properties_name")]
         [XmlElement("sku_properties_name")]
         public string SkuProps { get; set; }
 
         /// <summary>
-        /// 商品套餐，如：M8原装电池:便携支架:M8专用座充:莫凡保护袋 
+        /// 商品套餐
         /// </summary>
         [JsonProperty("item_meal_name")]
         [XmlElement("item_meal_name")]
@@ -116,13 +116,6 @@ namespace Taobao.Top.Api.Domain
         public string OrderType { get; set; }
 
         /// <summary>
-        /// 交易创建时间。格式:yyyy-MM-dd HH:mm:ss 
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string OrderCreated { get; set; }
-
-        /// <summary>
         /// 订单状态
         /// </summary>
         [JsonProperty("status")]
@@ -130,7 +123,7 @@ namespace Taobao.Top.Api.Domain
         public string OrderStatus { get; set; }
 
         /// <summary>
-        /// 订单超时到期时间。格式:yyyy-MM-dd HH:mm:ss
+        /// 订单超时到期时间
         /// </summary>
         [JsonProperty("timeout_action_time")]
         [XmlElement("timeout_action_time")]
@@ -144,28 +137,28 @@ namespace Taobao.Top.Api.Domain
         public string SnapshotUrl { get; set; }
 
         /// <summary>
-        /// 应付金额。精确到2位小数;单位:元。如:200.07，表示:200元7分 
+        /// 应付金额
         /// </summary>
         [JsonProperty("total_fee")]
         [XmlElement("total_fee")]
         public string TotalFee { get; set; }
 
         /// <summary>
-        /// 实付金额。精确到2位小数;单位:元。如:200.07，表示:200元7分 
+        /// 实付金额
         /// </summary>
         [JsonProperty("payment")]
         [XmlElement("payment")]
         public string Payment { get; set; }
 
         /// <summary>
-        /// 系统优惠金额。精确到2位小数;单位:元。如:200.07，表示:200元7分
+        /// 系统优惠金额
         /// </summary>
         [JsonProperty("discount_fee")]
         [XmlElement("discount_fee")]
         public string DiscountFee { get; set; }
 
         /// <summary>
-        /// 卖家优惠金额.格式为:1.01;单位:元;精确到小数点后两位
+        /// 卖家优惠金额
         /// </summary>
         [JsonProperty("adjust_fee")]
         [XmlElement("adjust_fee")]

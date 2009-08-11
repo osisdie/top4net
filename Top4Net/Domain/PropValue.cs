@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("propValue")]
-    public class PropValue
+    public class PropValue : BaseObject
     {
         /// <summary>
         /// 类目编号
@@ -56,14 +56,14 @@ namespace Taobao.Top.Api.Domain
         public string Alias { get; set; }
 
         /// <summary>
-        /// 状态。可选值:normal(正常),deleted(删除)
+        /// 属性值状态
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// 排列序号。取值范围:大于零的整数
+        /// 排列序号
         /// </summary>
         [JsonProperty("sort_order")]
         [XmlElement("sort_order")]

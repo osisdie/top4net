@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 是否查询推荐物流公司,如果不提供此参数,将会返回所有的查询结果。
+        /// 是否查询推荐物流公司。
         /// </summary>
         public string IsRecommended { get; set; }
 

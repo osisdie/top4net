@@ -11,19 +11,19 @@ namespace Taobao.Top.Api.Request
     public class SnsFriendsGetRequest : ITopRequest
     {
         /// <summary>
-        /// 用户id。
+        /// 用户编号。
         /// </summary>
         public string Uid { get; set; }
 
         /// <summary>
         /// 开始条数。
         /// </summary>
-        public string StartRow { get; set; }
+        public int StartRow { get; set; }
 
         /// <summary>
         /// 总条数。
         /// </summary>
-        public string Count { get; set; }
+        public int Count { get; set; }
 
         #region ITopRequest Members
 
@@ -37,8 +37,8 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("uid", this.Uid);
-            parameters.Add("start_row", this.StartRow);
-            parameters.Add("count", this.Count);
+            parameters.Add("start_row", this.StartRow + "");
+            parameters.Add("count", this.Count + "");
 
             return parameters;
         }

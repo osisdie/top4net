@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("sku")]
-    public class Sku
+    public class Sku : BaseObject
     {
         /// <summary>
         /// Sku的编号
@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Domain
         public string Iid { get; set; }
 
         /// <summary>
-        /// Sku的销售属性组合字符串，格式是p1:v1;p2:v2
+        /// Sku的销售属性组合字符串
         /// </summary>
         [JsonProperty("properties")]
         [XmlElement("properties")]
@@ -42,7 +42,7 @@ namespace Taobao.Top.Api.Domain
         public int Quantity { get; set; }
 
         /// <summary>
-        /// 属于这个sku的商品的价格 取值范围:0-100000000
+        /// 属于这个Sku的商品的价格取值范围
         /// </summary>
         [JsonProperty("price")]
         [XmlElement("price")]
@@ -56,21 +56,7 @@ namespace Taobao.Top.Api.Domain
         public string OuterId { get; set; }
 
         /// <summary>
-        /// Sku创建日期，时间格式：yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
-
-        /// <summary>
-        /// Sku最后修改日期，时间格式：yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public string Modified { get; set; }
-
-        /// <summary>
-        /// Sku状态。 normal:正常delete:删除
+        /// Sku状态
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]

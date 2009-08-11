@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("pictureCategory")]
-    public class PictureCategory
+    public class PictureCategory : BaseObject
     {
         /// <summary>
         /// 图片分类编号
@@ -60,13 +60,13 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("gmt_create")]
         [XmlElement("gmt_create")]
-        public DateTime Created { get; set; }
+        public new string Created { get; set; }
 
         /// <summary>
         /// 修改时间
         /// </summary>
         [JsonProperty("gmt_modified")]
         [XmlElement("gmt_modified")]
-        public DateTime Modified { get; set; }
+        public new string Modified { get; set; }
     }
 }

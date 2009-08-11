@@ -16,12 +16,12 @@ namespace Taobao.Top.Api.Request
         public string SellerCids { get; set; }
 
         /// <summary>
-        /// 商品所属的类目ID。
+        /// 商品所属的类目编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 匹配关键词(匹配title)。
+        /// 匹配关键词。
         /// </summary>
         public string Query { get; set; }
 

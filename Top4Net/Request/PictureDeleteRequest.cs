@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class PictureDeleteRequest : ITopRequest
     {
         /// <summary>
-        /// 图片ID字符串,可以一个也可以一组,用英文逗号间隔,如450,120,155。
+        /// 图片编号字符串。
         /// </summary>
         public string PicIds { get; set; }
 

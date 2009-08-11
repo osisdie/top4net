@@ -11,12 +11,12 @@ namespace Taobao.Top.Api.Request
     public class TaobaokeItemsConvertRequest : ITopRequest
     {
         /// <summary>
-        /// 需返回的字段列表.可选值:TaobaokeItem淘宝客商品结构体中的所有字段。
+        /// 需返回的字段列表。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 商品id串.最大输入50个.格式如:value1,value2,value3。
+        /// 商品编号串。
         /// </summary>
         public string Iids { get; set; }
 
@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Request
         public string Nick { get; set; }
 
         /// <summary>
-        /// 自定义输入串.格式:英文和数字组成;长度不能大于12个字符,区分不同的推广渠道,如:bbs,表示bbs为推广渠道;blog,表示blog为推广渠道。
+        /// 用户自定义输入串。
         /// </summary>
         public string OuterCode { get; set; }
 

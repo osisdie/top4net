@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Request
         public string Nick { get; set; }
 
         /// <summary>
-        /// 自定义输入串.格式:英文和数字组成;长度不能大于12个字符,区分不同的推广渠道,如:bbs,表示bbs为推广渠道;blog,表示blog为推广渠道。
+        /// 用户自定义输入串。
         /// </summary>
         public string OuterCode { get; set; }
 

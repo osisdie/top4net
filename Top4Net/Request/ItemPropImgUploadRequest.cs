@@ -10,27 +10,27 @@ namespace Taobao.Top.Api.Request
     public class ItemPropImgUploadRequest : ITopUploadRequest
     {
         /// <summary>
-        /// 属性图片ID,如果是新增不需要填写。
+        /// 属性图片编号。
         /// </summary>
         public string ImgId { get; set; }
 
         /// <summary>
-        /// 商品ID。
+        /// 商品编号。
         /// </summary>
         public string Iid { get; set; }
 
         /// <summary>
-        /// 属性图片属性串pid:vid;pid1:vid1。
+        /// 属性图片属性串。
         /// </summary>
         public string Props { get; set; }
 
         /// <summary>
         /// 属性图片位置。
         /// </summary>
-        public string Position { get; set; }
+        public int Position { get; set; }
 
         /// <summary>
-        /// 属性图片内容，要先上传图片后再提交测试，否则图片不会被提交。
+        /// 属性图片内容。
         /// </summary>
         public FileInfo Image { get; set; }
 
@@ -48,7 +48,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("propimg_id", this.ImgId);
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("position", this.Position);
+            parameters.Add("position", this.Position + "");
 
             return parameters;
         }

@@ -10,8 +10,6 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class BuyerShopCatsGetRequest : ITopRequest
     {
-        
-
         #region ITopRequest Members
 
         public string GetApiName()
@@ -22,9 +20,6 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
-
-            
-
             return parameters;
         }
 

@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Request
         public string Nick { get; set; }
 
         /// <summary>
-        /// 商品id。
+        /// 商品编号。
         /// </summary>
         public string Iid { get; set; }
 

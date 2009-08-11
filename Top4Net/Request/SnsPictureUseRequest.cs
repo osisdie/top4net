@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class SnsPictureUseRequest : ITopRequest
     {
         /// <summary>
-        /// 图片文件ids，例如：value1,value2,value3。
+        /// 图片文件编号列表。
         /// </summary>
         public string PicIds { get; set; }
 

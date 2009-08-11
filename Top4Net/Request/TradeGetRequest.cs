@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class TradeGetRequest : ITopRequest
     {
         /// <summary>
-        /// 交易ID。
+        /// 交易编号。
         /// </summary>
         public string Tid { get; set; }
 

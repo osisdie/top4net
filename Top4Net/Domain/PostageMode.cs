@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("postageMode")]
-    public class PostageMode
+    public class PostageMode : BaseObject
     {
         /// <summary>
         /// 运费模板编号
@@ -28,14 +28,14 @@ namespace Taobao.Top.Api.Domain
         public string Id { get; set; }
 
         /// <summary>
-        /// 运费方式(目前提供):平邮(post),快递公司(express),EMS(ems)
+        /// 运费方式
         /// </summary>
         [JsonProperty("postage_mode.type")]
         [XmlElement("postage_mode.type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// 邮费子项涉及的地区,多个地区用逗号连接数量串，如：110000;310000;320000,330000
+        /// 邮费子项涉及的地区，多个地区用逗号连接数量串
         /// </summary>
         [JsonProperty("dest")]
         [XmlElement("dest")]

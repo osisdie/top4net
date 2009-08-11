@@ -11,24 +11,24 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("refundRemindTimeout")]
-    public class RefundRemindTimeout
+    public class RefundTimeout : BaseObject
     {
         /// <summary>
-        /// 提醒的类型（退款详情中提示信息的类型）
+        /// 提醒的类型
         /// </summary>
         [JsonProperty("remind_type")]
         [XmlElement("remind_type")]
         public int RemindType { get; set; }
 
         /// <summary>
-        /// 是否存在超时。可选值:true(是),false(否)
+        /// 是否存在超时
         /// </summary>
         [JsonProperty("exist_timeout")]
         [XmlElement("exist_timeout")]
         public bool IsTimeout { get; set; }
 
         /// <summary>
-        /// 超时时间。格式:yyyy-MM-dd HH:mm:ss
+        /// 超时时间
         /// </summary>
         [JsonProperty("timeout")]
         [XmlElement("timeout")]

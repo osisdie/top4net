@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("picture")]
-    public class Picture
+    public class Picture : BaseObject
     {
         /// <summary>
         /// 图片编号
@@ -35,45 +35,31 @@ namespace Taobao.Top.Api.Domain
         public string Url { get; set; }
 
         /// <summary>
-        /// 图片大小,byte单位
+        /// 图片大小
         /// </summary>
         [JsonProperty("sizes")]
         [XmlElement("sizes")]
         public int Size { get; set; }
 
         /// <summary>
-        /// 图片像素,格式:长X宽,如640x480
+        /// 图片像素
         /// </summary>
         [JsonProperty("pixel")]
         [XmlElement("pixel")]
         public string Pixel { get; set; }
 
         /// <summary>
-        /// 图片状态,normal代表没有被冻结,froze代表被冻结,pass代表排查通过
+        /// 图片状态
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// deleted代表删除,undeleted未删除
+        /// 图片是否已经被删除
         /// </summary>
         [JsonProperty("deleted")]
         [XmlElement("deleted")]
         public string Deleted { get; set; }
-
-        /// <summary>
-        /// 上传时间,格式:yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// 修改时间,格式:yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public DateTime Modified { get; set; }
     }
 }

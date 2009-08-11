@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 兑换淘金币数。
         /// </summary>
-        public string CoinCount { get; set; }
+        public long CoinCount { get; set; }
 
         #region ITopRequest Members
 
@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("coin_count", this.CoinCount);
+            parameters.Add("coin_count", this.CoinCount + "");
 
             return parameters;
         }

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("album")]
-    public class Album
+    public class Album : BaseObject
     {
         /// <summary>
         /// 相册编号

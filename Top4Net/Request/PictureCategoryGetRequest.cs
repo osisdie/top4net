@@ -11,22 +11,22 @@ namespace Taobao.Top.Api.Request
     public class PictureCategoryGetRequest : ITopRequest
     {
         /// <summary>
-        /// 需要返回的字段,根据PictureCategory中的以下字段：picture_category_id,picture_category_name,position,type,total,created,modified ,多个字段用“,”分隔。如：type,total,created,modified。
+        /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 图片分类ID。
+        /// 图片分类编号。
         /// </summary>
         public string PicCategoryId { get; set; }
 
         /// <summary>
-        /// 图片分类名，不支持模糊查询。
+        /// 图片分类名。
         /// </summary>
         public string PicCategoryName { get; set; }
 
         /// <summary>
-        /// 分类类型,fixed代表店铺装修分类类别，auction代表宝贝分类类别，user-define代表用户自定义分类类别。
+        /// 分类类型。
         /// </summary>
         public string Type { get; set; }
 

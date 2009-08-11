@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Request
         public string PicUrl { get; set; }
 
         /// <summary>
-        /// 父类目ID。
+        /// 父类目编号。
         /// </summary>
         public string ParentCid { get; set; }
 

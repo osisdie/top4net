@@ -16,29 +16,29 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索字段.模糊查询。
+        /// 搜索字段。
         /// </summary>
         public string Query { get; set; }
 
         /// <summary>
-        /// 类目ID。
+        /// 类目编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 卖家店铺内自定义类目ID(格式:id1,id2,…)。
+        /// 卖家店铺内自定义类目编号。
         /// </summary>
         public string SellerCids { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         /// <summary>
         /// 是否参与会员折扣。
@@ -51,7 +51,7 @@ namespace Taobao.Top.Api.Request
         public string HasShowcase { get; set; }
 
         /// <summary>
-        /// 排序方式. 格式为column:asc/desc。（enlist_time,delist_time, num）。
+        /// 排序方式。
         /// </summary>
         public string OrderBy { get; set; }
 
@@ -70,8 +70,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("q", this.Query);
             parameters.Add("cid", this.Cid);
             parameters.Add("seller_cids", this.SellerCids);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
             parameters.Add("has_discount", this.HasDiscount);
             parameters.Add("has_showcase", this.HasShowcase);
             parameters.Add("order_by", this.OrderBy);

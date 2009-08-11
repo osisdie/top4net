@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class UserGetRequest : ITopRequest
     {
         /// <summary>
-        /// User数据结构字段列表，以半角逗号(,)分隔。
+        /// 需要返回的用户字段列表。
         /// </summary>
         public string Fields { get; set; }
 

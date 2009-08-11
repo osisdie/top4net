@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("taobaokeReportMember")]
-    public class TaobaokeReportMember
+    public class TaobaokeReportMember : BaseObject
     {
         /// <summary>
         /// 应用授权码

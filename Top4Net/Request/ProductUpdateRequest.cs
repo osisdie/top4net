@@ -10,12 +10,12 @@ namespace Taobao.Top.Api.Request
     public class ProductUpdateRequest : ITopUploadRequest
     {
         /// <summary>
-        /// 产品ID。
+        /// 产品编号。
         /// </summary>
         public string ProductId { get; set; }
 
         /// <summary>
-        /// 外部产品ID。
+        /// 外部产品编号。
         /// </summary>
         public string OuterId { get; set; }
 
@@ -45,7 +45,7 @@ namespace Taobao.Top.Api.Request
         public string Desc { get; set; }
 
         /// <summary>
-        /// 产品主图，要先上传图片后再提交测试，否则产品图片不会被提交。
+        /// 产品主图文件。
         /// </summary>
         public FileInfo Image { get; set; }
 

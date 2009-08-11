@@ -19,8 +19,8 @@ namespace Taobao.Top.Api.Test
             ProductsSearchRequest request = new ProductsSearchRequest();
             request.Fields = "product_id,name,pic_patch,cid,props,price,modified";
             request.Query = "N73";
-            request.PageNo = "1";
-            request.PageSize = "3";
+            request.PageNo = 1;
+            request.PageSize = 3;
             List<Product> products = client.Execute(request, new ProductListJsonParser()).Content;
 
             Assert.AreEqual(3, products.Count);
@@ -33,8 +33,8 @@ namespace Taobao.Top.Api.Test
             ProductsSearchRequest request = new ProductsSearchRequest();
             request.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
             request.Query = "N73";
-            request.PageNo = "2";
-            request.PageSize = "5";
+            request.PageNo = 2;
+            request.PageSize = 5;
             List<Product> products = client.Execute(request, new ProductListXmlParser()).Content;
 
             Assert.AreEqual(5, products.Count);
@@ -113,7 +113,7 @@ namespace Taobao.Top.Api.Test
             ProductImgUploadRequest request = new ProductImgUploadRequest();
             request.ProductId = "203940";
             request.Image = TestUtils.GetResourceAsFile("product.jpg");
-            request.Position = "7";
+            request.Position = 7;
 
             ITopRequest proxy = new TopRequestProxy(request, "admin");
             ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());

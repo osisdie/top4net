@@ -11,34 +11,34 @@ namespace Taobao.Top.Api.Request
     public class ProductsSearchRequest : ITopRequest
     {
         /// <summary>
-        /// Product 目前返回值(product_id,name,pic_patch,cid,props,price,modified)。
+        /// 要返回的产品字段列表。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索的关键词(q,cid和props必须至少传一个)。
+        /// 搜索的关键词。
         /// </summary>
         public string Query { get; set; }
 
         /// <summary>
-        /// 类目ID。
+        /// 类目编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 属性、属性值的组合，格式：pid:vid;pid:vid。
+        /// 关键属性串。
         /// </summary>
         public string Props { get; set; }
 
         /// <summary>
         /// 每页显示条数。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -55,8 +55,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("q", this.Query);
             parameters.Add("cid", this.Cid);
             parameters.Add("props", this.Props);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
 
             return parameters;
         }

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ItemEnlistRequest : ITopRequest
     {
         /// <summary>
-        /// 需要上架的商品id。
+        /// 需要上架的商品编号。
         /// </summary>
         public string Iid { get; set; }
 

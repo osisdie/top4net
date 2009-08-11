@@ -16,27 +16,27 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索字段.q,cid,nicks,props,product_id中至少要一个。
+        /// 搜索字段。
         /// </summary>
         public string Query { get; set; }
 
         /// <summary>
-        /// 卖家昵称列表,逗号分隔(目前最多支持5个卖家昵称，格式为nick1,nick2,nick3…). Q,cid,nicks,props,product_id中至少要一个。
+        /// 卖家昵称列表。
         /// </summary>
         public string Nicks { get; set; }
 
         /// <summary>
-        /// 商品所属类目编号. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品所属类目编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 商品最低价格. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品最低价格。
         /// </summary>
         public string StartPrice { get; set; }
 
         /// <summary>
-        /// 商品最高价格. Q,cid,nicks,props,product_id中至少要一个。
+        /// 商品最高价格。
         /// </summary>
         public string EndPrice { get; set; }
 
@@ -51,27 +51,27 @@ namespace Taobao.Top.Api.Request
         public int PageSize { get; set; }
 
         /// <summary>
-        /// 排序方式.格式为column:asc/desc,column可选值为: price, delist_time, seller_credit.如price:asc表示按价格升序排列. 没有这个参数表示按默认排序方式。
+        /// 排序方式。
         /// </summary>
         public string OrderBy { get; set; }
 
         /// <summary>
-        /// 商品属性.可以搜到拥有和输入属性一样的属性的商品的列表。
+        /// 商品属性。
         /// </summary>
         public string Props { get; set; }
 
         /// <summary>
-        /// 可以根据产品编号搜索属于这个spu的商品。
+        /// 可以根据产品编号搜索属于这个SPU的商品。
         /// </summary>
         public string ProductId { get; set; }
 
         /// <summary>
-        /// 旺旺在线状态（不设置结果包含所有状态，设置为true结果只有旺旺在线卖家的商品）不能单独使用，要和其他条件一起用才行。
+        /// 旺旺在线状态。
         /// </summary>
         public string WwStatus { get; set; }
 
         /// <summary>
-        /// 免运费（不设置包含所有邮费状态，设置为true结果只有卖家包邮的商品）不能单独使用，要和其他条件一起用才行。
+        /// 免运费。
         /// </summary>
         public string PostFree { get; set; }
 

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("credit")]
-    public class UserCredit
+    public class UserCredit : BaseObject
     {
         /// <summary>
         /// 信用等级。

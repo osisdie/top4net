@@ -11,12 +11,12 @@ namespace Taobao.Top.Api.Request
     public class SellerItemCatsUpdateRequest : ITopRequest
     {
         /// <summary>
-        /// 卖家自定义类目名称(name、pict_url、sort_order、promotion_info至少必须传一个)。
+        /// 卖家自定义类目名称。
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// 卖家自定义类目id。
+        /// 卖家自定义类目编号。
         /// </summary>
         public string Cid { get; set; }
 
@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Request
         public string SortOrder { get; set; }
 
         /// <summary>
-        /// 自定义类目的父类目ID,默认为0。
+        /// 自定义类目的父类目编号。
         /// </summary>
         public string ParentCid { get; set; }
 

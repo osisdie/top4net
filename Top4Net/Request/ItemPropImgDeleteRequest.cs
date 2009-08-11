@@ -11,12 +11,12 @@ namespace Taobao.Top.Api.Request
     public class ItemPropImgDeleteRequest : ITopRequest
     {
         /// <summary>
-        /// 商品图片ID。
+        /// 商品图片编号。
         /// </summary>
         public string ImgId { get; set; }
 
         /// <summary>
-        /// 商品ID。
+        /// 商品编号。
         /// </summary>
         public string Iid { get; set; }
 

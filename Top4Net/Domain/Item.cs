@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("item")]
-    public class Item
+    public class Item : BaseObject
     {
         /// <summary>
         /// 商品编号
@@ -36,7 +36,7 @@ namespace Taobao.Top.Api.Domain
         public string NumIid { get; set; }
 
         /// <summary>
-        /// 商品标题,不能超过60字节
+        /// 商品标题
         /// </summary>
         [JsonProperty("title")]
         [XmlElement("title")]
@@ -50,7 +50,7 @@ namespace Taobao.Top.Api.Domain
         public string Nick { get; set; }
 
         /// <summary>
-        /// 商品类型(fixed:一口价;auction:拍卖)
+        /// 商品类型
         /// </summary>
         [JsonProperty("type")]
         [XmlElement("type")]
@@ -71,14 +71,14 @@ namespace Taobao.Top.Api.Domain
         public string SellerCids { get; set; }
 
         /// <summary>
-        /// 商品属性格式：pid:vid
+        /// 商品属性格式
         /// </summary>
         [JsonProperty("props")]
         [XmlElement("props")]
         public string Props { get; set; }
 
         /// <summary>
-        /// 用户自行输入的类目属性ID串。结构："pid1,pid2,pid3"，如："20000"（表示品牌）
+        /// 用户自行输入的类目属性编号串
         /// </summary>
         [JsonProperty("input_pids")]
         [XmlElement("input_pids")]
@@ -92,7 +92,7 @@ namespace Taobao.Top.Api.Domain
         public string InputStrs { get; set; }
 
         /// <summary>
-        /// 商品描述,字数要大于5个字节，小于25000个字节
+        /// 商品描述
         /// </summary>
         [JsonProperty("desc")]
         [XmlElement("desc")]
@@ -113,28 +113,28 @@ namespace Taobao.Top.Api.Domain
         public string Num { get; set; }
 
         /// <summary>
-        /// 有效期,7或者14（默认是14天）
+        /// 商品有效期
         /// </summary>
         [JsonProperty("valid_thru")]
         [XmlElement("valid_thru")]
         public string ValidTerm { get; set; }
 
         /// <summary>
-        /// 上架时间（格式：yyyy-MM-dd HH:mm:ss）
+        /// 上架时间
         /// </summary>
         [JsonProperty("list_time")]
         [XmlElement("list_time")]
         public string EnlistTime { get; set; }
 
         /// <summary>
-        /// 下架时间（格式：yyyy-MM-dd HH:mm:ss）
+        /// 下架时间
         /// </summary>
         [JsonProperty("delist_time")]
         [XmlElement("delist_time")]
         public string DelistTime { get; set; }
 
         /// <summary>
-        /// 商品新旧程度(全新:new，闲置:unused，二手：second)
+        /// 商品新旧程度
         /// </summary>
         [JsonProperty("stuff_status")]
         [XmlElement("stuff_status")]
@@ -148,112 +148,98 @@ namespace Taobao.Top.Api.Domain
         public Location Location { get; set; }
 
         /// <summary>
-        /// 商品价格，格式：5.00；单位：元；精确到：分
+        /// 商品价格
         /// </summary>
         [JsonProperty("price")]
         [XmlElement("price")]
         public string Price { get; set; }
 
         /// <summary>
-        /// 平邮费用,格式：5.00；单位：元；精确到：分
+        /// 平邮费用
         /// </summary>
         [JsonProperty("post_fee")]
         [XmlElement("post_fee")]
         public string PostFee { get; set; }
 
         /// <summary>
-        /// 快递费用,格式：5.00；单位：元；精确到：分
+        /// 快递费用
         /// </summary>
         [JsonProperty("express_fee")]
         [XmlElement("express_fee")]
         public string ExpressFee { get; set; }
 
         /// <summary>
-        /// EMS费用,格式：5.00；单位：元；精确到：分
+        /// EMS费用
         /// </summary>
         [JsonProperty("ems_fee")]
         [XmlElement("ems_fee")]
         public string EmsFee { get; set; }
 
         /// <summary>
-        /// 支持会员打折,true/false
+        /// 支持会员打折
         /// </summary>
         [JsonProperty("has_discount")]
         [XmlElement("has_discount")]
-        public string HasDiscount { get; set; }
+        public bool HasDiscount { get; set; }
 
         /// <summary>
-        /// 运费承担方式,seller（卖家承担），buyer(买家承担）
+        /// 运费承担方式
         /// </summary>
         [JsonProperty("freight_payer")]
         [XmlElement("freight_payer")]
         public string FreightPayer { get; set; }
 
         /// <summary>
-        /// 是否有发票,true/false
+        /// 是否有发票
         /// </summary>
         [JsonProperty("has_invoice")]
         [XmlElement("has_invoice")]
-        public string HasInvoice { get; set; }
+        public bool HasInvoice { get; set; }
 
         /// <summary>
-        /// 是否有保修,true/false
+        /// 是否有保修
         /// </summary>
         [JsonProperty("has_warranty")]
         [XmlElement("has_warranty")]
-        public string HasWarranty { get; set; }
+        public bool HasWarranty { get; set; }
 
         /// <summary>
-        /// 橱窗推荐,true/false
+        /// 橱窗推荐
         /// </summary>
         [JsonProperty("has_showcase")]
         [XmlElement("has_showcase")]
-        public string HasShowcase { get; set; }
+        public bool HasShowcase { get; set; }
 
         /// <summary>
-        /// 商品修改时间（格式：yyyy-MM-dd HH:mm:ss）
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public string Modified { get; set; }
-
-        /// <summary>
-        /// 商品创建时间（格式：yyyy-MM-dd HH:mm:ss）
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
-
-        /// <summary>
-        /// 加价幅度。如果为0，代表系统代理幅度
+        /// 加价幅度
         /// </summary>
         [JsonProperty("increment")]
         [XmlElement("increment")]
         public string Increment { get; set; }
 
         /// <summary>
-        /// 自动重发,true/false
+        /// 自动重发
         /// </summary>
         [JsonProperty("auto_repost")]
         [XmlElement("auto_repost")]
-        public string AutoRepost { get; set; }
+        public bool AutoRepost { get; set; }
 
         /// <summary>
-        /// 商品上传后的状态。onsale出售中，instock库中
+        /// 商品上传后的状态
         /// </summary>
         [JsonProperty("approve_status")]
         [XmlElement("approve_status")]
         public string ApproveStatus { get; set; }
 
         /// <summary>
-        /// 宝贝所属的运费模板编号，如果没有返回则说明没有使用运费模板
+        /// 宝贝所属的运费模板编号
         /// </summary>
         [JsonProperty("postage_id")]
         [XmlElement("postage_id")]
         public string PostageId { get; set; }
 
         /// <summary>
-        /// 宝贝所属产品的编号(可能为空).该字段可以通过taobao.products.search得到
+        /// 宝贝所属产品的编号
         /// </summary>
         [JsonProperty("product_id")]
         [XmlElement("product_id")]
@@ -274,7 +260,7 @@ namespace Taobao.Top.Api.Domain
         public string PropAlias { get; set; }
 
         /// <summary>
-        /// 商家外部编码(可与商家外部系统对接)
+        /// 商家外部编码
         /// </summary>
         [JsonProperty("outer_id")]
         [XmlElement("outer_id")]

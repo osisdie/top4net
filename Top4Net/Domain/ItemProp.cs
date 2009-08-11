@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 商品属性
     /// </summary>
-    public class ItemProp
+    public class ItemProp : BaseObject
     {
         /// <summary>
         /// 属性编号
@@ -112,7 +112,7 @@ namespace Taobao.Top.Api.Domain
         public List<PropValue> PropValueList { get; set; }
 
         /// <summary>
-        /// 属性状态。可选值:normal(正常),deleted(删除) 
+        /// 属性状态
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]

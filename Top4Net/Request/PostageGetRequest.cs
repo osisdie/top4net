@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 模板ID。
+        /// 模板编号。
         /// </summary>
         public string PostageId { get; set; }
 

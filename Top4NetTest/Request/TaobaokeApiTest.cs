@@ -22,14 +22,14 @@ namespace Taobao.Top.Api.Test
             request.Keyword = "sns";
             request.StartPrice = "100";
             request.EndPrice = "200";
-            request.AutoSend = "false";
+            request.AutoSend = false;
             request.Area = "杭州";
             request.StartCredit = "1crown";
             request.EndCredit = "3crown";
             request.OrderBy = "commissionNum_desc";
-            request.IsGuarantee = "true";
-            request.PageSize = "6";
-            request.PageNo = "1";
+            request.IsGuarantee = true;
+            request.PageSize = 6;
+            request.PageNo = 1;
             List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser()).Content;
             Assert.AreEqual(6, items.Count);
         }
@@ -42,7 +42,7 @@ namespace Taobao.Top.Api.Test
             request.Fields = "iid,title,nick,pic_url,price,click_url";
             request.Pid = "12345678_0_0";
             request.Keyword = "test";
-            request.PageSize = "5";
+            request.PageSize = 5;
 
             List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser()).Content;
             Assert.AreEqual(5, items.Count);

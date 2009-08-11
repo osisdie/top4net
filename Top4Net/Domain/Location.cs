@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("location")]
-    public class Location
+    public class Location : BaseObject
     {
         /// <summary>
         /// 邮政编码

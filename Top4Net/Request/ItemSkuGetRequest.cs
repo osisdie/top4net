@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string SkuId { get; set; }
 
         /// <summary>
-        /// Sku的id。
+        /// Sku的编号。
         /// </summary>
         public string Nick { get; set; }
 

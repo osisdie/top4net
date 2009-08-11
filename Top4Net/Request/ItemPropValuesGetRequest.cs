@@ -11,22 +11,22 @@ namespace Taobao.Top.Api.Request
     public class ItemPropValuesGetRequest : ITopRequest
     {
         /// <summary>
-        /// 需要返回的字段(不包括is_parent)。
+        /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 叶子类目ID。
+        /// 叶子类目编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 属性和属性值id串，格式pid:vid;pid:vid(pvs和datetime只传其中一个)。
+        /// 属性和属性值编号串。
         /// </summary>
         public string Pvs { get; set; }
 
         /// <summary>
-        /// 增量时间戳，如果传1970-1-1 00:00:00，则取所有的属性和子属性值(状态为删除的属性值不返回prop_name)。
+        /// 增量时间戳。
         /// </summary>
         public DateTime DateTime { get; set; }
 

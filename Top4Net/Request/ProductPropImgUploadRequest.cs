@@ -10,29 +10,29 @@ namespace Taobao.Top.Api.Request
     public class ProductPropImgUploadRequest : ITopUploadRequest
     {
         /// <summary>
-        /// 产品属性图片ID。
+        /// 产品属性图片编号。
         /// </summary>
         public string ImgId { get; set; }
 
         /// <summary>
-        /// 产品ID。
+        /// 产品编号。
         /// </summary>
         public string ProductId { get; set; }
 
         /// <summary>
-        /// 属性串，格式pid:vid，目前仅支持颜色属性。
+        /// 属性串。
         /// </summary>
         public string Props { get; set; }
 
         /// <summary>
-        /// 子图片，要先上传图片后再提交测试，否则图片不会被提交。
+        /// 子图片文件。
         /// </summary>
         public FileInfo Image { get; set; }
 
         /// <summary>
         /// 图片序号。
         /// </summary>
-        public string Position { get; set; }
+        public int Position { get; set; }
 
         #region ITopRequest Members
 
@@ -48,7 +48,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("pic_id", this.ImgId);
             parameters.Add("product_id", this.ProductId);
             parameters.Add("props", this.Props);
-            parameters.Add("position", this.Position);
+            parameters.Add("position", this.Position + "");
 
             return parameters;
         }

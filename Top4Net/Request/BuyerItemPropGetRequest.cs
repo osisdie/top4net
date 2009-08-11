@@ -16,12 +16,12 @@ namespace Taobao.Top.Api.Request
         public string Cid { get; set; }
 
         /// <summary>
-        /// 类目属性编号，取类目属性需要传cid和pid。
+        /// 类目属性编号
         /// </summary>
         public string Pid { get; set; }
 
         /// <summary>
-        /// 类目子属性路径,由该子属性上层的类目属性和类目属性值组成,格式pid:vid;pid:vid.取类目子属性需要传child_path,cid。
+        /// 类目子属性路径
         /// </summary>
         public string ChildPropPath { get; set; }
 

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("shop")]
-    public class Shop
+    public class Shop : BaseObject
     {
         /// <summary>
         /// 店铺编号
@@ -61,19 +61,5 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
         public string LogoUrl { get; set; }
-
-        /// <summary>
-        /// 开店时间。格式：yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
-
-        /// <summary>
-        /// 最后修改时间。格式：yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public string Modified { get; set; }
     }
 }

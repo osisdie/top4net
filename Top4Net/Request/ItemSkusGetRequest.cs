@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 商品的id列表，逗号分隔,最多40个。
+        /// 商品的编号列表。
         /// </summary>
         public string Iids { get; set; }
 

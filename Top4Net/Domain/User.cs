@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("user")]
-    public class User
+    public class User : BaseObject
     {
         /// <summary>
         /// 用户编号。
@@ -56,13 +56,6 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("location")]
         [XmlElement("location")]
         public Location Location { get; set; }
-
-        /// <summary>
-        /// 用户注册时间。
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
 
         /// <summary>
         /// 最近登陆时间。

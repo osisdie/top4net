@@ -47,6 +47,7 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Domain\Album.cs" />
     <Compile Include="Domain\Area.cs" />
+    <Compile Include="Domain\BaseObject.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemCategory.cs" />
     <Compile Include="Domain\ItemImg.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="Domain\PropValue.cs" />
     <Compile Include="Domain\Refund.cs" />
     <Compile Include="Domain\RefundMessage.cs" />
-    <Compile Include="Domain\RefundRemindTimeout.cs" />
+    <Compile Include="Domain\RefundTimeout.cs" />
     <Compile Include="Domain\SellerCategory.cs" />
     <Compile Include="Domain\Shipping.cs" />
     <Compile Include="Domain\Shop.cs" />

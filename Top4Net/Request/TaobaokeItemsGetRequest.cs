@@ -11,27 +11,27 @@ namespace Taobao.Top.Api.Request
     public class TaobaokeItemsGetRequest : ITopRequest
     {
         /// <summary>
-        /// 需要返回的字段: iid,title,nick,pic_url,price,click_url。
+        /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
 
         /// <summary>
-        /// 输入格式: "mm_会员id_网站id_广告位id" 注意,如果会员id错误，那么客户就收不到佣金. 网站id和广告位id可以为0。
+        /// 输入格式：mm_会员id_网站id_广告位id。
         /// </summary>
         public string Pid { get; set; }
 
         /// <summary>
-        /// 商品标题中包含的关键字 注意：查询时keyword,cid至少选择其中一个参数。
+        /// 商品标题中包含的关键字。
         /// </summary>
         public string Keyword { get; set; }
 
         /// <summary>
-        /// 商品所属分类id。
+        /// 商品所属分类编号。
         /// </summary>
         public string Cid { get; set; }
 
         /// <summary>
-        /// 起始价格 传入价格参数时，需注意起始价格和最高价格必须一起传入,并且 start_price <= end_price。
+        /// 起始价格。
         /// </summary>
         public string StartPrice { get; set; }
 
@@ -41,9 +41,9 @@ namespace Taobao.Top.Api.Request
         public string EndPrice { get; set; }
 
         /// <summary>
-        /// 是否自动发货，true或false。
+        /// 是否自动发货。
         /// </summary>
-        public string AutoSend { get; set; }
+        public bool AutoSend { get; set; }
 
         /// <summary>
         /// 商品所在地。
@@ -61,14 +61,14 @@ namespace Taobao.Top.Api.Request
         public string EndCredit { get; set; }
 
         /// <summary>
-        /// 默认排序 : default 价格从高到低: price_desc 价格从低到高: price_asc 信用等级从高到低: credit_desc。
+        /// 默认排序。
         /// </summary>
         public string OrderBy { get; set; }
 
         /// <summary>
-        /// 是否查询消保卖家，true或false。
+        /// 是否查询消保卖家。
         /// </summary>
-        public string IsGuarantee { get; set; }
+        public bool IsGuarantee { get; set; }
 
         /// <summary>
         /// 起始佣金选项。
@@ -101,14 +101,14 @@ namespace Taobao.Top.Api.Request
         public string EndCommissionNum { get; set; }
 
         /// <summary>
-        /// 结果页数,1~99。
+        /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
-        /// 每页返回结果数,40。
+        /// 每页返回结果数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -127,20 +127,20 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("start_price", this.StartPrice);
             parameters.Add("end_price", this.EndPrice);
-            parameters.Add("auto_send", this.AutoSend);
+            parameters.Add("auto_send", this.AutoSend + "");
             parameters.Add("area", this.Area);
             parameters.Add("start_credit", this.StartCredit);
             parameters.Add("end_credit", this.EndCredit);
             parameters.Add("sort", this.OrderBy);
-            parameters.Add("is_guarantee", this.IsGuarantee);
+            parameters.Add("is_guarantee", this.IsGuarantee + "");
             parameters.Add("start_commission", this.StartCommission);
             parameters.Add("end_commission", this.EndCommission);
             parameters.Add("start_commissionRate", this.StartCommissionRate);
             parameters.Add("end_commissionRate", this.EndCommissionRate);
             parameters.Add("start_commissionNum", this.StartCommissionNum);
             parameters.Add("end_commissionNum", this.EndCommissionNum);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
 
             return parameters;
         }

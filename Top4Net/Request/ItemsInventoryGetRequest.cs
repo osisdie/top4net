@@ -16,27 +16,27 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 搜索字段.模糊查询。
+        /// 搜索字段。
         /// </summary>
         public string Query { get; set; }
 
         /// <summary>
-        /// 分类字段:没卖出的:unsold;部分卖出的:partly_sold;定时上架:regular_shelved;从未上架:never_on_shelf;全部卖完:sold_out;我下架的:off_shelf;等待所有上架:for_shelved。
+        /// 分类字段。
         /// </summary>
         public string Banner { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         /// <summary>
-        /// 排序方式. 格式为column:asc/desc。（enlist_time,delist_time, num）。
+        /// 排序方式。
         /// </summary>
         public string OrderBy { get; set; }
 
@@ -54,8 +54,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("q", this.Query);
             parameters.Add("banner", this.Banner);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
             parameters.Add("order_by", this.OrderBy);
 
             return parameters;

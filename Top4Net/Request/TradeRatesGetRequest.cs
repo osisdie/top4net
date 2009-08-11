@@ -16,29 +16,29 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 评价状态（得到:get;给出:give）。
+        /// 评价状态。
         /// </summary>
         public string RateType { get; set; }
 
         /// <summary>
-        /// 评价者加角色（卖家：seller; 买家：buyer）。
+        /// 评价者加角色。
         /// </summary>
         public string Role { get; set; }
 
         /// <summary>
-        /// 评价结果.（好评：good;中评：neutral;差评: bad）。
+        /// 评价结果。
         /// </summary>
         public string Result { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -55,8 +55,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("rate_type", this.RateType);
             parameters.Add("role", this.Role);
             parameters.Add("result", this.Result);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
 
             return parameters;
         }

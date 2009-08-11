@@ -11,12 +11,12 @@ namespace Taobao.Top.Api.Request
     public class ItemSkuAddRequest : ITopRequest
     {
         /// <summary>
-        /// Sku所属商品id。
+        /// Sku所属商品编号。
         /// </summary>
         public string Iid { get; set; }
 
         /// <summary>
-        /// Sku属性串,如：pid:vid;pid1:vid1…。
+        /// Sku属性串。
         /// </summary>
         public string Props { get; set; }
 
@@ -26,17 +26,17 @@ namespace Taobao.Top.Api.Request
         public string Quantity { get; set; }
 
         /// <summary>
-        /// Sku的销售价格,商品的价格要在商品所有的sku的价格之间。
+        /// Sku的销售价格。
         /// </summary>
         public string Price { get; set; }
 
         /// <summary>
-        /// Sku的商家外部id。
+        /// Sku的商家外部编号。
         /// </summary>
         public string OuterId { get; set; }
 
         /// <summary>
-        /// sku文字的版本，繁体传入zh_HK，简体传入zh_CN，不传默认为简体。
+        /// sku文字的版本。
         /// </summary>
         public string Language { get; set; }
 

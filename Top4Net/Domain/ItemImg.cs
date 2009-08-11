@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("itemImg")]
-    public class ItemImg
+    public class ItemImg : BaseObject
     {
         /// <summary>
         /// 商品图片的编号
@@ -32,13 +32,6 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("position")]
         [XmlElement("position")]
-        public string Position { get; set; }
-
-        /// <summary>
-        /// 商品图片创建时间
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
+        public int Position { get; set; }
     }
 }

@@ -11,12 +11,12 @@ namespace Taobao.Top.Api.Request
     public class LogisticsOrderAddRequest : ITopRequest
     {
         /// <summary>
-        /// 交易ID。
+        /// 交易编号。
         /// </summary>
         public string Tid { get; set; }
 
         /// <summary>
-        /// 调用者ip地址。
+        /// 调用者IP地址。
         /// </summary>
         public string AppIp { get; set; }
 
@@ -36,12 +36,12 @@ namespace Taobao.Top.Api.Request
         public string SellerName { get; set; }
 
         /// <summary>
-        /// 卖家区域县级行政区 ID。
+        /// 卖家区域县级行政区编号。
         /// </summary>
         public string SellerAreaId { get; set; }
 
         /// <summary>
-        /// 卖家地址(详细地址)如:XXX街道XXX门牌,省市区不需要提供。
+        /// 卖家地址。
         /// </summary>
         public string SellerAddress { get; set; }
 
@@ -51,7 +51,7 @@ namespace Taobao.Top.Api.Request
         public string SellerZip { get; set; }
 
         /// <summary>
-        /// 两者必须选一,卖家固定电话或者手机号码. 包含区号,电话,分机号,中间用“ – “分隔。
+        /// 卖家固定电话。
         /// </summary>
         public string SellerPhone { get; set; }
 

@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("itemsearch")]
-    public class ItemSearch
+    public class ItemSearch : BaseObject
     {
         /// <summary>
         /// 商品列表

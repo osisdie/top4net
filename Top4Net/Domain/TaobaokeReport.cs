@@ -12,13 +12,13 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("TaobaokeReport")]
-    public class TaobaokeReport
+    public class TaobaokeReport : BaseObject
     {
         /// <summary>
         /// 淘宝客报表成员列表
         /// </summary>
         [JsonProperty("members")]
         [XmlElement("members")]
-        public List<TaobaokeReportMember> Members { get; set; }
+        public List<TaobaokeReportMember> MemberList { get; set; }
     }
 }

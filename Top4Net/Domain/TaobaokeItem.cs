@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("taobaokeItem")]
-    public class TaobaokeItem
+    public class TaobaokeItem : BaseObject
     {
         /// <summary>
         /// 淘宝客商品编号

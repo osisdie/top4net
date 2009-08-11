@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 交ID 注: 如果加入tid参数的话,不用传其他的参数,但是仅会返回一条物流订单信息。
+        /// 交易编号。
         /// </summary>
         public string Tid { get; set; }
 
@@ -26,12 +26,12 @@ namespace Taobao.Top.Api.Request
         public string BuyerNick { get; set; }
 
         /// <summary>
-        /// 物流状态 : 查看数据结构状态。
+        /// 物流状态。
         /// </summary>
         public string Status { get; set; }
 
         /// <summary>
-        /// 卖家是否发货: 是(yes) 否(no)。
+        /// 卖家是否发货。
         /// </summary>
         public string SellerConfirm { get; set; }
 
@@ -51,7 +51,7 @@ namespace Taobao.Top.Api.Request
         public string EndCreated { get; set; }
 
         /// <summary>
-        /// 谁承担运费:买家/buyer 卖家/seller。
+        /// 谁承担运费。
         /// </summary>
         public string FreightPayer { get; set; }
 
@@ -63,12 +63,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -91,8 +91,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("end_created", this.EndCreated);
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("type", this.Type);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
 
             return parameters;
         }

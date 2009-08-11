@@ -10,29 +10,29 @@ namespace Taobao.Top.Api.Request
     public class ProductImgUploadRequest : ITopUploadRequest
     {
         /// <summary>
-        /// 产品图片ID。
+        /// 产品图片编号。
         /// </summary>
         public string ImgId { get; set; }
 
         /// <summary>
-        /// 产品ID。
+        /// 产品编号。
         /// </summary>
         public string ProductId { get; set; }
 
         /// <summary>
-        /// 子图片，要先上传图片后再提交测试，否则图片不会被提交。
+        /// 子图片文件。
         /// </summary>
         public FileInfo Image { get; set; }
 
         /// <summary>
         /// 图片序号。
         /// </summary>
-        public string Position { get; set; }
+        public int Position { get; set; }
 
         /// <summary>
-        /// 是否将该图片设为主图(默认为false)。
+        /// 是否将该图片设为主图。
         /// </summary>
-        public string IsPrimary { get; set; }
+        public bool IsPrimary { get; set; }
 
         #region ITopRequest Members
 
@@ -47,8 +47,8 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("pic_id", this.ImgId);
             parameters.Add("product_id", this.ProductId);
-            parameters.Add("position", this.Position);
-            parameters.Add("is_major", this.IsPrimary);
+            parameters.Add("position", this.Position + "");
+            parameters.Add("is_major", this.IsPrimary + "");
 
             return parameters;
         }

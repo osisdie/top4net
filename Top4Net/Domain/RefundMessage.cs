@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("refundMessage")]
-    class RefundMessage
+    class RefundMessage : BaseObject
     {
         /// <summary>
         /// 留言编号
@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Domain
         public string MsgId { get; set; }
 
         /// <summary>
-        /// 留言内容。最大长度: 400个字节
+        /// 留言内容
         /// </summary>
         [JsonProperty("content")]
         [XmlElement("content")]
@@ -61,12 +61,5 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("picture_urls")]
         [XmlElement("picture_urls")]
         public string PicUrls { get; set; }
-
-        /// <summary>
-        /// 留言创建时间。格式:yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
     }
 }

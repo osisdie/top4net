@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class TradeRateBatchAddRequest : ITopRequest
     {
         /// <summary>
-        /// 交易ID。
+        /// 交易编号。
         /// </summary>
         public string Tid { get; set; }
 
@@ -26,9 +26,9 @@ namespace Taobao.Top.Api.Request
         public string Result { get; set; }
 
         /// <summary>
-        /// 是否匿名（是:true;否:false;）。
+        /// 是否匿名。
         /// </summary>
-        public string Anonymous { get; set; }
+        public bool Anonymous { get; set; }
 
         /// <summary>
         /// 评价角色。
@@ -49,7 +49,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("tid", this.Tid);
             parameters.Add("content", this.Content);
             parameters.Add("result", this.Result);
-            parameters.Add("anony", this.Anonymous);
+            parameters.Add("anony", this.Anonymous + "");
             parameters.Add("role", this.Role);
 
             return parameters;

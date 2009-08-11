@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("shopCat")]
-    public class ShopCategory
+    public class ShopCategory : BaseObject
     {
         /// <summary>
         /// 卖家自定义类目编号
@@ -21,7 +21,7 @@ namespace Taobao.Top.Api.Domain
         public string Cid { get; set; }
 
         /// <summary>
-        /// 父类目cid，值等于0：表示此类目为店铺下的一级类目，值不等于0：表示此类目有父类目
+        /// 父类目编号
         /// </summary>
         [JsonProperty("parent_cid")]
         [XmlElement("parent_cid")]

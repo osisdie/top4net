@@ -51,22 +51,22 @@ namespace Taobao.Top.Api.Request
         public string EmsIncrease { get; set; }
 
         /// <summary>
-        /// 运费方式(目前提供):平邮 (post),快递公司(express), EMS (ems)数量串: 例 (post;express;ems……)，用 “;”区分。
+        /// 运费方式。
         /// </summary>
         public string PostageModeType { get; set; }
 
         /// <summary>
-        /// 目的地值,涉及的地区,数值用逗号连接数量串: 例 (10;20;30,10) .填写时要注意对照地区代码值,如果填入错误地区代码, 将会出现错误信息。
+        /// 目的地值。
         /// </summary>
         public string PostageModeDest { get; set; }
 
         /// <summary>
-        /// 运费方式单价 数量串: 例 (11.2;14;6……)。
+        /// 运费方式单价数量串。
         /// </summary>
         public string PostageModePrice { get; set; }
 
         /// <summary>
-        /// 运费方式加件费用 数量串: 例 (1.5;2……)。
+        /// 运费方式加件费用数量串。
         /// </summary>
         public string PostageModeIncrease { get; set; }
 

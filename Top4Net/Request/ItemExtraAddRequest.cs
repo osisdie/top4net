@@ -11,17 +11,17 @@ namespace Taobao.Top.Api.Request
     public class ItemExtraAddRequest : ITopRequest
     {
         /// <summary>
-        /// 商品id。
+        /// 商品编号。
         /// </summary>
         public string Iid { get; set; }
 
         /// <summary>
-        /// 标题。
+        /// 商品标题。
         /// </summary>
         public string Title { get; set; }
 
         /// <summary>
-        /// 描述。
+        /// 商品描述。
         /// </summary>
         public string Desc { get; set; }
 
@@ -31,42 +31,42 @@ namespace Taobao.Top.Api.Request
         public string Feature { get; set; }
 
         /// <summary>
-        /// 备注。
+        /// 商品备注。
         /// </summary>
         public string Memo { get; set; }
 
         /// <summary>
-        /// 扩展类型 other:其他网店 ；uniqlo: 优衣库 reserve_price。
+        /// 扩展类型。
         /// </summary>
         public string Type { get; set; }
 
         /// <summary>
-        /// 预订金 100.12元。
+        /// 预订金。
         /// </summary>
         public string ReservePrice { get; set; }
 
         /// <summary>
-        /// SKU的属性串，pid11:vid11;pid12:vid12,pid21:vid21;pid22:vid22,…。
+        /// SKU的属性串。
         /// </summary>
         public string SkuProps { get; set; }
 
         /// <summary>
-        /// sku的数量串，结构如：2,3,…。
+        /// sku的数量串。
         /// </summary>
         public string SkuQuantities { get; set; }
 
         /// <summary>
-        /// sku的价格串，结构如：10.00,5.00,…。
+        /// sku的价格串。
         /// </summary>
         public string SkuPrices { get; set; }
 
         /// <summary>
-        /// Sku 的备注串，结构如：2,3,…。
+        /// Sku的备注串。
         /// </summary>
         public string SkuMemos { get; set; }
 
         /// <summary>
-        /// Sku_id串 可以为空，如果为空，为新SKU。
+        /// Sku编号串。
         /// </summary>
         public string SkuIds { get; set; }
 

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ProductsGetRequest : ITopRequest
     {
         /// <summary>
-        /// Product数据结构字段列表，以半角逗号(,)分隔。
+        /// 要返回的产品字段列表。
         /// </summary>
         public string Fields { get; set; }
 
@@ -23,12 +23,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -43,8 +43,8 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("fields", this.Fields);
             parameters.Add("nick", this.Nick);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
 
             return parameters;
         }

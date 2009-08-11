@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ItemDelistRequest : ITopRequest
     {
         /// <summary>
-        /// 需要下架的商品id。
+        /// 需要下架的商品编号。
         /// </summary>
         public string Iid { get; set; }
 

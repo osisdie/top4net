@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ShopUpdateRequest : ITopRequest
     {
         /// <summary>
-        /// 店铺标题(title、bulletin和desc至少必须传一个)。
+        /// 店铺标题。
         /// </summary>
         public string Title { get; set; }
 

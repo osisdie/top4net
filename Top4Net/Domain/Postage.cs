@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 运费模板结构,需要绑定，都是隐私
+    /// 运费模板结构
     /// </summary>
     [Serializable]
     [JsonObject]
     [XmlRoot("postage")]
-    public class Postage
+    public class Postage : BaseObject
     {
         /// <summary>
         /// 运费模板编号
@@ -34,20 +34,6 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("memo")]
         [XmlElement("memo")]
         public string Memo { get; set; }
-
-        /// <summary>
-        /// 创建日期
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// 最后修改日期
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public DateTime Modified { get; set; }
 
         /// <summary>
         /// 平邮收费

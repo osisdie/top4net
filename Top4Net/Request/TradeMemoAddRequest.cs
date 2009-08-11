@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Memo { get; set; }
 
         /// <summary>
-        /// 交易ID。
+        /// 交易编号。
         /// </summary>
         public string Tid { get; set; }
 

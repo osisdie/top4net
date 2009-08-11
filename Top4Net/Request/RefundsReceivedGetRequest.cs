@@ -23,12 +23,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public string PageNo { get; set; }
+        public int PageNo { get; set; }
 
         /// <summary>
-        /// 每页条数 (每页返回最多返回100条,默认值为20)。
+        /// 每页条数。
         /// </summary>
-        public string PageSize { get; set; }
+        public int PageSize { get; set; }
 
         /// <summary>
         /// 需要返回的字段。
@@ -36,7 +36,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// guarantee_trade,一口价、拍卖,auto_delivery,自动发货,independent_shop_trade,外部网店的交易。
+        /// 交易类型。
         /// </summary>
         public string Type { get; set; }
 
@@ -53,8 +53,8 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("status", this.Status);
             parameters.Add("buyer_nick", this.BuyerNick);
-            parameters.Add("page_no", this.PageNo);
-            parameters.Add("page_size", this.PageSize);
+            parameters.Add("page_no", this.PageNo + "");
+            parameters.Add("page_size", this.PageSize + "");
             parameters.Add("fields", this.Fields);
             parameters.Add("type", this.Type);
 

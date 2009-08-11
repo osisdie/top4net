@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("product")]
-    public class Product
+    public class Product : BaseObject
     {
         /// <summary>
         /// 产品编号。
@@ -119,31 +119,17 @@ namespace Taobao.Top.Api.Domain
         public string PrimaryImgUrl { get; set; }
 
         /// <summary>
-        /// 产品的创建时间。
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
-
-        /// <summary>
-        /// 产品的修改时间。
-        /// </summary>
-        [JsonProperty("modified")]
-        [XmlElement("modified")]
-        public string Modified { get; set; }
-
-        /// <summary>
         /// 产品的子图片。
         /// </summary>       
         [JsonProperty("productImg")]
         [XmlElement("productImg")]
-        public List<ProductImg> ProductImgs { get; set; }
+        public List<ProductImg> ImgList { get; set; }
 
         /// <summary>
         /// 产品的属性图片。
         /// </summary>
         [JsonProperty("productPropImg")]
         [XmlElement("productPropImg")]
-        public List<ProductPropImg> ProductPropImgs { get; set; }
+        public List<ProductPropImg> PropImgList { get; set; }
     }
 }

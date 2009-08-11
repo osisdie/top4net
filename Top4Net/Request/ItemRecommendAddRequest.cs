@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ItemRecommendAddRequest : ITopRequest
     {
         /// <summary>
-        /// 需要橱窗推荐的商品id。
+        /// 需要橱窗推荐的商品编号。
         /// </summary>
         public string Iid { get; set; }
 

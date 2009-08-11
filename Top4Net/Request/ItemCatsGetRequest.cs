@@ -16,17 +16,17 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 类目ID列表，用半角逗号(,)分隔。
+        /// 类目编号列表。
         /// </summary>
         public string Cids { get; set; }
 
         /// <summary>
-        /// 父商品类目编号，0表示根节点, 传输该参数返回所有子类目。 cids、parent_cid至少传一个。
+        /// 父商品类目编号。
         /// </summary>
         public string ParentCid { get; set; }
 
         /// <summary>
-        /// 时间戳，如果没有传，则取所有的类目信息(如果传了parent_cid或者cids，则忽略datetime)。
+        /// 时间戳。
         /// </summary>
         public string DateTime { get; set; }
 

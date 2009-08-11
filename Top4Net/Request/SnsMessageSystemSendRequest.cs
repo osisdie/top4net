@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class SnsMessageSystemSendRequest : ITopRequest
     {
         /// <summary>
-        /// 接收者id。
+        /// 接收者编号。
         /// </summary>
         public string ReceiverId { get; set; }
 

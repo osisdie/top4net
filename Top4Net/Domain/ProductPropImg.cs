@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("productPropImg")]
-    public class ProductPropImg
+    public class ProductPropImg : BaseObject
     {
         /// <summary>
         /// 产品属性图片编号。

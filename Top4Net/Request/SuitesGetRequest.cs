@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class SuitesGetRequest : ITopRequest
     {
         /// <summary>
-        /// 用户订购服务的服务码(申请服务的时候会得到)。
+        /// 用户订购服务的服务码。
         /// </summary>
         public string ServiceCode { get; set; }
 

@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("shipping")]
-    public class Shipping
+    public class Shipping : BaseObject
     {
         /// <summary>
         /// 交易编号
@@ -91,38 +91,28 @@ namespace Taobao.Top.Api.Domain
         public Location ReceiverLocation { get; set; }
 
         /// <summary>
-        /// 物流订单状态.可选值:
-        /// CREATED(订单已创建),RECREATED(订单重新创建),CANCELLED(订单已取消),CLOSED(订单关闭), 
-        /// SENDING(等候发送给物流公司), 
-        /// ACCEPTING(已发送给物流公司,等待接单), 
-        /// ACCEPTED(物流公司已接单), 
-        /// REJECTED(物流公司不接单), 
-        /// PICK_UP(物流公司揽收成功), 
-        /// PICK_UP_FAILED(物流公司揽收失败), 
-        /// LOST(物流公司丢单), 
-        /// REJECTED_BY_RECEIVER(对方拒签), 
-        /// ACCEPTED_BY_RECEIVER(对方已签收). 
+        /// 物流订单状态
         /// </summary>
         [JsonProperty("status")]
         [XmlElement("status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// 物流方式.可选值:free(卖家包邮),post(平邮),express(快递),ems(EMS).
+        /// 物流方式
         /// </summary>
         [JsonProperty("type")]
         [XmlElement("type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// 谁承担运费.可选值:buyer(买家承担),seller(卖家承担运费).
+        /// 谁承担运费
         /// </summary>
         [JsonProperty("freight_payer")]
         [XmlElement("freight_payer")]
         public string FreightPayer { get; set; }
 
         /// <summary>
-        /// 卖家是否确认发货.可选值:yes(是),no(否).
+        /// 卖家是否确认发货
         /// </summary>
         [JsonProperty("seller_confirm")]
         [XmlElement("seller_confirm")]

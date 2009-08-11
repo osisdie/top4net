@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("tradeRate")]
-    class TradeRate
+    class TradeRate : BaseObject
     {
         /// <summary>
         /// 交易编号
@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Domain
         public string OrderId { get; set; }
 
         /// <summary>
-        /// 评价者角色.可选值:seller(卖家),buyer(买家)
+        /// 评价者角色
         /// </summary>
         [JsonProperty("role")]
         [XmlElement("role")]
@@ -49,18 +49,11 @@ namespace Taobao.Top.Api.Domain
         public string RatedNick { get; set; }
 
         /// <summary>
-        /// 评价结果,可选值:good(好评),neutral(中评),bad(差评)
+        /// 评价结果
         /// </summary>
         [JsonProperty("result")]
         [XmlElement("result")]
         public string Result { get; set; }
-
-        /// <summary>
-        /// 评价创建时间,格式:yyyy-MM-dd HH:mm:ss
-        /// </summary>
-        [JsonProperty("created")]
-        [XmlElement("created")]
-        public string Created { get; set; }
 
         /// <summary>
         /// 商品标题
@@ -70,21 +63,21 @@ namespace Taobao.Top.Api.Domain
         public string ItemTitle { get; set; }
 
         /// <summary>
-        /// 商品价格,精确到2位小数
+        /// 商品价格
         /// </summary>
         [JsonProperty("item_price")]
         [XmlElement("item_price")]
         public string ItemPrice { get; set; }
 
         /// <summary>
-        /// 评价内容,最大长度:500个汉字
+        /// 评价内容
         /// </summary>
         [JsonProperty("content")]
         [XmlElement("content")]
         public string Content { get; set; }
 
         /// <summary>
-        /// 评价解释,最大长度:500个汉字
+        /// 评价解释
         /// </summary>
         [JsonProperty("reply")]
         [XmlElement("reply")]
