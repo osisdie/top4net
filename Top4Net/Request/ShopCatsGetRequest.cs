@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.shopcats.list.get
     /// </summary>
-    public class BuyerShopCatsGetRequest : ITopRequest
+    public class ShopCatsGetRequest : ITopRequest
     {
         #region ITopRequest Members
 

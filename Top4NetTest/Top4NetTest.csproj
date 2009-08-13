@@ -46,6 +46,7 @@
     <Compile Include="Parser\TaobaokeParserTest.cs" />
     <Compile Include="Parser\TradeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
+    <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
     <Compile Include="Request\ProductApiTest.cs" />
     <Compile Include="Parser\ProductParserTest.cs" />

@@ -104,7 +104,7 @@
     <Compile Include="Request\BuyerItemCatsGetRequest.cs" />
     <Compile Include="Request\BuyerItemPropGetRequest.cs" />
     <Compile Include="Request\BuyerItemPropsGetRequest.cs" />
-    <Compile Include="Request\BuyerShopCatsGetRequest.cs" />
+    <Compile Include="Request\ShopCatsGetRequest.cs" />
     <Compile Include="Request\ItemAddRequest.cs" />
     <Compile Include="Request\ItemCatsGetRequest.cs" />
     <Compile Include="Request\ItemDeleteRequest.cs" />
