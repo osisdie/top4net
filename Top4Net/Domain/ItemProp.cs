@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
-
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
