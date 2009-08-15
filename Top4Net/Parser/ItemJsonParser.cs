@@ -188,4 +188,67 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// SKU列表的JSON响应解释器。
+    /// </summary>
+    public class SkuListJsonParser : ITopParser<ResponseList<Sku>>
+    {
+        #region ITopParser<ResponseList<Sku>> Members
+
+        public ResponseList<Sku> Parse(string body)
+        {
+            return ResponseList<Sku>.ParseJsonResponse("skus", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// SKU的JSON响应解释器。
+    /// </summary>
+    public class SkuJsonParser : ITopParser<Sku>
+    {
+        #region ITopParser<Sku> Members
+
+        public Sku Parse(string body)
+        {
+            SkuListJsonParser parser = new SkuListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 邮费模板列表的JSON响应解释器。
+    /// </summary>
+    public class PostageListJsonParser : ITopParser<ResponseList<Postage>>
+    {
+
+        #region ITopParser<ResponseList<Postage>> Members
+
+        public ResponseList<Postage> Parse(string body)
+        {
+            return ResponseList<Postage>.ParseJsonResponse("postages", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 邮费模板的JSON响应解释器。
+    /// </summary>
+    public class PostageJsonParser : ITopParser<Postage>
+    {
+        #region ITopParser<Postage> Members
+
+        public Postage Parse(string body)
+        {
+            PostageListJsonParser parser = new PostageListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

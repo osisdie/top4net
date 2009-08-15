@@ -74,7 +74,9 @@
     <None Include="Resources\item.imgs.json" />
     <None Include="Resources\item.props.json" />
     <None Include="Resources\item.searchs.json" />
+    <Content Include="issues.txt" />
     <Content Include="Resources\item.imgs.xml" />
+    <Content Include="Resources\item.jpg" />
     <Content Include="Resources\item.searchs.xml" />
     <None Include="Resources\items.json" />
     <None Include="Resources\logistics.companies.json" />
@@ -91,15 +93,18 @@
     <Content Include="Resources\orders.xml" />
     <Content Include="Resources\picture.categories.xml" />
     <Content Include="Resources\pictures.xml" />
+    <Content Include="Resources\postages.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
     <Content Include="Resources\products.xml" />
     <Content Include="Resources\prop.imgs.xml" />
+    <Content Include="Resources\prop.jpg" />
     <Content Include="Resources\prop.values.xml" />
     <Content Include="Resources\areas.xml" />
     <Content Include="Resources\refunds.xml" />
     <Content Include="Resources\shop.cats.xml" />
     <Content Include="Resources\shops.xml" />
+    <Content Include="Resources\skus.xml" />
     <Content Include="Resources\taobaoke.items.xml" />
     <Content Include="Resources\taobaoke.listurl.xml" />
     <Content Include="Resources\taobaoke.shops.xml" />
@@ -111,6 +116,7 @@
     <None Include="Resources\refunds.json" />
     <None Include="Resources\shop.cats.json" />
     <None Include="Resources\shops.json" />
+    <None Include="Resources\skus.json" />
     <None Include="Resources\taobaoke.items.json" />
     <None Include="Resources\taobaoke.listurl.json" />
     <None Include="Resources\taobaoke.shops.json" />

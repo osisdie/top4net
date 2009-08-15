@@ -156,5 +156,45 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual(1, imgs.Content.Count);
             Assert.AreEqual("11842373", imgs.Content[0].ImgId);
         }
+
+        [TestMethod]
+        public void ParseJsonAsSkus()
+        {
+            string body = TestUtils.GetResourceAsText("skus.json");
+            SkuListJsonParser parser = new SkuListJsonParser();
+            ResponseList<Sku> rsp = parser.Parse(body);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual("1627207:28326", rsp.Content[0].SkuProps);
+            Assert.AreEqual(3, rsp.Content[0].Quantity);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsSkus()
+        {
+            string body = TestUtils.GetResourceAsText("skus.xml");
+            SkuListXmlParser parser = new SkuListXmlParser();
+            ResponseList<Sku> rsp = parser.Parse(body);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual("81192754", rsp.Content[0].SkuId);
+            Assert.AreEqual("1700.0", rsp.Content[0].Price);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsPostages()
+        {
+            string body = TestUtils.GetResourceAsText("postages.json");
+            PostageListJsonParser parser = new PostageListJsonParser();
+            ResponseList<Postage> rsp = parser.Parse(body);
+            Assert.AreEqual(177, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsPostages()
+        {
+            string body = TestUtils.GetResourceAsText("postages.xml");
+            PostageListXmlParser parser = new PostageListXmlParser();
+            ResponseList<Postage> rsp = parser.Parse(body);
+            Assert.AreEqual(177, rsp.Content.Count);
+        }
     }
 }

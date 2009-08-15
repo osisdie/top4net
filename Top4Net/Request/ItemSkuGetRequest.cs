@@ -16,12 +16,12 @@ namespace Taobao.Top.Api.Request
         public string SkuId { get; set; }
 
         /// <summary>
-        /// Sku的编号。
+        /// SKU的编号。
         /// </summary>
         public string Nick { get; set; }
 
         /// <summary>
-        /// Sku所属用户的昵称。
+        /// SKU所属用户的昵称。
         /// </summary>
         public string Fields { get; set; }
 

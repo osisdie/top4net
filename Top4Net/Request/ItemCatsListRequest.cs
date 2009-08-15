@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.itemcats.list.get
     /// </summary>
-    public class BuyerItemCatsGetRequest : ITopRequest
+    public class ItemCatsListRequest : ITopRequest
     {
         /// <summary>
         /// 父商品类目编号

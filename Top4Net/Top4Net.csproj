@@ -101,9 +101,11 @@
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
-    <Compile Include="Request\BuyerItemCatsGetRequest.cs" />
-    <Compile Include="Request\BuyerItemPropGetRequest.cs" />
-    <Compile Include="Request\BuyerItemPropsGetRequest.cs" />
+    <Compile Include="Request\ItemCatsListRequest.cs" />
+    <Compile Include="Request\ItemPropListRequest.cs" />
+    <Compile Include="Request\ItemPropsListRequest.cs" />
+    <Compile Include="Request\ItemsAllGetRequest.cs" />
+    <Compile Include="Request\PostageDeleteRequest.cs" />
     <Compile Include="Request\ShopCatsGetRequest.cs" />
     <Compile Include="Request\ItemAddRequest.cs" />
     <Compile Include="Request\ItemCatsGetRequest.cs" />

@@ -81,7 +81,8 @@ namespace Taobao.Top.Api.Domain
         /// 运费方式模板收费方式
         /// </summary>
         [JsonProperty("postage_mode_list")]
-        [XmlElement("postage_mode_list")]
+        [XmlArray("postageModes")]
+        [XmlArrayItem("postageMode")]
         public List<PostageMode> PostageModeList { get; set; }
     }
 }

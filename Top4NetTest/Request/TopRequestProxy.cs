@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 
 using Taobao.Top.Api.Request;
@@ -33,6 +34,29 @@ namespace Taobao.Top.Api.Test
             parameters.Add("session_id", Guid.NewGuid().ToString());
             parameters.Add("session_nick", this.nick);
             return parameters;
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// TOP内部上传API请求代理，仅用于内部测试。
+    /// </summary>
+    public class TopUploadRequestProxy : TopRequestProxy, ITopUploadRequest
+    {
+        private ITopUploadRequest request;
+
+        public TopUploadRequestProxy(ITopUploadRequest request, string nick)
+            : base(request, nick)
+        {
+            this.request = request;
+        }
+
+        #region ITopUploadRequest Members
+
+        public IDictionary<string, FileInfo> GetFileParameters()
+        {
+            return request.GetFileParameters();
         }
 
         #endregion

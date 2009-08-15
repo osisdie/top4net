@@ -81,20 +81,20 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetBuyerItemCatsByJson()
+        public void ListItemCatsByJson()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("json");
-            BuyerItemCatsGetRequest req = new BuyerItemCatsGetRequest();
+            ItemCatsListRequest req = new ItemCatsListRequest();
             req.ParentCid = "1";
             List<ItemCategory> rsp = client.Execute(req, new ItemCatListJsonParser()).Content;
             Assert.AreEqual(10, rsp.Count);
         }
 
         [TestMethod]
-        public void GetBuyerItemCatsByXml()
+        public void ListItemCatsByXml()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
-            BuyerItemCatsGetRequest req = new BuyerItemCatsGetRequest();
+            ItemCatsListRequest req = new ItemCatsListRequest();
             req.Cids = "1101";
             List<ItemCategory> rsp = client.Execute(req, new ItemCatListXmlParser()).Content;
             Assert.AreEqual(1, rsp.Count);
@@ -102,10 +102,10 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetBuyerItemPropsByJson()
+        public void ListItemPropsByJson()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("json");
-            BuyerItemPropsGetRequest req = new BuyerItemPropsGetRequest();
+            ItemPropsListRequest req = new ItemPropsListRequest();
             req.Cid = "1101";
             List<ItemProp> rsp = client.Execute(req, new ItemPropListJsonParser()).Content;
             Assert.AreEqual(17, rsp.Count);
@@ -113,10 +113,10 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetBuyerItemPropsByXml()
+        public void ListItemPropsByXml()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
-            BuyerItemPropsGetRequest req = new BuyerItemPropsGetRequest();
+            ItemPropsListRequest req = new ItemPropsListRequest();
             req.Cid = "1101";
             List<ItemProp> rsp = client.Execute(req, new ItemPropListXmlParser()).Content;
             Assert.AreEqual(17, rsp.Count);
@@ -124,10 +124,10 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetBuyerItemPropByJson()
+        public void ListItemPropByJson()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("json");
-            BuyerItemPropGetRequest req = new BuyerItemPropGetRequest();
+            ItemPropListRequest req = new ItemPropListRequest();
             req.Cid = "1101";
             req.Pid = "20000";
             ItemProp rsp = client.Execute(req, new ItemPropJsonParser());
@@ -136,10 +136,10 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetBuyerItemPropByXml()
+        public void ListItemPropByXml()
         {
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
-            BuyerItemPropGetRequest req = new BuyerItemPropGetRequest();
+            ItemPropListRequest req = new ItemPropListRequest();
             req.Cid = "1101";
             req.Pid = "20000";
             ItemProp rsp = client.Execute(req, new ItemPropXmlParser());
@@ -225,36 +225,532 @@ namespace Taobao.Top.Api.Test.Request
             Assert.AreEqual(1, result.Content.Count);
         }
 
+        [TestMethod]
+        public void GetOnsaleItemsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemsOnsaleGetRequest req = new ItemsOnsaleGetRequest();
+            req.Fields = "iid,title,nick,type,cid,num,props,price";
+            req.PageNo = 2;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
+            Assert.AreEqual(5, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetOnsaleItemsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemsOnsaleGetRequest req = new ItemsOnsaleGetRequest();
+            req.Fields = "iid,title,nick,type,cid,num,props,price";
+            req.PageNo = 1;
+            req.PageSize = 10;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListXmlParser());
+            Assert.AreEqual(10, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetAllItemsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemsAllGetRequest req = new ItemsAllGetRequest();
+            req.Fields = "iid,title,nick";
+            req.PageNo = 1;
+            req.PageSize = 20;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
+            Assert.AreEqual(20, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetAllItemsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemsAllGetRequest req = new ItemsAllGetRequest();
+            req.Fields = "iid,title,nick";
+            req.PageNo = 1;
+            req.PageSize = 8;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListXmlParser());
+            Assert.AreEqual(8, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void UpdateItemByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemUpdateRequest req = new ItemUpdateRequest();
+            req.Iid = "e7406a49eec42f4d88bb0d45b6560ac2";
+            req.ApproveStatus = "onsale";
+            req.Title = "How are you doing";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.AreEqual(req.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void UpdateItemByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemUpdateRequest req = new ItemUpdateRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.ApproveStatus = "instock";
+            req.Title = "Updated by Top4Net";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.AreEqual(req.Iid, item.Iid);
+        }
+
+        [TestMethod]
         public void AddItemByJson()
         {
-            ITopClient client = TestUtils.GetProductTopClient("json");
-            ItemAddRequest req = new ItemAddRequest();
-            // TODO
-            Item item = client.Execute(req, new ItemJsonParser());
+            AddItem("json", new ItemJsonParser());
         }
 
+        [TestMethod]
         public void AddItemByXml()
         {
-            ITopClient client = TestUtils.GetProductTopClient("xml");
-            ItemAddRequest req = new ItemAddRequest();
-            // TODO
-            Item item = client.Execute(req, new ItemXmlParser());
+            AddItem("xml", new ItemXmlParser());
         }
 
+        private Item AddItem(string format, ITopParser<Item> parser)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient(format);
+            ItemAddRequest req = new ItemAddRequest();
+            req.ApproveStatus = "instock";
+            req.EnlistTime = DateTime.Now;
+            req.Num = 10;
+            req.Price = "1000.00";
+            req.Type = "fixed";
+            req.StuffStatus = "new";
+            req.Title = "东方不败之葵花宝典";
+            req.Desc = "欲炼此功必先自功";
+            Location location = new Location();
+            location.State = "广西";
+            location.City = "玉林";
+            req.Cid = "50012286";
+            req.Location = location;
+            req.AutoRepost = true;
+            req.PostFee = "5.0";
+            req.ExpressFee = "10.0";
+            req.EmsFee = "20.0";
+            req.Props = "1627207:28326;1627207:28341;1637400:4606395";
+            req.Image = TestUtils.GetResourceAsFile("item.jpg");
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, parser);
+            Assert.IsNotNull(item);
+            return item;
+        }
+
+        [TestMethod]
+        public void AddItemImgByJson()
+        {
+            AddItemImg("json", new ItemImgJsonParser());
+        }
+
+        [TestMethod]
+        public void AddItemImgByXml()
+        {
+            AddItemImg("xml", new ItemImgXmlParser());
+        }
+
+        private ItemImg AddItemImg(string format, ITopParser<ItemImg> parser)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient(format);
+            ItemImgUploadRequest req = new ItemImgUploadRequest();
+            req.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            req.Image = TestUtils.GetResourceAsFile("item.jpg");
+            req.Position = 3;
+            req.IsPrimary = false;
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ItemImg item = client.Execute(proxy, parser);
+            Assert.IsNotNull(item);
+            return item;
+        }
+
+        [TestMethod]
+        public void DeleteItemImgByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemImg itemUpload = AddItemImg("json", new ItemImgJsonParser());
+
+            ItemImgDeleteRequest reqDelete = new ItemImgDeleteRequest();
+            reqDelete.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            reqDelete.ImgId = itemUpload.ImgId;
+            ITopRequest proxyDelete = new TopRequestProxy(reqDelete, "b2ctest125");
+            ItemImg itemDelete = client.Execute(proxyDelete, new ItemImgJsonParser());
+            Assert.AreEqual(itemUpload.ImgId, itemDelete.ImgId);
+        }
+
+        //[TestMethod]
+        public void DeleteItemImgByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemImg itemUpload = AddItemImg("xml", new ItemImgXmlParser());
+
+            // delete uploaded item image
+            ItemImgDeleteRequest reqDelete = new ItemImgDeleteRequest();
+            reqDelete.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            reqDelete.ImgId = itemUpload.ImgId;
+            ITopRequest proxyDelete = new TopRequestProxy(reqDelete, "b2ctest125");
+            ItemImg itemDelete = client.Execute(proxyDelete, new ItemImgXmlParser());
+            Assert.AreEqual(itemUpload.ImgId, itemDelete.ImgId);
+        }
+
+        [TestMethod]
+        public void UploadItemPropImgByJson()
+        {
+            UploadItemPropImg("json", new PropImgJsonParser());
+        }
+
+        [TestMethod]
+        public void UploadItemPropImgByXml()
+        {
+            UploadItemPropImg("xml", new PropImgXmlParser());
+        }
+
+        private PropImg UploadItemPropImg(string format, ITopParser<PropImg> parser)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient(format);
+            ItemPropImgUploadRequest req = new ItemPropImgUploadRequest();
+            req.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            req.Props = "1628011:4001117";
+            req.Position = 2;
+            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            PropImg img = client.Execute(proxy, parser);
+            Assert.IsNotNull(img);
+            return img;
+        }
+
+        [TestMethod]
+        public void DeleteItemPropImgByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            PropImg imgUpload = UploadItemPropImg("json", new PropImgJsonParser());
+
+            ItemPropImgDeleteRequest reqDelete = new ItemPropImgDeleteRequest();
+            reqDelete.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            reqDelete.ImgId = imgUpload.ImgId;
+            ITopRequest proxyDelete = new TopRequestProxy(reqDelete, "b2ctest125");
+            PropImg imgDelete = client.Execute(proxyDelete, new PropImgJsonParser());
+            Assert.AreEqual(imgUpload.ImgId, imgDelete.ImgId);
+        }
+
+        //[TestMethod]
+        public void DeleteItemPropImgByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            PropImg imgUpload = UploadItemPropImg("xml", new PropImgXmlParser());
+
+            ItemPropImgDeleteRequest reqDelete = new ItemPropImgDeleteRequest();
+            reqDelete.Iid = "6690657055b1f6c8727157ffe72d61d7";
+            reqDelete.ImgId = imgUpload.ImgId;
+            ITopRequest proxyDelete = new TopRequestProxy(reqDelete, "b2ctest125");
+            PropImg imgDelete = client.Execute(proxyDelete, new PropImgXmlParser());
+            Assert.AreEqual(imgUpload.ImgId, imgDelete.ImgId);
+        }
+
+        [TestMethod]
+        public void GetItemSkuByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemSkuGetRequest req = new ItemSkuGetRequest();
+            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
+            req.Nick = "tbtest561";
+            req.SkuId = "81192754";
+            Sku sku = client.Execute(req, new SkuJsonParser());
+            Assert.IsNotNull(sku);
+        }
+
+        [TestMethod]
+        public void GetItemSkuByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemSkuGetRequest req = new ItemSkuGetRequest();
+            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
+            req.Nick = "tbtest561";
+            req.SkuId = "81192754";
+            Sku sku = client.Execute(req, new SkuXmlParser());
+            Assert.IsNotNull(sku);
+        }
+
+        [TestMethod]
+        public void AddItemSkuByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemSkuAddRequest req = new ItemSkuAddRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Props = "1627207:28326";
+            req.Quantity = 3;
+            req.Price = "1700.00";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Sku sku = client.Execute(proxy, new SkuJsonParser());
+            Assert.IsNotNull(sku);
+        }
+
+        [TestMethod]
+        public void AddItemSkuByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemSkuAddRequest req = new ItemSkuAddRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Props = "1627207:28326";
+            req.Quantity = 3;
+            req.Price = "1700";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Sku sku = client.Execute(proxy, new SkuXmlParser());
+            Assert.IsNotNull(sku);
+        }
+
+        [TestMethod]
+        public void UpdateItemSkuByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemSkuUpdateRequest req = new ItemSkuUpdateRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Props = "1627207:28326";
+            req.Quantity = 5;
+            req.Price = "1700";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Sku sku = client.Execute(proxy, new SkuJsonParser());
+            Assert.IsNotNull(sku);
+            Assert.AreEqual(req.Iid, sku.Iid);
+        }
+
+        [TestMethod]
+        public void UpdateItemSkuByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemSkuUpdateRequest req = new ItemSkuUpdateRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Props = "1627207:28326";
+            req.Quantity = 8;
+            req.Price = "1700";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Sku sku = client.Execute(proxy, new SkuXmlParser());
+            Assert.IsNotNull(sku);
+            Assert.AreEqual(req.Iid, sku.Iid);
+        }
+
+        [TestMethod]
+        public void GetItemSkusByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemSkusGetRequest req = new ItemSkusGetRequest();
+            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
+            req.Iids = "ca0792810797b4f7e6a0f6062ef1e33f,2f9a47d5c7218f330cb5b87983ef434c";
+            req.Nick = "tbtest561";
+            ResponseList<Sku> rsp = client.Execute(req, new SkuListJsonParser());
+            Assert.AreEqual(3, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetItemSkusByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemSkusGetRequest req = new ItemSkusGetRequest();
+            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
+            req.Iids = "2f9a47d5c7218f330cb5b87983ef434c";
+            req.Nick = "tbtest561";
+            ResponseList<Sku> rsp = client.Execute(req, new SkuListXmlParser());
+            Assert.AreEqual(2, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void EnlistItemByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemEnlistRequest req = new ItemEnlistRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Num = 10;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.AreEqual(req.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void EnlistItemByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemEnlistRequest req = new ItemEnlistRequest();
+            req.Iid = "ca0792810797b4f7e6a0f6062ef1e33f";
+            req.Num = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.AreEqual(req.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void GetPostagesByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            PostagesGetRequest req = new PostagesGetRequest();
+            req.Fields = "postage_id,name,post_price,post_increase,express_price,express_increase,ems_price,ems_increase";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Postage> rsp = client.Execute(proxy, new PostageListJsonParser());
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetPostagesByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            PostagesGetRequest req = new PostagesGetRequest();
+            req.Fields = "postage_id,name,post_price,post_increase,express_price,express_increase,ems_price,ems_increase";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Postage> rsp = client.Execute(proxy, new PostageListXmlParser());
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetPostageByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            PostageGetRequest req = new PostageGetRequest();
+            req.Fields = "postage_id,name,post_price,post_increase,postage_mode.id,postage_mode.type";
+            req.PostageId = "57228";
+            req.Nick = "tbtest561";
+            Postage postage = client.Execute(req, new PostageJsonParser());
+            Assert.IsNotNull(postage);
+            Assert.AreEqual(req.PostageId, postage.Id);
+        }
+
+        [TestMethod]
+        public void GetPostageByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            PostageGetRequest req = new PostageGetRequest();
+            req.Fields = "postage_id,name,post_price,post_increase,postage_mode.id,postage_mode.type";
+            req.PostageId = "57228";
+            req.Nick = "tbtest561";
+            Postage postage = client.Execute(req, new PostageXmlParser());
+            Assert.IsNotNull(postage);
+            Assert.AreEqual(req.PostageId, postage.Id);
+        }
+
+        [TestMethod]
+        public void AddPostageByJson()
+        {
+            AddPostage("json", new PostageJsonParser());
+        }
+
+        [TestMethod]
+        public void AddPostageByXml()
+        {
+            AddPostage("xml", new PostageXmlParser());
+        }
+
+        private Postage AddPostage(string format, ITopParser<Postage> parser)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient(format);
+            PostageAddRequest req = new PostageAddRequest();
+            req.Name = "笑傲江湖邮费模板";
+            req.Memo = "东方不败专用";
+            req.PostPrice = "5";
+            req.PostIncrease = "3";
+            req.ExpressPrice = "5";
+            req.ExpressIncrease = "4";
+            req.EmsPrice = "20";
+            req.EmsIncrease = "10";
+            req.PostageModeType = "post;express;ems";
+            req.PostageModeDest = "710000;810000,820000;140000";
+            req.PostageModePrice = "11;15;20";
+            req.PostageModeIncrease = "2;5;7";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
+            Postage postage = client.Execute(proxy, parser);
+            Assert.IsNotNull(postage);
+            return postage;
+        }
+
+        [TestMethod]
+        public void UpdatePostageByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            PostageUpdateRequest req = new PostageUpdateRequest();
+            req.PostageId = "57228";
+            req.Name = "笑傲江湖邮费模板";
+            req.Memo = "东方不败专用";
+            req.PostPrice = "6";
+            req.PostIncrease = "2";
+            req.ExpressPrice = "10";
+            req.ExpressIncrease = "3";
+            req.EmsPrice = "20";
+            req.EmsIncrease = "5";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Postage postage = client.Execute(proxy, new PostageJsonParser());
+            Assert.IsNotNull(postage);
+            Assert.AreEqual(req.PostageId, postage.Id);
+        }
+
+        [TestMethod]
+        public void UpdatePostageByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            PostageUpdateRequest req = new PostageUpdateRequest();
+            req.PostageId = "57228";
+            req.Name = "CarverPostage";
+            req.Memo = "卡福专用邮费模板";
+            req.PostPrice = "6";
+            req.PostIncrease = "2";
+            req.ExpressPrice = "10";
+            req.ExpressIncrease = "3";
+            req.EmsPrice = "20";
+            req.EmsIncrease = "5";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Postage postage = client.Execute(proxy, new PostageXmlParser());
+            Assert.IsNotNull(postage);
+            Assert.AreEqual(req.PostageId, postage.Id);
+        }
+
+        [TestMethod]
+        public void DeletePostageByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            Postage postageAdd = AddPostage("json", new PostageJsonParser());
+            PostageDeleteRequest reqDel = new PostageDeleteRequest();
+            reqDel.PostageId = postageAdd.Id;
+            ITopRequest proxyDel = new TopRequestProxy(reqDel, "tbtest5");
+            Postage postageDel = client.Execute(proxyDel, new PostageJsonParser());
+            Assert.IsNotNull(postageDel);
+            Assert.AreEqual(postageAdd.Id, postageDel.Id);
+        }
+
+        [TestMethod]
+        public void DeletePostageByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            PostageDeleteRequest reqDel = new PostageDeleteRequest();
+            Postage postageAdd = AddPostage("xml", new PostageXmlParser());
+            reqDel.PostageId = postageAdd.Id;
+            ITopRequest proxyDel = new TopRequestProxy(reqDel, "tbtest5");
+            Postage postageDel = client.Execute(proxyDel, new PostageXmlParser());
+            Assert.IsNotNull(postageDel);
+            Assert.AreEqual(postageAdd.Id, postageDel.Id);
+        }
+
+        [TestMethod]
         public void DeleteItemByJson()
         {
-            ITopClient client = TestUtils.GetProductTopClient("json");
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
             ItemDeleteRequest req = new ItemDeleteRequest();
-            // TODO
-            Item item = client.Execute(req, new ItemJsonParser());
+            req.Iid = AddItem("json", new ItemJsonParser()).Iid;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.IsNotNull(item);
         }
 
+        [TestMethod]
         public void DeleteItemByXml()
         {
-            ITopClient client = TestUtils.GetProductTopClient("xml");
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
             ItemDeleteRequest req = new ItemDeleteRequest();
-            // TODO
-            Item item = client.Execute(req, new ItemXmlParser());
+            req.Iid = AddItem("xml", new ItemXmlParser()).Iid;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.IsNotNull(item);
         }
     }
 }

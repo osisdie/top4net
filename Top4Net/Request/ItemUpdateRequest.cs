@@ -117,7 +117,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 上架时间。
         /// </summary>
-        public string EnlistTime { get; set; }
+        public DateTime EnlistTime { get; set; }
 
         /// <summary>
         /// 加价幅度。
@@ -216,7 +216,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("post_fee", this.PostFee);
             parameters.Add("express_fee", this.ExpressFee);
             parameters.Add("ems_fee", this.EmsFee);
-            parameters.Add("list_time", this.EnlistTime);
+            parameters.Add("list_time", this.EnlistTime.ToString(Constants.DATE_TIME_FORMAT));
             parameters.Add("increment", this.Increment);
             parameters.Add("stuff_status", this.StuffStatus);
             parameters.Add("auction_point", this.AuctionPoint);

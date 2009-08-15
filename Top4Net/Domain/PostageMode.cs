@@ -24,13 +24,13 @@ namespace Taobao.Top.Api.Domain
         /// 运费方式项编号
         /// </summary>
         [JsonProperty("postage_mode_id")]
-        [XmlElement("postage_mode_id")]
+        [XmlElement("postage_mode.id")]
         public string Id { get; set; }
 
         /// <summary>
         /// 运费方式
         /// </summary>
-        [JsonProperty("postage_mode.type")]
+        [JsonProperty("postage_mode_type")]
         [XmlElement("postage_mode.type")]
         public string Type { get; set; }
 

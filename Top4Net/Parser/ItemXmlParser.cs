@@ -188,4 +188,66 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// SKU列表的XML响应解释器。
+    /// </summary>
+    public class SkuListXmlParser : ITopParser<ResponseList<Sku>>
+    {
+        #region ITopParser<ResponseList<Sku>> Members
+
+        public ResponseList<Sku> Parse(string body)
+        {
+            return ResponseList<Sku>.ParseXmlResponse("sku", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// SKU的XML响应解释器。
+    /// </summary>
+    public class SkuXmlParser : ITopParser<Sku>
+    {
+        #region ITopParser<Sku> Members
+
+        public Sku Parse(string body)
+        {
+            SkuListXmlParser parser = new SkuListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 邮费模板列表的XML响应解释器。
+    /// </summary>
+    public class PostageListXmlParser : ITopParser<ResponseList<Postage>>
+    {
+        #region ITopParser<ResponseList<Postage>> Members
+
+        public ResponseList<Postage> Parse(string body)
+        {
+            return ResponseList<Postage>.ParseXmlResponse("postage", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 邮费模板的XML响应解释器。
+    /// </summary>
+    public class PostageXmlParser : ITopParser<Postage>
+    {
+        #region ITopParser<Postage> Members
+
+        public Postage Parse(string body)
+        {
+            PostageListXmlParser parser = new PostageListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

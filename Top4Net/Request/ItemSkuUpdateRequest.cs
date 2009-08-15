@@ -16,27 +16,27 @@ namespace Taobao.Top.Api.Request
         public string Iid { get; set; }
 
         /// <summary>
-        /// Sku属性串。
+        /// SKU属性串。
         /// </summary>
         public string Props { get; set; }
 
         /// <summary>
-        /// Sku的库存数量。
+        /// SKU的库存数量。
         /// </summary>
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
 
         /// <summary>
-        /// Sku的销售价格。
+        /// SKU的销售价格。
         /// </summary>
         public string Price { get; set; }
 
         /// <summary>
-        /// Sku的商家外部编号。
+        /// SKU的商家外部编号。
         /// </summary>
         public string OuterId { get; set; }
 
         /// <summary>
-        /// sku文字的版本。
+        /// SKU文字的版本。
         /// </summary>
         public string Language { get; set; }
 
@@ -53,7 +53,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("quantity", this.Quantity);
+            parameters.Add("quantity", this.Quantity + "");
             parameters.Add("price", this.Price);
             parameters.Add("outer_id", this.OuterId);
             parameters.Add("lang", this.Language);

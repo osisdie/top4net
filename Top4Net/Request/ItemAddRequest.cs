@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
+using Taobao.Top.Api.Domain;
+
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
@@ -27,7 +29,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 商品数量。
         /// </summary>
-        public string Num { get; set; }
+        public int Num { get; set; }
 
         /// <summary>
         /// 商品价格。
@@ -55,14 +57,9 @@ namespace Taobao.Top.Api.Request
         public string Desc { get; set; }
 
         /// <summary>
-        /// 所在地省份。
+        /// 所在地。
         /// </summary>
-        public string LocationState { get; set; }
-
-        /// <summary>
-        /// 所在地城市。
-        /// </summary>
-        public string LocationCity { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// 运费承担方式。
@@ -122,7 +119,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 上架时间。
         /// </summary>
-        public string EnlistTime { get; set; }
+        public DateTime EnlistTime { get; set; }
 
         /// <summary>
         /// 加价幅度。
@@ -142,7 +139,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 商品的积分返点比例。
         /// </summary>
-        public string AuctionPoint { get; set; }
+        public int AuctionPoint { get; set; }
 
         /// <summary>
         /// 属性值别名。
@@ -208,14 +205,14 @@ namespace Taobao.Top.Api.Request
             parameters.Add("approve_status", this.ApproveStatus);
             parameters.Add("cid", this.Cid);
             parameters.Add("props", this.Props);
-            parameters.Add("num", this.Num);
+            parameters.Add("num", this.Num + "");
             parameters.Add("price", this.Price);
             parameters.Add("type", this.Type);
             parameters.Add("stuff_status", this.StuffStatus);
             parameters.Add("title", this.Title);
             parameters.Add("desc", this.Desc);
-            parameters.Add("location.state", this.LocationState);
-            parameters.Add("location.city", this.LocationCity);
+            parameters.Add("location.state", this.Location.State);
+            parameters.Add("location.city", this.Location.City);
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("valid_thru", this.ValidTerm);
             parameters.Add("has_invoice", this.HasInvoice + "");
@@ -227,10 +224,10 @@ namespace Taobao.Top.Api.Request
             parameters.Add("post_fee", this.PostFee);
             parameters.Add("express_fee", this.ExpressFee);
             parameters.Add("ems_fee", this.EmsFee);
-            parameters.Add("list_time", this.EnlistTime);
+            parameters.Add("list_time", this.EnlistTime.ToString(Constants.DATE_TIME_FORMAT));
             parameters.Add("increment", this.Increment);
             parameters.Add("postage_id", this.PostageId);
-            parameters.Add("auction_point", this.AuctionPoint);
+            parameters.Add("auction_point", this.AuctionPoint + "");
             parameters.Add("property_alias", this.PropAlias);
             parameters.Add("input_pids", this.InputPids);
             parameters.Add("input_str", this.InputStrs);
