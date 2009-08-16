@@ -11,14 +11,14 @@ namespace Taobao.Top.Api.Request
     public class SkusCustomGetRequest : ITopRequest
     {
         /// <summary>
-        /// 外部商家编号。
-        /// </summary>
-        public string OuterId { get; set; }
-
-        /// <summary>
         /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
+
+        /// <summary>
+        /// 外部商家编号。
+        /// </summary>
+        public string OuterId { get; set; }
 
         #region ITopRequest Members
 

@@ -11,14 +11,14 @@ namespace Taobao.Top.Api.Request
     public class RefundGetRequest : ITopRequest
     {
         /// <summary>
-        /// 退款单号。
-        /// </summary>
-        public string Rid { get; set; }
-
-        /// <summary>
         /// 需要返回的字段。
         /// </summary>
         public string Fields { get; set; }
+
+        /// <summary>
+        /// 退款单号。
+        /// </summary>
+        public string Rid { get; set; }
 
         #region ITopRequest Members
 

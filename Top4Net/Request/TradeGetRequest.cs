@@ -11,14 +11,14 @@ namespace Taobao.Top.Api.Request
     public class TradeGetRequest : ITopRequest
     {
         /// <summary>
-        /// 交易编号。
-        /// </summary>
-        public string Tid { get; set; }
-
-        /// <summary>
         /// 需要返回的交易数据结构字段。
         /// </summary>
         public string Fields { get; set; }
+
+        /// <summary>
+        /// 交易编号。
+        /// </summary>
+        public string Tid { get; set; }
 
         #region ITopRequest Members
 

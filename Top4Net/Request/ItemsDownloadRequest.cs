@@ -33,12 +33,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 开始时间最小值。
         /// </summary>
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// 开始时间最大值。
         /// </summary>
-        public string EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         #region ITopRequest Members
 
@@ -55,8 +55,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("q", this.Query);
             parameters.Add("approve_status", this.ApproveStatus);
-            parameters.Add("start_date", this.StartDate);
-            parameters.Add("end_date", this.EndDate);
+            parameters.Add("start_date", this.StartDate.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("end_date", this.EndDate.ToString(Constants.DATE_TIME_FORMAT));
 
             return parameters;
         }

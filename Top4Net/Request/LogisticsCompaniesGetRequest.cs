@@ -18,7 +18,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否查询推荐物流公司。
         /// </summary>
-        public string IsRecommended { get; set; }
+        public bool IsRecommended { get; set; }
+
+        /// <summary>
+        /// 推荐物流公司的下单方式
+        /// </summary>
+        public string OuterMode { get; set; }
 
         #region ITopRequest Members
 
@@ -32,7 +37,8 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("is_recommended", this.IsRecommended);
+            parameters.Add("is_recommended", this.IsRecommended.ToString());
+            parameters.Add("orderMode", this.OuterMode);
 
             return parameters;
         }

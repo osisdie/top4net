@@ -58,8 +58,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("q", this.Query);
             parameters.Add("cid", this.Cid);
             parameters.Add("seller_cids", this.SellerCids);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
             parameters.Add("order_by", this.OrderBy);
 
             return parameters;

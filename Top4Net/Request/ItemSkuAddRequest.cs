@@ -53,7 +53,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("quantity", this.Quantity + "");
+            parameters.Add("quantity", this.Quantity.ToString());
             parameters.Add("price", this.Price);
             parameters.Add("outer_id", this.OuterId);
             parameters.Add("lang", this.Language);

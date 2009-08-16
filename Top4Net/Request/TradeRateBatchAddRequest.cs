@@ -49,7 +49,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("tid", this.Tid);
             parameters.Add("content", this.Content);
             parameters.Add("result", this.Result);
-            parameters.Add("anony", this.Anonymous + "");
+            parameters.Add("anony", this.Anonymous.ToString());
             parameters.Add("role", this.Role);
 
             return parameters;

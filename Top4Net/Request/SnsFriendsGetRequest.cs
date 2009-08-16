@@ -37,8 +37,8 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("uid", this.Uid);
-            parameters.Add("start_row", this.StartRow + "");
-            parameters.Add("count", this.Count + "");
+            parameters.Add("start_row", this.StartRow.ToString());
+            parameters.Add("count", this.Count.ToString());
 
             return parameters;
         }

@@ -91,7 +91,7 @@ namespace Taobao.Top.Api
             allParams.Add(VERSION, "1.0");
             allParams.Add(APP_KEY, appKey);
             allParams.Add(FORMAT, format);
-            allParams.Add(PARTNER_ID, partnerId + "");
+            allParams.Add(PARTNER_ID, partnerId.ToString());
             allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
 
             if (!string.IsNullOrEmpty(session))

@@ -11,6 +11,11 @@ namespace Taobao.Top.Api.Request
     public class ItemSkuGetRequest : ITopRequest
     {
         /// <summary>
+        /// SKU所属用户的昵称。
+        /// </summary>
+        public string Fields { get; set; }
+
+        /// <summary>
         /// 需要返回的字段。
         /// </summary>
         public string SkuId { get; set; }
@@ -19,11 +24,6 @@ namespace Taobao.Top.Api.Request
         /// SKU的编号。
         /// </summary>
         public string Nick { get; set; }
-
-        /// <summary>
-        /// SKU所属用户的昵称。
-        /// </summary>
-        public string Fields { get; set; }
 
         #region ITopRequest Members
 

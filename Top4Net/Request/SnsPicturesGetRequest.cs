@@ -43,8 +43,8 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("uid", this.Uid);
             parameters.Add("album_id", this.AlbumId);
-            parameters.Add("start_row", this.StartRow + "");
-            parameters.Add("count", this.Count + "");
+            parameters.Add("start_row", this.StartRow.ToString());
+            parameters.Add("count", this.Count.ToString());
 
             return parameters;
         }

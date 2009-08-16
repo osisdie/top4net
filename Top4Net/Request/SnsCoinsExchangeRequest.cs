@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Request
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("coin_count", this.CoinCount + "");
+            parameters.Add("coin_count", this.CoinCount.ToString());
 
             return parameters;
         }

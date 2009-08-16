@@ -18,12 +18,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 查询交易创建时间开始。
         /// </summary>
-        public string StartCreated { get; set; }
+        public DateTime StartCreated { get; set; }
 
         /// <summary>
         /// 查询交易创建时间结束。
         /// </summary>
-        public string EndCreated { get; set; }
+        public DateTime EndCreated { get; set; }
 
         /// <summary>
         /// 页码。
@@ -46,24 +46,19 @@ namespace Taobao.Top.Api.Request
         public string Status { get; set; }
 
         /// <summary>
-        /// 买家昵称。
-        /// </summary>
-        public string BuyerNick { get; set; }
-
-        /// <summary>
-        /// 查询修改时间开始。
-        /// </summary>
-        public string StartModified { get; set; }
-
-        /// <summary>
-        /// 查询修改时间结束。
-        /// </summary>
-        public string EndModified { get; set; }
-
-        /// <summary>
         /// 交易类型。
         /// </summary>
         public string Type { get; set; }
+
+        /// <summary>
+        /// 评价状态。
+        /// </summary>
+        public string RateStatus { get; set; }
+
+        /// <summary>
+        /// 买家昵称。
+        /// </summary>
+        public string BuyerNick { get; set; }
 
         #region ITopRequest Members
 
@@ -77,16 +72,15 @@ namespace Taobao.Top.Api.Request
             IDictionary<string, string> parameters = new Dictionary<string, string>();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("start_created", this.StartCreated);
-            parameters.Add("end_created", this.EndCreated);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("start_created", this.StartCreated.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("end_created", this.EndCreated.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
             parameters.Add("title", this.Title);
             parameters.Add("status", this.Status);
             parameters.Add("buyer_nick", this.BuyerNick);
-            parameters.Add("start_modified", this.StartModified);
-            parameters.Add("end_modified", this.EndModified);
             parameters.Add("type", this.Type);
+            parameters.Add("rate_status", this.RateStatus);
 
             return parameters;
         }

@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 时间戳。
         /// </summary>
-        public string DateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
         #region ITopRequest Members
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("parent_cid", this.ParentCid);
             parameters.Add("cids", this.Cids);
-            parameters.Add("datetime", this.DateTime);
+            parameters.Add("datetime", this.DateTime.ToString(Constants.DATE_TIME_FORMAT));
 
             return parameters;
         }

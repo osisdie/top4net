@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 评价状态。
+        /// 评价类型。
         /// </summary>
         public string RateType { get; set; }
 
@@ -55,8 +55,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("rate_type", this.RateType);
             parameters.Add("role", this.Role);
             parameters.Add("result", this.Result);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
 
             return parameters;
         }

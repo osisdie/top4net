@@ -48,7 +48,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("propimg_id", this.ImgId);
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("position", this.Position + "");
+            parameters.Add("position", this.Position.ToString());
 
             return parameters;
         }

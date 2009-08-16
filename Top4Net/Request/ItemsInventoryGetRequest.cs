@@ -54,8 +54,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("q", this.Query);
             parameters.Add("banner", this.Banner);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
             parameters.Add("order_by", this.OrderBy);
 
             return parameters;

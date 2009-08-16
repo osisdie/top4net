@@ -11,6 +11,11 @@ namespace Taobao.Top.Api.Request
     public class RefundsReceivedGetRequest : ITopRequest
     {
         /// <summary>
+        /// 需要返回的字段。
+        /// </summary>
+        public string Fields { get; set; }
+
+        /// <summary>
         /// 退款状态。
         /// </summary>
         public string Status { get; set; }
@@ -31,11 +36,6 @@ namespace Taobao.Top.Api.Request
         public int PageSize { get; set; }
 
         /// <summary>
-        /// 需要返回的字段。
-        /// </summary>
-        public string Fields { get; set; }
-
-        /// <summary>
         /// 交易类型。
         /// </summary>
         public string Type { get; set; }
@@ -53,8 +53,8 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("status", this.Status);
             parameters.Add("buyer_nick", this.BuyerNick);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
             parameters.Add("fields", this.Fields);
             parameters.Add("type", this.Type);
 

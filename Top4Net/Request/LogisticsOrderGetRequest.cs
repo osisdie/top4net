@@ -43,12 +43,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 创建时间开始。
         /// </summary>
-        public string StartCreated { get; set; }
+        public DateTime StartCreated { get; set; }
 
         /// <summary>
         /// 创建时间结束。
         /// </summary>
-        public string EndCreated { get; set; }
+        public DateTime EndCreated { get; set; }
 
         /// <summary>
         /// 谁承担运费。
@@ -87,12 +87,12 @@ namespace Taobao.Top.Api.Request
             parameters.Add("status", this.Status);
             parameters.Add("seller_confirm", this.SellerConfirm);
             parameters.Add("receiver_name", this.ReceiverName);
-            parameters.Add("start_created", this.StartCreated);
-            parameters.Add("end_created", this.EndCreated);
+            parameters.Add("start_created", this.StartCreated.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("end_created", this.EndCreated.ToString(Constants.DATE_TIME_FORMAT));
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("type", this.Type);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
 
             return parameters;
         }

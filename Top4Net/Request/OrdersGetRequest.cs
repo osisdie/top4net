@@ -49,8 +49,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("iid", this.Iid);
             parameters.Add("seller_nick", this.SellerNick);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
 
             return parameters;
         }

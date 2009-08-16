@@ -102,8 +102,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("start_price", this.StartPrice);
             parameters.Add("end_price", this.EndPrice);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
             parameters.Add("order_by", this.OrderBy);
             parameters.Add("props", this.Props);
             parameters.Add("product_id", this.ProductId);

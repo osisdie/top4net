@@ -51,22 +51,22 @@ namespace Taobao.Top.Api.Request
         public string SkuProps { get; set; }
 
         /// <summary>
-        /// sku的数量串。
+        /// SKU的数量串。
         /// </summary>
         public string SkuQuantities { get; set; }
 
         /// <summary>
-        /// sku的价格串。
+        /// SKU的价格串。
         /// </summary>
         public string SkuPrices { get; set; }
 
         /// <summary>
-        /// Sku的备注串。
+        /// SKU的备注串。
         /// </summary>
         public string SkuMemos { get; set; }
 
         /// <summary>
-        /// Sku编号串。
+        /// SKU编号串。
         /// </summary>
         public string SkuIds { get; set; }
 

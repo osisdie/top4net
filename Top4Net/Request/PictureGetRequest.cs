@@ -58,12 +58,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 查询上传开始时间点。
         /// </summary>
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         /// <summary>
         /// 查询上传结束时间点。
         /// </summary>
-        public string EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         #region ITopRequest Members
 
@@ -83,10 +83,10 @@ namespace Taobao.Top.Api.Request
             parameters.Add("modified_time", this.Modified);
             parameters.Add("title", this.Title);
             parameters.Add("order_by", this.OrderBy);
-            parameters.Add("page_no", this.PageNo + "");
-            parameters.Add("page_size", this.PageSize + "");
-            parameters.Add("start_date", this.StartDate);
-            parameters.Add("end_date", this.EndDate);
+            parameters.Add("page_no", this.PageNo.ToString());
+            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("start_date", this.StartDate.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("end_date", this.EndDate.ToString(Constants.DATE_TIME_FORMAT));
 
             return parameters;
         }

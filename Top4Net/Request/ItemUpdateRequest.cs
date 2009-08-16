@@ -207,12 +207,12 @@ namespace Taobao.Top.Api.Request
             parameters.Add("location.city", this.LocationCity);
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("valid_thru", this.ValidTerm);
-            parameters.Add("has_invoice", this.HasInvoice + "");
-            parameters.Add("has_warranty", this.HasWarranty + "");
-            parameters.Add("auto_repost", this.AutoRepost + "");
-            parameters.Add("has_showcase", this.HasShowcase + "");
+            parameters.Add("has_invoice", this.HasInvoice.ToString());
+            parameters.Add("has_warranty", this.HasWarranty.ToString());
+            parameters.Add("auto_repost", this.AutoRepost.ToString());
+            parameters.Add("has_showcase", this.HasShowcase.ToString());
             parameters.Add("seller_cids", this.SellerCids);
-            parameters.Add("has_discount", this.HasDiscount + "");
+            parameters.Add("has_discount", this.HasDiscount.ToString());
             parameters.Add("post_fee", this.PostFee);
             parameters.Add("express_fee", this.ExpressFee);
             parameters.Add("ems_fee", this.EmsFee);

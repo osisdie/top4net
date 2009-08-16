@@ -33,37 +33,37 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否关键属性。
         /// </summary>
-        public string IsKeyProp { get; set; }
+        public bool IsKeyProp { get; set; }
 
         /// <summary>
         /// 是否销售属性。
         /// </summary>
-        public string IsSaleProp { get; set; }
+        public bool IsSaleProp { get; set; }
 
         /// <summary>
         /// 是否颜色属性。
         /// </summary>
-        public string IsColorProp { get; set; }
+        public bool IsColorProp { get; set; }
 
         /// <summary>
         /// 是否枚举属性。
         /// </summary>
-        public string IsEnumProp { get; set; }
+        public bool IsEnumProp { get; set; }
 
         /// <summary>
         /// 是否是卖家可以自行输入的属性。
         /// </summary>
-        public string IsInputProp { get; set; }
+        public bool IsInputProp { get; set; }
 
         /// <summary>
         /// 是否商品属性。
         /// </summary>
-        public string IsItemProp { get; set; }
+        public bool IsItemProp { get; set; }
 
         /// <summary>
         /// 增量时间戳。
         /// </summary>
-        public string DateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
         #region ITopRequest Members
 
@@ -80,13 +80,13 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.LeafCid);
             parameters.Add("pid", this.Pid);
             parameters.Add("parent_pid", this.ParentPid);
-            parameters.Add("is_key_prop", this.IsKeyProp);
-            parameters.Add("is_sale_prop", this.IsSaleProp);
-            parameters.Add("is_color_prop", this.IsColorProp);
-            parameters.Add("is_enum_prop", this.IsEnumProp);
-            parameters.Add("is_input_prop", this.IsInputProp);
-            parameters.Add("is_item_prop", this.IsItemProp);
-            parameters.Add("datetime", this.DateTime);
+            parameters.Add("is_key_prop", this.IsKeyProp.ToString());
+            parameters.Add("is_sale_prop", this.IsSaleProp.ToString());
+            parameters.Add("is_color_prop", this.IsColorProp.ToString());
+            parameters.Add("is_enum_prop", this.IsEnumProp.ToString());
+            parameters.Add("is_input_prop", this.IsInputProp.ToString());
+            parameters.Add("is_item_prop", this.IsItemProp.ToString());
+            parameters.Add("datetime", this.DateTime.ToString(Constants.DATE_TIME_FORMAT));
 
             return parameters;
         }
