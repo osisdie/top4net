@@ -27,12 +27,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 图片序号。
         /// </summary>
-        public int Position { get; set; }
+        public Nullable<int> Position { get; set; }
 
         /// <summary>
         /// 是否将该图片设为主图。
         /// </summary>
-        public bool IsPrimary { get; set; }
+        public Nullable<bool> IsPrimary { get; set; }
 
         #region ITopRequest Members
 
@@ -43,12 +43,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("pic_id", this.ImgId);
             parameters.Add("product_id", this.ProductId);
-            parameters.Add("position", this.Position.ToString());
-            parameters.Add("is_major", this.IsPrimary.ToString());
+            parameters.Add("position", this.Position);
+            parameters.Add("is_major", this.IsPrimary);
 
             return parameters;
         }

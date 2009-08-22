@@ -74,7 +74,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("tid", this.Tid);
             parameters.Add("app_ip", this.AppIp);

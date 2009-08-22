@@ -43,12 +43,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 创建时间开始。
         /// </summary>
-        public DateTime StartCreated { get; set; }
+        public Nullable<DateTime> StartCreated { get; set; }
 
         /// <summary>
         /// 创建时间结束。
         /// </summary>
-        public DateTime EndCreated { get; set; }
+        public Nullable<DateTime> EndCreated { get; set; }
 
         /// <summary>
         /// 谁承担运费。
@@ -63,12 +63,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -79,7 +79,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("tid", this.Tid);
@@ -87,12 +87,12 @@ namespace Taobao.Top.Api.Request
             parameters.Add("status", this.Status);
             parameters.Add("seller_confirm", this.SellerConfirm);
             parameters.Add("receiver_name", this.ReceiverName);
-            parameters.Add("start_created", this.StartCreated.ToString(Constants.DATE_TIME_FORMAT));
-            parameters.Add("end_created", this.EndCreated.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("start_created", this.StartCreated);
+            parameters.Add("end_created", this.EndCreated);
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("type", this.Type);
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
 
             return parameters;
         }

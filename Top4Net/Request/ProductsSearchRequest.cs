@@ -33,12 +33,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 每页显示条数。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -49,14 +49,14 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("q", this.Query);
             parameters.Add("cid", this.Cid);
             parameters.Add("props", this.Props);
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
 
             return parameters;
         }

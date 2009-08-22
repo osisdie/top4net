@@ -33,7 +33,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否匿名。
         /// </summary>
-        public bool Anonymous { get; set; }
+        public Nullable<bool> Anonymous { get; set; }
 
         /// <summary>
         /// 评价角色。
@@ -49,13 +49,13 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("tid", this.Tid);
             parameters.Add("order_id", this.OrderId);
             parameters.Add("content", this.Content);
             parameters.Add("result", this.Result);
-            parameters.Add("anony", this.Anonymous.ToString());
+            parameters.Add("anony", this.Anonymous);
             parameters.Add("role", this.Role);
 
             return parameters;

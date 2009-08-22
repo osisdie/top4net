@@ -29,7 +29,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("uid1", this.Uid1);
             parameters.Add("uid2", this.Uid2);

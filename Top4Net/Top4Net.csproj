@@ -200,6 +200,7 @@
     <Compile Include="Request\TradesSoldGetRequest.cs" />
     <Compile Include="Request\UserGetRequest.cs" />
     <Compile Include="Request\UsersGetRequest.cs" />
+    <Compile Include="TopDictionary.cs" />
     <Compile Include="TopException.cs" />
     <Compile Include="TopRestClient.cs" />
     <Compile Include="Domain\User.cs" />

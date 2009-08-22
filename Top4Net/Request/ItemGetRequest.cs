@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 商品数字编号。
         /// </summary>
-        public long NumIid { get; set; }
+        public Nullable<long> NumIid { get; set; }
 
         #region ITopRequest Members
 
@@ -39,12 +39,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("nick", this.Nick);
             parameters.Add("iid", this.Iid);
-            parameters.Add("num_iid", this.NumIid.ToString());
+            parameters.Add("num_iid", this.NumIid);
 
             return parameters;
         }

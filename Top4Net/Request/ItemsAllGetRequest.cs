@@ -31,12 +31,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 每页大小。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         /// <summary>
         /// 排序方式。
@@ -52,14 +52,14 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("q", this.Query);
             parameters.Add("cid", this.Cid);
             parameters.Add("seller_cids", this.SellerCids);
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
             parameters.Add("order_by", this.OrderBy);
 
             return parameters;

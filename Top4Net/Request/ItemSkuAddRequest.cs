@@ -23,7 +23,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// SKU的库存数量。
         /// </summary>
-        public int Quantity { get; set; }
+        public Nullable<int> Quantity { get; set; }
 
         /// <summary>
         /// SKU的销售价格。
@@ -49,11 +49,11 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("quantity", this.Quantity.ToString());
+            parameters.Add("quantity", this.Quantity);
             parameters.Add("price", this.Price);
             parameters.Add("outer_id", this.OuterId);
             parameters.Add("lang", this.Language);

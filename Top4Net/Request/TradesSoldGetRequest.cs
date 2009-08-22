@@ -18,22 +18,22 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 查询交易创建时间开始。
         /// </summary>
-        public DateTime StartCreated { get; set; }
+        public Nullable<DateTime> StartCreated { get; set; }
 
         /// <summary>
         /// 查询交易创建时间结束。
         /// </summary>
-        public DateTime EndCreated { get; set; }
+        public Nullable<DateTime> EndCreated { get; set; }
 
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         /// <summary>
         /// 商品名称。
@@ -69,13 +69,13 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("start_created", this.StartCreated.ToString(Constants.DATE_TIME_FORMAT));
-            parameters.Add("end_created", this.EndCreated.ToString(Constants.DATE_TIME_FORMAT));
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("start_created", this.StartCreated);
+            parameters.Add("end_created", this.EndCreated);
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
             parameters.Add("title", this.Title);
             parameters.Add("status", this.Status);
             parameters.Add("buyer_nick", this.BuyerNick);

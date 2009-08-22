@@ -27,7 +27,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 属性图片位置。
         /// </summary>
-        public int Position { get; set; }
+        public Nullable<int> Position { get; set; }
 
         /// <summary>
         /// 属性图片内容。
@@ -43,12 +43,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("propimg_id", this.ImgId);
             parameters.Add("iid", this.Iid);
             parameters.Add("properties", this.Props);
-            parameters.Add("position", this.Position.ToString());
+            parameters.Add("position", this.Position);
 
             return parameters;
         }

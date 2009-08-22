@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 时间戳。
         /// </summary>
-        public DateTime DateTime { get; set; }
+        public Nullable<DateTime> DateTime { get; set; }
 
         #region ITopRequest Members
 
@@ -39,12 +39,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("parent_cid", this.ParentCid);
             parameters.Add("cids", this.Cids);
-            parameters.Add("datetime", this.DateTime.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("datetime", this.DateTime);
 
             return parameters;
         }

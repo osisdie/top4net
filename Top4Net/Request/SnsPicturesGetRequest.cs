@@ -23,12 +23,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 开始条数。
         /// </summary>
-        public int StartRow { get; set; }
+        public Nullable<int> StartRow { get; set; }
 
         /// <summary>
         /// 查询个数。
         /// </summary>
-        public int Count { get; set; }
+        public Nullable<int> Count { get; set; }
 
         #region ITopRequest Members
 
@@ -39,12 +39,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("uid", this.Uid);
             parameters.Add("album_id", this.AlbumId);
-            parameters.Add("start_row", this.StartRow.ToString());
-            parameters.Add("count", this.Count.ToString());
+            parameters.Add("start_row", this.StartRow);
+            parameters.Add("count", this.Count);
 
             return parameters;
         }

@@ -32,7 +32,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 图片序号。
         /// </summary>
-        public int Position { get; set; }
+        public Nullable<int> Position { get; set; }
 
         #region ITopRequest Members
 
@@ -43,12 +43,12 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("pic_id", this.ImgId);
             parameters.Add("product_id", this.ProductId);
             parameters.Add("props", this.Props);
-            parameters.Add("position", this.Position.ToString());
+            parameters.Add("position", this.Position);
 
             return parameters;
         }

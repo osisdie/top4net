@@ -72,22 +72,22 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否有发票。
         /// </summary>
-        public bool HasInvoice { get; set; }
+        public Nullable<bool> HasInvoice { get; set; }
 
         /// <summary>
         /// 是否有保修。
         /// </summary>
-        public bool HasWarranty { get; set; }
+        public Nullable<bool> HasWarranty { get; set; }
 
         /// <summary>
         /// 是否自动上架。
         /// </summary>
-        public bool AutoRepost { get; set; }
+        public Nullable<bool> AutoRepost { get; set; }
 
         /// <summary>
         /// 是否橱窗推荐。
         /// </summary>
-        public bool HasShowcase { get; set; }
+        public Nullable<bool> HasShowcase { get; set; }
 
         /// <summary>
         /// 店铺类目列表。
@@ -97,7 +97,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否支持会员打折。
         /// </summary>
-        public bool HasDiscount { get; set; }
+        public Nullable<bool> HasDiscount { get; set; }
 
         /// <summary>
         /// 平邮费用。
@@ -117,7 +117,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 上架时间。
         /// </summary>
-        public DateTime EnlistTime { get; set; }
+        public Nullable<DateTime> EnlistTime { get; set; }
 
         /// <summary>
         /// 加价幅度。
@@ -193,7 +193,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("iid", this.Iid);
             parameters.Add("approve_status", this.ApproveStatus);
@@ -207,16 +207,16 @@ namespace Taobao.Top.Api.Request
             parameters.Add("location.city", this.LocationCity);
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("valid_thru", this.ValidTerm);
-            parameters.Add("has_invoice", this.HasInvoice.ToString());
-            parameters.Add("has_warranty", this.HasWarranty.ToString());
-            parameters.Add("auto_repost", this.AutoRepost.ToString());
-            parameters.Add("has_showcase", this.HasShowcase.ToString());
+            parameters.Add("has_invoice", this.HasInvoice);
+            parameters.Add("has_warranty", this.HasWarranty);
+            parameters.Add("auto_repost", this.AutoRepost);
+            parameters.Add("has_showcase", this.HasShowcase);
             parameters.Add("seller_cids", this.SellerCids);
-            parameters.Add("has_discount", this.HasDiscount.ToString());
+            parameters.Add("has_discount", this.HasDiscount);
             parameters.Add("post_fee", this.PostFee);
             parameters.Add("express_fee", this.ExpressFee);
             parameters.Add("ems_fee", this.EmsFee);
-            parameters.Add("list_time", this.EnlistTime.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("list_time", this.EnlistTime);
             parameters.Add("increment", this.Increment);
             parameters.Add("stuff_status", this.StuffStatus);
             parameters.Add("auction_point", this.AuctionPoint);

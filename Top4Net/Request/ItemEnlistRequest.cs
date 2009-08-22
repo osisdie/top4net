@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 需要上架的商品的数量。
         /// </summary>
-        public int Num { get; set; }
+        public Nullable<int> Num { get; set; }
 
         #region ITopRequest Members
 
@@ -29,10 +29,10 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("iid", this.Iid);
-            parameters.Add("num", this.Num.ToString());
+            parameters.Add("num", this.Num);
 
             return parameters;
         }

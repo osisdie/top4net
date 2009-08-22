@@ -22,7 +22,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
             parameters.Add("postage_id", this.PostageId);
             return parameters;
         }

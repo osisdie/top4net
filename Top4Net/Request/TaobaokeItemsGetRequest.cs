@@ -43,7 +43,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否自动发货。
         /// </summary>
-        public bool AutoSend { get; set; }
+        public Nullable<bool> AutoSend { get; set; }
 
         /// <summary>
         /// 商品所在地。
@@ -68,7 +68,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 是否查询消保卖家。
         /// </summary>
-        public bool IsGuarantee { get; set; }
+        public Nullable<bool> IsGuarantee { get; set; }
 
         /// <summary>
         /// 起始佣金选项。
@@ -103,12 +103,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 每页返回结果数。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         #region ITopRequest Members
 
@@ -119,7 +119,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("pid", this.Pid);
@@ -127,20 +127,20 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("start_price", this.StartPrice);
             parameters.Add("end_price", this.EndPrice);
-            parameters.Add("auto_send", this.AutoSend.ToString());
+            parameters.Add("auto_send", this.AutoSend);
             parameters.Add("area", this.Area);
             parameters.Add("start_credit", this.StartCredit);
             parameters.Add("end_credit", this.EndCredit);
             parameters.Add("sort", this.OrderBy);
-            parameters.Add("is_guarantee", this.IsGuarantee.ToString());
+            parameters.Add("is_guarantee", this.IsGuarantee);
             parameters.Add("start_commission", this.StartCommission);
             parameters.Add("end_commission", this.EndCommission);
             parameters.Add("start_commissionRate", this.StartCommissionRate);
             parameters.Add("end_commissionRate", this.EndCommissionRate);
             parameters.Add("start_commissionNum", this.StartCommissionNum);
             parameters.Add("end_commissionNum", this.EndCommissionNum);
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
 
             return parameters;
         }

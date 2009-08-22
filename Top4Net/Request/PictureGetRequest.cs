@@ -48,22 +48,22 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 页码。
         /// </summary>
-        public int PageNo { get; set; }
+        public Nullable<int> PageNo { get; set; }
 
         /// <summary>
         /// 每页条数。
         /// </summary>
-        public int PageSize { get; set; }
+        public Nullable<int> PageSize { get; set; }
 
         /// <summary>
         /// 查询上传开始时间点。
         /// </summary>
-        public DateTime StartDate { get; set; }
+        public Nullable<DateTime> StartDate { get; set; }
 
         /// <summary>
         /// 查询上传结束时间点。
         /// </summary>
-        public DateTime EndDate { get; set; }
+        public Nullable<DateTime> EndDate { get; set; }
 
         #region ITopRequest Members
 
@@ -74,7 +74,7 @@ namespace Taobao.Top.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
+            TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
             parameters.Add("picture_id", this.PicId);
@@ -83,10 +83,10 @@ namespace Taobao.Top.Api.Request
             parameters.Add("modified_time", this.Modified);
             parameters.Add("title", this.Title);
             parameters.Add("order_by", this.OrderBy);
-            parameters.Add("page_no", this.PageNo.ToString());
-            parameters.Add("page_size", this.PageSize.ToString());
-            parameters.Add("start_date", this.StartDate.ToString(Constants.DATE_TIME_FORMAT));
-            parameters.Add("end_date", this.EndDate.ToString(Constants.DATE_TIME_FORMAT));
+            parameters.Add("page_no", this.PageNo);
+            parameters.Add("page_size", this.PageSize);
+            parameters.Add("start_date", this.StartDate);
+            parameters.Add("end_date", this.EndDate);
 
             return parameters;
         }
