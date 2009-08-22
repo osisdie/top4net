@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 
 using Taobao.Top.Api;
+using Taobao.Top.Api.Domain;
 
 namespace Taobao.Top.Api.Request
 {
@@ -76,14 +77,9 @@ namespace Taobao.Top.Api.Request
         public string PostFree { get; set; }
 
         /// <summary>
-        /// 所在省。
+        /// 所在地。
         /// </summary>
-        public string LocationState { get; set; }
-
-        /// <summary>
-        /// 所在市。
-        /// </summary>
-        public string LocationCity { get; set; }
+        public Location Location { get; set; }
 
         #region ITopRequest Members
 
@@ -109,8 +105,12 @@ namespace Taobao.Top.Api.Request
             parameters.Add("product_id", this.ProductId);
             parameters.Add("ww_status", this.WwStatus);
             parameters.Add("post_free", this.PostFree);
-            parameters.Add("location.state", this.LocationState);
-            parameters.Add("location.city", this.LocationCity);
+
+            if (this.Location != null)
+            {
+                parameters.Add("location.state", this.Location.State);
+                parameters.Add("location.city", this.Location.City);
+            }
 
             return parameters;
         }
