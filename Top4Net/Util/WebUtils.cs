@@ -23,7 +23,7 @@ namespace Taobao.Top.Api.Util
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
             req.KeepAlive = true;
-            req.ContentType = "application/x-www-form-urlencoded";
+            req.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
 
             byte[] postData = Encoding.UTF8.GetBytes(BuildPostData(parameters));
             Stream reqStream = req.GetRequestStream();
@@ -58,7 +58,7 @@ namespace Taobao.Top.Api.Util
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "GET";
             req.KeepAlive = true;
-            req.ContentType = "application/x-www-form-urlencoded";
+            req.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
 
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
             Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
