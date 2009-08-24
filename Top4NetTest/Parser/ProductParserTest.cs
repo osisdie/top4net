@@ -51,6 +51,26 @@ namespace Taobao.Top.Api.Test
             AssertProductImg(productImg);
         }
 
+        [TestMethod]
+        public void ParseJsonAsProductPropImg()
+        {
+            ProductPropImgJsonParser parser = new ProductPropImgJsonParser();
+            string body = TestUtils.GetResourceAsText("product.prop.imgs.json");
+            ProductPropImg img = parser.Parse(body);
+            Assert.IsNotNull(img);
+            Assert.AreEqual("390586", img.ImgId);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsProductPropImg()
+        {
+            ProductPropImgXmlParser parser = new ProductPropImgXmlParser();
+            string body = TestUtils.GetResourceAsText("product.prop.imgs.xml");
+            ProductPropImg img = parser.Parse(body);
+            Assert.IsNotNull(img);
+            Assert.AreEqual("390587", img.ImgId);
+        }
+
         private static void AssertProduct(List<Product> products)
         {
             Assert.AreEqual("37342025", products[0].Id);

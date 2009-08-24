@@ -85,6 +85,7 @@
     <None Include="Resources\picture.categories.json" />
     <None Include="Resources\pictures.json" />
     <None Include="Resources\postages.json" />
+    <None Include="Resources\product.prop.imgs.json" />
     <None Include="Resources\products.json" />
     <None Include="Resources\product.image.json" />
     <Content Include="Resources\item.cats.xml" />
@@ -97,6 +98,7 @@
     <Content Include="Resources\postages.xml" />
     <Content Include="Resources\product.image.xml" />
     <Content Include="Resources\product.jpg" />
+    <Content Include="Resources\product.prop.imgs.xml" />
     <Content Include="Resources\products.xml" />
     <Content Include="Resources\prop.imgs.xml" />
     <Content Include="Resources\prop.jpg" />

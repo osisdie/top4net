@@ -276,7 +276,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Fields = "iid,title,nick";
             req.PageNo = 1;
             req.PageSize = 1;
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
             ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
             Assert.AreEqual(1, rsp.Content.Count);
         }
@@ -289,7 +289,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Fields = "iid,title,nick";
             req.PageNo = 1;
             req.PageSize = 1;
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
             ResponseList<Item> rsp = client.Execute(proxy, new ItemListXmlParser());
             Assert.AreEqual(1, rsp.Content.Count);
         }

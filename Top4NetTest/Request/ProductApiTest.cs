@@ -12,87 +12,220 @@ namespace Taobao.Top.Api.Test
     [TestClass]
     public class ProductApiTest
     {
-        [TestMethod]
-        public void SearchProductsByJson()
+        private Product _product;
+        private ProductImg _productImg;
+
+        [TestInitialize]
+        public void Initialize()
         {
-            ITopClient client = TestUtils.GetSandboxTopClient("json");
-            ProductsSearchRequest request = new ProductsSearchRequest();
-            request.Fields = "product_id,name,pic_patch,cid,props,price,modified";
-            request.Query = "N73";
-            request.PageNo = 1;
-            request.PageSize = 3;
-            List<Product> products = client.Execute(request, new ProductListJsonParser()).Content;
-
-            Assert.AreEqual(3, products.Count);
-        }
-
-        [TestMethod]
-        public void SearchProductsByXml()
-        {
-            ITopClient client = TestUtils.GetSandboxTopClient("xml");
-            ProductsSearchRequest request = new ProductsSearchRequest();
-            request.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
-            request.Query = "N73";
-            request.PageNo = 2;
-            request.PageSize = 5;
-            List<Product> products = client.Execute(request, new ProductListXmlParser()).Content;
-
-            Assert.AreEqual(5, products.Count);
+            _product = AddProduct();
+            _productImg = UploadProductImg();
         }
 
         [TestMethod]
         public void GetProductByJson()
         {
-            ITopClient client = TestUtils.GetProductTopClient("json");
-            ProductGetRequest request = new ProductGetRequest();
-            request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.ProductId = "38982136";
-            Product product = client.Execute(request, new ProductJsonParser());
-
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductGetRequest req = new ProductGetRequest();
+            req.Fields = "name,cid,props,props_str,name,binds,created";
+            req.Cid = _product.CategoryId;
+            req.Props = _product.Props;
+            Product product = client.Execute(req, new ProductJsonParser());
             Assert.IsNotNull(product);
-            Assert.AreEqual("50012587", product.CategoryId);
         }
 
         [TestMethod]
         public void GetProductByXml()
         {
-            ITopClient client = TestUtils.GetProductTopClient("xml");
-            ProductGetRequest request = new ProductGetRequest();
-            request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.ProductId = "38982136";
-            Product product = client.Execute(request, new ProductXmlParser());
-
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductGetRequest req = new ProductGetRequest();
+            req.Fields = "name,cid,props,props_str,name,binds,created";
+            req.ProductId = _product.Id;
+            Product product = client.Execute(req, new ProductXmlParser());
             Assert.IsNotNull(product);
-            Assert.AreEqual("50012587", product.CategoryId);
+        }
+
+        [TestMethod]
+        public void SearchProductsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductsSearchRequest req = new ProductsSearchRequest();
+            req.Fields = "product_id,name,pic_patch,cid,props,price,modified";
+            req.Query = "Nokia N73";
+            req.PageNo = 1;
+            req.PageSize = 10;
+            ResponseList<Product> rsp = client.Execute(req, new ProductListJsonParser());
+            Assert.IsNotNull(rsp);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void SearchProductsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductsSearchRequest req = new ProductsSearchRequest();
+            req.Fields = "product_id,name,pic_patch,cid,props,price,modified,tsc";
+            req.Query = "N73";
+            req.PageNo = 2;
+            req.PageSize = 5;
+            ResponseList<Product> rsp = client.Execute(req, new ProductListXmlParser());
+            Assert.IsNotNull(rsp);
+            Assert.IsTrue(rsp.Content.Count > 0);
         }
 
         [TestMethod]
         public void GetProductsByJson()
         {
-            ITopClient client = TestUtils.GetProductTopClient("json");
-            ProductsGetRequest request = new ProductsGetRequest();
-            request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.Nick = "驴友之家";
-            List<Product> products = client.Execute(request, new ProductListJsonParser()).Content;
-
-            Assert.AreEqual(1, products.Count);
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductsGetRequest req = new ProductsGetRequest();
+            req.Fields = "name,cid,props,props_str,name,binds,created";
+            req.Nick = "tbtest561";
+            req.PageNo = 1;
+            req.PageSize = 10;
+            ResponseList<Product> rsp = client.Execute(req, new ProductListJsonParser());
+            Assert.IsNotNull(rsp);
+            Assert.IsTrue(rsp.Content.Count > 0);
         }
 
         [TestMethod]
         public void GetProductsByXml()
         {
-            ITopClient client = TestUtils.GetProductTopClient("xml");
-            ProductsGetRequest request = new ProductsGetRequest();
-            request.Fields = "name,cid,props,props_str,name,binds,created";
-            request.Nick = "驴友之家";
-            List<Product> products = client.Execute(request, new ProductListXmlParser()).Content;
-
-            Assert.AreEqual(1, products.Count);
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductsGetRequest req = new ProductsGetRequest();
+            req.Fields = "name,cid,props,props_str,name,binds,created";
+            req.Nick = "b2ctest125";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ResponseList<Product> rsp = client.Execute(req, new ProductListXmlParser());
+            Assert.IsNotNull(rsp);
+            Assert.IsTrue(rsp.Content.Count > 0);
         }
 
-        //[TestMethod]
-        public void AddProductByJson()
+        [TestMethod]
+        public void UploadProductImageByJson()
         {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductImgUploadRequest req = new ProductImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Position = 1;
+
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());
+            Assert.IsNotNull(rsp);
+        }
+
+        [TestMethod]
+        public void UploadProductImageByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductImgUploadRequest req = new ProductImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Position = 2;
+
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ProductImg rsp = client.Execute(proxy, new ProductImgXmlParser());
+            Assert.IsNotNull(rsp);
+        }
+
+        [TestMethod]
+        public void UploadProductPropImgByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Props = "1627207:3232483";
+            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ProductPropImg rsp = client.Execute(proxy, new ProductPropImgJsonParser());
+            Assert.IsNotNull(rsp);
+        }
+
+        [TestMethod]
+        public void UploadProductPropImgByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Props = "1627207:3232484";
+            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ProductPropImg rsp = client.Execute(proxy, new ProductPropImgXmlParser());
+            Assert.IsNotNull(rsp);
+        }
+
+        [TestMethod]
+        public void UpdateProductByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductUpdateRequest req = new ProductUpdateRequest();
+            req.ProductId = _product.Id;
+            req.Name = "诺基亚机皇JSON";
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            Product product = client.Execute(proxy, new ProductJsonParser());
+            Assert.IsNotNull(product);
+            Assert.AreEqual(_product.Id, product.Id);
+        }
+
+        [TestMethod]
+        public void UpdateProductByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductUpdateRequest req = new ProductUpdateRequest();
+            req.ProductId = _product.Id;
+            req.Name = "诺基亚机皇XML";
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            Product product = client.Execute(proxy, new ProductXmlParser());
+            Assert.IsNotNull(product);
+            Assert.AreEqual(_product.Id, product.Id);
+        }
+
+        [TestMethod]
+        public void DeleteProductImgByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductImgDeleteRequest req = new ProductImgDeleteRequest();
+            req.ProductId = _product.Id;
+            req.ImgId = _productImg.ImgId;
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            ProductImg img = client.Execute(proxy, new ProductImgJsonParser());
+            Assert.AreEqual(_product.Id, img.ProductId);
+            Assert.AreEqual(_productImg.ImgId, img.ImgId);
+        }
+
+        [TestMethod]
+        public void DeleteProductImgByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductImgDeleteRequest req = new ProductImgDeleteRequest();
+            req.ProductId = _product.Id;
+            req.ImgId = _productImg.ImgId;
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            ProductImg img = client.Execute(proxy, new ProductImgXmlParser());
+            Assert.AreEqual(_product.Id, img.ProductId);
+            Assert.AreEqual(_productImg.ImgId, img.ImgId);
+        }
+
+        [TestMethod]
+        public void DeleteProductPropImgByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductPropImgDeleteRequest req = new ProductPropImgDeleteRequest();
+            req.ProductId = _product.Id;
+            req.ImgId = "???";
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            ProductPropImg img = client.Execute(proxy, new ProductPropImgJsonParser());
+        }
+
+        private Product AddProduct()
+        {
+            Product oldProduct = GetProduct();
+            if (oldProduct != null)
+            {
+                return oldProduct;
+            }
+
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductAddRequest request = new ProductAddRequest();
             request.Name = "Nokia N73";
@@ -102,21 +235,40 @@ namespace Taobao.Top.Api.Test
             request.Props = "1637400:4606395;21862:31578;21861:3683581";
             request.Image = TestUtils.GetResourceAsFile("product.jpg");
 
-            ITopRequest proxy = new TopRequestProxy(request, "b2ctest125");
-            Product product = client.Execute(proxy, new ProductJsonParser());
+            ITopRequest proxy = new TopUploadRequestProxy(request, "b2ctest125");
+            return client.Execute(proxy, new ProductJsonParser());
         }
 
-        //[TestMethod]
-        public void UploadProductImage()
+        private ProductImg UploadProductImg()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            ProductImgUploadRequest request = new ProductImgUploadRequest();
-            request.ProductId = "203940";
-            request.Image = TestUtils.GetResourceAsFile("product.jpg");
-            request.Position = 7;
+            ProductImgUploadRequest req = new ProductImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Position = 3;
 
-            ITopRequest proxy = new TopRequestProxy(request, "admin");
-            ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            return client.Execute(proxy, new ProductImgJsonParser());
+        }
+
+        private ProductImg DeleteProductImg(string productId, string imgId)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductImgDeleteRequest req = new ProductImgDeleteRequest();
+            req.ProductId = productId;
+            req.ImgId = imgId;
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            return client.Execute(proxy, new ProductImgJsonParser());
+        }
+
+        private Product GetProduct()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductGetRequest request = new ProductGetRequest();
+            request.Fields = "product_id,name,cid,props,props_str,name,binds,created";
+            request.Cid = "50012286";
+            request.Props = "21862:31578;21861:3683581";
+            return client.Execute(request, new ProductJsonParser());
         }
     }
 }
