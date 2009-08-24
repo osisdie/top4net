@@ -66,4 +66,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 产品属性图片的XML响应解释器。
+    /// </summary>
+    public class ProductPropImgXmlParser : ITopParser<ProductPropImg>
+    {
+        #region ITopParser<ProductPropImg> Members
+
+        public ProductPropImg Parse(string body)
+        {
+            ProductPropImgListXmlParser parser = new ProductPropImgListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 产品属性图片列表的XML响应解释器。
+    /// </summary>
+    public class ProductPropImgListXmlParser : ITopParser<ResponseList<ProductPropImg>>
+    {
+        #region ITopParser<ResponseList<ProductPropImg>> Members
+
+        public ResponseList<ProductPropImg> Parse(string body)
+        {
+            return ResponseList<ProductPropImg>.ParseXmlResponse("productPropImg", body);
+        }
+
+        #endregion
+    }
 }

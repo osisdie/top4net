@@ -66,4 +66,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 产品属性图片的JSON响应解释器。
+    /// </summary>
+    public class ProductPropImgJsonParser : ITopParser<ProductPropImg>
+    {
+        #region ITopParser<ProductPropImg> Members
+
+        public ProductPropImg Parse(string body)
+        {
+            ProductPropImgListJsonParser parser = new ProductPropImgListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 产品属性图片列表的JSON响应解释器。
+    /// </summary>
+    public class ProductPropImgListJsonParser : ITopParser<ResponseList<ProductPropImg>>
+    {
+        #region ITopParser<ResponseList<ProductPropImg>> Members
+
+        public ResponseList<ProductPropImg> Parse(string body)
+        {
+            return ResponseList<ProductPropImg>.ParseJsonResponse("productPropImgs", body);
+        }
+
+        #endregion
+    }
 }
