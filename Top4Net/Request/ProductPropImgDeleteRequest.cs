@@ -6,7 +6,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.product.propImg.delete
+    /// TOP API: taobao.product.propimg.delete
     /// </summary>
     public class ProductPropImgDeleteRequest : ITopRequest
     {
@@ -24,7 +24,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.product.propImg.delete";
+            return "taobao.product.propimg.delete";
         }
 
         public IDictionary<string, string> GetParameters()

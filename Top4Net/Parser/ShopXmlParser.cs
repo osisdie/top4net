@@ -14,7 +14,7 @@ namespace Taobao.Top.Api.Parser
         public Shop Parse(string body)
         {
             ShopListXmlParser parser = new ShopListXmlParser();
-            return parser.Parse( body ).GetFirst();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion
@@ -29,7 +29,7 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<Shop> Parse(string body)
         {
-            return ResponseList<Shop>.ParseXmlResponse( "shop", body );
+            return ResponseList<Shop>.ParseXmlResponse("shop", body);
         }
 
         #endregion

@@ -13,13 +13,16 @@ namespace Taobao.Top.Api.Test
     public class ProductApiTest
     {
         private Product _product;
-        private ProductImg _productImg;
 
         [TestInitialize]
         public void Initialize()
         {
             _product = AddProduct();
-            _productImg = UploadProductImg();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
         }
 
         [TestMethod]
@@ -113,6 +116,8 @@ namespace Taobao.Top.Api.Test
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());
             Assert.IsNotNull(rsp);
+
+            DeleteProductImg(_product.Id, rsp.ImgId);
         }
 
         [TestMethod]
@@ -127,6 +132,8 @@ namespace Taobao.Top.Api.Test
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductImg rsp = client.Execute(proxy, new ProductImgXmlParser());
             Assert.IsNotNull(rsp);
+
+            DeleteProductImg(_product.Id, rsp.ImgId);
         }
 
         [TestMethod]
@@ -140,6 +147,8 @@ namespace Taobao.Top.Api.Test
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductPropImg rsp = client.Execute(proxy, new ProductPropImgJsonParser());
             Assert.IsNotNull(rsp);
+
+            DeleteProductPropImg(_product.Id, rsp.ImgId);
         }
 
         [TestMethod]
@@ -153,6 +162,8 @@ namespace Taobao.Top.Api.Test
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductPropImg rsp = client.Execute(proxy, new ProductPropImgXmlParser());
             Assert.IsNotNull(rsp);
+
+            DeleteProductPropImg(_product.Id, rsp.ImgId);
         }
 
         [TestMethod]
@@ -184,38 +195,59 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void DeleteProductImgByJson()
         {
+            ProductImg oldImg = UploadProductImg();
+
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductImgDeleteRequest req = new ProductImgDeleteRequest();
-            req.ProductId = _product.Id;
-            req.ImgId = _productImg.ImgId;
+            req.ProductId = oldImg.ProductId;
+            req.ImgId = oldImg.ImgId;
             ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
             ProductImg img = client.Execute(proxy, new ProductImgJsonParser());
-            Assert.AreEqual(_product.Id, img.ProductId);
-            Assert.AreEqual(_productImg.ImgId, img.ImgId);
+            Assert.AreEqual(oldImg.ProductId, img.ProductId);
+            Assert.AreEqual(oldImg.ImgId, img.ImgId);
         }
 
         [TestMethod]
         public void DeleteProductImgByXml()
         {
+            ProductImg oldImg = UploadProductImg();
+
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             ProductImgDeleteRequest req = new ProductImgDeleteRequest();
-            req.ProductId = _product.Id;
-            req.ImgId = _productImg.ImgId;
+            req.ProductId = oldImg.ProductId;
+            req.ImgId = oldImg.ImgId;
             ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
             ProductImg img = client.Execute(proxy, new ProductImgXmlParser());
-            Assert.AreEqual(_product.Id, img.ProductId);
-            Assert.AreEqual(_productImg.ImgId, img.ImgId);
+            Assert.AreEqual(null, img.ProductId);
+            Assert.AreEqual(oldImg.ImgId, img.ImgId);
         }
 
         [TestMethod]
         public void DeleteProductPropImgByJson()
         {
+            ProductPropImg oldImg = UploadProductPropImg();
+
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductPropImgDeleteRequest req = new ProductPropImgDeleteRequest();
-            req.ProductId = _product.Id;
-            req.ImgId = "???";
+            req.ProductId = oldImg.ProductId;
+            req.ImgId = oldImg.ImgId;
             ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
             ProductPropImg img = client.Execute(proxy, new ProductPropImgJsonParser());
+            Assert.IsNotNull(img);
+        }
+
+        [TestMethod]
+        public void DeleteProductPropImgByXml()
+        {
+            ProductPropImg oldImg = UploadProductPropImg();
+
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ProductPropImgDeleteRequest req = new ProductPropImgDeleteRequest();
+            req.ProductId = oldImg.ProductId;
+            req.ImgId = oldImg.ImgId;
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            ProductPropImg img = client.Execute(proxy, new ProductPropImgXmlParser());
+            Assert.IsNotNull(img);
         }
 
         private Product AddProduct()
@@ -239,6 +271,16 @@ namespace Taobao.Top.Api.Test
             return client.Execute(proxy, new ProductJsonParser());
         }
 
+        private Product GetProduct()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductGetRequest request = new ProductGetRequest();
+            request.Fields = "product_id,name,cid,props,props_str,name,binds,created";
+            request.Cid = "50012286";
+            request.Props = "21862:31578;21861:3683581";
+            return client.Execute(request, new ProductJsonParser());
+        }
+
         private ProductImg UploadProductImg()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
@@ -248,27 +290,44 @@ namespace Taobao.Top.Api.Test
             req.Position = 3;
 
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
-            return client.Execute(proxy, new ProductImgJsonParser());
+            ProductImg img = client.Execute(proxy, new ProductImgJsonParser());
+            img.ProductId = _product.Id;
+            return img;
         }
 
-        private ProductImg DeleteProductImg(string productId, string imgId)
+        private void DeleteProductImg(string productId, string imgId)
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductImgDeleteRequest req = new ProductImgDeleteRequest();
             req.ProductId = productId;
             req.ImgId = imgId;
             ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
-            return client.Execute(proxy, new ProductImgJsonParser());
+            ProductImg rsp = client.Execute(proxy, new ProductImgJsonParser());
+            Assert.IsNotNull(rsp);
         }
 
-        private Product GetProduct()
+        private ProductPropImg UploadProductPropImg()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            ProductGetRequest request = new ProductGetRequest();
-            request.Fields = "product_id,name,cid,props,props_str,name,binds,created";
-            request.Cid = "50012286";
-            request.Props = "21862:31578;21861:3683581";
-            return client.Execute(request, new ProductJsonParser());
+            ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
+            req.ProductId = _product.Id;
+            req.Props = "1627207:3232483";
+            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
+            ProductPropImg img = client.Execute(proxy, new ProductPropImgJsonParser());
+            img.ProductId = _product.Id;
+            return img;
+        }
+
+        private void DeleteProductPropImg(string productId, string propImgId)
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ProductPropImgDeleteRequest req = new ProductPropImgDeleteRequest();
+            req.ProductId = productId;
+            req.ImgId = propImgId;
+            ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
+            ProductPropImg rsp = client.Execute(proxy, new ProductPropImgJsonParser());
+            Assert.IsNotNull(rsp);
         }
     }
 }
