@@ -129,7 +129,7 @@
     <Compile Include="Request\ItemsCustomGetRequest.cs" />
     <Compile Include="Request\ItemsDownloadRequest.cs" />
     <Compile Include="Request\ItemsGetRequest.cs" />
-    <Compile Include="Request\ItemsInventoryGetRequest.cs" />
+    <Compile Include="Request\ItemsInstockGetRequest.cs" />
     <Compile Include="Request\ItemSkuAddRequest.cs" />
     <Compile Include="Request\ItemSkuGetRequest.cs" />
     <Compile Include="Request\ItemSkusGetRequest.cs" />

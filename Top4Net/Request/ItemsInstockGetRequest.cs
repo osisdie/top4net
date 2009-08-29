@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.items.instock.get
     /// </summary>
-    public class ItemsInventoryGetRequest : ITopRequest
+    public class ItemsInstockGetRequest : ITopRequest
     {
         /// <summary>
         /// 需要返回的商品对象字段。

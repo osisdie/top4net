@@ -548,6 +548,16 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
+        public void DelistItemByJson()
+        {
+        }
+
+        [TestMethod]
+        public void DelistItemByXml()
+        {
+        }
+
+        [TestMethod]
         public void GetPostagesByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
