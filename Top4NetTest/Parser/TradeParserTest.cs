@@ -78,5 +78,27 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual("tbtest1061", refund.BuyerNick);
             Assert.AreEqual("tbtest561", refund.SellerNick);
         }
+
+        [TestMethod]
+        public void ParseJsonAsRefundMessages()
+        {
+            string body = TestUtils.GetResourceAsText("refund.messages.json");
+            RefundMessageListJsonParser parser = new RefundMessageListJsonParser();
+            ResponseList<RefundMessage> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(3, rsp.Content.Count);
+            Assert.AreEqual(3, rsp.TotalResults);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsRefundMessages()
+        {
+            string body = TestUtils.GetResourceAsText("refund.messages.xml");
+            RefundMessageListXmlParser parser = new RefundMessageListXmlParser();
+            ResponseList<RefundMessage> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(3, rsp.Content.Count);
+            Assert.AreEqual(3, rsp.TotalResults);
+        }
     }
 }

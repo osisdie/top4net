@@ -40,6 +40,16 @@ namespace Taobao.Top.Api.Request
         /// </summary>
         public string Type { get; set; }
 
+        /// <summary>
+        /// 查询修改时间开始。
+        /// </summary>
+        public Nullable<DateTime> StartModified { get; set; }
+
+        /// <summary>
+        /// 查询修改时间结束。
+        /// </summary>
+        public Nullable<DateTime> EndModified { get; set; }
+
         #region ITopRequest Members
 
         public string GetApiName()
@@ -57,6 +67,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("page_size", this.PageSize);
             parameters.Add("fields", this.Fields);
             parameters.Add("type", this.Type);
+            parameters.Add("start_modified", this.StartModified);
+            parameters.Add("end_modified", this.EndModified);
 
             return parameters;
         }

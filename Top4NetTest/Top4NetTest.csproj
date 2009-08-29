@@ -104,6 +104,8 @@
     <Content Include="Resources\prop.jpg" />
     <Content Include="Resources\prop.values.xml" />
     <Content Include="Resources\areas.xml" />
+    <Content Include="Resources\refund.jpg" />
+    <Content Include="Resources\refund.messages.xml" />
     <Content Include="Resources\refunds.xml" />
     <Content Include="Resources\shop.cats.xml" />
     <Content Include="Resources\shops.xml" />
@@ -116,6 +118,7 @@
     <Content Include="Resources\users.xml" />
     <None Include="Resources\prop.imgs.json" />
     <None Include="Resources\prop.values.json" />
+    <None Include="Resources\refund.messages.json" />
     <None Include="Resources\refunds.json" />
     <None Include="Resources\shop.cats.json" />
     <None Include="Resources\shops.json" />

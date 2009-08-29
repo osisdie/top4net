@@ -260,10 +260,113 @@ namespace Taobao.Top.Api.Test.Request
         [TestMethod]
         public void GetRefundByJson()
         {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            RefundGetRequest req = new RefundGetRequest();
+            req.Fields = "refund_id,alipay_no,tid,oid,buyer_nick,seller_nick,address ";
+            req.Rid = "126628";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            Refund refund = client.Execute(proxy, new RefundJsonParser());
+            Assert.IsNotNull(refund);
+            Assert.AreEqual(req.Rid, refund.Rid);
+        }
+
+        [TestMethod]
+        public void GetRefundByXml()
+        {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             RefundGetRequest req = new RefundGetRequest();
-            req.Fields = "refund_id,alipay_no,tid,oid,buyer_nick,seller_nick,total_fee,status,created,refund_fee,good_status,has_good_return,payment,reason,desc,iid,title,price,num,good_return_time,company_name,sid,address ";
+            req.Fields = "refund_id,alipay_no,tid,oid,buyer_nick,seller_nick,address";
             req.Rid = "126628";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            Refund refund = client.Execute(proxy, new RefundXmlParser());
+            Assert.IsNotNull(refund);
+            Assert.AreEqual("tbtest1202", refund.SellerNick);
+            Assert.IsNotNull(refund.SellerAddress);
+        }
+
+        [TestMethod]
+        public void GetAppliedRefundsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            RefundsAppliedGetRequest req = new RefundsAppliedGetRequest();
+            req.Fields = "refund_id,tid,title,buyer_nick,seller_nick";
+            req.SellerNick = "tbtest1202";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1010");
+            ResponseList<Refund> rsp = client.Execute(proxy, new RefundListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetAppliedRefundsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundsAppliedGetRequest req = new RefundsAppliedGetRequest();
+            req.Fields = "refund_id,tid,title,buyer_nick,seller_nick";
+            req.SellerNick = "tbtest1202";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1010");
+            ResponseList<Refund> rsp = client.Execute(proxy, new RefundListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetReceivedRefundsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            RefundsReceivedGetRequest req = new RefundsReceivedGetRequest();
+            req.Fields = "refund_id,tid,title,buyer_nick,seller_nick";
+            req.BuyerNick = "tbtest1010";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            ResponseList<Refund> rsp = client.Execute(proxy, new RefundListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetReceivedRefundsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundsReceivedGetRequest req = new RefundsReceivedGetRequest();
+            req.Fields = "refund_id,tid,title,buyer_nick,seller_nick";
+            req.BuyerNick = "tbtest1010";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            ResponseList<Refund> rsp = client.Execute(proxy, new RefundListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void AddRefundMessageByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            RefundMessageAddRequest req = new RefundMessageAddRequest();
+            req.Rid = "126628";
+            req.OwnerNick = "tbtest1202";
+            req.Content = "I want to make a refund";
+            req.Image = TestUtils.GetResourceAsFile("refund.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "tbtest1202");
+            string rsp = client.Execute(proxy, new StringParser());
+            Console.WriteLine(rsp);
+        }
+
+        [TestMethod]
+        public void GetRefundMessagesByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundMessagesGetRequest req = new RefundMessagesGetRequest();
+            req.Fields = "message_id,refund_id,owner_id,owner_nick,owner_role,content,picture_urls,creaetd";
+            req.Rid = "126628";
+            req.PageNo = 1;
+            req.PageSize = 5;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
             string rsp = client.Execute(proxy, new StringParser());
             Console.WriteLine(rsp);
@@ -315,17 +418,6 @@ namespace Taobao.Top.Api.Test.Request
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
             Trade trade = client.Execute(proxy, new TradeJsonParser());
             Assert.AreEqual(_trade.Tid, trade.Tid);
-        }
-
-        [TestMethod]
-        public void GetSuitesByJson()
-        {
-            ITopClient client = TestUtils.GetDevelopTopClient("json");
-            SuitesGetRequest req = new SuitesGetRequest();
-            req.ServiceCode = "TADGET_SHOP_TACTIC";
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
-            string rsp = client.Execute(proxy, new StringParser());
-            Console.WriteLine(rsp);
         }
     }
 }

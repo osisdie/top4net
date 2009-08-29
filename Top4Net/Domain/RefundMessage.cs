@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 
 using Newtonsoft.Json;
 
@@ -11,7 +12,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("refundMessage")]
-    class RefundMessage : BaseObject
+    public class RefundMessage : BaseObject
     {
         /// <summary>
         /// 留言编号
@@ -26,6 +27,19 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("content")]
         [XmlElement("content")]
         public string MsgContent { get; set; }
+
+        /// <summary>
+        /// 留言类型。
+        /// </summary>
+        public string MsgType { get; set; }
+
+        /// <summary>
+        /// 凭证附件地址（图片）
+        /// </summary>
+        [JsonProperty("picture_urls")]
+        [XmlArray("picture_urls")]
+        [XmlArrayItem("picture_url")]
+        public List<PictureUrl> PicUrls { get; set; }
 
         /// <summary>
         /// 退款编号
@@ -54,12 +68,21 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("owner_role")]
         [XmlElement("owner_role")]
         public string OwnerRole { get; set; }
+    }
 
+    /// <summary>
+    /// 图片地址结构。
+    /// </summary>
+    [Serializable]
+    [JsonObject]
+    [XmlRoot("picture_url")]
+    public class PictureUrl
+    {
         /// <summary>
-        /// 凭证附件地址（图片）
+        /// 图片地址。
         /// </summary>
-        [JsonProperty("picture_urls")]
-        [XmlElement("picture_urls")]
-        public string PicUrls { get; set; }
+        [JsonProperty("url")]
+        [XmlElement("url")]
+        public string Url { get; set; }
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="Request\ItemPropsListRequest.cs" />
     <Compile Include="Request\ItemsAllGetRequest.cs" />
     <Compile Include="Request\PostageDeleteRequest.cs" />
+    <Compile Include="Request\RefundMessageAddRequest.cs" />
     <Compile Include="Request\ShopCatsGetRequest.cs" />
     <Compile Include="Request\ItemAddRequest.cs" />
     <Compile Include="Request\ItemCatsGetRequest.cs" />
