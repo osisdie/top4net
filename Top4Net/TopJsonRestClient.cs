@@ -9,6 +9,9 @@ namespace Taobao.Top.Api
     /// <summary>
     /// TOP基于REST的JSON客户端帮助类。
     /// </summary>
+    /// <remarks>
+    /// 带<c>session</c>参数的方法表明此方法为私有数据接口，需要传入正确的授权会话码才能访问。
+    /// </remarks>
     /// <example><code>
     /// TopJsonRestClient client = new TopJsonRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test");
     /// UserGetRequest request = new UserGetRequest();
