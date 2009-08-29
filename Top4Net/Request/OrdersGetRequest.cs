@@ -26,6 +26,11 @@ namespace Taobao.Top.Api.Request
         public string SellerNick { get; set; }
 
         /// <summary>
+        /// 交易类型。
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
         /// 页码。
         /// </summary>
         public Nullable<int> PageNo { get; set; }
@@ -49,6 +54,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("iid", this.Iid);
             parameters.Add("seller_nick", this.SellerNick);
+            parameters.Add("type", this.Type);
             parameters.Add("page_no", this.PageNo);
             parameters.Add("page_size", this.PageSize);
 

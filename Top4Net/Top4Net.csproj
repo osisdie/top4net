@@ -189,6 +189,7 @@
     <Compile Include="Request\TaobaokeListUrlGetRequest.cs" />
     <Compile Include="Request\TaobaokeReportGetRequest.cs" />
     <Compile Include="Request\TaobaokeShopsConvertRequest.cs" />
+    <Compile Include="Request\TradeAddRequest.cs" />
     <Compile Include="Request\TradeCloseRequest.cs" />
     <Compile Include="Request\TradeDetailGetRequest.cs" />
     <Compile Include="Request\TradeGetRequest.cs" />

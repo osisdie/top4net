@@ -862,7 +862,7 @@ namespace Taobao.Top.Api.Test.Request
             Assert.AreEqual(_item.Iid, item.Iid);
         }
 
-        private Item AddItem(string format, ITopParser<Item> parser)
+        internal Item AddItem(string format, ITopParser<Item> parser)
         {
             try
             {
@@ -890,6 +890,7 @@ namespace Taobao.Top.Api.Test.Request
                 req.SkuProps = "1627207:3232483";
                 req.HasShowcase = true;
                 req.Image = TestUtils.GetResourceAsFile("item.jpg");
+
                 ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
                 Item item = client.Execute(proxy, parser);
                 item.Nick = "tbtest561";
@@ -994,7 +995,7 @@ namespace Taobao.Top.Api.Test.Request
             return postage;
         }
 
-        private void DeleteItem(Item item)
+        internal void DeleteItem(Item item)
         {
             try
             {

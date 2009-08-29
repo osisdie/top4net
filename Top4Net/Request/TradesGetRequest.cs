@@ -26,6 +26,11 @@ namespace Taobao.Top.Api.Request
         public string SellerNick { get; set; }
 
         /// <summary>
+        /// 交易类型。
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
         /// 页码。
         /// </summary>
         public Nullable<int> PageNo { get; set; }
@@ -34,11 +39,6 @@ namespace Taobao.Top.Api.Request
         /// 每页条数 。
         /// </summary>
         public Nullable<int> PageSize { get; set; }
-
-        /// <summary>
-        /// 交易类型。
-        /// </summary>
-        public string Type { get; set; }
 
         #region ITopRequest Members
 

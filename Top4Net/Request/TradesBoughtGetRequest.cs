@@ -18,12 +18,12 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 查询交易创建时间开始。
         /// </summary>
-        public string StartCreated { get; set; }
+        public Nullable<DateTime> StartCreated { get; set; }
 
         /// <summary>
         /// 查询交易创建时间结束。
         /// </summary>
-        public string EndCreated { get; set; }
+        public Nullable<DateTime> EndCreated { get; set; }
 
         /// <summary>
         /// 页码。
