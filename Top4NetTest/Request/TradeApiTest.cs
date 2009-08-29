@@ -257,6 +257,18 @@ namespace Taobao.Top.Api.Test.Request
             Assert.AreEqual(req.Type, rsp.Content[0].OrderType);
         }
 
+        [TestMethod]
+        public void GetRefundByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundGetRequest req = new RefundGetRequest();
+            req.Fields = "refund_id,alipay_no,tid,oid,buyer_nick,seller_nick,total_fee,status,created,refund_fee,good_status,has_good_return,payment,reason,desc,iid,title,price,num,good_return_time,company_name,sid,address ";
+            req.Rid = "126628";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            string rsp = client.Execute(proxy, new StringParser());
+            Console.WriteLine(rsp);
+        }
+
         private Trade AddTrade()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
@@ -312,18 +324,6 @@ namespace Taobao.Top.Api.Test.Request
             SuitesGetRequest req = new SuitesGetRequest();
             req.ServiceCode = "TADGET_SHOP_TACTIC";
             ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
-            string rsp = client.Execute(proxy, new StringParser());
-            Console.WriteLine(rsp);
-        }
-
-        [TestMethod]
-        public void GetRefundByJson()
-        {
-            ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            RefundGetRequest req = new RefundGetRequest();
-            req.Fields = "refund_id,address";
-            req.Rid = "126628";
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
             string rsp = client.Execute(proxy, new StringParser());
             Console.WriteLine(rsp);
         }

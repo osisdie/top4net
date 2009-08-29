@@ -65,4 +65,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 退款列表的JSON响应解释器。
+    /// </summary>
+    public class RefundListJsonParser : ITopParser<ResponseList<Refund>>
+    {
+        #region ITopParser<ResponseList<Refund>> Members
+
+        public ResponseList<Refund> Parse(string body)
+        {
+            return ResponseList<Refund>.ParseJsonResponse("refunds", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 退款的JSON响应解释器。
+    /// </summary>
+    public class RefundJsonParser : ITopParser<Refund>
+    {
+        #region ITopParser<Refund> Members
+
+        public Refund Parse(string body)
+        {
+            RefundListJsonParser parser = new RefundListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

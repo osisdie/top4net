@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("refund")]
-    class Refund : BaseObject
+    public class Refund : BaseObject
     {
         /// <summary>
         /// 退款单号
