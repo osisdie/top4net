@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Parser\ItemParserTest.cs" />
     <Compile Include="Parser\LogisticsParserTest.cs" />
+    <Compile Include="Parser\ShopParserTest.cs" />
     <Compile Include="Parser\TaobaokeParserTest.cs" />
     <Compile Include="Parser\TradeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
