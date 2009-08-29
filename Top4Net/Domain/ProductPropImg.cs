@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 产品属性图片。
+    /// 产品属性图片
     /// </summary>
     [Serializable]
     [JsonObject]
