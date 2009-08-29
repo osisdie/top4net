@@ -814,6 +814,54 @@ namespace Taobao.Top.Api.Test.Request
             client.Execute(proxy, new SkuJsonParser());
         }
 
+        [TestMethod]
+        public void AddRecommendItemByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemRecommendAddRequest req = new ItemRecommendAddRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.IsNotNull(item);
+            Assert.AreEqual(_item.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void AddRecommendItemByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemRecommendAddRequest req = new ItemRecommendAddRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.IsNotNull(item);
+            Assert.AreEqual(_item.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void DeleteRecommendItemByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemRecommendDeleteRequest req = new ItemRecommendDeleteRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.IsNotNull(item);
+            Assert.AreEqual(_item.Iid, item.Iid);
+        }
+
+        [TestMethod]
+        public void DeleteRecommendItemByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemRecommendDeleteRequest req = new ItemRecommendDeleteRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.IsNotNull(item);
+            Assert.AreEqual(_item.Iid, item.Iid);
+        }
+
         private Item AddItem(string format, ITopParser<Item> parser)
         {
             try
@@ -840,6 +888,7 @@ namespace Taobao.Top.Api.Test.Request
                 req.OuterId = "top4net";
                 req.Props = "20000:20727;1627207:3232483;20055:20716";
                 req.SkuProps = "1627207:3232483";
+                req.HasShowcase = true;
                 req.Image = TestUtils.GetResourceAsFile("item.jpg");
                 ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
                 Item item = client.Execute(proxy, parser);

@@ -118,9 +118,9 @@ namespace Taobao.Top.Api
             return client.Execute(request, new ItemListJsonParser());
         }
 
-        public ResponseList<Item> GetCustomItems(ItemsCustomGetRequest req, string session)
+        public ResponseList<Item> GetCustomItems(ItemsCustomGetRequest request, string session)
         {
-            return client.Execute(req, new ItemListJsonParser(), session);
+            return client.Execute(request, new ItemListJsonParser(), session);
         }
 
         public ResponseList<ItemSearch> SearchItems(ItemsSearchRequest request)
@@ -188,9 +188,9 @@ namespace Taobao.Top.Api
             return client.Execute(request, new SkuListJsonParser());
         }
 
-        public ResponseList<Sku> GetCustomSkus(SkusCustomGetRequest req, string session)
+        public ResponseList<Sku> GetCustomSkus(SkusCustomGetRequest request, string session)
         {
-            return client.Execute(req, new SkuListJsonParser(), session);
+            return client.Execute(request, new SkuListJsonParser(), session);
         }
 
         public Sku AddItemSku(ItemSkuAddRequest request, string session)
@@ -209,6 +209,16 @@ namespace Taobao.Top.Api
         }
 
         public Item DelistItem(ItemDelistRequest request, string session)
+        {
+            return client.Execute(request, new ItemJsonParser(), session);
+        }
+
+        public Item AddRecommendItem(ItemRecommendAddRequest request, string session)
+        {
+            return client.Execute(request, new ItemJsonParser(), session);
+        }
+
+        public Item DeleteRecommendItem(ItemRecommendDeleteRequest request, string session)
         {
             return client.Execute(request, new ItemJsonParser(), session);
         }
