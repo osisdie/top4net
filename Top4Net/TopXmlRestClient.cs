@@ -9,13 +9,13 @@ namespace Taobao.Top.Api
     /// <summary>
     /// TOP基于REST的XML客户端帮助类。
     /// </summary>
-    /// <example><c>
+    /// <example><code>
     /// TopXmlRestClient client = new TopXmlRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test");
     /// UserGetRequest request = new UserGetRequest();
     /// request.Fields = "user_id,nick,sex,created,location";
     /// request.Nick = "tbtest520";
     /// User user = client.GetUser(request);
-    /// </c></example>
+    /// </code></example>
     public class TopXmlRestClient
     {
         private ITopClient client;

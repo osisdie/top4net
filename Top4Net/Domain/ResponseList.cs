@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// TOP响应列表。
+    /// TOP响应列表
     /// </summary>
     /// <typeparam name="T">任何一种可序列化的领域对象</typeparam>
     [Serializable]

@@ -71,7 +71,7 @@ namespace Taobao.Top.Api.Domain
     }
 
     /// <summary>
-    /// 图片地址结构。
+    /// 图片地址结构
     /// </summary>
     [Serializable]
     [JsonObject]

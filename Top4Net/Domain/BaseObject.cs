@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 基础对象。
+    /// 基础对象
     /// </summary>
     public abstract class BaseObject
     {

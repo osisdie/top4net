@@ -8,7 +8,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 用户信息。
+    /// 用户信息
     /// </summary>
     [Serializable]
     [JsonObject]
