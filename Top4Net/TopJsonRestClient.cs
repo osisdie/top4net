@@ -9,6 +9,13 @@ namespace Taobao.Top.Api
     /// <summary>
     /// TOP基于REST的JSON客户端帮助类。
     /// </summary>
+    /// <example>
+    /// TopJsonRestClient client = new TopJsonRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test");
+    /// UserGetRequest request = new UserGetRequest();
+    /// request.Fields = "user_id,nick,sex,created,location";
+    /// request.Nick = "tbtest520";
+    /// User user = client.GetUser(request);
+    /// </example>
     public class TopJsonRestClient
     {
         private ITopClient client;
