@@ -354,22 +354,52 @@ namespace Taobao.Top.Api.Test.Request
             req.Content = "I want to make a refund";
             req.Image = TestUtils.GetResourceAsFile("refund.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "tbtest1202");
-            string rsp = client.Execute(proxy, new StringParser());
-            Console.WriteLine(rsp);
+            RefundMessage refundMsg = client.Execute(proxy, new RefundMessageJsonParser());
+            Assert.IsNotNull(refundMsg);
+        }
+
+        [TestMethod]
+        public void AddRefundMessageByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundMessageAddRequest req = new RefundMessageAddRequest();
+            req.Rid = "126628";
+            req.OwnerNick = "tbtest1202";
+            req.Content = "I want to make a refund";
+            req.Image = TestUtils.GetResourceAsFile("refund.jpg");
+            ITopRequest proxy = new TopUploadRequestProxy(req, "tbtest1202");
+            RefundMessage refundMsg = client.Execute(proxy, new RefundMessageXmlParser());
+            Assert.IsNotNull(refundMsg);
         }
 
         [TestMethod]
         public void GetRefundMessagesByJson()
         {
-            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
             RefundMessagesGetRequest req = new RefundMessagesGetRequest();
-            req.Fields = "message_id,refund_id,owner_id,owner_nick,owner_role,content,picture_urls,creaetd";
+            req.Fields = "message_id,refund_id,owner_id,owner_nick,owner_role,content,picture_urls";
             req.Rid = "126628";
             req.PageNo = 1;
             req.PageSize = 5;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
-            string rsp = client.Execute(proxy, new StringParser());
-            Console.WriteLine(rsp);
+            ResponseList<RefundMessage> rsp = client.Execute(proxy, new RefundMessageListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetRefundMessagesByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            RefundMessagesGetRequest req = new RefundMessagesGetRequest();
+            req.Fields = "message_id,refund_id,owner_id,owner_nick,owner_role,content,picture_urls";
+            req.Rid = "126628";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest1202");
+            ResponseList<RefundMessage> rsp = client.Execute(proxy, new RefundMessageListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
         }
 
         private Trade AddTrade()

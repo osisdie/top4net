@@ -277,5 +277,80 @@ namespace Taobao.Top.Api
         {
             return client.Execute(request, new TaobaokeListUrlJsonParser());
         }
+
+        public Trade AddTrade(TradeAddRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public Trade GetTrade(TradeGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public Trade CloseTrade(TradeCloseRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public ResponseList<Trade> GetTrades(TradesGetRequest request)
+        {
+            return client.Execute(request, new TradeListJsonParser());
+        }
+
+        public Trade AddTradeMemo(TradeMemoAddRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public Trade UpdateTradeMemo(TradeMemoUpdateRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public Trade GetTradeDetail(TradeDetailGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        public ResponseList<Trade> GetBoughtTrades(TradesBoughtGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeListJsonParser(), session);
+        }
+
+        public ResponseList<Trade> GetSoldTrades(TradesSoldGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeListJsonParser(), session);
+        }
+
+        public ResponseList<Order> GetOrders(OrdersGetRequest request)
+        {
+            return client.Execute(request, new OrderListJsonParser());
+        }
+
+        public Refund GetRefund(RefundGetRequest request, string session)
+        {
+            return client.Execute(request, new RefundJsonParser(), session);
+        }
+
+        public ResponseList<Refund> GetAppliedRefunds(RefundsAppliedGetRequest request, string session)
+        {
+            return client.Execute(request, new RefundListJsonParser(), session);
+        }
+
+        public ResponseList<Refund> GetReceivedRefunds(RefundsReceivedGetRequest request, string session)
+        {
+            return client.Execute(request, new RefundListJsonParser(), session);
+        }
+
+        public RefundMessage AddRefundMessage(RefundMessageAddRequest request, string session)
+        {
+            return client.Execute(request, new RefundMessageJsonParser(), session);
+        }
+
+        public ResponseList<RefundMessage> GetRefundMessages(RefundMessagesGetRequest request, string session)
+        {
+            return client.Execute(request, new RefundMessageListJsonParser(), session);
+        }
     }
 }
