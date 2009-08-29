@@ -269,6 +269,32 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
+        public void GetInstockItemsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemsInstockGetRequest req = new ItemsInstockGetRequest();
+            req.Fields = "iid,title,nick,type,cid,num,props,price";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
+            Assert.AreEqual(5, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void GetInstockItemsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemsInstockGetRequest req = new ItemsInstockGetRequest();
+            req.Fields = "iid,title,nick,type,cid,num,props,price";
+            req.PageNo = 1;
+            req.PageSize = 8;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListXmlParser());
+            Assert.AreEqual(8, rsp.Content.Count);
+        }
+
+        [TestMethod]
         public void GetAllItemsByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
@@ -428,18 +454,6 @@ namespace Taobao.Top.Api.Test.Request
         }
 
         [TestMethod]
-        public void GetItemSkuByXml()
-        {
-            ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            ItemSkuGetRequest req = new ItemSkuGetRequest();
-            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
-            req.Nick = "tbtest561";
-            req.SkuId = "81192754";
-            Sku sku = client.Execute(req, new SkuXmlParser());
-            Assert.IsNotNull(sku);
-        }
-
-        [TestMethod]
         public void AddItemSkuByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
@@ -450,6 +464,18 @@ namespace Taobao.Top.Api.Test.Request
             req.Price = "1000";
             ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
             Sku sku = client.Execute(proxy, new SkuJsonParser());
+            Assert.IsNotNull(sku);
+        }
+
+        [TestMethod]
+        public void GetItemSkuByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemSkuGetRequest req = new ItemSkuGetRequest();
+            req.Fields = "sku_id,iid,properties,quantity,price,outer_id,created,modified";
+            req.Nick = "tbtest561";
+            req.SkuId = "81192754";
+            Sku sku = client.Execute(req, new SkuXmlParser());
             Assert.IsNotNull(sku);
         }
 
@@ -550,11 +576,23 @@ namespace Taobao.Top.Api.Test.Request
         [TestMethod]
         public void DelistItemByJson()
         {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemDelistRequest req = new ItemDelistRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemJsonParser());
+            Assert.AreEqual(_item.Iid, item.Iid);
         }
 
         [TestMethod]
         public void DelistItemByXml()
         {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemDelistRequest req = new ItemDelistRequest();
+            req.Iid = _item.Iid;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            Item item = client.Execute(proxy, new ItemXmlParser());
+            Assert.AreEqual(_item.Iid, item.Iid);
         }
 
         [TestMethod]
@@ -707,6 +745,75 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsNotNull(item);
         }
 
+        [TestMethod]
+        public void GetCustomItemsByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemsCustomGetRequest req = new ItemsCustomGetRequest();
+            req.Fields = "iid,title,nick,outer_id";
+            req.OuterId = "top4net";
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(req.OuterId, rsp.Content[0].OuterId);
+            Assert.AreEqual(_item.Nick, rsp.Content[0].Nick);
+        }
+
+        [TestMethod]
+        public void GetCustomItemsByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ItemsCustomGetRequest req = new ItemsCustomGetRequest();
+            req.Fields = "iid,title,nick,outer_id";
+            req.OuterId = "top4net";
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ResponseList<Item> rsp = client.Execute(proxy, new ItemListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(req.OuterId, rsp.Content[0].OuterId);
+            Assert.AreEqual(_item.Nick, rsp.Content[0].Nick);
+        }
+
+        [TestMethod]
+        public void GetCustomSkusByJson()
+        {
+            AddItemSku();
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            SkusCustomGetRequest req = new SkusCustomGetRequest();
+            req.Fields = "sku_id,outer_id,iid";
+            req.OuterId = "top4net";
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ResponseList<Sku> rsp = client.Execute(proxy, new SkuListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(req.OuterId, rsp.Content[0].OuterId);
+        }
+
+        [TestMethod]
+        public void GetCustomSkusByXml()
+        {
+            AddItemSku();
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            SkusCustomGetRequest req = new SkusCustomGetRequest();
+            req.Fields = "sku_id,outer_id,iid";
+            req.OuterId = "top4net";
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ResponseList<Sku> rsp = client.Execute(proxy, new SkuListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(req.OuterId, rsp.Content[0].OuterId);
+        }
+
+        private void AddItemSku()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ItemSkuAddRequest req = new ItemSkuAddRequest();
+            req.Iid = _item.Iid;
+            req.Props = "1627207:3232481";
+            req.Quantity = 3;
+            req.Price = "1000";
+            req.OuterId = "top4net";
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            client.Execute(proxy, new SkuJsonParser());
+        }
+
         private Item AddItem(string format, ITopParser<Item> parser)
         {
             try
@@ -730,6 +837,7 @@ namespace Taobao.Top.Api.Test.Request
                 req.PostFee = "5.0";
                 req.ExpressFee = "10.0";
                 req.EmsFee = "20.0";
+                req.OuterId = "top4net";
                 req.Props = "20000:20727;1627207:3232483;20055:20716";
                 req.SkuProps = "1627207:3232483";
                 req.Image = TestUtils.GetResourceAsFile("item.jpg");

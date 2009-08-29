@@ -190,7 +190,7 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
-    /// SKU列表的XML响应解释器。
+    /// 销售属性列表的XML响应解释器。
     /// </summary>
     public class SkuListXmlParser : ITopParser<ResponseList<Sku>>
     {
@@ -205,7 +205,7 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
-    /// SKU的XML响应解释器。
+    /// 销售属性的XML响应解释器。
     /// </summary>
     public class SkuXmlParser : ITopParser<Sku>
     {

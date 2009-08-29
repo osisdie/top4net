@@ -118,12 +118,22 @@ namespace Taobao.Top.Api
             return client.Execute(request, new ItemListJsonParser());
         }
 
+        public ResponseList<Item> GetCustomItems(ItemsCustomGetRequest req, string session)
+        {
+            return client.Execute(req, new ItemListJsonParser(), session);
+        }
+
         public ResponseList<ItemSearch> SearchItems(ItemsSearchRequest request)
         {
             return client.Execute(request, new ItemSearchListJsonParser());
         }
 
         public ResponseList<Item> GetOnsaleItems(ItemsOnsaleGetRequest request, string session)
+        {
+            return client.Execute(request, new ItemListJsonParser(), session);
+        }
+
+        public ResponseList<Item> GetInstockItems(ItemsInstockGetRequest request, string session)
         {
             return client.Execute(request, new ItemListJsonParser(), session);
         }
@@ -176,6 +186,11 @@ namespace Taobao.Top.Api
         public ResponseList<Sku> GetItemSkus(ItemSkusGetRequest request)
         {
             return client.Execute(request, new SkuListJsonParser());
+        }
+
+        public ResponseList<Sku> GetCustomSkus(SkusCustomGetRequest req, string session)
+        {
+            return client.Execute(req, new SkuListJsonParser(), session);
         }
 
         public Sku AddItemSku(ItemSkuAddRequest request, string session)

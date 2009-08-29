@@ -190,7 +190,7 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
-    /// SKU列表的JSON响应解释器。
+    /// 销售属性列表的JSON响应解释器。
     /// </summary>
     public class SkuListJsonParser : ITopParser<ResponseList<Sku>>
     {
@@ -205,7 +205,7 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
-    /// SKU的JSON响应解释器。
+    /// 销售属性的JSON响应解释器。
     /// </summary>
     public class SkuJsonParser : ITopParser<Sku>
     {
