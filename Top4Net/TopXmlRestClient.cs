@@ -18,6 +18,16 @@ namespace Taobao.Top.Api
             client = new TopRestClient(topUrl, appKey, appSecret, TopRestClient.FORMAT_XML);
         }
 
+        public string GetResponse(ITopRequest request)
+        {
+            return client.Execute(request, new StringParser());
+        }
+
+        public string GetResponse(ITopRequest request, string session)
+        {
+            return client.Execute(request, new StringParser(), session);
+        }
+
         public User GetUser(UserGetRequest request)
         {
             return client.Execute(request, new UserXmlParser());
@@ -118,12 +128,22 @@ namespace Taobao.Top.Api
             return client.Execute(request, new ItemListXmlParser());
         }
 
+        public ResponseList<Item> GetCustomItems(ItemsCustomGetRequest request, string session)
+        {
+            return client.Execute(request, new ItemListXmlParser(), session);
+        }
+
         public ResponseList<ItemSearch> SearchItems(ItemsSearchRequest request)
         {
             return client.Execute(request, new ItemSearchListXmlParser());
         }
 
         public ResponseList<Item> GetOnsaleItems(ItemsOnsaleGetRequest request, string session)
+        {
+            return client.Execute(request, new ItemListXmlParser(), session);
+        }
+
+        public ResponseList<Item> GetInstockItems(ItemsInstockGetRequest request, string session)
         {
             return client.Execute(request, new ItemListXmlParser(), session);
         }
@@ -178,6 +198,11 @@ namespace Taobao.Top.Api
             return client.Execute(request, new SkuListXmlParser());
         }
 
+        public ResponseList<Sku> GetCustomSkus(SkusCustomGetRequest request, string session)
+        {
+            return client.Execute(request, new SkuListXmlParser(), session);
+        }
+
         public Sku AddItemSku(ItemSkuAddRequest request, string session)
         {
             return client.Execute(request, new SkuXmlParser(), session);
@@ -194,6 +219,16 @@ namespace Taobao.Top.Api
         }
 
         public Item DelistItem(ItemDelistRequest request, string session)
+        {
+            return client.Execute(request, new ItemXmlParser(), session);
+        }
+
+        public Item AddRecommendItem(ItemRecommendAddRequest request, string session)
+        {
+            return client.Execute(request, new ItemXmlParser(), session);
+        }
+
+        public Item DeleteRecommendItem(ItemRecommendDeleteRequest request, string session)
         {
             return client.Execute(request, new ItemXmlParser(), session);
         }

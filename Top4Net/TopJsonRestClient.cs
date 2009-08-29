@@ -18,6 +18,16 @@ namespace Taobao.Top.Api
             client = new TopRestClient(topUrl, appKey, appSecret, TopRestClient.FORMAT_JSON);
         }
 
+        public string GetResponse(ITopRequest request)
+        {
+            return client.Execute(request, new StringParser());
+        }
+
+        public string GetResponse(ITopRequest request, string session)
+        {
+            return client.Execute(request, new StringParser(), session);
+        }
+
         public User GetUser(UserGetRequest request)
         {
             return client.Execute(request, new UserJsonParser());
