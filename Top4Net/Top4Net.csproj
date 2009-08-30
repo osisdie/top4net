@@ -205,6 +205,7 @@
     <Compile Include="Request\TradesBoughtGetRequest.cs" />
     <Compile Include="Request\TradesGetRequest.cs" />
     <Compile Include="Request\TradesSoldGetRequest.cs" />
+    <Compile Include="Request\TradesSoldIncrementGetRequest.cs" />
     <Compile Include="Request\UserGetRequest.cs" />
     <Compile Include="Request\UsersGetRequest.cs" />
     <Compile Include="TopDictionary.cs" />

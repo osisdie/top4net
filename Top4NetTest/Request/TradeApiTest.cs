@@ -426,6 +426,40 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsNotNull(confirmFee);
         }
 
+        [TestMethod]
+        public void GetIncrementSoldTradesByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
+            req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
+            req.StartModified = DateTime.ParseExact("2009-08-06", "yyyy-MM-dd", null);
+            req.EndModified = DateTime.ParseExact("2009-08-07", "yyyy-MM-dd", null);
+            req.Type = "fixed";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Trade> rsp = client.Execute(proxy, new TradeListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetIncrementSoldTradesByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
+            req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
+            req.StartModified = DateTime.ParseExact("2009-08-26", "yyyy-MM-dd", null);
+            req.EndModified = DateTime.ParseExact("2009-08-27", "yyyy-MM-dd", null);
+            req.Type = "fixed";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ResponseList<Trade> rsp = client.Execute(proxy, new TradeListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
         private Trade AddTrade()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");

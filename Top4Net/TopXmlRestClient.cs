@@ -517,6 +517,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.trades.sold.increment.get
+        /// </summary>
+        public ResponseList<Trade> GetIncrementSoldTrades(TradesSoldIncrementGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeListXmlParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.orders.get
         /// </summary>
         public ResponseList<Order> GetOrders(OrdersGetRequest request)
