@@ -61,7 +61,7 @@ namespace Taobao.Top.Api.Test.Parser
         public void ParseXmlAsLogisticsOrders()
         {
             string body = TestUtils.GetResourceAsText("logistics.orders.xml");
-            LogisticsListXmlParser parser = new LogisticsListXmlParser();
+            LogisticsOrderListXmlParser parser = new LogisticsOrderListXmlParser();
             ResponseList<LogisticsOrder> rsp = parser.Parse(body);
             Assert.AreEqual(146, rsp.TotalResults);
             Assert.AreEqual(10, rsp.Content.Count);

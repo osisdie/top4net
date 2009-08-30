@@ -603,5 +603,53 @@ namespace Taobao.Top.Api
         {
             return client.Execute(request, new TradeRateListXmlParser(), session);
         }
+
+        /// <summary>
+        /// TOP API: taobao.areas.get
+        /// </summary>
+        public ResponseList<Area> GetAreas(AreasGetRequest request)
+        {
+            return client.Execute(request, new AreaListXmlParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.logisticcompanies.get
+        /// </summary>
+        public ResponseList<LogisticsCompany> GetLogisticsCompanies(LogisticsCompaniesGetRequest request)
+        {
+            return client.Execute(request, new LogisticsCompanyListXmlParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.shippings.send.get
+        /// </summary>
+        public ResponseList<LogisticsOrder> GetLogisticsOrders(LogisticsOrdersGetRequest request, string session)
+        {
+            return client.Execute(request, new LogisticsOrderListXmlParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.delivery.send
+        /// </summary>
+        public LogisticsOrder AddLogisticsOrder(LogisticsOrderAddRequest request, string session)
+        {
+            return client.Execute(request, new LogisticsOrderXmlParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.shippings.send.fullinfo.get
+        /// </summary>
+        public ResponseList<LogisticsOrder> GetLogisticsOrderDetails(LogisticsOrderDetailsGetRequest request, string session)
+        {
+            return client.Execute(request, new LogisticsOrderListXmlParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.shipping.addresses.get
+        /// </summary>
+        public ResponseList<DeliveryAddress> GetDeliveryAddresses(DeliveryAddressesGetRequest request, string session)
+        {
+            return client.Execute(request, new DeliveryAddressListXmlParser(), session);
+        }
     }
 }

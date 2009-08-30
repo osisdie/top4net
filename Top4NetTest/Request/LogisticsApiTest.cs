@@ -98,7 +98,7 @@ namespace Taobao.Top.Api.Test.Request
             req.PageNo = 1;
             req.PageSize = 10;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            ResponseList<LogisticsOrder> rsp = client.Execute(proxy, new LogisticsListXmlParser());
+            ResponseList<LogisticsOrder> rsp = client.Execute(proxy, new LogisticsOrderListXmlParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }
@@ -127,7 +127,7 @@ namespace Taobao.Top.Api.Test.Request
             req.PageNo = 1;
             req.PageSize = 10;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            ResponseList<LogisticsOrder> rsp = client.Execute(proxy, new LogisticsListXmlParser());
+            ResponseList<LogisticsOrder> rsp = client.Execute(proxy, new LogisticsOrderListXmlParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
             Assert.IsNotNull(rsp.Content[0].ReceiverLocation);

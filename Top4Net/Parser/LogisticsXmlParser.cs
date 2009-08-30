@@ -6,7 +6,7 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 物流订单列表的XML响应解释器。
     /// </summary>
-    public class LogisticsListXmlParser : ITopParser<ResponseList<LogisticsOrder>>
+    public class LogisticsOrderListXmlParser : ITopParser<ResponseList<LogisticsOrder>>
     {
         #region ITopParser<ResponseList<Logistics>> Members
 
@@ -21,13 +21,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 物流订单的XML响应解释器。
     /// </summary>
-    public class LogisticsXmlParser : ITopParser<LogisticsOrder>
+    public class LogisticsOrderXmlParser : ITopParser<LogisticsOrder>
     {
         #region ITopParser<Logistics> Members
 
         public LogisticsOrder Parse(string body)
         {
-            LogisticsListXmlParser parser = new LogisticsListXmlParser();
+            LogisticsOrderListXmlParser parser = new LogisticsOrderListXmlParser();
             return parser.Parse(body).GetFirst();
         }
 
