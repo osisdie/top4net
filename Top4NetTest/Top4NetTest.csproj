@@ -46,6 +46,7 @@
     <Compile Include="Parser\TaobaokeParserTest.cs" />
     <Compile Include="Parser\TradeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
+    <Compile Include="Request\LogisticsApiTest.cs" />
     <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Request\TradeApiTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
@@ -71,6 +72,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\areas.json" />
     <None Include="Resources\confirm.fees.json" />
     <None Include="Resources\item.cats.json" />
     <None Include="Resources\item.imgs.json" />

@@ -16,8 +16,8 @@ namespace Taobao.Top.Api.Test.Parser
         {
             string body = TestUtils.GetResourceAsText("logistics.companies.json");
             LogisticsCompanyListJsonParser parser = new LogisticsCompanyListJsonParser();
-            List<LogisticsCompany> companies = parser.Parse(body).Content;
-            Assert.AreEqual(22, companies.Count);
+            ResponseList<LogisticsCompany> rsp = parser.Parse(body);
+            Assert.AreEqual(22, rsp.Content.Count);
         }
 
         [TestMethod]
@@ -25,8 +25,26 @@ namespace Taobao.Top.Api.Test.Parser
         {
             string body = TestUtils.GetResourceAsText("logistics.companies.xml");
             LogisticsCompanyListXmlParser parser = new LogisticsCompanyListXmlParser();
-            List<LogisticsCompany> companies = parser.Parse(body).Content;
-            Assert.AreEqual(22, companies.Count);
+            ResponseList<LogisticsCompany> rsp = parser.Parse(body);
+            Assert.AreEqual(22, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsAreas()
+        {
+            string body = TestUtils.GetResourceAsText("areas.json");
+            AreaListJsonParser parser = new AreaListJsonParser();
+            ResponseList<Area> rsp = parser.Parse(body);
+            Assert.AreEqual(3707, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsAreas()
+        {
+            string body = TestUtils.GetResourceAsText("areas.xml");
+            AreaListXmlParser parser = new AreaListXmlParser();
+            ResponseList<Area> rsp = parser.Parse(body);
+            Assert.AreEqual(3707, rsp.Content.Count);
         }
     }
 }

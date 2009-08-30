@@ -33,4 +33,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 地址区域列表的XML响应解释器。
+    /// </summary>
+    public class AreaListXmlParser : ITopParser<ResponseList<Area>>
+    {
+        #region ITopParser<ResponseList<Area>> Members
+
+        public ResponseList<Area> Parse(string body)
+        {
+            return ResponseList<Area>.ParseXmlResponse("area", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 地址区域的XML响应解释器。
+    /// </summary>
+    public class AreaXmlParser : ITopParser<Area>
+    {
+        #region ITopParser<Area> Members
+
+        public Area Parse(string body)
+        {
+            AreaListXmlParser parser = new AreaListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

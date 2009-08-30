@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class LogisticsCompaniesGetRequest : ITopRequest
     {
         /// <summary>
-        /// 查询字段。
+        /// 需要返回的字段列表。
         /// </summary>
         public string Fields { get; set; }
 
@@ -21,9 +21,9 @@ namespace Taobao.Top.Api.Request
         public Nullable<bool> IsRecommended { get; set; }
 
         /// <summary>
-        /// 推荐物流公司的下单方式
+        /// 推荐物流公司的下单方式。
         /// </summary>
-        public string OuterMode { get; set; }
+        public string OrderMode { get; set; }
 
         #region ITopRequest Members
 
@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("fields", this.Fields);
             parameters.Add("is_recommended", this.IsRecommended);
-            parameters.Add("orderMode", this.OuterMode);
+            parameters.Add("orderMode", this.OrderMode);
 
             return parameters;
         }
