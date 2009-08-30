@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rsp>
+  <totalResults>146</totalResults>
+  <ship>
+    <tid><![CDATA[2231662006]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[守容top测试商品]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 09:38:06</created>
+    <modified>2009-08-28 09:57:01</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2231661994]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[这是测试商品]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 09:27:24</created>
+    <modified>2009-08-28 09:29:04</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2231661991]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[守容top测试商品]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 09:21:26</created>
+    <modified>2009-08-28 09:21:26</modified>
+    <status><![CDATA[CREATED]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2231661990]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[款【专柜正品】Z7118男士休闲鞋/男式真皮鞋（黑色）]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 09:17:28</created>
+    <modified>2009-08-28 09:17:28</modified>
+    <status><![CDATA[CREATED]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2231661987]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[款【专柜正品】Z7118男士休闲鞋/男式真皮鞋（黑色）]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 09:07:03</created>
+    <modified>2009-08-28 09:09:47</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2231661986]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[守容top测试商品]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-28 08:53:31</created>
+    <modified>2009-08-28 09:05:54</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2230746825]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest1062]]></buyer_nick>
+    <item_title><![CDATA[款【专柜正品】Z7118男士休闲鞋/男式真皮鞋（黑色）]]></item_title>
+    <receiver_name><![CDATA[喵喵]]></receiver_name>
+    <receiver_mobile><![CDATA[12354252544]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-84110653]]></receiver_phone>
+    <location>
+      <address><![CDATA[下沙高教园区]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[东城区]]></district>
+    </location>
+    <created>2009-08-27 11:56:31</created>
+    <modified>2009-08-27 15:25:09</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2230746388]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest5]]></buyer_nick>
+    <item_title><![CDATA[iPhone]]></item_title>
+    <receiver_name><![CDATA[不知道]]></receiver_name>
+    <receiver_mobile><![CDATA[123456789]]></receiver_mobile>
+    <receiver_phone><![CDATA[0571-88884444]]></receiver_phone>
+    <location>
+      <address><![CDATA[街道地址不知道]]></address>
+      <city><![CDATA[博尔塔拉蒙古自治州]]></city>
+      <state><![CDATA[新疆维吾尔自治区]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[其它区]]></district>
+    </location>
+    <created>2009-08-26 13:16:14</created>
+    <modified>2009-08-26 13:16:14</modified>
+    <status><![CDATA[CREATED]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2230747286]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest563]]></buyer_nick>
+    <out_sid><![CDATA[2230747286]]></out_sid>
+    <item_title><![CDATA[守容top测试商品]]></item_title>
+    <receiver_name><![CDATA[手动阀水滴]]></receiver_name>
+    <receiver_mobile><![CDATA[15985463214]]></receiver_mobile>
+    <location>
+      <address><![CDATA[阿斯顿飞洒滴定法手动阀手动阀师傅]]></address>
+      <city><![CDATA[昆明市]]></city>
+      <state><![CDATA[云南省]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[盘龙区]]></district>
+    </location>
+    <created>2009-08-26 12:46:50</created>
+    <modified>2009-08-26 12:48:13</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[free]]></type>
+    <freight_payer><![CDATA[seller]]></freight_payer>
+  </ship>
+  <ship>
+    <tid><![CDATA[2230747392]]></tid>
+    <seller_nick><![CDATA[tbtest561]]></seller_nick>
+    <buyer_nick><![CDATA[tbtest562]]></buyer_nick>
+    <item_title><![CDATA[款【专柜正品】Z7118男士休闲鞋/男式真皮鞋（黑色）]]></item_title>
+    <receiver_name><![CDATA[的示范岗]]></receiver_name>
+    <receiver_mobile><![CDATA[1598563214]]></receiver_mobile>
+    <location>
+      <address><![CDATA[上的风格撒旦法]]></address>
+      <city><![CDATA[北京市]]></city>
+      <state><![CDATA[北京]]></state>
+      <zip><![CDATA[123456]]></zip>
+      <district><![CDATA[朝阳区]]></district>
+    </location>
+    <created>2009-08-26 11:44:04</created>
+    <modified>2009-08-26 11:44:26</modified>
+    <status><![CDATA[ACCEPTED_BY_RECEIVER]]></status>
+    <type><![CDATA[express]]></type>
+    <freight_payer><![CDATA[buyer]]></freight_payer>
+  </ship>
+</rsp>
+<!--vm127.sqa-->

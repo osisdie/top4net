@@ -862,7 +862,7 @@ namespace Taobao.Top.Api.Test.Request
             Assert.AreEqual(_item.Iid, item.Iid);
         }
 
-        internal Item AddItem(string format, ITopParser<Item> parser)
+        private Item AddItem(string format, ITopParser<Item> parser)
         {
             try
             {
@@ -902,6 +902,11 @@ namespace Taobao.Top.Api.Test.Request
                 Console.WriteLine(e.Message);
                 return _item;
             }
+        }
+
+        internal Item AddItem()
+        {
+            return AddItem("json", new ItemJsonParser());
         }
 
         private Item AddB2cItem(string format, ITopParser<Item> parser)

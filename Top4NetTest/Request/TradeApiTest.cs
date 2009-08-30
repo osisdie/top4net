@@ -19,8 +19,8 @@ namespace Taobao.Top.Api.Test.Request
         public void Initialize()
         {
             ItemApiTest test = new ItemApiTest();
-            _item = test.AddItem("json", new ItemJsonParser());
-            _trade = AddTrade();
+            _item = test.AddItem();
+            _trade = AddTrade(_item);
         }
 
         [TestCleanup]
@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Test.Request
         {
             ItemApiTest test = new ItemApiTest();
             if (_item != null) test.DeleteItem(_item);
-            if (_trade != null) CloseTrade();
+            if (_trade != null) CloseTrade(_trade);
         }
 
         [TestMethod]
@@ -521,15 +521,15 @@ namespace Taobao.Top.Api.Test.Request
             Console.WriteLine(rsp);
         }
 
-        private Trade AddTrade()
+        internal Trade AddTrade(Item item)
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             TradeAddRequest req = new TradeAddRequest();
-            req.Iids = _item.Iid;
+            req.Iids = item.Iid;
             req.Titles = "Top4Net creates a trade";
             req.Prices = "1000";
             req.Nums = "1";
-            req.SellerNick = _item.Nick;
+            req.SellerNick = item.Nick;
 
             Location location = new Location();
             location.State = "浙江省";
@@ -549,7 +549,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Type = "independent_shop_trade";
 
             IDictionary<string, string> orderSnapshots = new Dictionary<string, string>();
-            orderSnapshots.Add("snapshot_" + _item.Iid + "_", Guid.NewGuid().ToString());
+            orderSnapshots.Add("snapshot_" + item.Iid + "_", Guid.NewGuid().ToString());
             req.OrderSnapshots = orderSnapshots;
 
             ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
@@ -558,15 +558,15 @@ namespace Taobao.Top.Api.Test.Request
             return trade;
         }
 
-        private void CloseTrade()
+        internal void CloseTrade(Trade trade)
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             TradeCloseRequest req = new TradeCloseRequest();
-            req.Tid = _trade.Tid;
+            req.Tid = trade.Tid;
             req.Reason = "I don't want to buy this item";
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            Trade trade = client.Execute(proxy, new TradeJsonParser());
-            Assert.AreEqual(_trade.Tid, trade.Tid);
+            Trade rsp = client.Execute(proxy, new TradeJsonParser());
+            Assert.AreEqual(trade.Tid, rsp.Tid);
         }
     }
 }

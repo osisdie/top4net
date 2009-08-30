@@ -50,6 +50,7 @@
     <Compile Include="Domain\Album.cs" />
     <Compile Include="Domain\Area.cs" />
     <Compile Include="Domain\BaseObject.cs" />
+    <Compile Include="Domain\DeliveryAddress.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemCategory.cs" />
     <Compile Include="Domain\ItemImg.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Domain\RefundMessage.cs" />
     <Compile Include="Domain\RefundTimeout.cs" />
     <Compile Include="Domain\SellerCategory.cs" />
-    <Compile Include="Domain\Shipping.cs" />
+    <Compile Include="Domain\LogisticsOrder.cs" />
     <Compile Include="Domain\Shop.cs" />
     <Compile Include="Domain\ShopCategory.cs" />
     <Compile Include="Domain\Sku.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
+    <Compile Include="Request\DeliveryAddressesGetRequest.cs" />
     <Compile Include="Request\ItemCatsListRequest.cs" />
     <Compile Include="Request\ItemPropListRequest.cs" />
     <Compile Include="Request\ItemPropsListRequest.cs" />
@@ -144,8 +146,8 @@
     <Compile Include="Request\ITopUploadRequest.cs" />
     <Compile Include="Request\LogisticsCompaniesGetRequest.cs" />
     <Compile Include="Request\LogisticsOrderAddRequest.cs" />
-    <Compile Include="Request\LogisticsOrderDetailGetRequest.cs" />
-    <Compile Include="Request\LogisticsOrderGetRequest.cs" />
+    <Compile Include="Request\LogisticsOrderDetailsGetRequest.cs" />
+    <Compile Include="Request\LogisticsOrdersGetRequest.cs" />
     <Compile Include="Request\OrdersGetRequest.cs" />
     <Compile Include="Request\PictureCategoryGetRequest.cs" />
     <Compile Include="Request\PictureDeleteRequest.cs" />

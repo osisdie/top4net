@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 物流数据结构
+    /// 物流订单数据结构
     /// </summary>
     [Serializable]
     [JsonObject]
     [XmlRoot("shipping")]
-    public class Shipping : BaseObject
+    public class LogisticsOrder : BaseObject
     {
         /// <summary>
         /// 交易编号
@@ -19,6 +19,13 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("tid")]
         [XmlElement("tid")]
         public string Tid { get; set; }
+
+        /// <summary>
+        /// 具体一个物流公司的运单号码
+        /// </summary>
+        [JsonProperty("out_sid")]
+        [XmlElement("out_sid")]
+        public string OutSid { get; set; }
 
         /// <summary>
         /// 卖家昵称
@@ -39,21 +46,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("delivery_start")]
         [XmlElement("delivery_start")]
-        public DateTime StartDelivery { get; set; }
+        public string StartDelivery { get; set; }
 
         /// <summary>
         /// 预约取货结束时间
         /// </summary>
         [JsonProperty("delivery_end")]
         [XmlElement("delivery_end")]
-        public DateTime EndDelivery { get; set; }
-
-        /// <summary>
-        /// 运单号.具体一个物流公司的运单号码.
-        /// </summary>
-        [JsonProperty("out_sid")]
-        [XmlElement("out_sid")]
-        public string OutSid { get; set; }
+        public string EndDelivery { get; set; }
 
         /// <summary>
         /// 货物名称
@@ -87,7 +87,7 @@ namespace Taobao.Top.Api.Domain
         /// 收件人地址信息
         /// </summary>
         [JsonProperty("receiver_location")]
-        [XmlElement("receiver_location")]
+        [XmlElement("location")]
         public Location ReceiverLocation { get; set; }
 
         /// <summary>

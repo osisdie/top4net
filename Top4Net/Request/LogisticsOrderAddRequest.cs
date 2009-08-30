@@ -16,19 +16,19 @@ namespace Taobao.Top.Api.Request
         public string Tid { get; set; }
 
         /// <summary>
+        /// 物流运单号。
+        /// </summary>
+        public string OutSid { get; set; }
+
+        /// <summary>
         /// 调用者IP地址。
         /// </summary>
-        public string AppIp { get; set; }
+        public string OrderType { get; set; }
 
         /// <summary>
         /// 物流公司代码。
         /// </summary>
         public string CompanyCode { get; set; }
-
-        /// <summary>
-        /// 运单号。
-        /// </summary>
-        public string ShippingId { get; set; }
 
         /// <summary>
         /// 卖家联系人姓名。
@@ -63,7 +63,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 卖家备注。
         /// </summary>
-        public string Memo { get; set; }
+        public string SellerMemo { get; set; }
 
         #region ITopRequest Members
 
@@ -77,16 +77,16 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
 
             parameters.Add("tid", this.Tid);
-            parameters.Add("app_ip", this.AppIp);
+            parameters.Add("out_sid", this.OutSid);
+            parameters.Add("order_type", this.OrderType);
             parameters.Add("company_code", this.CompanyCode);
-            parameters.Add("out_sid", this.ShippingId);
             parameters.Add("seller_name", this.SellerName);
             parameters.Add("seller_area_id", this.SellerAreaId);
             parameters.Add("seller_address", this.SellerAddress);
             parameters.Add("seller_zip", this.SellerZip);
             parameters.Add("seller_phone", this.SellerPhone);
             parameters.Add("seller_mobile", this.SellerMobile);
-            parameters.Add("memo", this.Memo);
+            parameters.Add("memo", this.SellerMemo);
 
             return parameters;
         }

@@ -6,12 +6,12 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.shippings.send.get
+    /// TOP API: taobao.shippings.send.fullinfo.get
     /// </summary>
-    public class LogisticsOrderGetRequest : ITopRequest
+    public class LogisticsOrderDetailsGetRequest : ITopRequest
     {
         /// <summary>
-        /// 查询字段。
+        /// 要返回的字段列表。
         /// </summary>
         public string Fields { get; set; }
 
@@ -56,7 +56,7 @@ namespace Taobao.Top.Api.Request
         public string FreightPayer { get; set; }
 
         /// <summary>
-        /// 平邮(post) 快递(express) EMS(ems)。
+        /// 物流方式。
         /// </summary>
         public string Type { get; set; }
 
@@ -74,7 +74,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.shippings.send.get";
+            return "taobao.shippings.send.fullinfo.get";
         }
 
         public IDictionary<string, string> GetParameters()

@@ -4,6 +4,37 @@ using Taobao.Top.Api.Domain;
 namespace Taobao.Top.Api.Parser
 {
     /// <summary>
+    /// 物流订单列表的XML响应解释器。
+    /// </summary>
+    public class LogisticsListXmlParser : ITopParser<ResponseList<LogisticsOrder>>
+    {
+        #region ITopParser<ResponseList<Logistics>> Members
+
+        public ResponseList<LogisticsOrder> Parse(string body)
+        {
+            return ResponseList<LogisticsOrder>.ParseXmlResponse("ship", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 物流订单的XML响应解释器。
+    /// </summary>
+    public class LogisticsXmlParser : ITopParser<LogisticsOrder>
+    {
+        #region ITopParser<Logistics> Members
+
+        public LogisticsOrder Parse(string body)
+        {
+            LogisticsListXmlParser parser = new LogisticsListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
     /// 物流公司列表的XML响应解释器。
     /// </summary>
     public class LogisticsCompanyListXmlParser : ITopParser<ResponseList<LogisticsCompany>>
@@ -59,6 +90,37 @@ namespace Taobao.Top.Api.Parser
         public Area Parse(string body)
         {
             AreaListXmlParser parser = new AreaListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 买家收货地址列表的XML响应解释器。
+    /// </summary>
+    public class DeliveryAddressListXmlParser : ITopParser<ResponseList<DeliveryAddress>>
+    {
+        #region ITopParser<ResponseList<DeliveryAddress>> Members
+
+        public ResponseList<DeliveryAddress> Parse(string body)
+        {
+            return ResponseList<DeliveryAddress>.ParseXmlResponse("shippingAddress", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 买家收货地址的XML响应解释器。
+    /// </summary>
+    public class DeliveryAddressXmlParser : ITopParser<DeliveryAddress>
+    {
+        #region ITopParser<DeliveryAddress> Members
+
+        public DeliveryAddress Parse(string body)
+        {
+            DeliveryAddressListXmlParser parser = new DeliveryAddressListXmlParser();
             return parser.Parse(body).GetFirst();
         }
 
