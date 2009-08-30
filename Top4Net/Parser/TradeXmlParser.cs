@@ -158,4 +158,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 交易评价列表的XML响应解释器。
+    /// </summary>
+    public class TradeRateListXmlParser : ITopParser<ResponseList<TradeRate>>
+    {
+        #region ITopParser<ResponseList<TradeRate>> Members
+
+        public ResponseList<TradeRate> Parse(string body)
+        {
+            return ResponseList<TradeRate>.ParseXmlResponse("rate", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 交易评价的XML响应解释器。
+    /// </summary>
+    public class TradeRateXmlParser : ITopParser<TradeRate>
+    {
+        #region ITopParser<TradeRate> Members
+
+        public TradeRate Parse(string body)
+        {
+            TradeRateListXmlParser parser = new TradeRateListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

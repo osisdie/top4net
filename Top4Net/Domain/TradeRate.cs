@@ -6,12 +6,12 @@ using Newtonsoft.Json;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// 评价信息
+    /// 交易评价信息
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("tradeRate")]
-    class TradeRate : BaseObject
+    [XmlRoot("rate")]
+    public class TradeRate : BaseObject
     {
         /// <summary>
         /// 交易编号

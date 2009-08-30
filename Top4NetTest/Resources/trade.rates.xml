@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rsp>
+  <totalResults>10</totalResults>
+  <rate>
+    <content><![CDATA[fsdfsdf]]></content>
+    <created>2009-08-20 17:56:33</created>
+    <item_price><![CDATA[20.0]]></item_price>
+    <item_title><![CDATA[彩玉测试宝贝Y]]></item_title>
+    <nick><![CDATA[tbtest881]]></nick>
+    <order_id><![CDATA[2230736032]]></order_id>
+    <role><![CDATA[seller]]></role>
+    <tid><![CDATA[2230736032]]></tid>
+  </rate>
+  <rate>
+    <content><![CDATA[好评！]]></content>
+    <created>2009-08-20 17:49:21</created>
+    <item_price><![CDATA[20.0]]></item_price>
+    <item_title><![CDATA[彩玉测试宝贝Y]]></item_title>
+    <nick><![CDATA[tbtest881]]></nick>
+    <order_id><![CDATA[2230736034]]></order_id>
+    <role><![CDATA[seller]]></role>
+    <tid><![CDATA[2230736034]]></tid>
+  </rate>
+  <rate>
+    <content><![CDATA[sfgsdgdf]]></content>
+    <created>2009-08-20 17:48:43</created>
+    <item_price><![CDATA[20.0]]></item_price>
+    <item_title><![CDATA[彩玉测试宝贝Y]]></item_title>
+    <nick><![CDATA[tbtest881]]></nick>
+    <order_id><![CDATA[2230736026]]></order_id>
+    <role><![CDATA[seller]]></role>
+    <tid><![CDATA[2230736026]]></tid>
+  </rate>
+  <rate>
+    <content><![CDATA[dsgdfgdf]]></content>
+    <created>2009-08-20 12:15:55</created>
+    <item_price><![CDATA[0.2]]></item_price>
+    <item_title><![CDATA[彩玉测试宝贝Y]]></item_title>
+    <nick><![CDATA[tbtest881]]></nick>
+    <order_id><![CDATA[2230736033]]></order_id>
+    <role><![CDATA[seller]]></role>
+    <tid><![CDATA[2230736033]]></tid>
+  </rate>
+  <rate>
+    <content><![CDATA[sdafsdf]]></content>
+    <created>2009-08-20 10:43:48</created>
+    <item_price><![CDATA[0.2]]></item_price>
+    <item_title><![CDATA[彩玉测试宝贝Y]]></item_title>
+    <nick><![CDATA[tbtest881]]></nick>
+    <order_id><![CDATA[2230736031]]></order_id>
+    <role><![CDATA[seller]]></role>
+    <tid><![CDATA[2230736031]]></tid>
+  </rate>
+</rsp>
+<!--vm127.sqa-->

@@ -579,5 +579,29 @@ namespace Taobao.Top.Api
         {
             return client.Execute(request, new ConfirmFeeXmlParser(), session);
         }
+
+        /// <summary>
+        /// TOP API: taobao.traderate.add
+        /// </summary>
+        public TradeRate AddTradeRate(TradeRateAddRequest request, string session)
+        {
+            return client.Execute(request, new TradeRateXmlParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.traderate.list.add
+        /// </summary>
+        public TradeRate AddBatchTradeRate(TradeRateBatchAddRequest request, string session)
+        {
+            return client.Execute(request, new TradeRateXmlParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.traderates.get
+        /// </summary>
+        public ResponseList<TradeRate> GetTradeRates(TradeRatesGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeRateListXmlParser(), session);
+        }
     }
 }

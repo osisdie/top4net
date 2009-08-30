@@ -460,6 +460,67 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsTrue(rsp.Content.Count > 0);
         }
 
+        [TestMethod]
+        public void GetTradeRatesByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            TradeRatesGetRequest req = new TradeRatesGetRequest();
+            req.Fields = "content,created,item_price,nick,item_title,reated_nick;result,reply,role,tid,order_id";
+            req.RateType = "get";
+            req.Role = "seller";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest882");
+            ResponseList<TradeRate> rsp = client.Execute(proxy, new TradeRateListJsonParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        [TestMethod]
+        public void GetTradeRatesByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            TradeRatesGetRequest req = new TradeRatesGetRequest();
+            req.Fields = "content,created,item_price,nick,item_title,reated_nick;result,reply,role,tid,order_id";
+            req.RateType = "get";
+            req.Role = "seller";
+            req.PageNo = 1;
+            req.PageSize = 5;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest882");
+            ResponseList<TradeRate> rsp = client.Execute(proxy, new TradeRateListXmlParser());
+            Assert.IsNotNull(rsp.Content);
+            Assert.IsTrue(rsp.Content.Count > 0);
+        }
+
+        //[TestMethod]
+        public void AddTradeRateByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            TradeRateAddRequest req = new TradeRateAddRequest();
+            req.Tid = _trade.Tid;
+            req.Result = "bad";
+            req.Anonymous = true;
+            req.Content = "very bad";
+            req.Role = "buyer";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
+            string rsp = client.Execute(proxy, new StringParser());
+            Console.WriteLine(rsp);
+        }
+
+        //[TestMethod]
+        public void AddBatchTradeRateByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            TradeRateBatchAddRequest req = new TradeRateBatchAddRequest();
+            req.Tid = _trade.Tid;
+            req.Result = "good";
+            req.Content = "very good";
+            req.Role = "buyer";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest5");
+            string rsp = client.Execute(proxy, new StringParser());
+            Console.WriteLine(rsp);
+        }
+
         private Trade AddTrade()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");

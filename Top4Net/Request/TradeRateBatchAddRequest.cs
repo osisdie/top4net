@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Request
         public Nullable<bool> Anonymous { get; set; }
 
         /// <summary>
-        /// 评价角色。
+        /// 评价者角色。
         /// </summary>
         public string Role { get; set; }
 

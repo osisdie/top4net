@@ -115,6 +115,7 @@
     <Content Include="Resources\taobaoke.items.xml" />
     <Content Include="Resources\taobaoke.listurl.xml" />
     <Content Include="Resources\taobaoke.shops.xml" />
+    <Content Include="Resources\trade.rates.xml" />
     <Content Include="Resources\trades.xml" />
     <Content Include="Resources\user.xml" />
     <Content Include="Resources\users.xml" />
@@ -128,6 +129,7 @@
     <None Include="Resources\taobaoke.items.json" />
     <None Include="Resources\taobaoke.listurl.json" />
     <None Include="Resources\taobaoke.shops.json" />
+    <None Include="Resources\trade.rates.json" />
     <None Include="Resources\trades.json" />
     <None Include="Resources\users.json" />
   </ItemGroup>

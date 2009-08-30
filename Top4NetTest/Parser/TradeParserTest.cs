@@ -120,5 +120,25 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual(1, rsp.Content.Count);
             Assert.AreEqual("10.00", rsp.Content[0].PostFee);
         }
+
+        [TestMethod]
+        public void ParseJsonAsTradeRates()
+        {
+            string body = TestUtils.GetResourceAsText("trade.rates.json");
+            TradeRateListJsonParser parser = new TradeRateListJsonParser();
+            ResponseList<TradeRate> rsp = parser.Parse(body);
+            Assert.AreEqual(10, rsp.TotalResults);
+            Assert.AreEqual(5, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsTradeRates()
+        {
+            string body = TestUtils.GetResourceAsText("trade.rates.xml");
+            TradeRateListXmlParser parser = new TradeRateListXmlParser();
+            ResponseList<TradeRate> rsp = parser.Parse(body);
+            Assert.AreEqual(10, rsp.TotalResults);
+            Assert.AreEqual(5, rsp.Content.Count);
+        }
     }
 }
