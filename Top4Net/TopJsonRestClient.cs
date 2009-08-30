@@ -563,5 +563,13 @@ namespace Taobao.Top.Api
         {
             return client.Execute(request, new RefundMessageListJsonParser(), session);
         }
+
+        /// <summary>
+        /// TOP API: taobao.trade.confirmfee.get
+        /// </summary>
+        public ConfirmFee GetTradeConfirmFee(TradeConfirmFeeGetRequest request, string session)
+        {
+            return client.Execute(request, new ConfirmFeeJsonParser(), session);
+        }
     }
 }

@@ -127,4 +127,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 确认收货费用列表的XML响应解释器。
+    /// </summary>
+    public class ConfirmFeeListXmlParser : ITopParser<ResponseList<ConfirmFee>>
+    {
+        #region ITopParser<ResponseList<ConfirmFee>> Members
+
+        public ResponseList<ConfirmFee> Parse(string body)
+        {
+            return ResponseList<ConfirmFee>.ParseXmlResponse("confirmFee", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 确认收货费的XML响应解释器。
+    /// </summary>
+    public class ConfirmFeeXmlParser : ITopParser<ConfirmFee>
+    {
+        #region ITopParser<ConfirmFee> Members
+
+        public ConfirmFee Parse(string body)
+        {
+            ConfirmFeeListXmlParser parser = new ConfirmFeeListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

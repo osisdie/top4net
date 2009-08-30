@@ -127,4 +127,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 确认收货费用列表的JSON响应解释器。
+    /// </summary>
+    public class ConfirmFeeListJsonParser : ITopParser<ResponseList<ConfirmFee>>
+    {
+        #region ITopParser<ResponseList<ConfirmFee>> Members
+
+        public ResponseList<ConfirmFee> Parse(string body)
+        {
+            return ResponseList<ConfirmFee>.ParseJsonResponse("confirmFees", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 确认收货费用的JSON响应解释器。
+    /// </summary>
+    public class ConfirmFeeJsonParser : ITopParser<ConfirmFee>
+    {
+        #region ITopParser<ConfirmFee> Members
+
+        public ConfirmFee Parse(string body)
+        {
+            ConfirmFeeListJsonParser parser = new ConfirmFeeListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

@@ -402,6 +402,30 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsTrue(rsp.Content.Count > 0);
         }
 
+        [TestMethod]
+        public void GetTradeConfirmFeeByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            TradeConfirmFeeGetRequest req = new TradeConfirmFeeGetRequest();
+            req.Tid = _trade.Tid;
+            req.IsChildOrder = false;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ConfirmFee confirmFee = client.Execute(proxy, new ConfirmFeeJsonParser());
+            Assert.IsNotNull(confirmFee);
+        }
+
+        [TestMethod]
+        public void GetTradeConfirmFeeByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            TradeConfirmFeeGetRequest req = new TradeConfirmFeeGetRequest();
+            req.Tid = _trade.Tid;
+            req.IsChildOrder = false;
+            ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
+            ConfirmFee confirmFee = client.Execute(proxy, new ConfirmFeeXmlParser());
+            Assert.IsNotNull(confirmFee);
+        }
+
         private Trade AddTrade()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
@@ -410,7 +434,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Titles = "Top4Net creates a trade";
             req.Prices = "1000";
             req.Nums = "1";
-            req.SellerNick = "tbtest561";
+            req.SellerNick = _item.Nick;
 
             Location location = new Location();
             location.State = "浙江省";

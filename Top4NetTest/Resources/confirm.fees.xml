@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rsp>
+  <confirmFee>
+    <confirm_fee><![CDATA[1000.00]]></confirm_fee>
+    <confirm_post_fee><![CDATA[10.00]]></confirm_post_fee>
+    <is_last_detail_order>true</is_last_detail_order>
+  </confirmFee>
+</rsp>
+<!--vm127.sqa-->

@@ -100,5 +100,25 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual(3, rsp.Content.Count);
             Assert.AreEqual(3, rsp.TotalResults);
         }
+
+        [TestMethod]
+        public void ParseJsonAsConfirmFees()
+        {
+            string body = TestUtils.GetResourceAsText("confirm.fees.json");
+            ConfirmFeeListJsonParser parser = new ConfirmFeeListJsonParser();
+            ResponseList<ConfirmFee> rsp = parser.Parse(body);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual("1000.00", rsp.Content[0].Fee);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsConfirmFees()
+        {
+            string body = TestUtils.GetResourceAsText("confirm.fees.xml");
+            ConfirmFeeListXmlParser parser = new ConfirmFeeListXmlParser();
+            ResponseList<ConfirmFee> rsp = parser.Parse(body);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual("10.00", rsp.Content[0].PostFee);
+        }
     }
 }

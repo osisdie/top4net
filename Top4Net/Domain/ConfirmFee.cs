@@ -11,21 +11,21 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("tradeConfirmFee")]
-    public class TradeConfirmFee : BaseObject
+    public class ConfirmFee : BaseObject
     {
         /// <summary>
         /// 确认收货的金额
         /// </summary>
         [JsonProperty("confirm_fee")]
         [XmlElement("confirm_fee")]
-        public string ConfirmFee { get; set; }
+        public string Fee { get; set; }
 
         /// <summary>
         /// 需确认收货的邮费
         /// </summary>
         [JsonProperty("confirm_post_fee")]
         [XmlElement("confirm_post_fee")]
-        public string ConfirmPostFee { get; set; }
+        public string PostFee { get; set; }
 
         /// <summary>
         /// 是否是最后一笔订单

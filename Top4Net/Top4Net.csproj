@@ -25,7 +25,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Top4Net.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -80,7 +81,7 @@
     <Compile Include="Domain\TaobaokeShop.cs" />
     <Compile Include="Domain\ResponseList.cs" />
     <Compile Include="Domain\Trade.cs" />
-    <Compile Include="Domain\TradeConfirmFee.cs" />
+    <Compile Include="Domain\ConfirmFee.cs" />
     <Compile Include="Domain\TradeRate.cs" />
     <Compile Include="Domain\UserCredit.cs" />
     <Compile Include="ITopClient.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Request\TaobaokeShopsConvertRequest.cs" />
     <Compile Include="Request\TradeAddRequest.cs" />
     <Compile Include="Request\TradeCloseRequest.cs" />
+    <Compile Include="Request\TradeConfirmFeeGetRequest.cs" />
     <Compile Include="Request\TradeDetailGetRequest.cs" />
     <Compile Include="Request\TradeGetRequest.cs" />
     <Compile Include="Request\TradeMemoAddRequest.cs" />
