@@ -34,4 +34,19 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 店铺类目的XML响应解释器。
+    /// </summary>
+    public class ShopCategoryListXmlParser : ITopParser<ResponseList<ShopCategory>>
+    {
+        #region ITopParser<ResponseList<Product>> Members
+
+        public ResponseList<ShopCategory> Parse(string body)
+        {
+            return ResponseList<ShopCategory>.ParseXmlResponse( "shop_cat", body );
+        }
+
+        #endregion
+    }
 }
