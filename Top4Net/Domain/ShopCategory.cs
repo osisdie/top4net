@@ -37,15 +37,8 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 链接图片地址
         /// </summary>
-        [JsonProperty("pict_url")]
-        [XmlElement("pict_url")]
-        public string PicUrl { get; set; }
-
-        /// <summary>
-        /// 该类目在页面上的排序位置
-        /// </summary>
-        [JsonProperty("sort_order")]
-        [XmlElement("sort_order")]
-        public int Position { get; set; }
+        [JsonProperty("is_parent")]
+        [XmlElement( "is_parent" )]
+        public string IsParent { get; set; }
     }
 }
