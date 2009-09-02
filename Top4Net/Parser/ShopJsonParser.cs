@@ -34,4 +34,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 店铺类目列表的JSON响应解释器。
+    /// </summary>
+    public class ShopCategoryListJsonParser : ITopParser<ResponseList<ShopCategory>>
+    {
+        #region ITopParser<ResponseList<ShopCategory>> Members
+
+        public ResponseList<ShopCategory> Parse(string body)
+        {
+            return ResponseList<ShopCategory>.ParseJsonResponse("shop_cats", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 店铺类目的JSON响应解释器。
+    /// </summary>
+    public class ShopCategoryJsonParser : ITopParser<ShopCategory>
+    {
+        #region ITopParser<ShopCategory> Members
+
+        public ShopCategory Parse(string body)
+        {
+            ShopCategoryListJsonParser parser = new ShopCategoryListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

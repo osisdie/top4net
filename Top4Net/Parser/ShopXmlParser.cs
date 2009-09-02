@@ -36,7 +36,7 @@ namespace Taobao.Top.Api.Parser
     }
 
     /// <summary>
-    /// 店铺类目的XML响应解释器。
+    /// 店铺类目列表的XML响应解释器。
     /// </summary>
     public class ShopCategoryListXmlParser : ITopParser<ResponseList<ShopCategory>>
     {
@@ -44,7 +44,23 @@ namespace Taobao.Top.Api.Parser
 
         public ResponseList<ShopCategory> Parse(string body)
         {
-            return ResponseList<ShopCategory>.ParseXmlResponse( "shop_cat", body );
+            return ResponseList<ShopCategory>.ParseXmlResponse("shop_cat", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 店铺类目的XML响应解释器。
+    /// </summary>
+    public class ShopCategoryXmlParser : ITopParser<ShopCategory>
+    {
+        #region ITopParser<ShopCategory> Members
+
+        public ShopCategory Parse(string body)
+        {
+            ShopCategoryListXmlParser parser = new ShopCategoryListXmlParser();
+            return parser.Parse(body).GetFirst();
         }
 
         #endregion

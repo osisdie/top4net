@@ -35,5 +35,24 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.AreEqual("How are you doing?", rsp.Content[0].Bulletin);
         }
 
+        [TestMethod]
+        public void ParseXmlAsShopCategories()
+        {
+            ShopCategoryListXmlParser parser = new ShopCategoryListXmlParser();
+            string body = TestUtils.GetResourceAsText("shop.cats.xml");
+            ResponseList<ShopCategory> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(60, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsShopCategories()
+        {
+            ShopCategoryListJsonParser parser = new ShopCategoryListJsonParser();
+            string body = TestUtils.GetResourceAsText("shop.cats.json");
+            ResponseList<ShopCategory> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(60, rsp.Content.Count);
+        }
     }
 }

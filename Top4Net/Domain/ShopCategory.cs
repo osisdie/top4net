@@ -35,10 +35,10 @@ namespace Taobao.Top.Api.Domain
         public string Name { get; set; }
 
         /// <summary>
-        /// 链接图片地址
+        /// 该类目是否为父类目
         /// </summary>
         [JsonProperty("is_parent")]
-        [XmlElement( "is_parent" )]
-        public string IsParent { get; set; }
+        [XmlElement("is_parent")]
+        public bool IsParent { get; set; }
     }
 }
