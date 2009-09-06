@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.sellercats.list.update
     /// </summary>
-    public class SellerItemCatsUpdateRequest : ITopRequest
+    public class SellerItemCatUpdateRequest : ITopRequest
     {
         /// <summary>
         /// 卖家自定义类目名称。
@@ -21,19 +21,14 @@ namespace Taobao.Top.Api.Request
         public string Cid { get; set; }
 
         /// <summary>
-        /// 链接图片地址。
+        /// 该类目的链接图片地址。
         /// </summary>
         public string PicUrl { get; set; }
 
         /// <summary>
         /// 该类目在页面上的排序位置。
         /// </summary>
-        public string SortOrder { get; set; }
-
-        /// <summary>
-        /// 自定义类目的父类目编号。
-        /// </summary>
-        public string ParentCid { get; set; }
+        public Nullable<int> SortOrder { get; set; }
 
         #region ITopRequest Members
 
@@ -50,7 +45,6 @@ namespace Taobao.Top.Api.Request
             parameters.Add("cid", this.Cid);
             parameters.Add("pict_url", this.PicUrl);
             parameters.Add("sort_order", this.SortOrder);
-            parameters.Add("parent_cid", this.ParentCid);
 
             return parameters;
         }

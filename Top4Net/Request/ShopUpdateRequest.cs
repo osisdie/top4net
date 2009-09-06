@@ -23,7 +23,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 店铺描述。
         /// </summary>
-        public string Desc { get; set; }
+        public string Description { get; set; }
 
         #region ITopRequest Members
 
@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("title", this.Title);
             parameters.Add("bulletin", this.Bulletin);
-            parameters.Add("desc", this.Desc);
+            parameters.Add("desc", this.Description);
 
             return parameters;
         }

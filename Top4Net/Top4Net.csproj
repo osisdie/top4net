@@ -169,9 +169,9 @@
     <Compile Include="Request\RefundMessagesGetRequest.cs" />
     <Compile Include="Request\RefundsAppliedGetRequest.cs" />
     <Compile Include="Request\RefundsReceivedGetRequest.cs" />
-    <Compile Include="Request\SellerItemCatsAddRequest.cs" />
+    <Compile Include="Request\SellerItemCatAddRequest.cs" />
     <Compile Include="Request\SellerItemCatsGetRequest.cs" />
-    <Compile Include="Request\SellerItemCatsUpdateRequest.cs" />
+    <Compile Include="Request\SellerItemCatUpdateRequest.cs" />
     <Compile Include="Request\ShopGetRequest.cs" />
     <Compile Include="Request\ShopUpdateRequest.cs" />
     <Compile Include="Request\SkusCustomGetRequest.cs" />
