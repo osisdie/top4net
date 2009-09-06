@@ -651,5 +651,29 @@ namespace Taobao.Top.Api
         {
             return client.Execute(request, new DeliveryAddressListXmlParser(), session);
         }
+
+        /// <summary>
+        /// TOP API: taobao.shop.get
+        /// </summary>
+        public Shop GetShop(ShopGetRequest request)
+        {
+            return client.Execute(request, new ShopXmlParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.shopcats.list.get
+        /// </summary>
+        public ResponseList<ShopCategory> GetShopCats(ShopCatsGetRequest request)
+        {
+            return client.Execute(request, new ShopCategoryListXmlParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.sellercats.list.get
+        /// </summary>
+        public ResponseList<SellerItemCategory> GetSellerItemCats(SellerItemCatsGetRequest request)
+        {
+            return client.Execute(request, new SellerItemCategoryListXmlParser());
+        }
     }
 }

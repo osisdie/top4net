@@ -65,4 +65,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 卖家自定义商品类目列表的XML响应解释器。
+    /// </summary>
+    public class SellerItemCategoryListXmlParser : ITopParser<ResponseList<SellerItemCategory>>
+    {
+        #region ITopParser<ResponseList<SellerItemCategory>> Members
+
+        public ResponseList<SellerItemCategory> Parse(string body)
+        {
+            return ResponseList<SellerItemCategory>.ParseXmlResponse("seller_cat", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 卖家自定义商品类目的XML响应解释器。
+    /// </summary>
+    public class SellerItemCategoryXmlParser : ITopParser<SellerItemCategory>
+    {
+        #region ITopParser<SellerItemCategory> Members
+
+        public SellerItemCategory Parse(string body)
+        {
+            SellerItemCategoryListXmlParser parser = new SellerItemCategoryListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

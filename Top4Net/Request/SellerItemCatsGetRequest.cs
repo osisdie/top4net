@@ -25,9 +25,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
-
             parameters.Add("nick", this.Nick);
-
             return parameters;
         }
 

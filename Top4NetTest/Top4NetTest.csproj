@@ -115,6 +115,7 @@
     <Content Include="Resources\refund.jpg" />
     <Content Include="Resources\refund.messages.xml" />
     <Content Include="Resources\refunds.xml" />
+    <Content Include="Resources\seller.item.cats.xml" />
     <Content Include="Resources\shop.cats.xml" />
     <Content Include="Resources\shops.xml" />
     <Content Include="Resources\skus.xml" />
@@ -129,6 +130,7 @@
     <None Include="Resources\prop.values.json" />
     <None Include="Resources\refund.messages.json" />
     <None Include="Resources\refunds.json" />
+    <None Include="Resources\seller.item.cats.json" />
     <None Include="Resources\shop.cats.json" />
     <None Include="Resources\shops.json" />
     <None Include="Resources\skus.json" />

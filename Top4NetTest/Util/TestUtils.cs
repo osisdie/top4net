@@ -33,7 +33,7 @@ namespace Taobao.Top.Api.Test
 
         public static ITopClient GetProductTopClient(string format)
         {
-            return new TopRestClient("http://gw.api.taobao.com/router/rest", "10011201", "InYQcoRSjNqszqMOMEsAdJDHbewbCAMJ", format);
+            return new TopRestClient("http://gw.api.taobao.com/router/rest", "12001666", "e121148ca8d31bc28a4743241b74c2bd", format);
         }
 
         public static string GetResourceAsText(string fileName)

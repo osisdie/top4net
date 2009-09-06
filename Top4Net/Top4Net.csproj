@@ -70,7 +70,7 @@
     <Compile Include="Domain\Refund.cs" />
     <Compile Include="Domain\RefundMessage.cs" />
     <Compile Include="Domain\RefundTimeout.cs" />
-    <Compile Include="Domain\SellerCategory.cs" />
+    <Compile Include="Domain\SellerItemCategory.cs" />
     <Compile Include="Domain\LogisticsOrder.cs" />
     <Compile Include="Domain\Shop.cs" />
     <Compile Include="Domain\ShopCategory.cs" />

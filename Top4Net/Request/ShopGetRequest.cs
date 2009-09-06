@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
     public class ShopGetRequest : ITopRequest
     {
         /// <summary>
-        /// 需要获取的店铺信息字段。
+        /// 需要返回的字段列表。
         /// </summary>
         public string Fields { get; set; }
 

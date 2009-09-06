@@ -54,5 +54,25 @@ namespace Taobao.Top.Api.Test.Parser
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(60, rsp.Content.Count);
         }
+
+        [TestMethod]
+        public void ParseXmlAsSellerItemCategories()
+        {
+            SellerItemCategoryListXmlParser parser = new SellerItemCategoryListXmlParser();
+            string body = TestUtils.GetResourceAsText("seller.item.cats.xml");
+            ResponseList<SellerItemCategory> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(50, rsp.Content.Count);
+        }
+
+        [TestMethod]
+        public void ParseJsonAsSellerItemCategories()
+        {
+            SellerItemCategoryListJsonParser parser = new SellerItemCategoryListJsonParser();
+            string body = TestUtils.GetResourceAsText("seller.item.cats.json");
+            ResponseList<SellerItemCategory> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(50, rsp.Content.Count);
+        }
     }
 }
