@@ -421,6 +421,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.taobaoke.report.get
+        /// </summary>
+        public TaobaokeReport GetTaobaokeReport(TaobaokeReportGetRequest request, string session)
+        {
+            return client.Execute(request, new TaobaokeReportXmlParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.taobaoke.items.convert
         /// </summary>
         public ResponseList<TaobaokeItem> ConvertTaobaokeItems(TaobaokeItemsConvertRequest request)

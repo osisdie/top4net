@@ -94,4 +94,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 淘宝客报表列表的JSON响应解释器。
+    /// </summary>
+    public class TaobaokeReportListJsonParser : ITopParser<ResponseList<TaobaokeReport>>
+    {
+        #region ITopParser<ResponseList<TaobaokeReport>> Members
+
+        public ResponseList<TaobaokeReport> Parse(string body)
+        {
+            return ResponseList<TaobaokeReport>.ParseJsonResponse("taobaokeReports", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 淘宝客报表的JSON响应解释器。
+    /// </summary>
+    public class TaobaokeReportJsonParser : ITopParser<TaobaokeReport>
+    {
+        #region ITopParser<TaobaokeReport> Members
+
+        public TaobaokeReport Parse(string body)
+        {
+            TaobaokeReportListJsonParser parser = new TaobaokeReportListJsonParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

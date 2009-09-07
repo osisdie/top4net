@@ -11,14 +11,15 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("TaobaokeReport")]
+    [XmlRoot("taobaokeReport")]
     public class TaobaokeReport : BaseObject
     {
         /// <summary>
         /// 淘宝客报表成员列表
         /// </summary>
         [JsonProperty("members")]
-        [XmlElement("members")]
+        [XmlArray("list")]
+        [XmlArrayItem("member")]
         public List<TaobaokeReportMember> MemberList { get; set; }
     }
 }

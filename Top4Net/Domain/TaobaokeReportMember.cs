@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("taobaokeReportMember")]
+    [XmlRoot("member")]
     public class TaobaokeReportMember : BaseObject
     {
         /// <summary>

@@ -85,4 +85,35 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 淘宝客报表列表的XML响应解释器。
+    /// </summary>
+    public class TaobaokeReportListXmlParser : ITopParser<ResponseList<TaobaokeReport>>
+    {
+        #region ITopParser<ResponseList<TaobaokeReport>> Members
+
+        public ResponseList<TaobaokeReport> Parse(string body)
+        {
+            return ResponseList<TaobaokeReport>.ParseXmlResponse("taobaokeReport", body);
+        }
+
+        #endregion
+    }
+
+    /// <summary>
+    /// 淘宝客报表的XML响应解释器。
+    /// </summary>
+    public class TaobaokeReportXmlParser : ITopParser<TaobaokeReport>
+    {
+        #region ITopParser<TaobaokeReport> Members
+
+        public TaobaokeReport Parse(string body)
+        {
+            TaobaokeReportListXmlParser parser = new TaobaokeReportListXmlParser();
+            return parser.Parse(body).GetFirst();
+        }
+
+        #endregion
+    }
 }

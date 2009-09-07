@@ -90,5 +90,27 @@ namespace Taobao.Top.Api.Test.Parser
             string url = parser.Parse(body);
             Assert.IsNotNull(url);
         }
+
+        [TestMethod]
+        public void ParseJsonAsTaobaokeReports()
+        {
+            TaobaokeReportListJsonParser parser = new TaobaokeReportListJsonParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.reports.json");
+            ResponseList<TaobaokeReport> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual(2, rsp.Content[0].MemberList.Count);
+        }
+
+        [TestMethod]
+        public void ParseXmlAsTaobaokeReports()
+        {
+            TaobaokeReportListXmlParser parser = new TaobaokeReportListXmlParser();
+            string body = TestUtils.GetResourceAsText("taobaoke.reports.xml");
+            ResponseList<TaobaokeReport> rsp = parser.Parse(body);
+            Assert.IsNotNull(rsp.Content);
+            Assert.AreEqual(1, rsp.Content.Count);
+            Assert.AreEqual(2, rsp.Content[0].MemberList.Count);
+        }
     }
 }
