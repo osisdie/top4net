@@ -79,7 +79,6 @@
     <None Include="Resources\item.imgs.json" />
     <None Include="Resources\item.props.json" />
     <None Include="Resources\item.searchs.json" />
-    <Content Include="issues.txt" />
     <Content Include="Resources\confirm.fees.xml" />
     <Content Include="Resources\delivery.addresses.xml" />
     <Content Include="Resources\item.imgs.xml" />
