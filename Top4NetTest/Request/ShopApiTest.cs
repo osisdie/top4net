@@ -77,5 +77,93 @@ namespace Taobao.Top.Api.Test.Request
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }
+
+        [TestMethod]
+        public void UpdateShopByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            ShopUpdateRequest req = new ShopUpdateRequest();
+            req.Title = "快乐女生大本营";
+            req.Bulletin = "快乐2009";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            Shop shop = client.Execute(proxy, new ShopJsonParser());
+            Assert.AreEqual("44696469", shop.Sid);
+        }
+
+        [TestMethod]
+        public void UpdateShopByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            ShopUpdateRequest req = new ShopUpdateRequest();
+            req.Title = "测试组三剑客";
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest562");
+            Shop shop = client.Execute(proxy, new ShopXmlParser());
+            Assert.AreEqual("44566468", shop.Sid);
+        }
+
+        [TestMethod]
+        public void AddSellerItemCatByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            req.Name = "Top4Net" + DateTime.Now.Ticks;
+            req.ParentCid = "0";
+            req.Position = 1;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            SellerItemCategory cat = client.Execute(proxy, new SellerItemCategoryJsonParser());
+            Assert.IsNotNull(cat.Cid);
+        }
+
+        [TestMethod]
+        public void AddSellerItemCatByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            req.Name = "Top4Net" + DateTime.Now.Ticks;
+            req.ParentCid = "0";
+            req.Position = 1;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest562");
+            SellerItemCategory cat = client.Execute(proxy, new SellerItemCategoryXmlParser());
+            Assert.IsNotNull(cat.Cid);
+        }
+
+        [TestMethod]
+        public void UpdateSellerItemCatByJson()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            SellerItemCategory oldCat = AddSellerItemCat();
+            SellerItemCatUpdateRequest req = new SellerItemCatUpdateRequest();
+            req.Cid = oldCat.Cid;
+            req.Name = "Top4Net" + DateTime.Now.Ticks;
+            req.Position = 2;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            SellerItemCategory cat = client.Execute(proxy, new SellerItemCategoryJsonParser());
+            Assert.AreEqual(oldCat.Cid, cat.Cid);
+        }
+
+        [TestMethod]
+        public void UpdateSellerItemCatByXml()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
+            SellerItemCategory oldCat = AddSellerItemCat();
+            SellerItemCatUpdateRequest req = new SellerItemCatUpdateRequest();
+            req.Cid = oldCat.Cid;
+            req.Name = "Top4Net" + DateTime.Now.Ticks;
+            req.Position = 3;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            SellerItemCategory cat = client.Execute(proxy, new SellerItemCategoryXmlParser());
+            Assert.AreEqual(oldCat.Cid, cat.Cid);
+        }
+
+        private SellerItemCategory AddSellerItemCat()
+        {
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
+            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            req.Name = "Top4Net" + DateTime.Now.Ticks;
+            req.ParentCid = "0";
+            req.Position = 1;
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            return client.Execute(proxy, new SellerItemCategoryJsonParser());
+        }
     }
 }

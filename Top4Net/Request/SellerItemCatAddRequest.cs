@@ -28,7 +28,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 该类目在页面上的排序位置。
         /// </summary>
-        public Nullable<int> SortOrder { get; set; }
+        public Nullable<int> Position { get; set; }
 
         #region ITopRequest Members
 
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("name", this.Name);
             parameters.Add("pict_url", this.PicUrl);
             parameters.Add("parent_cid", this.ParentCid);
-            parameters.Add("sort_order", this.SortOrder);
+            parameters.Add("sort_order", this.Position);
 
             return parameters;
         }
