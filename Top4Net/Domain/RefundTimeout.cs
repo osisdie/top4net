@@ -25,7 +25,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("exist_timeout")]
         [XmlElement("exist_timeout")]
-        public bool IsTimeout { get; set; }
+        public bool HasTimeout { get; set; }
 
         /// <summary>
         /// 超时时间

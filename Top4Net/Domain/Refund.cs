@@ -173,5 +173,12 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("address")]
         [XmlElement("address")]
         public string SellerAddress { get; set; }
+
+        /// <summary>
+        /// 退款超时时间
+        /// </summary>
+        [JsonProperty("refund_remind_timeout")]
+        [XmlElement("RefundRemindTimeOut")]
+        public RefundTimeout Timeout { get; set; }
     }
 }
