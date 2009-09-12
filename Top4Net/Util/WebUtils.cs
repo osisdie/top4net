@@ -23,6 +23,7 @@ namespace Taobao.Top.Api.Util
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
             req.KeepAlive = true;
+            req.UserAgent = "Top4Net";
             req.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
 
             byte[] postData = Encoding.UTF8.GetBytes(BuildPostData(parameters));
@@ -58,6 +59,7 @@ namespace Taobao.Top.Api.Util
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "GET";
             req.KeepAlive = true;
+            req.UserAgent = "Top4Net";
             req.ContentType = "application/x-www-form-urlencoded;charset=utf-8";
 
             HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
@@ -79,7 +81,8 @@ namespace Taobao.Top.Api.Util
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             req.Method = "POST";
             req.KeepAlive = true;
-            req.ContentType = "multipart/form-data;boundary=" + boundary;
+            req.UserAgent = "Top4Net";
+            req.ContentType = "multipart/form-data;charset=utf-8;boundary=" + boundary;
 
             Stream reqStream = req.GetRequestStream();
             byte[] itemBoundaryBytes = Encoding.UTF8.GetBytes("\r\n--" + boundary + "\r\n");
