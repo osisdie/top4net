@@ -38,7 +38,7 @@ namespace Taobao.Top.Api.Request
 
             parameters.Add("q", this.Query);
             parameters.Add("nick", this.Nick);
-            parameters.Add("outerCode", this.OuterCode);
+            parameters.Add("outer_code", this.OuterCode);
 
             return parameters;
         }

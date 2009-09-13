@@ -9,12 +9,24 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class RefundMessageAddRequest : ITopUploadRequest
     {
+        /// <summary>
+        /// 退款编号。
+        /// </summary>
         public string Rid { get; set; }
 
+        /// <summary>
+        /// 退款留言内容。
+        /// </summary>
         public string Content { get; set; }
 
+        /// <summary>
+        /// 用户昵称。
+        /// </summary>
         public string OwnerNick { get; set; }
 
+        /// <summary>
+        /// 留言凭证。
+        /// </summary>
         public FileInfo Image { get; set; }
 
         #region ITopRequest Members

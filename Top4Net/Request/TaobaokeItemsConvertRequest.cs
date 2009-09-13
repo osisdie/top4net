@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("fields", this.Fields);
             parameters.Add("iids", this.Iids);
             parameters.Add("nick", this.Nick);
-            parameters.Add("outerCode", this.OuterCode);
+            parameters.Add("outer_code", this.OuterCode);
 
             return parameters;
         }
