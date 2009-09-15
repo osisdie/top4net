@@ -56,6 +56,56 @@ namespace Taobao.Top.Api.Util
         }
 
         /// <summary>
+        /// 验证回调地址的签名是否合法。
+        /// </summary>
+        /// <param name="callbackUrl">回调地址</param>
+        /// <param name="appSecret">应用密钥</param>
+        /// <returns>验证成功返回True，否则返回False</returns>
+        public static bool SignTopResponse(string callbackUrl, string appSecret)
+        {
+            Uri uri = new Uri(callbackUrl);
+
+            string query = uri.Query;
+            if (string.IsNullOrEmpty(query)) // 没有回调参数
+            {
+                return false;
+            }
+
+            query = query.Trim(new char[] { '?', ' ' });
+            if (query.Length == 0) // 没有回调参数
+            {
+                return false;
+            }
+
+            IDictionary<string, string> queryDict = new Dictionary<string, string>();
+            string[] queryParams = query.Split(new char[] { '&' });
+
+            if (queryParams != null && queryParams.Length > 0)
+            {
+                foreach (string queryParam in queryParams)
+                {
+                    string[] oneParam = queryParam.Split(new char[] { '=' });
+                    if (oneParam.Length >= 2)
+                    {
+                        queryDict.Add(oneParam[0], oneParam[1]);
+                    }
+                }
+            }
+
+            StringBuilder result = new StringBuilder();
+            if (queryDict.ContainsKey("top_appkey")) result.Append(queryDict["top_appkey"]);
+            if (queryDict.ContainsKey("top_parameters")) result.Append(queryDict["top_parameters"]);
+            if (queryDict.ContainsKey("top_session")) result.Append(queryDict["top_session"]);
+            result.Append(appSecret);
+
+            MD5 md5 = MD5.Create();
+            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
+            string sign = Convert.ToBase64String(bytes);
+
+            return queryDict.ContainsKey("top_sign") && Uri.EscapeDataString(sign) == queryDict["top_sign"];
+        }
+
+        /// <summary>
         /// 清除字典中值为空的项。
         /// </summary>
         /// <param name="dict">待清除的字典</param>

@@ -29,5 +29,24 @@ namespace Taobao.Top.Api.Test
             string signature = SysUtils.SignTopRequest(parameters, "carver");
             Assert.AreEqual("C94566A40E066217E83292751B225F2C", signature);
         }
+
+        [TestMethod]
+        public void SignTopResponse()
+        {
+            bool result1 = SysUtils.SignTopResponse("http://localhost/test?top_appkey=12007588&top_parameters=aWZyYW1lPTEmdHM9MTI1MjczMzIzODMzOCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0xNzU3NTQzNTEmdmlzaXRvcl9uaWNrPWFsaXB1YmxpYzAx&top_session=196494a58aa583729370f3cd1206f9e99&top_sign=QivWleYe9QGId1ZptDl1dw%3D%3D", "2c338829997edb14cf99e73d6ad13f1e");
+            Assert.AreEqual(true, result1);
+
+            bool result2 = SysUtils.SignTopResponse("http://localhost/test?", "xxx");
+            Assert.AreEqual(false, result2);
+
+            bool result3 = SysUtils.SignTopResponse("http://localhost/test", "xxx");
+            Assert.AreEqual(false, result3);
+
+            bool result4 = SysUtils.SignTopResponse("http://localhost/test?a=b", "xxx");
+            Assert.AreEqual(false, result4);
+
+            bool result5 = SysUtils.SignTopResponse("http://localhost/test?a=b&b=c&d", "xxx");
+            Assert.AreEqual(false, result5);
+        }
     }
 }
