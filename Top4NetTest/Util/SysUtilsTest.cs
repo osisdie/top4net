@@ -33,20 +33,26 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void SignTopResponse()
         {
-            bool result1 = SysUtils.SignTopResponse("http://localhost/test?top_appkey=12007588&top_parameters=aWZyYW1lPTEmdHM9MTI1MjczMzIzODMzOCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0xNzU3NTQzNTEmdmlzaXRvcl9uaWNrPWFsaXB1YmxpYzAx&top_session=196494a58aa583729370f3cd1206f9e99&top_sign=QivWleYe9QGId1ZptDl1dw%3D%3D", "2c338829997edb14cf99e73d6ad13f1e");
+            bool result1 = SysUtils.VerifyTopResponse("http://localhost/test?top_appkey=12007588&top_parameters=aWZyYW1lPTEmdHM9MTI1MjczMzIzODMzOCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0xNzU3NTQzNTEmdmlzaXRvcl9uaWNrPWFsaXB1YmxpYzAx&top_session=196494a58aa583729370f3cd1206f9e99&top_sign=QivWleYe9QGId1ZptDl1dw%3D%3D", "2c338829997edb14cf99e73d6ad13f1e");
             Assert.AreEqual(true, result1);
 
-            bool result2 = SysUtils.SignTopResponse("http://localhost/test?", "xxx");
+            bool result2 = SysUtils.VerifyTopResponse("http://localhost/test?", "xxx");
             Assert.AreEqual(false, result2);
 
-            bool result3 = SysUtils.SignTopResponse("http://localhost/test", "xxx");
+            bool result3 = SysUtils.VerifyTopResponse("http://localhost/test", "xxx");
             Assert.AreEqual(false, result3);
 
-            bool result4 = SysUtils.SignTopResponse("http://localhost/test?a=b", "xxx");
+            bool result4 = SysUtils.VerifyTopResponse("http://localhost/test?a=b", "xxx");
             Assert.AreEqual(false, result4);
 
-            bool result5 = SysUtils.SignTopResponse("http://localhost/test?a=b&b=c&d", "xxx");
+            bool result5 = SysUtils.VerifyTopResponse("http://localhost/test?a=b&b=c&d", "xxx");
             Assert.AreEqual(false, result5);
+
+            bool result6 = SysUtils.VerifyTopResponse("aWZyYW1lPTEmdHM9MTI1MjczMzIzODMzOCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0xNzU3NTQzNTEmdmlzaXRvcl9uaWNrPWFsaXB1YmxpYzAx", "196494a58aa583729370f3cd1206f9e99", Uri.UnescapeDataString("QivWleYe9QGId1ZptDl1dw%3D%3D"), "12007588", "2c338829997edb14cf99e73d6ad13f1e");
+            Assert.AreEqual(true, result6);
+
+            bool result7 = SysUtils.VerifyTopResponse("a", "b", "c", "d", "e");
+            Assert.AreEqual(false, result7);
         }
     }
 }

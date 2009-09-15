@@ -61,7 +61,7 @@ namespace Taobao.Top.Api.Util
         /// <param name="callbackUrl">回调地址</param>
         /// <param name="appSecret">应用密钥</param>
         /// <returns>验证成功返回True，否则返回False</returns>
-        public static bool SignTopResponse(string callbackUrl, string appSecret)
+        public static bool VerifyTopResponse(string callbackUrl, string appSecret)
         {
             Uri uri = new Uri(callbackUrl);
 
@@ -98,11 +98,27 @@ namespace Taobao.Top.Api.Util
             if (queryDict.ContainsKey("top_session")) result.Append(queryDict["top_session"]);
             result.Append(appSecret);
 
-            MD5 md5 = MD5.Create();
-            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
+            byte[] bytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
             string sign = Convert.ToBase64String(bytes);
 
             return queryDict.ContainsKey("top_sign") && Uri.EscapeDataString(sign) == queryDict["top_sign"];
+        }
+
+        /// <summary>
+        /// 验证回调地址的签名是否合法。
+        /// </summary>
+        /// <param name="topParams">TOP私有参数（未经Base64解密后的）</param>
+        /// <param name="topSession">TOP私有会话码</param>
+        /// <param name="topSign">TOP回调签名（经过URL反编码的）</param>
+        /// <param name="appKey">应用公钥</param>
+        /// <param name="appSecret">应用密钥</param>
+        /// <returns>验证成功返回True，否则返回False</returns>
+        public static bool VerifyTopResponse(string topParams, string topSession, string topSign, string appKey, string appSecret)
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append(appKey).Append(topParams).Append(topSession).Append(appSecret);
+            byte[] bytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
+            return Convert.ToBase64String(bytes) == topSign;
         }
 
         /// <summary>
