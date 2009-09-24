@@ -178,7 +178,7 @@ namespace Taobao.Top.Api.Domain
         /// 退款超时时间
         /// </summary>
         [JsonProperty("refund_remind_timeout")]
-        [XmlElement("RefundRemindTimeOut")]
+        [XmlElement("refund_remind_timeout")]
         public RefundTimeout Timeout { get; set; }
     }
 }

@@ -346,8 +346,8 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 是否包含邮费
         /// </summary>
-        [JsonProperty("has_postFee")]
-        [XmlElement("has_postFee")]
+        [JsonProperty("has_post_fee")]
+        [XmlElement("has_post_fee")]
         public string HasPostFee { get; set; }
 
         /// <summary>
