@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 用户编号。
         /// </summary>
-        public string Uid { get; set; }
+        public Nullable<long> Uid { get; set; }
 
         /// <summary>
         /// 开始条数。
