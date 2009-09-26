@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// <summary>
     /// TOP API: taobao.delivery.send
     /// </summary>
-    public class LogisticsOrderAddRequest : ITopRequest
+    public class DeliverySendRequest : ITopRequest
     {
         /// <summary>
         /// 交易编号。

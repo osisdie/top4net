@@ -352,7 +352,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Rid = "126628";
             req.OwnerNick = "tbtest1202";
             req.Content = "I want to make a refund";
-            req.Image = TestUtils.GetResourceAsFile("refund.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("refund.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "tbtest1202");
             RefundMessage refundMsg = client.Execute(proxy, new RefundMessageJsonParser());
             Assert.IsNotNull(refundMsg);
@@ -366,7 +366,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Rid = "126628";
             req.OwnerNick = "tbtest1202";
             req.Content = "I want to make a refund";
-            req.Image = TestUtils.GetResourceAsFile("refund.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("refund.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "tbtest1202");
             RefundMessage refundMsg = client.Execute(proxy, new RefundMessageXmlParser());
             Assert.IsNotNull(refundMsg);

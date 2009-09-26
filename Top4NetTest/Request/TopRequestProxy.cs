@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 using Taobao.Top.Api.Request;
+using Taobao.Top.Api.Util;
 
 namespace Taobao.Top.Api.Test
 {
@@ -54,7 +55,7 @@ namespace Taobao.Top.Api.Test
 
         #region ITopUploadRequest Members
 
-        public IDictionary<string, FileInfo> GetFileParameters()
+        public IDictionary<string, FileItem> GetFileParameters()
         {
             return request.GetFileParameters();
         }

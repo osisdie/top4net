@@ -639,7 +639,7 @@ namespace Taobao.Top.Api
         /// <summary>
         /// TOP API: taobao.delivery.send
         /// </summary>
-        public LogisticsOrder AddLogisticsOrder(LogisticsOrderAddRequest request, string session)
+        public LogisticsOrder SendDelivery(DeliverySendRequest request, string session)
         {
             return client.Execute(request, new LogisticsOrderJsonParser(), session);
         }

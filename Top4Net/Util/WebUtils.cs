@@ -74,8 +74,14 @@ namespace Taobao.Top.Api.Util
         /// <param name="textParams">请求文本参数</param>
         /// <param name="fileParams">请求文件参数</param>
         /// <returns>HTTP响应</returns>
-        public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, FileInfo> fileParams)
+        public static string DoPost(string url, IDictionary<string, string> textParams, IDictionary<string, FileItem> fileParams)
         {
+            // 如果没有文件参数，则走普通POST请求
+            if (fileParams == null || fileParams.Count == 0)
+            {
+                return DoPost(url, textParams);
+            }
+
             string boundary = DateTime.Now.Ticks.ToString("X"); // 随机分隔线
 
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
@@ -89,37 +95,30 @@ namespace Taobao.Top.Api.Util
             byte[] endBoundaryBytes = Encoding.UTF8.GetBytes("\r\n--" + boundary + "--\r\n");
 
             // 组装文本请求参数
-            string entryTemplate = "Content-Disposition:form-data;name=\"{0}\"\r\nContent-Type:text/plain\r\n\r\n{1}";
+            string textTemplate = "Content-Disposition:form-data;name=\"{0}\"\r\nContent-Type:text/plain\r\n\r\n{1}";
             IEnumerator<KeyValuePair<string, string>> textEnum = textParams.GetEnumerator();
             while (textEnum.MoveNext())
             {
-                string formItem = string.Format(entryTemplate, textEnum.Current.Key, textEnum.Current.Value);
-                byte[] itemBytes = Encoding.UTF8.GetBytes(formItem);
+                string textEntry = string.Format(textTemplate, textEnum.Current.Key, textEnum.Current.Value);
+                byte[] itemBytes = Encoding.UTF8.GetBytes(textEntry);
                 reqStream.Write(itemBoundaryBytes, 0, itemBoundaryBytes.Length);
                 reqStream.Write(itemBytes, 0, itemBytes.Length);
             }
 
             // 组装文件请求参数
             string fileTemplate = "Content-Disposition:form-data;name=\"{0}\";filename=\"{1}\"\r\nContent-Type:{2}\r\n\r\n";
-            IEnumerator<KeyValuePair<string, FileInfo>> fileEnum = fileParams.GetEnumerator();
+            IEnumerator<KeyValuePair<string, FileItem>> fileEnum = fileParams.GetEnumerator();
             while (fileEnum.MoveNext())
             {
                 string key = fileEnum.Current.Key;
-                FileInfo file = fileEnum.Current.Value;
-                string fileItem = string.Format(fileTemplate, key, file.FullName, GetMimeType(file.FullName));
-                byte[] itemBytes = Encoding.UTF8.GetBytes(fileItem);
+                FileItem fileItem = fileEnum.Current.Value;
+                string fileEntry = string.Format(fileTemplate, key, fileItem.GetFileName(), fileItem.GetMimeType());
+                byte[] itemBytes = Encoding.UTF8.GetBytes(fileEntry);
                 reqStream.Write(itemBoundaryBytes, 0, itemBoundaryBytes.Length);
                 reqStream.Write(itemBytes, 0, itemBytes.Length);
 
-                using (Stream fileStream = file.OpenRead())
-                {
-                    byte[] buffer = new byte[1024];
-                    int readBytes = 0;
-                    while ((readBytes = fileStream.Read(buffer, 0, buffer.Length)) > 0)
-                    {
-                        reqStream.Write(buffer, 0, readBytes);
-                    }
-                }
+                byte[] fileBytes = fileItem.GetContent();
+                reqStream.Write(fileBytes, 0, fileBytes.Length);
             }
 
             reqStream.Write(endBoundaryBytes, 0, endBoundaryBytes.Length);
@@ -165,29 +164,6 @@ namespace Taobao.Top.Api.Util
             }
 
             return result.ToString();
-        }
-
-        /// <summary>
-        /// 根据文件名后缀获取图片型文件的Mime-Type。
-        /// </summary>
-        /// <param name="filePath">文件全名</param>
-        /// <returns>图片文件的Mime-Type</returns>
-        private static string GetMimeType(string filePath)
-        {
-            string mimeType;
-
-            switch (Path.GetExtension(filePath).ToLower())
-            {
-                case ".bmp": mimeType = "image/bmp"; break;
-                case ".gif": mimeType = "image/gif"; break;
-                case ".ico": mimeType = "image/x-icon"; break;
-                case ".jpeg": mimeType = "image/jpeg"; break;
-                case ".jpg": mimeType = "image/jpeg"; break;
-                case ".png": mimeType = "image/png"; break;
-                default: mimeType = "application/octet-stream"; break;
-            }
-
-            return mimeType;
         }
 
         /// <summary>

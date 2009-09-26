@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Taobao.Top.Api.Util;
+using System.IO;
 
 namespace Taobao.Top.Api.Test
 {
@@ -28,6 +29,28 @@ namespace Taobao.Top.Api.Test
             parameters.Add("nick", "风胜");
             string signature = SysUtils.SignTopRequest(parameters, "carver");
             Assert.AreEqual("C94566A40E066217E83292751B225F2C", signature);
+        }
+
+        [TestMethod]
+        public void GetMimeTypeByFileName()
+        {
+            string fileName = "product.jpeg";
+            string mimeType = SysUtils.GetMimeType(fileName);
+            Assert.AreEqual("image/jpeg", mimeType);
+        }
+
+        [TestMethod]
+        public void GetMimeTypeByBytes()
+        {
+            FileInfo fileInfo = TestUtils.GetResourceAsFile("item.jpg");
+            byte[] bytes = null;
+            using (Stream stream = fileInfo.OpenRead())
+            {
+                bytes = new byte[stream.Length];
+                stream.Read(bytes, 0, bytes.Length);
+            }
+            string mimeType = SysUtils.GetMimeType(bytes);
+            Assert.AreEqual("image/jpeg", mimeType);
         }
 
         [TestMethod]

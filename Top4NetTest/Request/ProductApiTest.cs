@@ -110,7 +110,7 @@ namespace Taobao.Top.Api.Test
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductImgUploadRequest req = new ProductImgUploadRequest();
             req.ProductId = _product.Id;
-            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("product.jpg");
             req.Position = 1;
 
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
@@ -126,7 +126,7 @@ namespace Taobao.Top.Api.Test
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             ProductImgUploadRequest req = new ProductImgUploadRequest();
             req.ProductId = _product.Id;
-            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("product.jpg");
             req.Position = 2;
 
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
@@ -143,7 +143,7 @@ namespace Taobao.Top.Api.Test
             ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
             req.ProductId = _product.Id;
             req.Props = "1627207:3232483";
-            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("prop.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductPropImg rsp = client.Execute(proxy, new ProductPropImgJsonParser());
             Assert.IsNotNull(rsp);
@@ -158,7 +158,7 @@ namespace Taobao.Top.Api.Test
             ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
             req.ProductId = _product.Id;
             req.Props = "1627207:3232484";
-            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("prop.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductPropImg rsp = client.Execute(proxy, new ProductPropImgXmlParser());
             Assert.IsNotNull(rsp);
@@ -265,7 +265,7 @@ namespace Taobao.Top.Api.Test
             request.Desc = "Nokia N73, Cool";
             request.Cid = "50012286";
             request.Props = "1637400:4606395;21862:31578;21861:3683581";
-            request.Image = TestUtils.GetResourceAsFile("product.jpg");
+            request.Image = TestUtils.GetResourceAsFileItem("product.jpg");
 
             ITopRequest proxy = new TopUploadRequestProxy(request, "b2ctest125");
             return client.Execute(proxy, new ProductJsonParser());
@@ -286,7 +286,7 @@ namespace Taobao.Top.Api.Test
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             ProductImgUploadRequest req = new ProductImgUploadRequest();
             req.ProductId = _product.Id;
-            req.Image = TestUtils.GetResourceAsFile("product.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("product.jpg");
             req.Position = 3;
 
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
@@ -312,7 +312,7 @@ namespace Taobao.Top.Api.Test
             ProductPropImgUploadRequest req = new ProductPropImgUploadRequest();
             req.ProductId = _product.Id;
             req.Props = "1627207:3232483";
-            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("prop.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, "b2ctest125");
             ProductPropImg img = client.Execute(proxy, new ProductPropImgJsonParser());
             img.ProductId = _product.Id;

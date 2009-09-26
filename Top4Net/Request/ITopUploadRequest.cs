@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using Taobao.Top.Api.Util;
 
 namespace Taobao.Top.Api.Request
 {
@@ -15,6 +16,6 @@ namespace Taobao.Top.Api.Request
         /// Value: 文件对象
         /// </summary>
         /// <returns>文件请求参数字典</returns>
-        IDictionary<string, FileInfo> GetFileParameters();
+        IDictionary<string, FileItem> GetFileParameters();
     }
 }

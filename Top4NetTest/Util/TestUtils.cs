@@ -47,6 +47,11 @@ namespace Taobao.Top.Api.Test
             return new FileInfo(Path.GetFullPath(path));
         }
 
+        public static FileItem GetResourceAsFileItem(string fileName)
+        {
+            return new FileItem(GetResourceAsFile(fileName));
+        }
+
         /// <summary>
         /// 获取测试环境下的用户会话授权码。
         /// </summary>

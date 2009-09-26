@@ -42,6 +42,7 @@
       <HintPath>Library\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +145,7 @@
     <Compile Include="Request\ITopRequest.cs" />
     <Compile Include="Request\ITopUploadRequest.cs" />
     <Compile Include="Request\LogisticsCompaniesGetRequest.cs" />
-    <Compile Include="Request\LogisticsOrderAddRequest.cs" />
+    <Compile Include="Request\DeliverySendRequest.cs" />
     <Compile Include="Request\LogisticsOrderDetailsGetRequest.cs" />
     <Compile Include="Request\LogisticsOrdersGetRequest.cs" />
     <Compile Include="Request\OrdersGetRequest.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TopXmlRestClient.cs" />
+    <Compile Include="Util\FileItem.cs" />
     <Compile Include="Util\SysUtils.cs" />
     <Compile Include="Util\WebUtils.cs" />
   </ItemGroup>

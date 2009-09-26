@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
+using Taobao.Top.Api.Util;
+
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
@@ -47,7 +49,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 产品主图文件。
         /// </summary>
-        public FileInfo Image { get; set; }
+        public FileItem Image { get; set; }
 
         #region ITopRequest Members
 
@@ -75,9 +77,9 @@ namespace Taobao.Top.Api.Request
 
         #region ITopUploadRequest Members
 
-        public IDictionary<string, FileInfo> GetFileParameters()
+        public IDictionary<string, FileItem> GetFileParameters()
         {
-            IDictionary<string, FileInfo> parameters = new Dictionary<string, FileInfo>();
+            IDictionary<string, FileItem> parameters = new Dictionary<string, FileItem>();
             parameters.Add("image", this.Image);
             return parameters;
         }

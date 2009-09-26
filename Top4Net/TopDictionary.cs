@@ -47,9 +47,14 @@ namespace Taobao.Top.Api
                 strValue = value.ToString();
             }
 
-            if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(strValue))
+            this.Add(key, strValue);
+        }
+
+        public new void Add(string key, string value)
+        {
+            if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
             {
-                base.Add(key, strValue);
+                base.Add(key, value);
             }
         }
     }

@@ -161,7 +161,7 @@ namespace Taobao.Top.Api.Test.Request
         public void AddLogisticsOrderByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            LogisticsOrderAddRequest req = new LogisticsOrderAddRequest();
+            DeliverySendRequest req = new DeliverySendRequest();
             req.Tid = _trade.Tid;
             req.OrderType = "delivery_needed";
             req.CompanyCode = "POST";

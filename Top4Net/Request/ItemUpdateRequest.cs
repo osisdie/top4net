@@ -2,6 +2,9 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 
+using Taobao.Top.Api.Util;
+using Taobao.Top.Api.Domain;
+
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
@@ -50,14 +53,9 @@ namespace Taobao.Top.Api.Request
         public string Desc { get; set; }
 
         /// <summary>
-        /// 所在地省份。
+        /// 所在地。
         /// </summary>
-        public string LocationState { get; set; }
-
-        /// <summary>
-        /// 所在地城市。
-        /// </summary>
-        public string LocationCity { get; set; }
+        public Location Location { get; set; }
 
         /// <summary>
         /// 运费承担方式。
@@ -127,7 +125,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 商品图片。
         /// </summary>
-        public FileInfo Image { get; set; }
+        public FileItem Image { get; set; }
 
         /// <summary>
         /// 商品新旧程度。
@@ -203,8 +201,11 @@ namespace Taobao.Top.Api.Request
             parameters.Add("price", this.Price);
             parameters.Add("title", this.Title);
             parameters.Add("desc", this.Desc);
-            parameters.Add("location.state", this.LocationState);
-            parameters.Add("location.city", this.LocationCity);
+            if (this.Location != null)
+            {
+                parameters.Add("location.state", this.Location.State);
+                parameters.Add("location.city", this.Location.City);
+            }
             parameters.Add("freight_payer", this.FreightPayer);
             parameters.Add("valid_thru", this.ValidTerm);
             parameters.Add("has_invoice", this.HasInvoice);
@@ -237,9 +238,9 @@ namespace Taobao.Top.Api.Request
 
         #region ITopUploadRequest Members
 
-        public IDictionary<string, FileInfo> GetFileParameters()
+        public IDictionary<string, FileItem> GetFileParameters()
         {
-            IDictionary<string, FileInfo> parameters = new Dictionary<string, FileInfo>();
+            IDictionary<string, FileItem> parameters = new Dictionary<string, FileItem>();
             parameters.Add("image", this.Image);
             return parameters;
         }

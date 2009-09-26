@@ -889,7 +889,7 @@ namespace Taobao.Top.Api.Test.Request
                 req.Props = "20000:20727;1627207:3232483;20055:20716";
                 req.SkuProps = "1627207:3232483";
                 req.HasShowcase = true;
-                req.Image = TestUtils.GetResourceAsFile("item.jpg");
+                req.Image = TestUtils.GetResourceAsFileItem("item.jpg");
 
                 ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
                 Item item = client.Execute(proxy, parser);
@@ -936,7 +936,7 @@ namespace Taobao.Top.Api.Test.Request
                 req.HasInvoice = true;
                 req.Props = "20000:3464206;1637400:4606395;1627207:28326;21861:44860;21862:44571";
                 req.SkuProps = "1627207:28326";
-                req.Image = TestUtils.GetResourceAsFile("item.jpg");
+                req.Image = TestUtils.GetResourceAsFileItem("item.jpg");
                 ITopRequest proxy = new TopRequestProxy(req, "b2ctest125");
                 Item item = client.Execute(proxy, parser);
                 item.Nick = "b2ctest125";
@@ -955,7 +955,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient(format);
             ItemImgUploadRequest req = new ItemImgUploadRequest();
             req.Iid = _b2cItem.Iid;
-            req.Image = TestUtils.GetResourceAsFile("item.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("item.jpg");
             req.Position = 3;
             req.IsPrimary = false;
             ITopRequest proxy = new TopUploadRequestProxy(req, _b2cItem.Nick);
@@ -971,7 +971,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Iid = _b2cItem.Iid;
             req.Props = "1628011:4001117";
             req.Position = 2;
-            req.Image = TestUtils.GetResourceAsFile("prop.jpg");
+            req.Image = TestUtils.GetResourceAsFileItem("prop.jpg");
             ITopRequest proxy = new TopUploadRequestProxy(req, _b2cItem.Nick);
             PropImg img = client.Execute(proxy, parser);
             Assert.IsNotNull(img);

@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +50,7 @@
     <Compile Include="Request\LogisticsApiTest.cs" />
     <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Request\TradeApiTest.cs" />
+    <Compile Include="Util\FileItemTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
     <Compile Include="Request\ProductApiTest.cs" />
     <Compile Include="Parser\ProductParserTest.cs" />
