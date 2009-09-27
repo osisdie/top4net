@@ -16,9 +16,9 @@ namespace Taobao.Top.Api.Request
         public string Fields { get; set; }
 
         /// <summary>
-        /// 输入格式：mm_会员id_网站id_广告位id。
+        /// 用户昵称。
         /// </summary>
-        public string Pid { get; set; }
+        public string Nick { get; set; }
 
         /// <summary>
         /// 商品标题中包含的关键字。
@@ -122,7 +122,7 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("pid", this.Pid);
+            parameters.Add("nick", this.Nick);
             parameters.Add("keyword", this.Keyword);
             parameters.Add("cid", this.Cid);
             parameters.Add("start_price", this.StartPrice);

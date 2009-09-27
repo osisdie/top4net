@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Test
             ITopClient client = TestUtils.GetSandboxTopClient("json");
             TaobaokeItemsGetRequest request = new TaobaokeItemsGetRequest();
             request.Fields = "iid,title,nick,pic_url,price,click_url";
-            request.Pid = "sns";
+            request.Nick = "sns";
             request.Keyword = "sns";
             request.StartPrice = "100";
             request.EndPrice = "200";
@@ -40,7 +40,7 @@ namespace Taobao.Top.Api.Test
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
             TaobaokeItemsGetRequest request = new TaobaokeItemsGetRequest();
             request.Fields = "iid,title,nick,pic_url,price,click_url";
-            request.Pid = "12345678_0_0";
+            request.Nick = "12345678_0_0";
             request.Keyword = "test";
             request.PageSize = 5;
 
