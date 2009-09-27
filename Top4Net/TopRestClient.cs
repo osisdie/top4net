@@ -27,7 +27,7 @@ namespace Taobao.Top.Api
     /// </example>
     public class TopRestClient : ITopClient
     {
-        public const string APP_KEY = "api_key";
+        public const string APP_KEY = "app_key";
         public const string FORMAT = "format";
         public const string METHOD = "method";
         public const string TIMESTAMP = "timestamp";
