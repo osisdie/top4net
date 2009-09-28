@@ -277,6 +277,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.item.joint.img
+        /// </summary>
+        public ItemImg JointItemImg(ItemImgJointRequest request, string session)
+        {
+            return client.Execute(request, new ItemImgJsonParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.item.img.delete
         /// </summary>
         public ItemImg DeleteItemImg(ItemImgDeleteRequest request, string session)

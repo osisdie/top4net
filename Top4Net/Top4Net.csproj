@@ -108,6 +108,7 @@
     <Compile Include="Request\AreasGetRequest.cs" />
     <Compile Include="Request\DeliveryAddressesGetRequest.cs" />
     <Compile Include="Request\ItemCatsListRequest.cs" />
+    <Compile Include="Request\ItemImgJointRequest.cs" />
     <Compile Include="Request\ItemPropListRequest.cs" />
     <Compile Include="Request\ItemPropsListRequest.cs" />
     <Compile Include="Request\ItemsAllGetRequest.cs" />
