@@ -365,11 +365,18 @@ namespace Taobao.Top.Api.Domain
         public string CodFee { get; set; }
 
         /// <summary>
+        /// 交易备注
+        /// </summary>
+        [JsonProperty("trade_memo")]
+        [XmlElement("trade_memo")]
+        public string TradeMemo { get; set; }
+
+        /// <summary>
         /// 超时到期时间
         /// </summary>
         [JsonProperty("timeout_action_time")]
         [XmlElement("timeout_action_time")]
-        public string TimeoutActionTime { get; set; }
+        public string Timeout { get; set; }
 
         /// <summary>
         /// 订单列表

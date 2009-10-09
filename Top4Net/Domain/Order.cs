@@ -92,7 +92,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("tid")]
         [XmlElement("tid")]
-        public string ChildOid { get; set; }
+        public string Oid { get; set; }
 
         /// <summary>
         /// 商家外部编码
@@ -163,5 +163,12 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("adjust_fee")]
         [XmlElement("adjust_fee")]
         public string AdjustFee { get; set; }
+
+        /// <summary>
+        /// 商品备注
+        /// </summary>
+        [JsonProperty("item_memo")]
+        [XmlElement("item_memo")]
+        public string ItemMemo { get; set; }
     }
 }

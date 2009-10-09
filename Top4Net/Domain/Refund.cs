@@ -154,6 +154,13 @@ namespace Taobao.Top.Api.Domain
         public string GoodReturnTime { get; set; }
 
         /// <summary>
+        /// 物流方式
+        /// </summary>
+        [JsonProperty("shipping_type")]
+        [XmlElement("shipping_type")]
+        public string LogisticsType { get; set; }
+
+        /// <summary>
         /// 物流公司名称
         /// </summary>
         [JsonProperty("company_name")]

@@ -31,6 +31,8 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 留言类型。
         /// </summary>
+        [JsonProperty("message_type")]
+        [XmlElement("message_type")]
         public string MsgType { get; set; }
 
         /// <summary>
