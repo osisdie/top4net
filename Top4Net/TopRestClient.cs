@@ -93,35 +93,36 @@ namespace Taobao.Top.Api
         public T Execute<T>(ITopRequest request, DTopParser<T> parser, string session)
         {
             // 添加协议级请求参数
-            IDictionary<string, string> allParams = new Dictionary<string, string>(request.GetParameters());
-            allParams.Add(METHOD, request.GetApiName());
-            allParams.Add(VERSION, "1.0");
-            allParams.Add(APP_KEY, appKey);
-            allParams.Add(FORMAT, format);
-            allParams.Add(PARTNER_ID, partnerId.ToString());
-            allParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
+            IDictionary<string, string> txtParams = new Dictionary<string, string>(request.GetParameters());
+            txtParams.Add(METHOD, request.GetApiName());
+            txtParams.Add(VERSION, "1.0");
+            txtParams.Add(APP_KEY, appKey);
+            txtParams.Add(FORMAT, format);
+            txtParams.Add(PARTNER_ID, partnerId.ToString());
+            txtParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
 
             if (!string.IsNullOrEmpty(session))
             {
-                allParams.Add(SESSION, session);
+                txtParams.Add(SESSION, session);
             }
 
             // 清除空值参数
-            allParams = SysUtils.CleanupDictionary(allParams);
+            txtParams = SysUtils.CleanupDictionary(txtParams);
 
             // 添加签名参数
-            allParams.Add(SIGN, SysUtils.SignTopRequest(allParams, appSecret));
+            txtParams.Add(SIGN, SysUtils.SignTopRequest(txtParams, appSecret));
 
             // 是否需要上传文件
             string response;
             if (request is ITopUploadRequest)
             {
                 ITopUploadRequest uploadRequest = request as ITopUploadRequest;
-                response = WebUtils.DoPost(this.serverUrl, allParams, uploadRequest.GetFileParameters());
+                IDictionary<string, FileItem> fileParams = SysUtils.CleanupDictionary(uploadRequest.GetFileParameters());
+                response = WebUtils.DoPost(this.serverUrl, txtParams, fileParams);
             }
             else
             {
-                response = WebUtils.DoPost(this.serverUrl, allParams);
+                response = WebUtils.DoPost(this.serverUrl, txtParams);
             }
 
             TryParseException(response);

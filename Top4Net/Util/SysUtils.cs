@@ -126,16 +126,16 @@ namespace Taobao.Top.Api.Util
         /// </summary>
         /// <param name="dict">待清除的字典</param>
         /// <returns>清除后的字典</returns>
-        public static IDictionary<string, string> CleanupDictionary(IDictionary<string, string> dict)
+        public static IDictionary<string, T> CleanupDictionary<T>(IDictionary<string, T> dict)
         {
-            IDictionary<string, string> newDict = new Dictionary<string, string>();
-            IEnumerator<KeyValuePair<string, string>> dem = dict.GetEnumerator();
+            IDictionary<string, T> newDict = new Dictionary<string, T>();
+            IEnumerator<KeyValuePair<string, T>> dem = dict.GetEnumerator();
 
             while (dem.MoveNext())
             {
                 string name = dem.Current.Key;
-                string value = dem.Current.Value;
-                if (!string.IsNullOrEmpty(value))
+                T value = dem.Current.Value;
+                if (value != null)
                 {
                     newDict.Add(name, value);
                 }
