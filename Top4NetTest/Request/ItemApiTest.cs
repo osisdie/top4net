@@ -35,7 +35,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetSandboxTopClient("json");
             ItemPropsGetRequest req = new ItemPropsGetRequest();
             req.Fields = "pid,name,status,sort_order";
-            req.LeafCid = "1101";
+            req.Cid = "1101";
             ResponseList<ItemProp> rsp = client.Execute(req, new ItemPropListJsonParser());
             Assert.AreEqual(21, rsp.Content.Count);
         }
@@ -46,7 +46,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
             ItemPropsGetRequest req = new ItemPropsGetRequest();
             req.Fields = "pid,name,status,sort_order";
-            req.LeafCid = "1101";
+            req.Cid = "1101";
             ResponseList<ItemProp> rsp = client.Execute(req, new ItemPropListXmlParser());
             Assert.AreEqual(21, rsp.Content.Count);
         }
@@ -58,7 +58,7 @@ namespace Taobao.Top.Api.Test.Request
             ItemCatsGetRequest req = new ItemCatsGetRequest();
             req.Fields = "cid,name,status,sort_order,parent_cid,is_parent";
             req.ParentCid = "0";
-            List<ItemCategory> rsp = client.Execute(req, new ItemCatListJsonParser()).Content;
+            List<ItemCat> rsp = client.Execute(req, new ItemCatListJsonParser()).Content;
             Assert.AreEqual(10, rsp.Count);
         }
 
@@ -69,7 +69,7 @@ namespace Taobao.Top.Api.Test.Request
             ItemCatsGetRequest req = new ItemCatsGetRequest();
             req.Fields = "cid,name,status,sort_order,parent_cid,is_parent";
             req.ParentCid = "0";
-            List<ItemCategory> rsp = client.Execute(req, new ItemCatListXmlParser()).Content;
+            List<ItemCat> rsp = client.Execute(req, new ItemCatListXmlParser()).Content;
             Assert.AreEqual(10, rsp.Count);
         }
 
@@ -103,7 +103,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetSandboxTopClient("json");
             ItemCatsListRequest req = new ItemCatsListRequest();
             req.ParentCid = "1";
-            List<ItemCategory> rsp = client.Execute(req, new ItemCatListJsonParser()).Content;
+            List<ItemCat> rsp = client.Execute(req, new ItemCatListJsonParser()).Content;
             Assert.AreEqual(10, rsp.Count);
         }
 
@@ -113,7 +113,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetSandboxTopClient("xml");
             ItemCatsListRequest req = new ItemCatsListRequest();
             req.Cids = "1101";
-            List<ItemCategory> rsp = client.Execute(req, new ItemCatListXmlParser()).Content;
+            List<ItemCat> rsp = client.Execute(req, new ItemCatListXmlParser()).Content;
             Assert.AreEqual(1, rsp.Count);
             Assert.AreEqual("笔记本电脑", rsp[0].Name);
         }

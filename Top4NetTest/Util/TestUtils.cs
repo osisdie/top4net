@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Test
 
         public static ITopClient GetDevelopTopClient(string format)
         {
-            return new TopRestClient("http://192.168.207.127:8080/top/private/services/rest", "sns", "sns", format);
+            return new TopRestClient("http://192.168.208.110:8080/top/private/services/rest", "sns", "sns", format);
         }
 
         public static ITopClient GetTestingTopClient(string format)

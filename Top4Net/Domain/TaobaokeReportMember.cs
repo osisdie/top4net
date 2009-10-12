@@ -53,21 +53,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("auction_id")]
         [XmlElement("auction_id")]
-        public long AuctionId { get; set; }
+        public long ItemId { get; set; }
 
         /// <summary>
         /// 商品标题
         /// </summary>
         [JsonProperty("auction_title")]
         [XmlElement("auction_title")]
-        public string AuctionTitle { get; set; }
+        public string ItemTitle { get; set; }
 
         /// <summary>
         /// 商品成交数量
         /// </summary>
         [JsonProperty("auction_number")]
         [XmlElement("auction_number")]
-        public long AuctionNumber { get; set; }
+        public long ItemNum { get; set; }
 
         /// <summary>
         /// 所购买商品的类目编号

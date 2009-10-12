@@ -36,7 +36,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             string body = TestUtils.GetResourceAsText("item.cats.json");
             ItemCatListJsonParser parser = new ItemCatListJsonParser();
-            List<ItemCategory> cats = parser.Parse(body).Content;
+            List<ItemCat> cats = parser.Parse(body).Content;
             Assert.AreEqual(10, cats.Count);
             Assert.AreEqual("50008825", cats[0].Cid);
         }
@@ -46,7 +46,7 @@ namespace Taobao.Top.Api.Test.Parser
         {
             string body = TestUtils.GetResourceAsText("item.cats.xml");
             ItemCatListXmlParser parser = new ItemCatListXmlParser();
-            List<ItemCategory> cats = parser.Parse(body).Content;
+            List<ItemCat> cats = parser.Parse(body).Content;
             Assert.AreEqual(10, cats.Count);
             Assert.AreEqual("50008825", cats[0].Cid);
         }

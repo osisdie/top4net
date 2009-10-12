@@ -38,9 +38,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseXmlAsShopCategories()
         {
-            ShopCategoryListXmlParser parser = new ShopCategoryListXmlParser();
+            ShopCatListXmlParser parser = new ShopCatListXmlParser();
             string body = TestUtils.GetResourceAsText("shop.cats.xml");
-            ResponseList<ShopCategory> rsp = parser.Parse(body);
+            ResponseList<ShopCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(60, rsp.Content.Count);
         }
@@ -48,9 +48,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseJsonAsShopCategories()
         {
-            ShopCategoryListJsonParser parser = new ShopCategoryListJsonParser();
+            ShopCatListJsonParser parser = new ShopCatListJsonParser();
             string body = TestUtils.GetResourceAsText("shop.cats.json");
-            ResponseList<ShopCategory> rsp = parser.Parse(body);
+            ResponseList<ShopCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(60, rsp.Content.Count);
         }
@@ -58,9 +58,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseXmlAsSellerItemCategories()
         {
-            SellerItemCategoryListXmlParser parser = new SellerItemCategoryListXmlParser();
+            SellerItemCatListXmlParser parser = new SellerItemCatListXmlParser();
             string body = TestUtils.GetResourceAsText("seller.item.cats.xml");
-            ResponseList<SellerItemCategory> rsp = parser.Parse(body);
+            ResponseList<SellerItemCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(50, rsp.Content.Count);
         }
@@ -68,9 +68,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseJsonAsSellerItemCategories()
         {
-            SellerItemCategoryListJsonParser parser = new SellerItemCategoryListJsonParser();
+            SellerItemCatListJsonParser parser = new SellerItemCatListJsonParser();
             string body = TestUtils.GetResourceAsText("seller.item.cats.json");
-            ResponseList<SellerItemCategory> rsp = parser.Parse(body);
+            ResponseList<SellerItemCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(50, rsp.Content.Count);
         }

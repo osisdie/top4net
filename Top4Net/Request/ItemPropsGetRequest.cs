@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Request
         /// <summary>
         /// 叶子类目编号。
         /// </summary>
-        public string LeafCid { get; set; }
+        public string Cid { get; set; }
 
         /// <summary>
         /// 属性编号。
@@ -77,7 +77,7 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
 
             parameters.Add("fields", this.Fields);
-            parameters.Add("cid", this.LeafCid);
+            parameters.Add("cid", this.Cid);
             parameters.Add("pid", this.Pid);
             parameters.Add("parent_pid", this.ParentPid);
             parameters.Add("is_key_prop", this.IsKeyProp);

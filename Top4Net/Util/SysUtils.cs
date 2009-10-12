@@ -128,7 +128,7 @@ namespace Taobao.Top.Api.Util
         /// <returns>清除后的字典</returns>
         public static IDictionary<string, T> CleanupDictionary<T>(IDictionary<string, T> dict)
         {
-            IDictionary<string, T> newDict = new Dictionary<string, T>();
+            IDictionary<string, T> newDict = new Dictionary<string, T>(dict.Count);
             IEnumerator<KeyValuePair<string, T>> dem = dict.GetEnumerator();
 
             while (dem.MoveNext())

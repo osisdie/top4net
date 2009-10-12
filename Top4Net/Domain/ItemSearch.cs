@@ -28,6 +28,6 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("category_list")]
         [XmlArray("category_lists")]
         [XmlArrayItem("category_list")]
-        public List<ItemCategory> ItemCatList { get; set; }
+        public List<ItemCat> ItemCatList { get; set; }
     }
 }

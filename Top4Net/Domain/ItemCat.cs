@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("item_cat")]
-    public class ItemCategory : BaseObject
+    public class ItemCat : BaseObject
     {
         /// <summary>
         /// 类目编号
