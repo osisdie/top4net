@@ -23,7 +23,7 @@ namespace Taobao.Top.Api.Test
 
         public static ITopClient GetTestingTopClient(string format)
         {
-            return new TopRestClient("http://192.168.208.110:8080/top/private/services/rest", "143", "test_secret", format);
+            return new TopRestClient("http://192.168.208.110:8080/top/private/services/rest", "test", "test", format);
         }
 
         public static ITopClient GetSandboxTopClient(string format)

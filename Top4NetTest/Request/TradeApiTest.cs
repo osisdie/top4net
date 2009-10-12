@@ -349,7 +349,7 @@ namespace Taobao.Top.Api.Test.Request
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             RefundMessageAddRequest req = new RefundMessageAddRequest();
-            req.Rid = "126628";
+            req.Rid = "127305";
             req.OwnerNick = "tbtest1202";
             req.Content = "I want to make a refund";
             req.Image = TestUtils.GetResourceAsFileItem("refund.jpg");
@@ -363,7 +363,7 @@ namespace Taobao.Top.Api.Test.Request
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             RefundMessageAddRequest req = new RefundMessageAddRequest();
-            req.Rid = "126628";
+            req.Rid = "127305";
             req.OwnerNick = "tbtest1202";
             req.Content = "I want to make a refund";
             req.Image = TestUtils.GetResourceAsFileItem("refund.jpg");
@@ -432,8 +432,8 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
             req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
-            req.StartModified = DateTime.ParseExact("2009-08-06", "yyyy-MM-dd", null);
-            req.EndModified = DateTime.ParseExact("2009-08-07", "yyyy-MM-dd", null);
+            req.StartModified = DateTime.ParseExact("2009-10-12", "yyyy-MM-dd", null);
+            req.EndModified = DateTime.ParseExact("2009-10-13", "yyyy-MM-dd", null);
             req.Type = "fixed";
             req.PageNo = 1;
             req.PageSize = 5;
@@ -449,8 +449,8 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
             req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
-            req.StartModified = DateTime.ParseExact("2009-08-26", "yyyy-MM-dd", null);
-            req.EndModified = DateTime.ParseExact("2009-08-27", "yyyy-MM-dd", null);
+            req.StartModified = DateTime.ParseExact("2009-10-12", "yyyy-MM-dd", null);
+            req.EndModified = DateTime.ParseExact("2009-10-13", "yyyy-MM-dd", null);
             req.Type = "fixed";
             req.PageNo = 1;
             req.PageSize = 5;

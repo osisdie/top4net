@@ -15,19 +15,12 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetTaobaokeItemsByJson()
         {
-            ITopClient client = TestUtils.GetSandboxTopClient("json");
+            ITopClient client = TestUtils.GetDevelopTopClient("json");
             TaobaokeItemsGetRequest request = new TaobaokeItemsGetRequest();
             request.Fields = "iid,title,nick,pic_url,price,click_url";
-            request.Nick = "sns";
-            request.Keyword = "sns";
-            request.StartPrice = "100";
-            request.EndPrice = "200";
-            request.AutoSend = false;
-            request.Area = "杭州";
-            request.StartCredit = "1crown";
-            request.EndCredit = "3crown";
-            request.OrderBy = "commissionNum_desc";
-            request.IsGuarantee = true;
+            request.Nick = "tbtest561";
+            request.Keyword = "鞋";
+            request.Cid = "50010388";
             request.PageSize = 6;
             request.PageNo = 1;
             List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListJsonParser()).Content;
@@ -37,12 +30,13 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetTaobaokeItemsByXml()
         {
-            ITopClient client = TestUtils.GetSandboxTopClient("xml");
+            ITopClient client = TestUtils.GetDevelopTopClient("xml");
             TaobaokeItemsGetRequest request = new TaobaokeItemsGetRequest();
             request.Fields = "iid,title,nick,pic_url,price,click_url";
-            request.Nick = "12345678_0_0";
-            request.Keyword = "test";
+            request.Nick = "tbtest561";
+            request.Keyword = "鞋";
             request.PageSize = 5;
+            request.Cid = "50010388";
 
             List<TaobaokeItem> items = client.Execute(request, new TaobaokeItemListXmlParser()).Content;
             Assert.AreEqual(5, items.Count);
