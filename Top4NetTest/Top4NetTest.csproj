@@ -48,6 +48,7 @@
     <Compile Include="Parser\TradeParserTest.cs" />
     <Compile Include="Request\ItemApiTest.cs" />
     <Compile Include="Request\LogisticsApiTest.cs" />
+    <Compile Include="Request\MiscApiTest.cs" />
     <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Request\TradeApiTest.cs" />
     <Compile Include="Util\FileItemTest.cs" />

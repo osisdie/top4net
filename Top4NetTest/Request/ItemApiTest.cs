@@ -427,7 +427,7 @@ namespace Taobao.Top.Api.Test.Request
             Assert.AreEqual(imgUpload.ImgId, imgDelete.ImgId);
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void DeleteItemPropImgByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
