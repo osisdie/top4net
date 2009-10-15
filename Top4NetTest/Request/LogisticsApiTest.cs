@@ -107,7 +107,7 @@ namespace Taobao.Top.Api.Test.Request
         public void GetLogisticsOrderDetailsByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            LogisticsOrderDetailsGetRequest req = new LogisticsOrderDetailsGetRequest();
+            LogisticsOrdersDetailGetRequest req = new LogisticsOrdersDetailGetRequest();
             req.Fields = "tid,seller_nick,buyer_nick,receiver_name,receiver_mobile,receiver_phone,receiver_location";
             req.PageNo = 1;
             req.PageSize = 10;
@@ -122,7 +122,7 @@ namespace Taobao.Top.Api.Test.Request
         public void GetLogisticsOrderDetailsByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            LogisticsOrderDetailsGetRequest req = new LogisticsOrderDetailsGetRequest();
+            LogisticsOrdersDetailGetRequest req = new LogisticsOrdersDetailGetRequest();
             req.Fields = "tid,seller_nick,buyer_nick,receiver_name,receiver_mobile,receiver_phone,receiver_location";
             req.PageNo = 1;
             req.PageSize = 10;

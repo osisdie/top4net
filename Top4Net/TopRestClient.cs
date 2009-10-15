@@ -93,21 +93,14 @@ namespace Taobao.Top.Api
         public T Execute<T>(ITopRequest request, DTopParser<T> parser, string session)
         {
             // 添加协议级请求参数
-            IDictionary<string, string> txtParams = new Dictionary<string, string>(request.GetParameters());
+            TopDictionary txtParams = new TopDictionary(request.GetParameters());
             txtParams.Add(METHOD, request.GetApiName());
             txtParams.Add(VERSION, "1.0");
             txtParams.Add(APP_KEY, appKey);
             txtParams.Add(FORMAT, format);
             txtParams.Add(PARTNER_ID, partnerId.ToString());
-            txtParams.Add(TIMESTAMP, DateTime.Now.ToString(Constants.DATE_TIME_FORMAT));
-
-            if (!string.IsNullOrEmpty(session))
-            {
-                txtParams.Add(SESSION, session);
-            }
-
-            // 清除空值参数
-            txtParams = SysUtils.CleanupDictionary(txtParams);
+            txtParams.Add(TIMESTAMP, DateTime.Now);
+            txtParams.Add(SESSION, session);
 
             // 添加签名参数
             txtParams.Add(SIGN, SysUtils.SignTopRequest(txtParams, appSecret));
@@ -116,7 +109,7 @@ namespace Taobao.Top.Api
             string response;
             if (request is ITopUploadRequest)
             {
-                ITopUploadRequest uploadRequest = request as ITopUploadRequest;
+                ITopUploadRequest uploadRequest = (ITopUploadRequest)request;
                 IDictionary<string, FileItem> fileParams = SysUtils.CleanupDictionary(uploadRequest.GetFileParameters());
                 response = WebUtils.DoPost(this.serverUrl, txtParams, fileParams);
             }

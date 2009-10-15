@@ -6,7 +6,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.itemcats.get.v2
+    /// TOP API: taobao.itemcats.get
     /// </summary>
     public class ItemCatsGetRequest : ITopRequest
     {
@@ -34,7 +34,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.itemcats.get.v2";
+            return "taobao.itemcats.get";
         }
 
         public IDictionary<string, string> GetParameters()

@@ -6,7 +6,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.item.update.revokeShowcase
+    /// TOP API: taobao.item.recommend.delete
     /// </summary>
     public class ItemRecommendDeleteRequest : ITopRequest
     {
@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.item.update.revokeShowcase";
+            return "taobao.item.recommend.delete";
         }
 
         public IDictionary<string, string> GetParameters()

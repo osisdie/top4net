@@ -147,28 +147,28 @@ namespace Taobao.Top.Api.Util
         /// <summary>
         /// 获取文件的真实后缀名。目前只支持JPG, GIF, PNG, BMP四种图片文件。
         /// </summary>
-        /// <param name="bytes">文件字节流</param>
+        /// <param name="fileData">文件字节流</param>
         /// <returns>JPG, GIF, PNG or null</returns>
-        public static string GetFileSuffix(byte[] bytes)
+        public static string GetFileSuffix(byte[] fileData)
         {
-            if (bytes == null || bytes.Length < 10)
+            if (fileData == null || fileData.Length < 10)
             {
                 return null;
             }
 
-            if (bytes[0] == 'G' && bytes[1] == 'I' && bytes[2] == 'F')
+            if (fileData[0] == 'G' && fileData[1] == 'I' && fileData[2] == 'F')
             {
                 return "GIF";
             }
-            else if (bytes[1] == 'P' && bytes[2] == 'N' && bytes[3] == 'G')
+            else if (fileData[1] == 'P' && fileData[2] == 'N' && fileData[3] == 'G')
             {
                 return "PNG";
             }
-            else if (bytes[6] == 'J' && bytes[7] == 'F' && bytes[8] == 'I' && bytes[9] == 'F')
+            else if (fileData[6] == 'J' && fileData[7] == 'F' && fileData[8] == 'I' && fileData[9] == 'F')
             {
                 return "JPG";
             }
-            else if (bytes[0] == 'B' && bytes[1] == 'M')
+            else if (fileData[0] == 'B' && fileData[1] == 'M')
             {
                 return "BMP";
             }
@@ -181,11 +181,11 @@ namespace Taobao.Top.Api.Util
         /// <summary>
         /// 获取文件的真实媒体类型。目前只支持JPG, GIF, PNG, BMP四种图片文件。
         /// </summary>
-        /// <param name="bytes">文件字节流</param>
+        /// <param name="fileData">文件字节流</param>
         /// <returns>媒体类型</returns>
-        public static string GetMimeType(byte[] bytes)
+        public static string GetMimeType(byte[] fileData)
         {
-            string suffix = GetFileSuffix(bytes);
+            string suffix = GetFileSuffix(fileData);
             string mimeType;
 
             switch (suffix)
@@ -210,19 +210,19 @@ namespace Taobao.Top.Api.Util
             string mimeType;
             fileName = fileName.ToLower();
 
-            if (fileName.EndsWith(".bmp"))
+            if (fileName.EndsWith(".bmp", StringComparison.CurrentCulture))
             {
                 mimeType = "image/bmp";
             }
-            else if (fileName.EndsWith(".gif"))
+            else if (fileName.EndsWith(".gif", StringComparison.CurrentCulture))
             {
                 mimeType = "image/gif";
             }
-            else if (fileName.EndsWith(".jpg") || fileName.EndsWith(".jpeg"))
+            else if (fileName.EndsWith(".jpg", StringComparison.CurrentCulture) || fileName.EndsWith(".jpeg", StringComparison.CurrentCulture))
             {
                 mimeType = "image/jpeg";
             }
-            else if (fileName.EndsWith(".png"))
+            else if (fileName.EndsWith(".png", StringComparison.CurrentCulture))
             {
                 mimeType = "image/png";
             }

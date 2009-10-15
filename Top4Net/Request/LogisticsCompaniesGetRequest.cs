@@ -6,7 +6,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.logisticcompanies.get
+    /// TOP API: taobao.logistics.companies.get
     /// </summary>
     public class LogisticsCompaniesGetRequest : ITopRequest
     {
@@ -29,7 +29,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.logisticcompanies.get";
+            return "taobao.logistics.companies.get";
         }
 
         public IDictionary<string, string> GetParameters()

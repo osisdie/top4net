@@ -6,9 +6,9 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.shippings.send.fullinfo.get
+    /// TOP API: taobao.logistics.orders.detail.get
     /// </summary>
-    public class LogisticsOrderDetailsGetRequest : ITopRequest
+    public class LogisticsOrdersDetailGetRequest : ITopRequest
     {
         /// <summary>
         /// 要返回的字段列表。
@@ -74,7 +74,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.shippings.send.fullinfo.get";
+            return "taobao.logistics.orders.detail.get";
         }
 
         public IDictionary<string, string> GetParameters()

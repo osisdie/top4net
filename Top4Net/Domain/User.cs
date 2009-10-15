@@ -68,15 +68,8 @@ namespace Taobao.Top.Api.Domain
         /// 用户生日日期。
         /// </summary>
         [JsonProperty("birthday")]
-        [XmlIgnore]
-        public DateTime Birthday { get; set; }
-
         [XmlElement("birthday")]
-        public string BirthdayStr
-        {
-            get { return Birthday.ToString(Constants.DATE_TIME_FORMAT); }
-            set { Birthday = DateTime.ParseExact(value, Constants.DATE_TIME_FORMAT, null); }
-        }
+        public string Birthday { get; set; }
 
         /// <summary>
         /// 用户类型。

@@ -6,7 +6,7 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.item.update.showcase
+    /// TOP API: taobao.item.recommend.add
     /// </summary>
     public class ItemRecommendAddRequest : ITopRequest
     {
@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.item.update.showcase";
+            return "taobao.item.recommend.add";
         }
 
         public IDictionary<string, string> GetParameters()

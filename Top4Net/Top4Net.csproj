@@ -16,6 +16,8 @@
     </StartupObject>
     <TargetFrameworkSubset>
     </TargetFrameworkSubset>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Top4Net.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -131,7 +133,7 @@
     <Compile Include="Request\ItemsCustomGetRequest.cs" />
     <Compile Include="Request\ItemsDownloadRequest.cs" />
     <Compile Include="Request\ItemsGetRequest.cs" />
-    <Compile Include="Request\ItemsInstockGetRequest.cs" />
+    <Compile Include="Request\ItemsInventoryGetRequest.cs" />
     <Compile Include="Request\ItemSkuAddRequest.cs" />
     <Compile Include="Request\ItemSkuGetRequest.cs" />
     <Compile Include="Request\ItemSkusGetRequest.cs" />
@@ -143,7 +145,7 @@
     <Compile Include="Request\ITopUploadRequest.cs" />
     <Compile Include="Request\LogisticsCompaniesGetRequest.cs" />
     <Compile Include="Request\DeliverySendRequest.cs" />
-    <Compile Include="Request\LogisticsOrderDetailsGetRequest.cs" />
+    <Compile Include="Request\LogisticsOrdersDetailGetRequest.cs" />
     <Compile Include="Request\LogisticsOrdersGetRequest.cs" />
     <Compile Include="Request\OrdersGetRequest.cs" />
     <Compile Include="Request\PictureCategoryGetRequest.cs" />
@@ -208,6 +210,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Top4Net.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

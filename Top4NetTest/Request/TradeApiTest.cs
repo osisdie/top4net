@@ -432,8 +432,8 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
             req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
-            req.StartModified = DateTime.ParseExact("2009-10-12", "yyyy-MM-dd", null);
-            req.EndModified = DateTime.ParseExact("2009-10-13", "yyyy-MM-dd", null);
+            req.StartModified = DateTime.Today;
+            req.EndModified = DateTime.Now;
             req.Type = "fixed";
             req.PageNo = 1;
             req.PageSize = 5;
@@ -449,8 +449,8 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             TradesSoldIncrementGetRequest req = new TradesSoldIncrementGetRequest();
             req.Fields = "tid,title,price,type,iid,seller_nick,buyer_nick,status,orders";
-            req.StartModified = DateTime.ParseExact("2009-10-12", "yyyy-MM-dd", null);
-            req.EndModified = DateTime.ParseExact("2009-10-13", "yyyy-MM-dd", null);
+            req.StartModified = DateTime.Today;
+            req.EndModified = DateTime.Now;
             req.Type = "fixed";
             req.PageNo = 1;
             req.PageSize = 5;

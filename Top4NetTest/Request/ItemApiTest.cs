@@ -272,7 +272,7 @@ namespace Taobao.Top.Api.Test.Request
         public void GetInstockItemsByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            ItemsInstockGetRequest req = new ItemsInstockGetRequest();
+            ItemsInventoryGetRequest req = new ItemsInventoryGetRequest();
             req.Fields = "iid,title,nick,type,cid,num,props,price";
             req.PageNo = 1;
             req.PageSize = 5;
@@ -285,7 +285,7 @@ namespace Taobao.Top.Api.Test.Request
         public void GetInstockItemsByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            ItemsInstockGetRequest req = new ItemsInstockGetRequest();
+            ItemsInventoryGetRequest req = new ItemsInventoryGetRequest();
             req.Fields = "iid,title,nick,type,cid,num,props,price";
             req.PageNo = 1;
             req.PageSize = 8;
@@ -601,7 +601,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("json");
             PostagesGetRequest req = new PostagesGetRequest();
             req.Fields = "postage_id,name,post_price,post_increase,express_price,express_increase,ems_price,ems_increase";
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest562");
             ResponseList<Postage> rsp = client.Execute(proxy, new PostageListJsonParser());
             Assert.IsTrue(rsp.Content.Count > 0);
         }
@@ -612,7 +612,7 @@ namespace Taobao.Top.Api.Test.Request
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
             PostagesGetRequest req = new PostagesGetRequest();
             req.Fields = "postage_id,name,post_price,post_increase,express_price,express_increase,ems_price,ems_increase";
-            ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
+            ITopRequest proxy = new TopRequestProxy(req, "tbtest562");
             ResponseList<Postage> rsp = client.Execute(proxy, new PostageListXmlParser());
             Assert.IsTrue(rsp.Content.Count > 0);
         }

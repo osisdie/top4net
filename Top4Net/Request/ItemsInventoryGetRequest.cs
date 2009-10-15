@@ -6,9 +6,9 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.items.instock.get
+    /// TOP API: taobao.items.inventory.get
     /// </summary>
-    public class ItemsInstockGetRequest : ITopRequest
+    public class ItemsInventoryGetRequest : ITopRequest
     {
         /// <summary>
         /// 需要返回的商品对象字段。
@@ -44,7 +44,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.items.instock.get";
+            return "taobao.items.inventory.get";
         }
 
         public IDictionary<string, string> GetParameters()

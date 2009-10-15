@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 
 namespace Taobao.Top.Api
@@ -8,11 +9,17 @@ namespace Taobao.Top.Api
     /// </summary>
     public class TopDictionary : Dictionary<string, string>
     {
+        public TopDictionary() { }
+
+        public TopDictionary(IDictionary<string, string> dictionary)
+            : base(dictionary)
+        { }
+
         /// <summary>
         /// 添加一个新的键值对。空键或者空值的键值对将会被忽略。
         /// </summary>
         /// <param name="key">键名称</param>
-        /// <param name="value">键对应的值，目前支持：string, DateTime, int, long, bool类型</param>
+        /// <param name="value">键对应的值，目前支持：string, int, long, double, bool, DateTime类型</param>
         public void Add(string key, object value)
         {
             string strValue;
@@ -23,7 +30,7 @@ namespace Taobao.Top.Api
             }
             else if (value is string)
             {
-                strValue = value as string;
+                strValue = (string)value;
             }
             else if (value is Nullable<DateTime>)
             {
@@ -37,6 +44,10 @@ namespace Taobao.Top.Api
             else if (value is Nullable<long>)
             {
                 strValue = (value as Nullable<long>).Value.ToString();
+            }
+            else if (value is Nullable<double>)
+            {
+                strValue = (value as Nullable<double>).Value.ToString();
             }
             else if (value is Nullable<bool>)
             {

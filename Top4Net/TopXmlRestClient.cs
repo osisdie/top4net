@@ -141,7 +141,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.itemprops.get.v2
+        /// TOP API: taobao.itemprops.get
         /// </summary>
         public ResponseList<ItemProp> GetItemProps(ItemPropsGetRequest request)
         {
@@ -149,7 +149,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.itemcats.get.v2
+        /// TOP API: taobao.itemcats.get
         /// </summary>
         public ResponseList<ItemCat> GetItemCats(ItemCatsGetRequest request)
         {
@@ -205,7 +205,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.fullitems.get
+        /// TOP API: taobao.items.custom.get
         /// </summary>
         public ResponseList<Item> GetCustomItems(ItemsCustomGetRequest request, string session)
         {
@@ -229,9 +229,9 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.items.instock.get
+        /// TOP API: taobao.items.inventory.get
         /// </summary>
-        public ResponseList<Item> GetInstockItems(ItemsInstockGetRequest request, string session)
+        public ResponseList<Item> GetInventoryItems(ItemsInventoryGetRequest request, string session)
         {
             return client.Execute(request, new ItemListXmlParser(), session);
         }
@@ -325,7 +325,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.fullskus.get
+        /// TOP API: taobao.skus.custom.get
         /// </summary>
         public ResponseList<Sku> GetCustomSkus(SkusCustomGetRequest request, string session)
         {
@@ -365,7 +365,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.item.update.showcase
+        /// TOP API: taobao.item.recommend.add
         /// </summary>
         public Item AddRecommendItem(ItemRecommendAddRequest request, string session)
         {
@@ -373,7 +373,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.item.update.revokeShowcase
+        /// TOP API: taobao.item.recommend.delete
         /// </summary>
         public Item DeleteRecommendItem(ItemRecommendDeleteRequest request, string session)
         {
@@ -629,7 +629,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.logisticcompanies.get
+        /// TOP API: taobao.logistics.companies.get
         /// </summary>
         public ResponseList<LogisticsCompany> GetLogisticsCompanies(LogisticsCompaniesGetRequest request)
         {
@@ -637,7 +637,7 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.shippings.send.get
+        /// TOP API: taobao.logistics.orders.get
         /// </summary>
         public ResponseList<LogisticsOrder> GetLogisticsOrders(LogisticsOrdersGetRequest request, string session)
         {
@@ -653,9 +653,9 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.shippings.send.fullinfo.get
+        /// TOP API: taobao.logistics.orders.detail.get
         /// </summary>
-        public ResponseList<LogisticsOrder> GetLogisticsOrderDetails(LogisticsOrderDetailsGetRequest request, string session)
+        public ResponseList<LogisticsOrder> GetDetailLogisticsOrders(LogisticsOrdersDetailGetRequest request, string session)
         {
             return client.Execute(request, new LogisticsOrderListXmlParser(), session);
         }
