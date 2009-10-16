@@ -4,7 +4,9 @@ using System.IO;
 namespace Taobao.Top.Api.Util
 {
     /// <summary>
-    /// 文件元数据。
+    /// 文件元数据。构造方法：
+    /// 本地文件：new FileItem(new FileInfo("C:/temp.jpg"));
+    /// 字节流：new FileItem("abc.jpg", bytes);
     /// </summary>
     public class FileItem
     {
@@ -29,7 +31,7 @@ namespace Taobao.Top.Api.Util
         /// <summary>
         /// 基于文件名、字节流和媒体类型的构造器。
         /// </summary>
-        /// <param name="fileName">文件名</param>
+        /// <param name="fileName">文件名称或文件全路径（本地不一定要存在这个文件，仅仅是为了在服务端保存文件时有一个文件名）</param>
         /// <param name="content">文件字节流</param>
         public FileItem(string fileName, byte[] content)
         {
