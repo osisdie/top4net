@@ -13,7 +13,7 @@ namespace Taobao.Top.Api
     /// 带<c>session</c>参数的方法表明此方法为私有数据接口，需要传入正确的授权会话码才能访问。
     /// </remarks>
     /// <example><code>
-    /// TopXmlRestClient client = new TopXmlRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test");
+    /// TopXmlRestClient client = new TopXmlRestClient("http://gw.api.tbsandbox.com/router/rest", "test", "test");
     /// UserGetRequest request = new UserGetRequest();
     /// request.Fields = "user_id,nick,sex,created,location";
     /// request.Nick = "tbtest520";
