@@ -517,6 +517,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.trade.snapshot.get
+        /// </summary>
+        public Trade GetTradeSnapshot(TradeSnapshotGetRequest request, string session)
+        {
+            return client.Execute(request, new TradeXmlParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.trades.bought.get
         /// </summary>
         public ResponseList<Trade> GetBoughtTrades(TradesBoughtGetRequest request, string session)
@@ -714,6 +722,14 @@ namespace Taobao.Top.Api
         public ResponseList<SellerItemCat> GetSellerItemCats(SellerItemCatsGetRequest request)
         {
             return client.Execute(request, new SellerItemCatListXmlParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.app.subapp.apply
+        /// </summary>
+        public Tadget ApplySubapp(SubappApplyRequest request, string session)
+        {
+            return client.Execute(request, new TadgetXmlParser(), session);
         }
     }
 }

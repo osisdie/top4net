@@ -76,6 +76,7 @@
     <Compile Include="Domain\Shop.cs" />
     <Compile Include="Domain\ShopCat.cs" />
     <Compile Include="Domain\Sku.cs" />
+    <Compile Include="Domain\Tadget.cs" />
     <Compile Include="Domain\TaobaokeItem.cs" />
     <Compile Include="Domain\TaobaokeReport.cs" />
     <Compile Include="Domain\TaobaokeReportMember.cs" />
@@ -92,6 +93,8 @@
     <Compile Include="Parser\ITopParser.cs" />
     <Compile Include="Parser\LogisticsJsonParser.cs" />
     <Compile Include="Parser\LogisticsXmlParser.cs" />
+    <Compile Include="Parser\MiscJsonParser.cs" />
+    <Compile Include="Parser\MiscXmlParser.cs" />
     <Compile Include="Parser\ShopJsonParser.cs" />
     <Compile Include="Parser\ShopXmlParser.cs" />
     <Compile Include="Parser\TaobaokeJsonParser.cs" />
@@ -175,6 +178,7 @@
     <Compile Include="Request\ShopGetRequest.cs" />
     <Compile Include="Request\ShopUpdateRequest.cs" />
     <Compile Include="Request\SkusCustomGetRequest.cs" />
+    <Compile Include="Request\SubappApplyRequest.cs" />
     <Compile Include="Request\SuitesGetRequest.cs" />
     <Compile Include="Request\TaobaokeItemsConvertRequest.cs" />
     <Compile Include="Request\TaobaokeItemsGetRequest.cs" />
@@ -193,6 +197,7 @@
     <Compile Include="Request\TradeRatesGetRequest.cs" />
     <Compile Include="Request\TradesBoughtGetRequest.cs" />
     <Compile Include="Request\TradesGetRequest.cs" />
+    <Compile Include="Request\TradeSnapshotGetRequest.cs" />
     <Compile Include="Request\TradesSoldGetRequest.cs" />
     <Compile Include="Request\TradesSoldIncrementGetRequest.cs" />
     <Compile Include="Request\UserGetRequest.cs" />
@@ -206,6 +211,7 @@
     <Compile Include="TopXmlRestClient.cs" />
     <Compile Include="Util\FileItem.cs" />
     <Compile Include="Util\SysUtils.cs" />
+    <Compile Include="Util\TopContext.cs" />
     <Compile Include="Util\WebUtils.cs" />
   </ItemGroup>
   <ItemGroup>

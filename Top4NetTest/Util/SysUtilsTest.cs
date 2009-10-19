@@ -77,5 +77,13 @@ namespace Taobao.Top.Api.Test
             bool result7 = SysUtils.VerifyTopResponse("a", "b", "c", "d", "e");
             Assert.AreEqual(false, result7);
         }
+
+        [TestMethod]
+        public void GetTopContext()
+        {
+            TopContext context = SysUtils.GetTopContext("TOP-10cf2fbe3bf51981521a632698e37cf716kc4HXHnD2ANtGuwsuWktoAeArDbowC-END");
+            Assert.AreEqual("12010151", context.AppKey);
+            Assert.AreEqual("hz0799", context.UserNick);
+        }
     }
 }

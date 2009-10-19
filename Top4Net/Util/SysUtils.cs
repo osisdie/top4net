@@ -77,37 +77,24 @@ namespace Taobao.Top.Api.Util
                 return false;
             }
 
-            IDictionary<string, string> queryDict = new Dictionary<string, string>();
-            string[] queryParams = query.Split(new char[] { '&' });
+            IDictionary<string, string> queryDict = SplitUrlQuery(query);
+            string topParams;
+            queryDict.TryGetValue("top_parameters", out topParams);
+            string topSession;
+            queryDict.TryGetValue("top_session", out topSession);
+            string topSign;
+            queryDict.TryGetValue("top_sign", out topSign);
+            string appKey;
+            queryDict.TryGetValue("top_appkey", out appKey);
 
-            if (queryParams != null && queryParams.Length > 0)
-            {
-                foreach (string queryParam in queryParams)
-                {
-                    string[] oneParam = queryParam.Split(new char[] { '=' });
-                    if (oneParam.Length >= 2)
-                    {
-                        queryDict.Add(oneParam[0], oneParam[1]);
-                    }
-                }
-            }
-
-            StringBuilder result = new StringBuilder();
-            if (queryDict.ContainsKey("top_appkey")) result.Append(queryDict["top_appkey"]);
-            if (queryDict.ContainsKey("top_parameters")) result.Append(queryDict["top_parameters"]);
-            if (queryDict.ContainsKey("top_session")) result.Append(queryDict["top_session"]);
-            result.Append(appSecret);
-
-            byte[] bytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
-            string sign = Convert.ToBase64String(bytes);
-
-            return queryDict.ContainsKey("top_sign") && Uri.EscapeDataString(sign) == queryDict["top_sign"];
+            topSign = (topSign == null ? null : Uri.UnescapeDataString(topSign));
+            return VerifyTopResponse(topParams, topSession, topSign, appKey, appSecret);
         }
 
         /// <summary>
         /// 验证回调地址的签名是否合法。
         /// </summary>
-        /// <param name="topParams">TOP私有参数（未经Base64解密后的）</param>
+        /// <param name="topParams">TOP私有参数（未经BASE64解密后的）</param>
         /// <param name="topSession">TOP私有会话码</param>
         /// <param name="topSign">TOP回调签名（经过URL反编码的）</param>
         /// <param name="appKey">应用公钥</param>
@@ -119,6 +106,74 @@ namespace Taobao.Top.Api.Util
             result.Append(appKey).Append(topParams).Append(topSession).Append(appSecret);
             byte[] bytes = MD5.Create().ComputeHash(Encoding.UTF8.GetBytes(result.ToString()));
             return Convert.ToBase64String(bytes) == topSign;
+        }
+
+        /// <summary>
+        /// 获取TOP容器回调上下文，主要用于客户端应用。
+        /// </summary>
+        /// <param name="authCode">授权码</param>
+        /// <returns>TOP容器上下文</returns>
+        public static TopContext GetTopContext(string authCode)
+        {
+            string url = Constants.TOP_AUTH_URL + authCode;
+            string rsp = WebUtils.DoGet(url, null);
+            if (string.IsNullOrEmpty(rsp))
+            {
+                return null;
+            }
+
+            TopContext context = new TopContext();
+            IEnumerator<KeyValuePair<string, string>> paramEnum = SplitUrlQuery(rsp).GetEnumerator();
+            while (paramEnum.MoveNext())
+            {
+                if ("top_parameters".Equals(paramEnum.Current.Key))
+                {
+                    context.AddParameters(DecodeTopParams(paramEnum.Current.Value));
+                }
+                else
+                {
+                    context.AddParameter(paramEnum.Current.Key, paramEnum.Current.Value);
+                }
+            }
+
+            return context;
+        }
+
+        /// <summary>
+        /// 解释TOP回调参数为键值对。
+        /// </summary>
+        /// <param name="topParams">经过BASE64编码的字符串</param>
+        /// <returns>键值对</returns>
+        public static IDictionary<string, string> DecodeTopParams(string topParams)
+        {
+            if (string.IsNullOrEmpty(topParams))
+            {
+                return null;
+            }
+
+            byte[] buffer = Convert.FromBase64String(topParams);
+            string originTopParams = Encoding.GetEncoding("GBK").GetString(buffer);
+            return SplitUrlQuery(originTopParams);
+        }
+
+        private static IDictionary<string, string> SplitUrlQuery(string query)
+        {
+            IDictionary<string, string> result = new Dictionary<string, string>();
+
+            string[] pairs = query.Split(new char[] { '&' });
+            if (pairs != null && pairs.Length > 0)
+            {
+                foreach (string pair in pairs)
+                {
+                    string[] oneParam = pair.Split(new char[] { '=' }, 2);
+                    if (oneParam != null && oneParam.Length == 2)
+                    {
+                        result.Add(oneParam[0], oneParam[1]);
+                    }
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
