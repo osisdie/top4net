@@ -142,7 +142,7 @@ namespace Taobao.Top.Api.Util
         /// <summary>
         /// 解释TOP回调参数为键值对。
         /// </summary>
-        /// <param name="topParams">经过BASE64编码的字符串</param>
+        /// <param name="topParams">经过BASE64和URL编码的字符串</param>
         /// <returns>键值对</returns>
         public static IDictionary<string, string> DecodeTopParams(string topParams)
         {
@@ -150,8 +150,7 @@ namespace Taobao.Top.Api.Util
             {
                 return null;
             }
-
-            byte[] buffer = Convert.FromBase64String(topParams);
+            byte[] buffer = Convert.FromBase64String(Uri.UnescapeDataString(topParams));
             string originTopParams = Encoding.GetEncoding("GBK").GetString(buffer);
             return SplitUrlQuery(originTopParams);
         }

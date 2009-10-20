@@ -85,5 +85,12 @@ namespace Taobao.Top.Api.Test
             Assert.AreEqual("12010151", context.AppKey);
             Assert.AreEqual("hz0799", context.UserNick);
         }
+
+        [TestMethod]
+        public void DecodeTopParams()
+        {
+            IDictionary<string, string> dict = SysUtils.DecodeTopParams("aWZyYW1lPTEmdHM9MTI1NjAwNDg5Mzk4MCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0yMzQxOTA1NCZ2aXNpdG9yX25pY2s908C649K7yfo%3D");
+            Console.WriteLine(dict.Count);
+        }
     }
 }
