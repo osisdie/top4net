@@ -54,7 +54,7 @@ namespace Taobao.Top.Api.Test
         }
 
         [TestMethod]
-        public void SignTopResponse()
+        public void VerifyTopResponse()
         {
             bool result1 = SysUtils.VerifyTopResponse("http://localhost/test?top_appkey=12007588&top_parameters=aWZyYW1lPTEmdHM9MTI1MjczMzIzODMzOCZ2aWV3X21vZGU9ZnVsbCZ2aWV3X3dpZHRoPTAmdmlzaXRvcl9pZD0xNzU3NTQzNTEmdmlzaXRvcl9uaWNrPWFsaXB1YmxpYzAx&top_session=196494a58aa583729370f3cd1206f9e99&top_sign=QivWleYe9QGId1ZptDl1dw%3D%3D", "2c338829997edb14cf99e73d6ad13f1e");
             Assert.AreEqual(true, result1);

@@ -92,7 +92,7 @@ namespace Taobao.Top.Api.Util
         }
 
         /// <summary>
-        /// 验证回调地址的签名是否合法。
+        /// 验证回调地址的签名是否合法。要求所有参数均为已URL反编码的。
         /// </summary>
         /// <param name="topParams">TOP私有参数（未经BASE64解密后的）</param>
         /// <param name="topSession">TOP私有会话码</param>
