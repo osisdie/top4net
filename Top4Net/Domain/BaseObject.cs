@@ -8,6 +8,7 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 基础对象
     /// </summary>
+    [Serializable]
     public abstract class BaseObject
     {
         /// <summary>
