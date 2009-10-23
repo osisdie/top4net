@@ -328,6 +328,7 @@ namespace Taobao.Top.Api.Test.Request
             req.Iid = _item.Iid;
             req.ApproveStatus = "onsale";
             req.Title = "Updated by Top4Net";
+            req.Image = TestUtils.GetResourceAsFileItem("item.jpg");
             ITopRequest proxy = new TopRequestProxy(req, _item.Nick);
             Item item = client.Execute(proxy, new ItemJsonParser());
             Assert.AreEqual(req.Iid, item.Iid);

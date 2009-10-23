@@ -151,10 +151,6 @@
     <Compile Include="Request\LogisticsOrdersDetailGetRequest.cs" />
     <Compile Include="Request\LogisticsOrdersGetRequest.cs" />
     <Compile Include="Request\OrdersGetRequest.cs" />
-    <Compile Include="Request\PictureCategoryGetRequest.cs" />
-    <Compile Include="Request\PictureDeleteRequest.cs" />
-    <Compile Include="Request\PictureGetRequest.cs" />
-    <Compile Include="Request\PictureUploadRequest.cs" />
     <Compile Include="Request\PostageAddRequest.cs" />
     <Compile Include="Request\PostageGetRequest.cs" />
     <Compile Include="Request\PostagesGetRequest.cs" />
