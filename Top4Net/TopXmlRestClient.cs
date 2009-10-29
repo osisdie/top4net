@@ -197,6 +197,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.item.get
+        /// </summary>
+        public Item GetItem(ItemGetRequest request, string session)
+        {
+            return client.Execute(request, new ItemXmlParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.items.get
         /// </summary>
         public ResponseList<Item> GetItems(ItemsGetRequest request)
