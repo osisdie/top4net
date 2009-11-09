@@ -121,13 +121,13 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetTaobaokeReportByJson()
         {
-            ITopClient client = TestUtils.GetSandboxTopClient("json");
-            TaobaokeReportGetRequest request = new TaobaokeReportGetRequest();
-            request.Fields = "trade_id,pay_time,pay_price,auction_id";
-            request.Date = "20090322";
-            string session = TestUtils.GetSandboxSessionKey("alipublic05");
-            string rsp = client.Execute(request, new StringParser(), session);
-            Console.WriteLine(rsp);
+            ITopClient client = TestUtils.GetProductTopClient("json");
+            TaobaokeListUrlGetRequest request = new TaobaokeListUrlGetRequest();
+            request.Query = "三星";
+            request.Nick = "tbtest520";
+            request.OuterCode = "123456";
+            string rsp = client.Execute(request, new TaobaokeListUrlJsonParser());
+            Assert.IsNotNull(rsp);
         }
     }
 }

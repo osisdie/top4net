@@ -55,13 +55,16 @@ namespace Taobao.Top.Api.Test
         /// <summary>
         /// 获取测试环境下的用户会话授权码。
         /// </summary>
+        /// <param name="appkey">应用编号</param>
         /// <param name="nick">用户昵称</param>
+        /// <param name="url">回调地址</param>
         /// <returns>用户会话授权码</returns>
-        public static string GetSandboxSessionKey(string nick)
+        public static string GetSandboxSessionKey(string appkey, string nick, string url)
         {
             IDictionary<string, string> authCodeParams = new Dictionary<string, string>();
-            authCodeParams.Add("appkey", "sns");
+            authCodeParams.Add("appkey", appkey);
             authCodeParams.Add("nick", nick);
+            authCodeParams.Add("url", url);
 
             string authCodeRsp = WebUtils.DoPost(TOP_AUTHORIZE_URL, authCodeParams);
             string authCodePattern = "<input type=\"text\" id=\"autoInput\" value=\"(.+?)\" style=\".+?\">";
@@ -71,6 +74,7 @@ namespace Taobao.Top.Api.Test
             IDictionary<string, string> sessionParams = new Dictionary<string, string>();
             sessionParams.Add("authcode", Uri.UnescapeDataString(authCode));
             string sessionRsp = WebUtils.DoGet(TOP_CONTAINER_URL, sessionParams);
+            Console.WriteLine("xxxx");
 
             string sessionPattern = "&top_session=(\\w+?)&";
             Match sessionResult = Regex.Match(sessionRsp, sessionPattern);

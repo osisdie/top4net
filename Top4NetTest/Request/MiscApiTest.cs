@@ -20,5 +20,11 @@ namespace Taobao.Top.Api.Test.Request
             string rsp = client.Execute(proxy, new StringParser());
             Console.WriteLine(rsp);
         }
+
+        [TestMethod]
+        public void test()
+        {
+            Console.WriteLine(TestUtils.GetSandboxSessionKey("12011932", "tbtest520", "http://www.baidu.com/"));
+        }
     }
 }
