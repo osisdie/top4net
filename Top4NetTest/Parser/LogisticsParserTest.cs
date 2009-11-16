@@ -70,18 +70,18 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseJsonAsDeliveryAddresses()
         {
-            string body = TestUtils.GetResourceAsText("delivery.addresses.json");
-            DeliveryAddressListJsonParser parser = new DeliveryAddressListJsonParser();
-            ResponseList<DeliveryAddress> rsp = parser.Parse(body);
+            string body = TestUtils.GetResourceAsText("shipping.addresses.json");
+            ShippingAddressListJsonParser parser = new ShippingAddressListJsonParser();
+            ResponseList<ShippingAddress> rsp = parser.Parse(body);
             Assert.AreEqual(8, rsp.Content.Count);
         }
 
         [TestMethod]
         public void ParseXmlAsDeliveryAddresses()
         {
-            string body = TestUtils.GetResourceAsText("delivery.addresses.xml");
-            DeliveryAddressListXmlParser parser = new DeliveryAddressListXmlParser();
-            ResponseList<DeliveryAddress> rsp = parser.Parse(body);
+            string body = TestUtils.GetResourceAsText("shipping.addresses.xml");
+            ShippingAddressListXmlParser parser = new ShippingAddressListXmlParser();
+            ResponseList<ShippingAddress> rsp = parser.Parse(body);
             Assert.AreEqual(8, rsp.Content.Count);
         }
     }

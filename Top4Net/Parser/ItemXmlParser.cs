@@ -250,4 +250,20 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 授权的品牌和类目XML响应解释。
+    /// </summary>
+    public class AuthorizeCatsXmlParser : ITopParser<AuthorizeCats>
+    {
+
+        #region ITopParser<AuthorizeCats> Members
+
+        public AuthorizeCats Parse(string body)
+        {
+            return ResponseList<AuthorizeCats>.ParseXmlResponse("authorizes", body).GetFirst();
+        }
+
+        #endregion
+    }
 }

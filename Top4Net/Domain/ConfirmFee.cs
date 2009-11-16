@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("tradeConfirmFee")]
+    [XmlRoot("confirmFee")]
     public class ConfirmFee : BaseObject
     {
         /// <summary>
@@ -32,6 +32,6 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("is_last_detail_order")]
         [XmlElement("is_last_detail_order")]
-        public bool IsLastDetailOrder { get; set; }
+        public bool IsLastOrder { get; set; }
     }
 }

@@ -10,8 +10,8 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("sellerCat")]
-    public class SellerItemCat : BaseObject
+    [XmlRoot("seller_cat")]
+    public class SellerCat : BaseObject
     {
         /// <summary>
         /// 卖家自定义商品类目编号。

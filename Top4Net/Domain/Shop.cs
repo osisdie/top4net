@@ -61,5 +61,12 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
         public string LogoUrl { get; set; }
+
+        /// <summary>
+        /// 剩余橱窗推荐数
+        /// </summary>
+        [JsonProperty("remain_count")]
+        [XmlElement("remain_showcase")]
+        public int RemainShowcase { get; set; }
     }
 }

@@ -67,8 +67,8 @@ namespace Taobao.Top.Api.Test.Parser
 
         private void AssertTaobaokeShop(TaobaokeShop shop)
         {
-            Assert.AreEqual("12343", shop.Uid);
-            Assert.AreEqual("淘客店铺测试数据1", shop.Title);
+            Assert.AreEqual("12343", shop.UserId);
+            Assert.AreEqual("淘客店铺测试数据1", shop.ShopTitle);
             Assert.AreEqual("http://top.taobao.com/test1", shop.ClickUrl);
             Assert.AreEqual("10.1", shop.CommissionRate);
         }

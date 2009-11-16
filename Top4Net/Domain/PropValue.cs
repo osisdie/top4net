@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     /// </summary>
     [Serializable]
     [JsonObject]
-    [XmlRoot("propValue")]
+    [XmlRoot("prop_value")]
     public class PropValue : BaseObject
     {
         /// <summary>
@@ -25,7 +25,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pid")]
         [XmlElement("pid")]
-        public string Pid { get; set; }
+        public string PropId { get; set; }
 
         /// <summary>
         /// 属性名
@@ -39,21 +39,21 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("vid")]
         [XmlElement("vid")]
-        public string Vid { get; set; }
+        public string ValueId { get; set; }
 
         /// <summary>
         /// 属性值名称
         /// </summary>
         [JsonProperty("name")]
         [XmlElement("name")]
-        public string Name { get; set; }
+        public string ValueName { get; set; }
 
         /// <summary>
         /// 属性值别名
         /// </summary>
         [JsonProperty("name_alias")]
         [XmlElement("name_alias")]
-        public string Alias { get; set; }
+        public string ValueAlias { get; set; }
 
         /// <summary>
         /// 属性值状态

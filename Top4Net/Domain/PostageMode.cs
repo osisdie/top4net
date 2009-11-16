@@ -39,7 +39,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("dest")]
         [XmlElement("dest")]
-        public string Districts { get; set; }
+        public string Dests { get; set; }
 
         /// <summary>
         /// 运费单价

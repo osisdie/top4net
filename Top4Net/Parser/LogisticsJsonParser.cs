@@ -99,13 +99,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 买家收货地址列表的JSON响应解释器。
     /// </summary>
-    public class DeliveryAddressListJsonParser : ITopParser<ResponseList<DeliveryAddress>>
+    public class ShippingAddressListJsonParser : ITopParser<ResponseList<ShippingAddress>>
     {
-        #region ITopParser<ResponseList<DeliveryAddress>> Members
+        #region ITopParser<ResponseList<ShippingAddress>> Members
 
-        public ResponseList<DeliveryAddress> Parse(string body)
+        public ResponseList<ShippingAddress> Parse(string body)
         {
-            return ResponseList<DeliveryAddress>.ParseJsonResponse("shipping_addresses", body);
+            return ResponseList<ShippingAddress>.ParseJsonResponse("shipping_addresses", body);
         }
 
         #endregion
@@ -114,13 +114,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     ///  买家收货地址的JSON响应解释器。
     /// </summary>
-    public class DeliveryAddressJsonParser : ITopParser<DeliveryAddress>
+    public class ShippingAddressJsonParser : ITopParser<ShippingAddress>
     {
-        #region ITopParser<DeliveryAddress> Members
+        #region ITopParser<ShippingAddress> Members
 
-        public DeliveryAddress Parse(string body)
+        public ShippingAddress Parse(string body)
         {
-            DeliveryAddressListJsonParser parser = new DeliveryAddressListJsonParser();
+            ShippingAddressListJsonParser parser = new ShippingAddressListJsonParser();
             return parser.Parse(body).GetFirst();
         }
 

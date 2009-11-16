@@ -6,9 +6,9 @@ using Taobao.Top.Api;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.sellercats.list.add
+    /// TOP API: taobao.sellercats.list.update
     /// </summary>
-    public class SellerItemCatAddRequest : ITopRequest
+    public class SellerCatUpdateRequest : ITopRequest
     {
         /// <summary>
         /// 卖家自定义类目名称。
@@ -16,14 +16,14 @@ namespace Taobao.Top.Api.Request
         public string Name { get; set; }
 
         /// <summary>
+        /// 卖家自定义类目编号。
+        /// </summary>
+        public string Cid { get; set; }
+
+        /// <summary>
         /// 该类目的链接图片地址。
         /// </summary>
         public string PicUrl { get; set; }
-
-        /// <summary>
-        /// 父类目编号。
-        /// </summary>
-        public string ParentCid { get; set; }
 
         /// <summary>
         /// 该类目在页面上的排序位置。
@@ -34,7 +34,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.sellercats.list.add";
+            return "taobao.sellercats.list.update";
         }
 
         public IDictionary<string, string> GetParameters()
@@ -42,8 +42,8 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
 
             parameters.Add("name", this.Name);
+            parameters.Add("cid", this.Cid);
             parameters.Add("pict_url", this.PicUrl);
-            parameters.Add("parent_cid", this.ParentCid);
             parameters.Add("sort_order", this.Position);
 
             return parameters;

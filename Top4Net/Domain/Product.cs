@@ -121,15 +121,17 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 产品的子图片。
         /// </summary>       
-        [JsonProperty("productImg")]
-        [XmlElement("productImg")]
+        [JsonProperty("product_img")]
+        [XmlArray("product_imgs")]
+        [XmlArrayItem("productImg")]
         public List<ProductImg> ImgList { get; set; }
 
         /// <summary>
         /// 产品的属性图片。
         /// </summary>
-        [JsonProperty("productPropImg")]
-        [XmlElement("productPropImg")]
+        [JsonProperty("product_prop_img")]
+        [XmlArray("product_prop_imgs")]
+        [XmlArrayItem("productPropImg")]
         public List<ProductPropImg> PropImgList { get; set; }
     }
 }

@@ -49,10 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Domain\Album.cs" />
     <Compile Include="Domain\Area.cs" />
     <Compile Include="Domain\BaseObject.cs" />
-    <Compile Include="Domain\DeliveryAddress.cs" />
+    <Compile Include="Domain\Brand.cs" />
+    <Compile Include="Domain\AuthorizeCats.cs" />
+    <Compile Include="Domain\ShippingAddress.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemCat.cs" />
     <Compile Include="Domain\ItemImg.cs" />
@@ -71,7 +72,7 @@
     <Compile Include="Domain\Refund.cs" />
     <Compile Include="Domain\RefundMessage.cs" />
     <Compile Include="Domain\RefundTimeout.cs" />
-    <Compile Include="Domain\SellerItemCat.cs" />
+    <Compile Include="Domain\SellerCat.cs" />
     <Compile Include="Domain\LogisticsOrder.cs" />
     <Compile Include="Domain\Shop.cs" />
     <Compile Include="Domain\ShopCat.cs" />
@@ -107,7 +108,8 @@
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
-    <Compile Include="Request\DeliveryAddressesGetRequest.cs" />
+    <Compile Include="Request\ItemCatsAuthorizeGetRequest.cs" />
+    <Compile Include="Request\ShippingAddressesGetRequest.cs" />
     <Compile Include="Request\ItemCatsListRequest.cs" />
     <Compile Include="Request\ItemImgJointRequest.cs" />
     <Compile Include="Request\ItemPropListRequest.cs" />
@@ -168,9 +170,9 @@
     <Compile Include="Request\RefundMessagesGetRequest.cs" />
     <Compile Include="Request\RefundsAppliedGetRequest.cs" />
     <Compile Include="Request\RefundsReceivedGetRequest.cs" />
-    <Compile Include="Request\SellerItemCatAddRequest.cs" />
-    <Compile Include="Request\SellerItemCatsGetRequest.cs" />
-    <Compile Include="Request\SellerItemCatUpdateRequest.cs" />
+    <Compile Include="Request\SellerCatAddRequest.cs" />
+    <Compile Include="Request\SellerCatsGetRequest.cs" />
+    <Compile Include="Request\SellerCatUpdateRequest.cs" />
     <Compile Include="Request\ShopGetRequest.cs" />
     <Compile Include="Request\ShopUpdateRequest.cs" />
     <Compile Include="Request\SkusCustomGetRequest.cs" />

@@ -99,13 +99,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 买家收货地址列表的XML响应解释器。
     /// </summary>
-    public class DeliveryAddressListXmlParser : ITopParser<ResponseList<DeliveryAddress>>
+    public class ShippingAddressListXmlParser : ITopParser<ResponseList<ShippingAddress>>
     {
-        #region ITopParser<ResponseList<DeliveryAddress>> Members
+        #region ITopParser<ResponseList<ShippingAddress>> Members
 
-        public ResponseList<DeliveryAddress> Parse(string body)
+        public ResponseList<ShippingAddress> Parse(string body)
         {
-            return ResponseList<DeliveryAddress>.ParseXmlResponse("shippingAddress", body);
+            return ResponseList<ShippingAddress>.ParseXmlResponse("shippingAddress", body);
         }
 
         #endregion
@@ -114,13 +114,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 买家收货地址的XML响应解释器。
     /// </summary>
-    public class DeliveryAddressXmlParser : ITopParser<DeliveryAddress>
+    public class ShippingAddressXmlParser : ITopParser<ShippingAddress>
     {
-        #region ITopParser<DeliveryAddress> Members
+        #region ITopParser<ShippingAddress> Members
 
-        public DeliveryAddress Parse(string body)
+        public ShippingAddress Parse(string body)
         {
-            DeliveryAddressListXmlParser parser = new DeliveryAddressListXmlParser();
+            ShippingAddressListXmlParser parser = new ShippingAddressListXmlParser();
             return parser.Parse(body).GetFirst();
         }
 

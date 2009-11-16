@@ -69,13 +69,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 卖家自定义商品类目列表的XML响应解释器。
     /// </summary>
-    public class SellerItemCatListXmlParser : ITopParser<ResponseList<SellerItemCat>>
+    public class SellerCatListXmlParser : ITopParser<ResponseList<SellerCat>>
     {
-        #region ITopParser<ResponseList<SellerItemCategory>> Members
+        #region ITopParser<ResponseList<SellerCategory>> Members
 
-        public ResponseList<SellerItemCat> Parse(string body)
+        public ResponseList<SellerCat> Parse(string body)
         {
-            return ResponseList<SellerItemCat>.ParseXmlResponse("seller_cat", body);
+            return ResponseList<SellerCat>.ParseXmlResponse("seller_cat", body);
         }
 
         #endregion
@@ -84,13 +84,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 卖家自定义商品类目的XML响应解释器。
     /// </summary>
-    public class SellerItemCatXmlParser : ITopParser<SellerItemCat>
+    public class SellerCatXmlParser : ITopParser<SellerCat>
     {
-        #region ITopParser<SellerItemCategory> Members
+        #region ITopParser<SellerCategory> Members
 
-        public SellerItemCat Parse(string body)
+        public SellerCat Parse(string body)
         {
-            SellerItemCatListXmlParser parser = new SellerItemCatListXmlParser();
+            SellerCatListXmlParser parser = new SellerCatListXmlParser();
             return parser.Parse(body).GetFirst();
         }
 

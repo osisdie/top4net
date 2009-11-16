@@ -8,6 +8,9 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 订单数据结构
     /// </summary>
+    [Serializable]
+    [JsonObject]
+    [XmlRoot("order")]
     public class Order : BaseObject
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace Taobao.Top.Api.Domain
         public string SkuId { get; set; }
 
         /// <summary>
-        /// Sku的值
+        /// SKU的值
         /// </summary>
         [JsonProperty("sku_properties_name")]
         [XmlElement("sku_properties_name")]
@@ -128,6 +131,13 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("timeout_action_time")]
         [XmlElement("timeout_action_time")]
         public string OrderTimeout { get; set; }
+
+        /// <summary>
+        /// 订单快照信息
+        /// </summary>
+        [JsonProperty("snapshot")]
+        [XmlElement("snapshot")]
+        public string Snapshot { get; set; }
 
         /// <summary>
         /// 订单快照地址

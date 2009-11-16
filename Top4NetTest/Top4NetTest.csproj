@@ -77,13 +77,13 @@
   <ItemGroup>
     <None Include="Resources\areas.json" />
     <None Include="Resources\confirm.fees.json" />
-    <None Include="Resources\delivery.addresses.json" />
+    <None Include="Resources\shipping.addresses.json" />
     <None Include="Resources\item.cats.json" />
     <None Include="Resources\item.imgs.json" />
     <None Include="Resources\item.props.json" />
     <None Include="Resources\item.searchs.json" />
     <Content Include="Resources\confirm.fees.xml" />
-    <Content Include="Resources\delivery.addresses.xml" />
+    <Content Include="Resources\shipping.addresses.xml" />
     <Content Include="Resources\item.imgs.xml" />
     <Content Include="Resources\item.jpg" />
     <Content Include="Resources\item.searchs.xml" />
@@ -113,7 +113,7 @@
     <Content Include="Resources\refund.jpg" />
     <Content Include="Resources\refund.messages.xml" />
     <Content Include="Resources\refunds.xml" />
-    <Content Include="Resources\seller.item.cats.xml" />
+    <Content Include="Resources\seller.cats.xml" />
     <Content Include="Resources\shop.cats.xml" />
     <Content Include="Resources\shops.xml" />
     <Content Include="Resources\skus.xml" />
@@ -129,7 +129,7 @@
     <None Include="Resources\prop.values.json" />
     <None Include="Resources\refund.messages.json" />
     <None Include="Resources\refunds.json" />
-    <None Include="Resources\seller.item.cats.json" />
+    <None Include="Resources\seller.cats.json" />
     <None Include="Resources\shop.cats.json" />
     <None Include="Resources\shops.json" />
     <None Include="Resources\skus.json" />

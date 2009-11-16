@@ -64,6 +64,13 @@ namespace Taobao.Top.Api.Domain
         public string Iid { get; set; }
 
         /// <summary>
+        /// 商品路径
+        /// </summary>
+        [JsonProperty("item_url")]
+        [XmlElement("item_url")]
+        public string ItemUrl { get; set; }
+
+        /// <summary>
         /// 商品价格
         /// </summary>
         [JsonProperty("price")]
@@ -75,7 +82,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("pic_path")]
         [XmlElement("pic_path")]
-        public string ItemPicUrl { get; set; }
+        public string ItemImgUrl { get; set; }
 
         /// <summary>
         /// 商品购买数量
@@ -125,6 +132,13 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("adjust_fee")]
         [XmlElement("adjust_fee")]
         public string AdjustFee { get; set; }
+
+        /// <summary>
+        /// 交易快照信息
+        /// </summary>
+        [JsonProperty("snapshot")]
+        [XmlElement("snapshot")]
+        public string Snapshot { get; set; }
 
         /// <summary>
         /// 交易快照地址
@@ -348,7 +362,7 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("has_post_fee")]
         [XmlElement("has_post_fee")]
-        public string HasPostFee { get; set; }
+        public bool HasPostFee { get; set; }
 
         /// <summary>
         /// 卖家实际收到的支付宝打款金额
@@ -370,6 +384,13 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("trade_memo")]
         [XmlElement("trade_memo")]
         public string TradeMemo { get; set; }
+
+        /// <summary>
+        /// 交易路径
+        /// </summary>
+        [JsonProperty("trade_url")]
+        [XmlElement("trade_url")]
+        public string TradeUrl { get; set; }
 
         /// <summary>
         /// 超时到期时间

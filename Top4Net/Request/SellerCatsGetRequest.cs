@@ -1,29 +1,31 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+
+using Taobao.Top.Api;
 
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.shipping.addresses.get
+    /// TOP API: taobao.sellercats.list.get
     /// </summary>
-    public class DeliveryAddressesGetRequest : ITopRequest
+    public class SellerCatsGetRequest : ITopRequest
     {
         /// <summary>
-        /// 要返回的字段列表。
+        /// 卖家昵称。
         /// </summary>
-        public string Fields { get; set; }
+        public string Nick { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.shipping.addresses.get";
+            return "taobao.sellercats.list.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
-            parameters.Add("fields", this.Fields);
+            parameters.Add("nick", this.Nick);
             return parameters;
         }
 

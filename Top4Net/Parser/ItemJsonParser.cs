@@ -251,4 +251,20 @@ namespace Taobao.Top.Api.Parser
 
         #endregion
     }
+
+    /// <summary>
+    /// 授权的品牌和类目JSON响应解释。
+    /// </summary>
+    public class AuthorizeCatsJsonParser : ITopParser<AuthorizeCats>
+    {
+
+        #region ITopParser<AuthorizeCats> Members
+
+        public AuthorizeCats Parse(string body)
+        {
+            return ResponseList<AuthorizeCats>.ParseJsonResponse("authorizes", body).GetFirst();
+        }
+
+        #endregion
+    }
 }

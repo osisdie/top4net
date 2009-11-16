@@ -18,14 +18,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("user_id")]
         [XmlElement("user_id")]
-        public string Uid { get; set; }
+        public string UserId { get; set; }
 
         /// <summary>
         /// 店铺名称
         /// </summary>
         [JsonProperty("shop_title")]
         [XmlElement("shop_title")]
-        public string Title { get; set; }
+        public string ShopTitle { get; set; }
 
         /// <summary>
         /// 店铺推广地址

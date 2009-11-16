@@ -41,7 +41,7 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("picture_urls")]
         [XmlArray("picture_urls")]
         [XmlArrayItem("picture_url")]
-        public List<PictureUrl> PicUrls { get; set; }
+        public List<PicUrl> PicUrls { get; set; }
 
         /// <summary>
         /// 退款编号
@@ -78,7 +78,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("picture_url")]
-    public class PictureUrl
+    public class PicUrl
     {
         /// <summary>
         /// 图片地址。

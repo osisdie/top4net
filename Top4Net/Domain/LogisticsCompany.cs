@@ -33,5 +33,19 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("company_name")]
         [XmlElement("company_name")]
         public string CompanyName { get; set; }
+
+        /// <summary>
+        /// 派送范围
+        /// </summary>
+        [JsonProperty("send_area")]
+        [XmlElement("send_area")]
+        public string SendArea { get; set; }
+
+        /// <summary>
+        /// 不派送范围
+        /// </summary>
+        [JsonProperty("not_send_area")]
+        [XmlElement("not_send_area")]
+        public string UnsendArea { get; set; }
     }
 }

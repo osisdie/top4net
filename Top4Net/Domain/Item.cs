@@ -211,6 +211,13 @@ namespace Taobao.Top.Api.Domain
         public bool HasShowcase { get; set; }
 
         /// <summary>
+        /// 已出价
+        /// </summary>
+        [JsonProperty("has_bid")]
+        [XmlElement("has_bid")]
+        public bool HasBid { get; set; }
+
+        /// <summary>
         /// 加价幅度
         /// </summary>
         [JsonProperty("increment")]
@@ -278,34 +285,44 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("is_taobao")]
         [XmlElement("is_taobao")]
-        public string IsTaobao { get; set; }
+        public bool IsTaobao { get; set; }
 
         /// <summary>
         /// 是否在外部网店显示
         /// </summary>
         [JsonProperty("is_ex")]
         [XmlElement("is_ex")]
-        public string IsExternal { get; set; }
+        public bool IsExternal { get; set; }
+
+        /// <summary>
+        /// 是否定时
+        /// </summary>
+        [JsonProperty("is_timing")]
+        [XmlElement("is_timing")]
+        public bool IsTiming { get; set; }
 
         /// <summary>
         /// 商品图片列表(包括主图) 
         /// </summary>
-        [JsonProperty("itemimg")]
-        [XmlElement("itemimg")]
+        [JsonProperty("item_img")]
+        [XmlArray("itemimgs")]
+        [XmlArrayItem("itemimg")]
         public List<ItemImg> ItemImgList { get; set; }
 
         /// <summary>
         /// 商品属性图片列表
         /// </summary>
-        [JsonProperty("propimg")]
-        [XmlElement("propimg")]
+        [JsonProperty("prop_img")]
+        [XmlArray("propimgs")]
+        [XmlArrayItem("propimg")]
         public List<PropImg> PropImgList { get; set; }
 
         /// <summary>
         /// SKU列表
         /// </summary>
         [JsonProperty("sku")]
-        [XmlElement("sku")]
+        [XmlArray("skus")]
+        [XmlArrayItem("sku")]
         public List<Sku> SkuList { get; set; }
     }
 }

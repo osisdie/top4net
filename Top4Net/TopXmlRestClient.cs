@@ -157,6 +157,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.itemcats.authorize.get
+        /// </summary>
+        public AuthorizeCats GetAuthorizeItemCats(ItemCatsAuthorizeGetRequest request, string session)
+        {
+            return client.Execute(request, new AuthorizeCatsXmlParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.itempropvalues.get
         /// </summary>
         public ResponseList<PropValue> GetItemPropValues(ItemPropValuesGetRequest request)
@@ -679,9 +687,9 @@ namespace Taobao.Top.Api
         /// <summary>
         /// TOP API: taobao.shipping.addresses.get
         /// </summary>
-        public ResponseList<DeliveryAddress> GetDeliveryAddresses(DeliveryAddressesGetRequest request, string session)
+        public ResponseList<ShippingAddress> GetShippingAddresses(ShippingAddressesGetRequest request, string session)
         {
-            return client.Execute(request, new DeliveryAddressListXmlParser(), session);
+            return client.Execute(request, new ShippingAddressListXmlParser(), session);
         }
 
         /// <summary>
@@ -711,25 +719,25 @@ namespace Taobao.Top.Api
         /// <summary>
         /// TOP API: taobao.sellercats.list.add
         /// </summary>
-        public SellerItemCat AddSellerItemCat(SellerItemCatAddRequest request, string session)
+        public SellerCat AddSellerCat(SellerCatAddRequest request, string session)
         {
-            return client.Execute(request, new SellerItemCatXmlParser(), session);
+            return client.Execute(request, new SellerCatXmlParser(), session);
         }
 
         /// <summary>
         /// TOP API: taobao.sellercats.list.update
         /// </summary>
-        public SellerItemCat UpdateSellerItemCat(SellerItemCatUpdateRequest request, string session)
+        public SellerCat UpdateSellerCat(SellerCatUpdateRequest request, string session)
         {
-            return client.Execute(request, new SellerItemCatXmlParser(), session);
+            return client.Execute(request, new SellerCatXmlParser(), session);
         }
 
         /// <summary>
         /// TOP API: taobao.sellercats.list.get
         /// </summary>
-        public ResponseList<SellerItemCat> GetSellerItemCats(SellerItemCatsGetRequest request)
+        public ResponseList<SellerCat> GetSellerCats(SellerCatsGetRequest request)
         {
-            return client.Execute(request, new SellerItemCatListXmlParser());
+            return client.Execute(request, new SellerCatListXmlParser());
         }
 
         /// <summary>

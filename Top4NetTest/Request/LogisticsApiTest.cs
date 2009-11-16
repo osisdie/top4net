@@ -137,10 +137,10 @@ namespace Taobao.Top.Api.Test.Request
         public void GetDeliveryAddressesByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            DeliveryAddressesGetRequest req = new DeliveryAddressesGetRequest();
+            ShippingAddressesGetRequest req = new ShippingAddressesGetRequest();
             req.Fields = "address_id,receiver_name,phone,mobile,is_default,location.address,location.zip,location.city,location.district";
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            ResponseList<DeliveryAddress> rsp = client.Execute(proxy, new DeliveryAddressListJsonParser());
+            ResponseList<ShippingAddress> rsp = client.Execute(proxy, new ShippingAddressListJsonParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }
@@ -149,10 +149,10 @@ namespace Taobao.Top.Api.Test.Request
         public void GetDeliveryAddressesByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            DeliveryAddressesGetRequest req = new DeliveryAddressesGetRequest();
+            ShippingAddressesGetRequest req = new ShippingAddressesGetRequest();
             req.Fields = "address_id,receiver_name,phone,mobile,is_default,location.address,location.zip,location.city,location.district";
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            ResponseList<DeliveryAddress> rsp = client.Execute(proxy, new DeliveryAddressListXmlParser());
+            ResponseList<ShippingAddress> rsp = client.Execute(proxy, new ShippingAddressListXmlParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }

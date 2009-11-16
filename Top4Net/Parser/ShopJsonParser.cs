@@ -69,13 +69,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     ///  卖家自定义商品类目列表的JSON响应解释器。
     /// </summary>
-    public class SellerItemCatListJsonParser : ITopParser<ResponseList<SellerItemCat>>
+    public class SellerCatListJsonParser : ITopParser<ResponseList<SellerCat>>
     {
-        #region ITopParser<ResponseList<SellerItemCategory>> Members
+        #region ITopParser<ResponseList<SellerCategory>> Members
 
-        public ResponseList<SellerItemCat> Parse(string body)
+        public ResponseList<SellerCat> Parse(string body)
         {
-            return ResponseList<SellerItemCat>.ParseJsonResponse("seller_cats", body);
+            return ResponseList<SellerCat>.ParseJsonResponse("seller_cats", body);
         }
 
         #endregion
@@ -84,13 +84,13 @@ namespace Taobao.Top.Api.Parser
     /// <summary>
     /// 卖家自定义商品类目的JSON响应解释器。
     /// </summary>
-    public class SellerItemCatJsonParser : ITopParser<SellerItemCat>
+    public class SellerCatJsonParser : ITopParser<SellerCat>
     {
-        #region ITopParser<SellerItemCategory> Members
+        #region ITopParser<SellerCategory> Members
 
-        public SellerItemCat Parse(string body)
+        public SellerCat Parse(string body)
         {
-            SellerItemCatListJsonParser parser = new SellerItemCatListJsonParser();
+            SellerCatListJsonParser parser = new SellerCatListJsonParser();
             return parser.Parse(body).GetFirst();
         }
 

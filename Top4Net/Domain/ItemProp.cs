@@ -9,6 +9,9 @@ namespace Taobao.Top.Api.Domain
     /// <summary>
     /// 商品属性
     /// </summary>
+    [Serializable]
+    [JsonObject]
+    [XmlRoot("item_prop")]
     public class ItemProp : BaseObject
     {
         /// <summary>

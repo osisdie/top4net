@@ -30,6 +30,13 @@ namespace Taobao.Top.Api.Domain
         public string Nick { get; set; }
 
         /// <summary>
+        /// 用户繁体昵称。
+        /// </summary>
+        [JsonProperty("t_nick")]
+        [XmlElement("t_nick")]
+        public string TNick { get; set; }
+
+        /// <summary>
         /// 用户性别。
         /// </summary>
         [JsonProperty("sex")]
@@ -140,6 +147,20 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("alipay_bind")]
         [XmlElement("alipay_bind")]
         public string AlipayBind { get; set; }
+
+        /// <summary>
+        /// 支付宝数字编号。
+        /// </summary>
+        [JsonProperty("alipay_no")]
+        [XmlElement("alipay_no")]
+        public string AlipayNo { get; set; }
+
+        /// <summary>
+        /// 支付宝邮件账号。
+        /// </summary>
+        [JsonProperty("alipay_account")]
+        [XmlElement("alipay_account")]
+        public string AlipayAccount { get; set; }
 
         /// <summary>
         /// 是否参加消保。

@@ -60,9 +60,9 @@ namespace Taobao.Top.Api.Test.Request
         public void GetSellerItemCatsByJson()
         {
             ITopClient client = TestUtils.GetProductTopClient("json");
-            SellerItemCatsGetRequest req = new SellerItemCatsGetRequest();
+            SellerCatsGetRequest req = new SellerCatsGetRequest();
             req.Nick = "驴友之家";
-            ResponseList<SellerItemCat> rsp = client.Execute(req, new SellerItemCatListJsonParser());
+            ResponseList<SellerCat> rsp = client.Execute(req, new SellerCatListJsonParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }
@@ -71,9 +71,9 @@ namespace Taobao.Top.Api.Test.Request
         public void GetSellerItemCatsByXml()
         {
             ITopClient client = TestUtils.GetProductTopClient("xml");
-            SellerItemCatsGetRequest req = new SellerItemCatsGetRequest();
+            SellerCatsGetRequest req = new SellerCatsGetRequest();
             req.Nick = "驴友之家";
-            ResponseList<SellerItemCat> rsp = client.Execute(req, new SellerItemCatListXmlParser());
+            ResponseList<SellerCat> rsp = client.Execute(req, new SellerCatListXmlParser());
             Assert.IsNotNull(rsp.Content);
             Assert.IsTrue(rsp.Content.Count > 0);
         }
@@ -105,12 +105,12 @@ namespace Taobao.Top.Api.Test.Request
         public void AddSellerItemCatByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            SellerCatAddRequest req = new SellerCatAddRequest();
             req.Name = "Top4Net" + DateTime.Now.Ticks;
             req.ParentCid = "0";
             req.Position = 1;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            SellerItemCat cat = client.Execute(proxy, new SellerItemCatJsonParser());
+            SellerCat cat = client.Execute(proxy, new SellerCatJsonParser());
             Assert.IsNotNull(cat.Cid);
         }
 
@@ -118,12 +118,12 @@ namespace Taobao.Top.Api.Test.Request
         public void AddSellerItemCatByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            SellerCatAddRequest req = new SellerCatAddRequest();
             req.Name = "Top4Net" + DateTime.Now.Ticks;
             req.ParentCid = "0";
             req.Position = 1;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest562");
-            SellerItemCat cat = client.Execute(proxy, new SellerItemCatXmlParser());
+            SellerCat cat = client.Execute(proxy, new SellerCatXmlParser());
             Assert.IsNotNull(cat.Cid);
         }
 
@@ -131,13 +131,13 @@ namespace Taobao.Top.Api.Test.Request
         public void UpdateSellerItemCatByJson()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            SellerItemCat oldCat = AddSellerItemCat();
-            SellerItemCatUpdateRequest req = new SellerItemCatUpdateRequest();
+            SellerCat oldCat = AddSellerItemCat();
+            SellerCatUpdateRequest req = new SellerCatUpdateRequest();
             req.Cid = oldCat.Cid;
             req.Name = "Top4Net" + DateTime.Now.Ticks;
             req.Position = 2;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            SellerItemCat cat = client.Execute(proxy, new SellerItemCatJsonParser());
+            SellerCat cat = client.Execute(proxy, new SellerCatJsonParser());
             Assert.AreEqual(oldCat.Cid, cat.Cid);
         }
 
@@ -145,25 +145,25 @@ namespace Taobao.Top.Api.Test.Request
         public void UpdateSellerItemCatByXml()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("xml");
-            SellerItemCat oldCat = AddSellerItemCat();
-            SellerItemCatUpdateRequest req = new SellerItemCatUpdateRequest();
+            SellerCat oldCat = AddSellerItemCat();
+            SellerCatUpdateRequest req = new SellerCatUpdateRequest();
             req.Cid = oldCat.Cid;
             req.Name = "Top4Net" + DateTime.Now.Ticks;
             req.Position = 3;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            SellerItemCat cat = client.Execute(proxy, new SellerItemCatXmlParser());
+            SellerCat cat = client.Execute(proxy, new SellerCatXmlParser());
             Assert.AreEqual(oldCat.Cid, cat.Cid);
         }
 
-        private SellerItemCat AddSellerItemCat()
+        private SellerCat AddSellerItemCat()
         {
             ITopClient client = TestUtils.GetDevelopTopClient("json");
-            SellerItemCatAddRequest req = new SellerItemCatAddRequest();
+            SellerCatAddRequest req = new SellerCatAddRequest();
             req.Name = "Top4Net" + DateTime.Now.Ticks;
             req.ParentCid = "0";
             req.Position = 1;
             ITopRequest proxy = new TopRequestProxy(req, "tbtest561");
-            return client.Execute(proxy, new SellerItemCatJsonParser());
+            return client.Execute(proxy, new SellerCatJsonParser());
         }
     }
 }

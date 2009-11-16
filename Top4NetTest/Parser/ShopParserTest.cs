@@ -58,9 +58,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseXmlAsSellerItemCategories()
         {
-            SellerItemCatListXmlParser parser = new SellerItemCatListXmlParser();
-            string body = TestUtils.GetResourceAsText("seller.item.cats.xml");
-            ResponseList<SellerItemCat> rsp = parser.Parse(body);
+            SellerCatListXmlParser parser = new SellerCatListXmlParser();
+            string body = TestUtils.GetResourceAsText("seller.cats.xml");
+            ResponseList<SellerCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(50, rsp.Content.Count);
         }
@@ -68,9 +68,9 @@ namespace Taobao.Top.Api.Test.Parser
         [TestMethod]
         public void ParseJsonAsSellerItemCategories()
         {
-            SellerItemCatListJsonParser parser = new SellerItemCatListJsonParser();
-            string body = TestUtils.GetResourceAsText("seller.item.cats.json");
-            ResponseList<SellerItemCat> rsp = parser.Parse(body);
+            SellerCatListJsonParser parser = new SellerCatListJsonParser();
+            string body = TestUtils.GetResourceAsText("seller.cats.json");
+            ResponseList<SellerCat> rsp = parser.Parse(body);
             Assert.IsNotNull(rsp.Content);
             Assert.AreEqual(50, rsp.Content.Count);
         }

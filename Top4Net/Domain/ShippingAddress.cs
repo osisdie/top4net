@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Domain
     [Serializable]
     [JsonObject]
     [XmlRoot("shippingAddress")]
-    public class DeliveryAddress : BaseObject
+    public class ShippingAddress : BaseObject
     {
         /// <summary>
         /// 收货地址编号
@@ -19,6 +19,13 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("address_id")]
         [XmlElement("address_id")]
         public string AddressId { get; set; }
+
+        /// <summary>
+        /// 收货人地址信息
+        /// </summary>
+        [JsonProperty("location")]
+        [XmlElement("location")]
+        public Location Location { get; set; }
 
         /// <summary>
         /// 收货人姓名
@@ -32,14 +39,14 @@ namespace Taobao.Top.Api.Domain
         /// </summary>
         [JsonProperty("phone")]
         [XmlElement("phone")]
-        public string Phone { get; set; }
+        public string ReceiverPhone { get; set; }
 
         /// <summary>
         /// 收货人移动电话号码
         /// </summary>
         [JsonProperty("mobile")]
         [XmlElement("mobile")]
-        public string Mobile { get; set; }
+        public string ReceiverMobile { get; set; }
 
         /// <summary>
         /// 是否作为默认收货地址
@@ -47,12 +54,5 @@ namespace Taobao.Top.Api.Domain
         [JsonProperty("is_default")]
         [XmlElement("is_default")]
         public bool IsDefault { get; set; }
-
-        /// <summary>
-        /// 收货人地址信息
-        /// </summary>
-        [JsonProperty("location")]
-        [XmlElement("location")]
-        public Location Location { get; set; }
     }
 }
