@@ -17,7 +17,7 @@ namespace Taobao.Top.Api.Domain
         /// 运费模板编号
         /// </summary>
         [JsonProperty("postage_id")]
-        [XmlElement("postage_id")]
+        [XmlElement("mode_postage_id")]
         public string PostageId { get; set; }
 
         /// <summary>
@@ -38,21 +38,21 @@ namespace Taobao.Top.Api.Domain
         /// 邮费子项涉及的地区，多个地区用逗号连接数量串
         /// </summary>
         [JsonProperty("dest")]
-        [XmlElement("dest")]
+        [XmlElement("postage_mode.dest")]
         public string Dests { get; set; }
 
         /// <summary>
         /// 运费单价
         /// </summary>
         [JsonProperty("price")]
-        [XmlElement("price")]
+        [XmlElement("postage_mode.price")]
         public string Price { get; set; }
 
         /// <summary>
         /// 运费增价
         /// </summary>
         [JsonProperty("increase")]
-        [XmlElement("increase")]
+        [XmlElement("postage_mode.increase")]
         public string Increase { get; set; }
     }
 }
