@@ -23,8 +23,8 @@ namespace Taobao.Top.Api.Domain
         /// <summary>
         /// 商品的最小属性单元Sku的编号
         /// </summary>
-        [JsonProperty("sku_id ")]
-        [XmlElement("sku_id ")]
+        [JsonProperty("sku_id")]
+        [XmlElement("sku_id")]
         public string SkuId { get; set; }
 
         /// <summary>
