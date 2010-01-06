@@ -158,22 +158,22 @@ namespace Taobao.Top.Api.Request
         public string InputStrs { get; set; }
 
         /// <summary>
-        /// 更新的sku的属性串
+        /// 更新的SKU的属性串
         /// </summary>
         public string SkuProps { get; set; }
 
         /// <summary>
-        /// sku的数量串
+        /// SKU的数量串
         /// </summary>
         public string SkuQuantities { get; set; }
 
         /// <summary>
-        /// sku的价格串
+        /// SKU的价格串
         /// </summary>
         public string SkuPrices { get; set; }
 
         /// <summary>
-        /// sku的外部编号串。
+        /// SKU的外部编号串。
         /// </summary>
         public string SkuOuterIds { get; set; }
 

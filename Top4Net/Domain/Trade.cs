@@ -379,6 +379,13 @@ namespace Taobao.Top.Api.Domain
         public string CodFee { get; set; }
 
         /// <summary>
+        /// 货到付款状态
+        /// </summary>
+        [JsonProperty("cod_status")]
+        [XmlElement("cod_status")]
+        public string CodStatus { get; set; }
+
+        /// <summary>
         /// 交易备注
         /// </summary>
         [JsonProperty("trade_memo")]

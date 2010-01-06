@@ -147,8 +147,8 @@ namespace Taobao.Top.Api.Util
                 stream = rsp.GetResponseStream();
                 reader = new StreamReader(stream, encoding);
 
-                // 每次读取不大于512个字符，并写入字符串
-                char[] buffer = new char[512];
+                // 每次读取不大于256个字符，并写入字符串
+                char[] buffer = new char[256];
                 int readBytes = 0;
                 while ((readBytes = reader.Read(buffer, 0, buffer.Length)) > 0)
                 {
