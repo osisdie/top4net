@@ -501,6 +501,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// taobao.trade.shippingaddress.update
+        /// </summary>
+        public Trade UpdateTradeShippingAddress(TradeShippingAddressUpdateRequest request, string session)
+        {
+            return client.Execute(request, new TradeJsonParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.trades.get
         /// </summary>
         public ResponseList<Trade> GetTrades(TradesGetRequest request)

@@ -44,6 +44,7 @@
       <HintPath>Library\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +195,7 @@
     <Compile Include="Request\TradeRatesGetRequest.cs" />
     <Compile Include="Request\TradesBoughtGetRequest.cs" />
     <Compile Include="Request\TradesGetRequest.cs" />
+    <Compile Include="Request\TradeShippingAddressUpdateRequest.cs" />
     <Compile Include="Request\TradeSnapshotGetRequest.cs" />
     <Compile Include="Request\TradesSoldGetRequest.cs" />
     <Compile Include="Request\TradesSoldIncrementGetRequest.cs" />
