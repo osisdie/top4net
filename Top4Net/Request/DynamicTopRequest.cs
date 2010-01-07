@@ -26,7 +26,7 @@ namespace Taobao.Top.Api.Request
             this.apiName = apiName;
         }
 
-        public void addTextParameter(string name, object value)
+        public void AddTextParameter(string name, object value)
         {
             textParams.Add(name, value);
         }
