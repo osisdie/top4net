@@ -108,6 +108,7 @@
     <Compile Include="Parser\UserJsonParser.cs" />
     <Compile Include="Parser\UserXmlParser.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
+    <Compile Include="Request\DynamicTopRequest.cs" />
     <Compile Include="Request\ItemCatsAuthorizeGetRequest.cs" />
     <Compile Include="Request\ShippingAddressesGetRequest.cs" />
     <Compile Include="Request\ItemCatsListRequest.cs" />
