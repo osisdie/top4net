@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Domain
         /// 淘宝客报表成员列表
         /// </summary>
         [JsonProperty("members")]
-        [XmlArray("list")]
+        [XmlArray("members")]
         [XmlArrayItem("member")]
         public List<TaobaokeReportMember> MemberList { get; set; }
     }
