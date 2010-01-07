@@ -445,6 +445,14 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.taobaoke.caturl.get
+        /// </summary>
+        public TaobaokeItem GetTaobaokeCatUrl(TaobaokeCatUrlGetRequest request)
+        {
+            return client.Execute(request, new TaobaokeItemJsonParser());
+        }
+
+        /// <summary>
         /// TOP API: taobao.taobaoke.report.get
         /// </summary>
         public TaobaokeReport GetTaobaokeReport(TaobaokeReportGetRequest request, string session)

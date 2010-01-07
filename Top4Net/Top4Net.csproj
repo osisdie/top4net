@@ -178,6 +178,7 @@
     <Compile Include="Request\SkusCustomGetRequest.cs" />
     <Compile Include="Request\SubappApplyRequest.cs" />
     <Compile Include="Request\SuitesGetRequest.cs" />
+    <Compile Include="Request\TaobaokeCatUrlGetRequest.cs" />
     <Compile Include="Request\TaobaokeItemsConvertRequest.cs" />
     <Compile Include="Request\TaobaokeItemsGetRequest.cs" />
     <Compile Include="Request\TaobaokeListUrlGetRequest.cs" />
