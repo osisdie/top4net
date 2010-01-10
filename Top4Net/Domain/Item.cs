@@ -302,6 +302,27 @@ namespace Taobao.Top.Api.Domain
         public bool IsTiming { get; set; }
 
         /// <summary>
+        /// 商品所属卖家的信用等级数
+        /// </summary>
+        [JsonProperty("score")]
+        [XmlElement("score")]
+        public string Score { get; set; }
+
+        /// <summary>
+        /// 商品30天交易量
+        /// </summary>
+        [JsonProperty("volume")]
+        [XmlElement("volume")]
+        public string Volume { get; set; }
+
+        /// <summary>
+        /// 是否淘1站商品
+        /// </summary>
+        [JsonProperty("one_station")]
+        [XmlElement("one_station")]
+        public bool OneStation { get; set; }
+
+        /// <summary>
         /// 商品图片列表(包括主图) 
         /// </summary>
         [JsonProperty("item_img")]
