@@ -11,12 +11,23 @@ namespace Taobao.Top.Api.Test.Request
         [TestMethod]
         public void GetUser()
         {
-            TopXmlRestClient client = TestUtils.GetTestingTopClient();
+            TopXmlRestClient client = TestUtils.GetProductTopClient();
             UserGetRequest req = new UserGetRequest();
             req.Fields = "nick,sex,location";
-            req.Nick = "tbtest1063";
+            req.Nick = "hz0799";
             User user = client.UserGet(req);
             Console.WriteLine(user.Nick);
+        }
+
+        [TestMethod]
+        public void GetUsers()
+        {
+            TopXmlRestClient client = TestUtils.GetProductTopClient();
+            UsersGetRequest req = new UsersGetRequest();
+            req.Fields = "nick,sex,buyer_credit,seller_credit,location";
+            req.Nicks = "hz0799,dahon";
+            PageList<User> rsp = client.UsersGet(req);
+            Console.WriteLine(rsp.TotalResults);
         }
     }
 }
