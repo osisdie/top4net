@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     public class Video : BaseObject
     {
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("id")]
         public long Id { get; set; }
@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Domain
         public string Iid { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("num_iid")]
         public long NumIid { get; set; }

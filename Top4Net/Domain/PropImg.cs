@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     public class PropImg : BaseObject
     {
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("id")]
         public long Id { get; set; }

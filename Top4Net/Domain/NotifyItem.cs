@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Domain
         public string Iid { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("nick")]
         public string Nick { get; set; }

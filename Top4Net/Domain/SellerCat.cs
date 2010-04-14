@@ -13,10 +13,10 @@ namespace Taobao.Top.Api.Domain
         public string Cid { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("name")]
         public string Name { get; set; }

@@ -57,6 +57,7 @@
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemCat.cs" />
     <Compile Include="Domain\ItemCategory.cs" />
+    <Compile Include="Domain\ItemDetail.cs" />
     <Compile Include="Domain\ItemExtra.cs" />
     <Compile Include="Domain\ItemImg.cs" />
     <Compile Include="Domain\ItemProp.cs" />

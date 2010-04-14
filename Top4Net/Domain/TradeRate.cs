@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Domain
         public string Content { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("item_price")]
         public string ItemPrice { get; set; }

@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Domain
         public bool ConsumerProtection { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("email")]
         public string Email { get; set; }

@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     public class Sku : BaseObject
     {
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("extra_id")]
         public long ExtraId { get; set; }
@@ -22,7 +22,7 @@ namespace Taobao.Top.Api.Domain
         public string Memo { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("num_iid")]
         public long NumIid { get; set; }

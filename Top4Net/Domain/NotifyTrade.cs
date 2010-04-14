@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Domain
         public bool Is3D { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("payment")]
         public string Payment { get; set; }

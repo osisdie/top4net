@@ -13,13 +13,13 @@ namespace Taobao.Top.Api.Domain
         public string AppKey { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("end_date")]
         public string EndDate { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("nick")]
         public string Nick { get; set; }

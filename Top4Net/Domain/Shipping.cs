@@ -16,7 +16,7 @@ namespace Taobao.Top.Api.Domain
         public string CompanyName { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("delivery_end")]
         public string DeliveryEnd { get; set; }
@@ -37,7 +37,7 @@ namespace Taobao.Top.Api.Domain
         public Location Location { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("out_sid")]
         public string OutSid { get; set; }

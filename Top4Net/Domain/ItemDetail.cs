@@ -5,10 +5,10 @@ using System.Xml.Serialization;
 namespace Taobao.Top.Api.Domain
 {
     /// <summary>
-    /// Item Data Structure.
+    /// ItemDetail Data Structure.
     /// </summary>
     [Serializable]
-    public class Item : BaseObject
+    public class ItemDetail : BaseObject
     {
         [XmlElement("approve_status")]
         public string ApproveStatus { get; set; }
@@ -24,9 +24,6 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("cid")]
         public long Cid { get; set; }
-
-        [XmlElement("created")]
-        public string Created { get; set; }
 
         [XmlElement("delist_time")]
         public string DelistTime { get; set; }
@@ -138,9 +135,6 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("props")]
         public string Props { get; set; }
 
-        [XmlElement("score")]
-        public long Score { get; set; }
-
         [XmlElement("second_kill")]
         public string SecondKill { get; set; }
 
@@ -166,8 +160,5 @@ namespace Taobao.Top.Api.Domain
         [XmlArray("videos")]
         [XmlArrayItem("video")]
         public List<Video> Videos { get; set; }
-
-        [XmlElement("volume")]
-        public long Volume { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Taobao.Top.Api.Domain
         public string ApproveStatus { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("delist_time")]
         public string DelistTime { get; set; }
@@ -47,7 +47,7 @@ namespace Taobao.Top.Api.Domain
         public string Memo { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("nick")]
         public string Nick { get; set; }

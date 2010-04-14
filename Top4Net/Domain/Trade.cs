@@ -53,7 +53,7 @@ namespace Taobao.Top.Api.Domain
         public string ConsignTime { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("discount_fee")]
         public string DiscountFee { get; set; }
@@ -71,7 +71,7 @@ namespace Taobao.Top.Api.Domain
         public bool Is3D { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("num")]
         public int Num { get; set; }

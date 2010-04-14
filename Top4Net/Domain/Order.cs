@@ -31,7 +31,7 @@ namespace Taobao.Top.Api.Domain
         public string ItemMemo { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("num")]
         public int Num { get; set; }

@@ -17,7 +17,7 @@ namespace Taobao.Top.Api.Domain
         public string EndDate { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("start_date")]
         public string StartDate { get; set; }

@@ -22,7 +22,7 @@ namespace Taobao.Top.Api.Domain
         public string CompanyName { get; set; }
 
         [XmlElement("created")]
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
 
         [XmlElement("desc")]
         public string Desc { get; set; }
@@ -40,7 +40,7 @@ namespace Taobao.Top.Api.Domain
         public string Iid { get; set; }
 
         [XmlElement("modified")]
-        public DateTime Modified { get; set; }
+        public string Modified { get; set; }
 
         [XmlElement("num")]
         public int Num { get; set; }
