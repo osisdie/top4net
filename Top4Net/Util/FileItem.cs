@@ -67,7 +67,7 @@ namespace Taobao.Top.Api.Util
         {
             if (this.mimeType == null)
             {
-                this.mimeType = SysUtils.GetMimeType(GetContent());
+                this.mimeType = TopUtils.GetMimeType(GetContent());
             }
             return this.mimeType;
         }

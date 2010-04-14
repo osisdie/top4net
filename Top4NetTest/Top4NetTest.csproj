@@ -40,32 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser\ItemParserTest.cs" />
-    <Compile Include="Parser\LogisticsParserTest.cs" />
-    <Compile Include="Parser\ShopParserTest.cs" />
-    <Compile Include="Parser\TaobaokeParserTest.cs" />
-    <Compile Include="Parser\TradeParserTest.cs" />
-    <Compile Include="Request\ItemApiTest.cs" />
-    <Compile Include="Request\LogisticsApiTest.cs" />
-    <Compile Include="Request\MiscApiTest.cs" />
-    <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Request\TradeApiTest.cs" />
+    <Compile Include="Request\UserApiTest.cs" />
     <Compile Include="Util\FileItemTest.cs" />
     <Compile Include="Util\SysUtilsTest.cs" />
-    <Compile Include="Request\ProductApiTest.cs" />
-    <Compile Include="Parser\ProductParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Request\TaobaokeApiTest.cs" />
     <Compile Include="Util\TestUtils.cs" />
     <Compile Include="Request\TopRequestProxy.cs" />
-    <Compile Include="Request\UserApiTest.cs" />
-    <Compile Include="Parser\UserParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Top4Net\Top4Net.csproj">
@@ -74,71 +58,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\areas.json" />
-    <None Include="Resources\confirm.fees.json" />
-    <None Include="Resources\shipping.addresses.json" />
-    <None Include="Resources\item.cats.json" />
-    <None Include="Resources\item.imgs.json" />
-    <None Include="Resources\item.props.json" />
-    <None Include="Resources\item.searchs.json" />
-    <Content Include="Resources\confirm.fees.xml" />
-    <Content Include="Resources\shipping.addresses.xml" />
-    <Content Include="Resources\item.imgs.xml" />
-    <Content Include="Resources\item.jpg" />
-    <Content Include="Resources\item.searchs.xml" />
-    <None Include="Resources\items.json" />
-    <None Include="Resources\logistics.companies.json" />
-    <None Include="Resources\logistics.orders.json" />
-    <None Include="Resources\orders.json" />
-    <None Include="Resources\postages.json" />
-    <None Include="Resources\product.prop.imgs.json" />
-    <None Include="Resources\products.json" />
-    <None Include="Resources\product.image.json" />
-    <Content Include="Resources\item.cats.xml" />
-    <Content Include="Resources\item.props.xml" />
-    <Content Include="Resources\items.xml" />
-    <Content Include="Resources\logistics.companies.xml" />
-    <Content Include="Resources\logistics.orders.xml" />
-    <Content Include="Resources\orders.xml" />
-    <Content Include="Resources\postages.xml" />
-    <Content Include="Resources\product.image.xml" />
-    <Content Include="Resources\product.jpg" />
-    <Content Include="Resources\product.prop.imgs.xml" />
-    <Content Include="Resources\products.xml" />
-    <Content Include="Resources\prop.imgs.xml" />
-    <Content Include="Resources\prop.jpg" />
-    <Content Include="Resources\prop.values.xml" />
-    <Content Include="Resources\areas.xml" />
-    <Content Include="Resources\refund.jpg" />
-    <Content Include="Resources\refund.messages.xml" />
-    <Content Include="Resources\refunds.xml" />
-    <Content Include="Resources\seller.cats.xml" />
-    <Content Include="Resources\shop.cats.xml" />
-    <Content Include="Resources\shops.xml" />
-    <Content Include="Resources\skus.xml" />
-    <Content Include="Resources\taobaoke.items.xml" />
-    <Content Include="Resources\taobaoke.listurl.xml" />
-    <Content Include="Resources\taobaoke.reports.xml" />
-    <Content Include="Resources\taobaoke.shops.xml" />
-    <Content Include="Resources\trade.rates.xml" />
-    <Content Include="Resources\trades.xml" />
-    <Content Include="Resources\user.xml" />
-    <Content Include="Resources\users.xml" />
-    <None Include="Resources\prop.imgs.json" />
-    <None Include="Resources\prop.values.json" />
-    <None Include="Resources\refund.messages.json" />
-    <None Include="Resources\refunds.json" />
-    <None Include="Resources\seller.cats.json" />
-    <None Include="Resources\shop.cats.json" />
-    <None Include="Resources\shops.json" />
-    <None Include="Resources\skus.json" />
-    <None Include="Resources\taobaoke.items.json" />
-    <None Include="Resources\taobaoke.listurl.json" />
-    <None Include="Resources\taobaoke.reports.json" />
-    <None Include="Resources\taobaoke.shops.json" />
-    <None Include="Resources\trade.rates.json" />
-    <None Include="Resources\trades.json" />
-    <None Include="Resources\users.json" />
+    <Folder Include="Parser\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

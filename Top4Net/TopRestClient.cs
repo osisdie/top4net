@@ -1,17 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Xml;
-using System.Text;
 using System.Collections;
 using System.Collections.Generic;
-
-using Taobao.Top.Api.Util;
-using Taobao.Top.Api.Request;
+using System.Xml;
 using Taobao.Top.Api.Parser;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Taobao.Top.Api.Request;
+using Taobao.Top.Api.Util;
 
 namespace Taobao.Top.Api
 {
@@ -35,14 +28,13 @@ namespace Taobao.Top.Api
         public const string SIGN = "sign";
         public const string PARTNER_ID = "partner_id";
         public const string SESSION = "session";
-        public const string FORMAT_JSON = "json";
         public const string FORMAT_XML = "xml";
 
         private string serverUrl;
         private string appKey;
         private string appSecret;
-        private long partnerId = 300L;
-        private string format = FORMAT_JSON;
+        private long partnerId = 110L;
+        private string format = FORMAT_XML;
 
         #region TopRestClient Constructors
 
@@ -77,25 +69,15 @@ namespace Taobao.Top.Api
 
         public T Execute<T>(ITopRequest request, ITopParser<T> parser)
         {
-            return Execute<T>(request, parser.Parse, null);
+            return Execute<T>(request, parser, null);
         }
 
         public T Execute<T>(ITopRequest request, ITopParser<T> parser, string session)
         {
-            return Execute<T>(request, parser.Parse, session);
-        }
-
-        public T Execute<T>(ITopRequest request, DTopParser<T> parser)
-        {
-            return Execute<T>(request, parser, null);
-        }
-
-        public T Execute<T>(ITopRequest request, DTopParser<T> parser, string session)
-        {
             // 添加协议级请求参数
             TopDictionary txtParams = new TopDictionary(request.GetParameters());
             txtParams.Add(METHOD, request.GetApiName());
-            txtParams.Add(VERSION, "1.0");
+            txtParams.Add(VERSION, "2.0");
             txtParams.Add(APP_KEY, appKey);
             txtParams.Add(FORMAT, format);
             txtParams.Add(PARTNER_ID, partnerId.ToString());
@@ -103,14 +85,14 @@ namespace Taobao.Top.Api
             txtParams.Add(SESSION, session);
 
             // 添加签名参数
-            txtParams.Add(SIGN, SysUtils.SignTopRequest(txtParams, appSecret));
+            txtParams.Add(SIGN, TopUtils.SignTopRequest(txtParams, appSecret));
 
             // 是否需要上传文件
             string response;
             if (request is ITopUploadRequest)
             {
                 ITopUploadRequest uploadRequest = (ITopUploadRequest)request;
-                IDictionary<string, FileItem> fileParams = SysUtils.CleanupDictionary(uploadRequest.GetFileParameters());
+                IDictionary<string, FileItem> fileParams = TopUtils.CleanupDictionary(uploadRequest.GetFileParameters());
                 response = WebUtils.DoPost(this.serverUrl, txtParams, fileParams);
             }
             else
@@ -119,7 +101,7 @@ namespace Taobao.Top.Api
             }
 
             TryParseException(response);
-            return parser(response);
+            return parser.Parse(response);
         }
 
         #endregion
@@ -130,44 +112,26 @@ namespace Taobao.Top.Api
         /// <param name="response">API响应</param>
         private void TryParseException(string response)
         {
-            if (FORMAT_JSON.Equals(format))
-            {
-                // 为了避免二次解释JSON，采用StartsWith判断
-                if (response.StartsWith("{\"error_rsp\":"))
-                {
-                    JObject json = JObject.Parse(response);
-                    JToken token;
-                    if (json.TryGetValue("error_rsp", out token))
-                    {
-                        if (token == null)
-                        {
-                            throw new TopException("Unknown exception!");
-                        }
-                        else
-                        {
-                            throw new TopException((int)token["code"], (string)token["msg"]);
-                        }
-                    }
-                }
-            }
-            else if (FORMAT_XML.Equals(format))
+            if (FORMAT_XML.Equals(format))
             {
                 // 为了避免二次解释XML，采用XPath访问节点
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(response);
-                XmlNode errRsp = xmlDoc.SelectSingleNode("/error_rsp");
+                XmlNode errRsp = xmlDoc.SelectSingleNode("/error_response");
                 if (errRsp != null)
                 {
-                    XmlNode errCodeNode = xmlDoc.SelectSingleNode("/error_rsp/code");
-                    XmlNode errMsgNode = xmlDoc.SelectSingleNode("/error_rsp/msg");
+                    XmlNode errCodeNode = errRsp.SelectSingleNode("/code");
+                    XmlNode errMsgNode = errRsp.SelectSingleNode("/msg");
+                    XmlNode subErrCodeNode = errRsp.SelectSingleNode("/sub_code");
+                    XmlNode subErrMsgNode = errRsp.SelectSingleNode("/sub_msg");
 
-                    if (errCodeNode == null || errMsgNode == null)
+                    if (subErrCodeNode == null && subErrMsgNode == null)
                     {
-                        throw new TopException("Unknown exception!");
+                        throw new TopException(int.Parse(errCodeNode.InnerText), errMsgNode.InnerText);
                     }
                     else
                     {
-                        throw new TopException(int.Parse(errCodeNode.InnerText), errMsgNode.InnerText);
+                        throw new TopException(int.Parse(subErrCodeNode.InnerText), subErrMsgNode.InnerText);
                     }
                 }
             }

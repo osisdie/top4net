@@ -16,24 +16,24 @@ namespace Taobao.Top.Api.Test
         private const string TOP_AUTHORIZE_URL = "http://open.taobao.com/isv/authorize.php";
         private const string TOP_CONTAINER_URL = "http://container.sandbox.taobao.com/container";
 
-        public static ITopClient GetDevelopTopClient(string format)
+        public static TopXmlRestClient GetDevelopTopClient()
         {
-            return new TopRestClient("http://192.168.208.110:8080/top/private/services/rest", "sns", "sns", format);
+            return new TopXmlRestClient("http://192.168.206.110:8080/top/private/services/rest", "sns", "sns");
         }
 
-        public static ITopClient GetTestingTopClient(string format)
+        public static TopXmlRestClient GetTestingTopClient()
         {
-            return new TopRestClient("http://192.168.208.110:8080/top/private/services/rest", "test", "test", format);
+            return new TopXmlRestClient("http://api.daily.taobao.net/top/private/services/rest", "test", "test");
         }
 
-        public static ITopClient GetSandboxTopClient(string format)
+        public static TopXmlRestClient GetSandboxTopClient()
         {
-            return new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "sns", "sns", format);
+            return new TopXmlRestClient("http://gw.sandbox.taobao.com/router/rest", "sns", "sns");
         }
 
-        public static ITopClient GetProductTopClient(string format)
+        public static TopXmlRestClient GetProductTopClient()
         {
-            return new TopRestClient("http://gw.api.taobao.com/router/rest", "12001666", "e121148ca8d31bc28a4743241b74c2bd", format);
+            return new TopXmlRestClient("http://gw.api.taobao.com/router/rest", "12005076", "64292c42ca49632200289324fba42572");
         }
 
         public static string GetResourceAsText(string fileName)
