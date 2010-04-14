@@ -137,7 +137,7 @@ namespace Taobao.Top.Api
             }
             else
             {
-                // 暂时只支持JSON和XML两种返回格式
+                // 暂时只支持XML返回格式
                 throw new TopException("Unsupported response format!");
             }
         }

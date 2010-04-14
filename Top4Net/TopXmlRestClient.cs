@@ -17,7 +17,7 @@ namespace Taobao.Top.Api
     /// UserGetRequest request = new UserGetRequest();
     /// request.Fields = "user_id,nick,sex,created,location";
     /// request.Nick = "tbtest520";
-    /// User user = client.GetUser(request);
+    /// User user = client.UserGet(request);
     /// </code></example>
     public class TopXmlRestClient
     {
