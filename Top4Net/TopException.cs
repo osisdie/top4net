@@ -8,7 +8,7 @@ namespace Taobao.Top.Api
     /// </summary>
     public class TopException : Exception
     {
-        private int errorCode;
+        private string errorCode;
         private string errorMsg;
 
         public TopException()
@@ -31,14 +31,14 @@ namespace Taobao.Top.Api
         {
         }
 
-        public TopException(int errorCode, string errorMsg)
+        public TopException(string errorCode, string errorMsg)
             : base(errorCode + ":" + errorMsg)
         {
             this.errorCode = errorCode;
             this.errorMsg = errorMsg;
         }
 
-        public int ErrorCode
+        public string ErrorCode
         {
             get { return this.errorCode; }
         }

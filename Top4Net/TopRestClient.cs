@@ -120,18 +120,18 @@ namespace Taobao.Top.Api
                 XmlNode errRsp = xmlDoc.SelectSingleNode("/error_response");
                 if (errRsp != null)
                 {
-                    XmlNode errCodeNode = errRsp.SelectSingleNode("/code");
-                    XmlNode errMsgNode = errRsp.SelectSingleNode("/msg");
-                    XmlNode subErrCodeNode = errRsp.SelectSingleNode("/sub_code");
-                    XmlNode subErrMsgNode = errRsp.SelectSingleNode("/sub_msg");
+                    XmlNode errCodeNode = errRsp.SelectSingleNode("code");
+                    XmlNode errMsgNode = errRsp.SelectSingleNode("msg");
+                    XmlNode subErrCodeNode = errRsp.SelectSingleNode("sub_code");
+                    XmlNode subErrMsgNode = errRsp.SelectSingleNode("sub_msg");
 
                     if (subErrCodeNode == null && subErrMsgNode == null)
                     {
-                        throw new TopException(int.Parse(errCodeNode.InnerText), errMsgNode.InnerText);
+                        throw new TopException(errCodeNode.InnerText, errMsgNode.InnerText);
                     }
                     else
                     {
-                        throw new TopException(int.Parse(subErrCodeNode.InnerText), subErrMsgNode.InnerText);
+                        throw new TopException(subErrCodeNode.InnerText, subErrMsgNode.InnerText);
                     }
                 }
             }
