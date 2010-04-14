@@ -1,0 +1,30 @@
+using System;
+using System.Xml.Serialization;
+
+namespace Taobao.Top.Api.Domain
+{
+    /// <summary>
+    /// ProductImg Data Structure.
+    /// </summary>
+    [Serializable]
+    public class ProductImg : BaseObject
+    {
+        [XmlElement("created")]
+        public DateTime Created { get; set; }
+
+        [XmlElement("id")]
+        public long Id { get; set; }
+
+        [XmlElement("modified")]
+        public DateTime Modified { get; set; }
+
+        [XmlElement("position")]
+        public int Position { get; set; }
+
+        [XmlElement("product_id")]
+        public long ProductId { get; set; }
+
+        [XmlElement("url")]
+        public string Url { get; set; }
+    }
+}

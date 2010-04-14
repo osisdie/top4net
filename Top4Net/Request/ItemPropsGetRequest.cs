@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+namespace Taobao.Top.Api.Request
+{
+    /// <summary>
+    /// TOP API: taobao.itemprops.get
+    /// </summary>
+    public class ItempropsGetRequest : ITopRequest
+    {
+        public string ChildPath { get; set; }
+        public Nullable<long> Cid { get; set; }
+        public string Datetime { get; set; }
+        public string Fields { get; set; }
+        public string IsColorProp { get; set; }
+        public string IsEnumProp { get; set; }
+        public string IsInputProp { get; set; }
+        public string IsItemProp { get; set; }
+        public string IsKeyProp { get; set; }
+        public string IsSaleProp { get; set; }
+        public Nullable<long> ParentPid { get; set; }
+        public Nullable<long> Pid { get; set; }
+
+        #region ITopRequest Members
+
+        public string GetApiName()
+        {
+            return "taobao.itemprops.get";
+        }
+
+        public IDictionary<string, string> GetParameters()
+        {
+            TopDictionary parameters = new TopDictionary();
+            parameters.Add("child_path", this.ChildPath);
+            parameters.Add("cid", this.Cid);
+            parameters.Add("datetime", this.Datetime);
+            parameters.Add("fields", this.Fields);
+            parameters.Add("is_color_prop", this.IsColorProp);
+            parameters.Add("is_enum_prop", this.IsEnumProp);
+            parameters.Add("is_input_prop", this.IsInputProp);
+            parameters.Add("is_item_prop", this.IsItemProp);
+            parameters.Add("is_key_prop", this.IsKeyProp);
+            parameters.Add("is_sale_prop", this.IsSaleProp);
+            parameters.Add("parent_pid", this.ParentPid);
+            parameters.Add("pid", this.Pid);
+            return parameters;
+        }
+
+        #endregion
+    }
+}
