@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class ProductsSearchRequest : ITopRequest
     {
-        public string Cid { get; set; }
+        public Nullable<long> Cid { get; set; }
         public string Fields { get; set; }
         public Nullable<int> PageNo { get; set; }
         public Nullable<int> PageSize { get; set; }

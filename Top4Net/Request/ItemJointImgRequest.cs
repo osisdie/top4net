@@ -13,9 +13,7 @@ namespace Taobao.Top.Api.Request
         public Nullable<bool> IsMajor { get; set; }
         public Nullable<long> NumIid { get; set; }
         public string PicPath { get; set; }
-        public Nullable<long> Position { get; set; }
-        public string Url { get; set; }
-        public string V { get; set; }
+        public Nullable<int> Position { get; set; }
 
         #region ITopRequest Members
 
@@ -33,8 +31,6 @@ namespace Taobao.Top.Api.Request
             parameters.Add("num_iid", this.NumIid);
             parameters.Add("pic_path", this.PicPath);
             parameters.Add("position", this.Position);
-            parameters.Add("url", this.Url);
-            parameters.Add("v", this.V);
             return parameters;
         }
 

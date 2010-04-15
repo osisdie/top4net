@@ -8,8 +8,8 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class TradeConfirmfeeGetRequest : ITopRequest
     {
-        public string IsDetail { get; set; }
-        public string Tid { get; set; }
+        public Nullable<bool> IsDetail { get; set; }
+        public Nullable<long> Tid { get; set; }
 
         #region ITopRequest Members
 

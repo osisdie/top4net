@@ -8,8 +8,8 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class ItempropvaluesGetRequest : ITopRequest
     {
-        public string Cid { get; set; }
-        public string Datetime { get; set; }
+        public Nullable<long> Cid { get; set; }
+        public Nullable<DateTime> Datetime { get; set; }
         public string Fields { get; set; }
         public string Pvs { get; set; }
 

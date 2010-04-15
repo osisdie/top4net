@@ -14,9 +14,9 @@ namespace Taobao.Top.Api.Request
         public Nullable<long> Id { get; set; }
         public string Iid { get; set; }
         public FileItem Image { get; set; }
-        public string IsMajor { get; set; }
+        public Nullable<bool> IsMajor { get; set; }
         public Nullable<long> NumIid { get; set; }
-        public Nullable<long> Position { get; set; }
+        public Nullable<int> Position { get; set; }
 
         #region ITopRequest Members
 

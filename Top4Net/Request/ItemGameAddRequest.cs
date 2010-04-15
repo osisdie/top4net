@@ -13,28 +13,28 @@ namespace Taobao.Top.Api.Request
     {
         public string ApproveStatus { get; set; }
         public Nullable<long> AuctionPoint { get; set; }
-        public string AutoRepost { get; set; }
+        public Nullable<bool> AutoRepost { get; set; }
         public Nullable<long> Cid { get; set; }
         public string Desc { get; set; }
         public string EmsFee { get; set; }
         public string ExpressFee { get; set; }
         public string FreightPayer { get; set; }
-        public string GameType { get; set; }
-        public string HasDiscount { get; set; }
-        public string HasInvoice { get; set; }
-        public string HasShowcase { get; set; }
-        public string HasWarranty { get; set; }
+        public Nullable<int> GameType { get; set; }
+        public Nullable<bool> HasDiscount { get; set; }
+        public Nullable<bool> HasInvoice { get; set; }
+        public Nullable<bool> HasShowcase { get; set; }
+        public Nullable<bool> HasWarranty { get; set; }
         public string Increment { get; set; }
         public string InputPids { get; set; }
         public string InputStr { get; set; }
-        public string Is3D { get; set; }
-        public string IsEx { get; set; }
-        public string IsTaobao { get; set; }
+        public Nullable<bool> Is3D { get; set; }
+        public Nullable<bool> IsEx { get; set; }
+        public Nullable<bool> IsTaobao { get; set; }
         public string Lang { get; set; }
-        public string ListTime { get; set; }
+        public Nullable<DateTime> ListTime { get; set; }
         public string LocationCity { get; set; }
         public string LocationState { get; set; }
-        public Nullable<long> Num { get; set; }
+        public Nullable<int> Num { get; set; }
         public string OuterId { get; set; }
         public string PicPath { get; set; }
         public string PostFee { get; set; }
@@ -51,7 +51,7 @@ namespace Taobao.Top.Api.Request
         public string StuffStatus { get; set; }
         public string Title { get; set; }
         public string Type { get; set; }
-        public Nullable<long> ValidThru { get; set; }
+        public Nullable<int> ValidThru { get; set; }
         public string VerticalIds { get; set; }
         public FileItem VerticalImage { get; set; }
         public Nullable<long> VerticalImageId { get; set; }

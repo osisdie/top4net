@@ -11,8 +11,6 @@ namespace Taobao.Top.Api.Request
         public Nullable<long> Id { get; set; }
         public string Iid { get; set; }
         public Nullable<long> NumIid { get; set; }
-        public Nullable<long> PropimgId { get; set; }
-        public string V { get; set; }
 
         #region ITopRequest Members
 
@@ -27,8 +25,6 @@ namespace Taobao.Top.Api.Request
             parameters.Add("id", this.Id);
             parameters.Add("iid", this.Iid);
             parameters.Add("num_iid", this.NumIid);
-            parameters.Add("propimg_id", this.PropimgId);
-            parameters.Add("v", this.V);
             return parameters;
         }
 

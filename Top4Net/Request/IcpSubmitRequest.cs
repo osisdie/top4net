@@ -10,25 +10,25 @@ namespace Taobao.Top.Api.Request
     {
         public string CompanyAddress { get; set; }
         public string CompanyCertNo { get; set; }
-        public Nullable<long> CompanyCertType { get; set; }
-        public Nullable<long> CompanyCity { get; set; }
-        public Nullable<long> CompanyDistrict { get; set; }
-        public Nullable<long> CompanyKind { get; set; }
+        public Nullable<int> CompanyCertType { get; set; }
+        public Nullable<int> CompanyCity { get; set; }
+        public Nullable<int> CompanyDistrict { get; set; }
+        public Nullable<int> CompanyKind { get; set; }
         public string CompanyMasterCertNo { get; set; }
-        public Nullable<long> CompanyMasterCertType { get; set; }
+        public Nullable<int> CompanyMasterCertType { get; set; }
         public string CompanyMasterEmail { get; set; }
         public string CompanyMasterMobile { get; set; }
         public string CompanyMasterName { get; set; }
         public string CompanyMasterPhone { get; set; }
         public string CompanyMasterUnicom { get; set; }
         public string CompanyName { get; set; }
-        public Nullable<long> CompanyState { get; set; }
+        public Nullable<int> CompanyState { get; set; }
         public string CompanySuperior { get; set; }
         public string SiteDomain { get; set; }
         public string SiteHomePage { get; set; }
         public string SiteIp { get; set; }
         public string SiteMasterCertNo { get; set; }
-        public Nullable<long> SiteMasterCertType { get; set; }
+        public Nullable<int> SiteMasterCertType { get; set; }
         public string SiteMasterEmail { get; set; }
         public string SiteMasterMobile { get; set; }
         public string SiteMasterName { get; set; }

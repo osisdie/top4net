@@ -11,7 +11,7 @@ namespace Taobao.Top.Api.Request
         public string Cid { get; set; }
         public string Name { get; set; }
         public string PictUrl { get; set; }
-        public string SortOrder { get; set; }
+        public Nullable<int> SortOrder { get; set; }
 
         #region ITopRequest Members
 

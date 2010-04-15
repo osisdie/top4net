@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Request
     public class ItemcatsGetRequest : ITopRequest
     {
         public string Cids { get; set; }
-        public string Datetime { get; set; }
+        public Nullable<DateTime> Datetime { get; set; }
         public string Fields { get; set; }
         public Nullable<long> ParentCid { get; set; }
 

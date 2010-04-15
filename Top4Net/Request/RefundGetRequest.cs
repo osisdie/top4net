@@ -10,7 +10,6 @@ namespace Taobao.Top.Api.Request
     {
         public string Fields { get; set; }
         public Nullable<long> RefundId { get; set; }
-        public string V { get; set; }
 
         #region ITopRequest Members
 
@@ -24,7 +23,6 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
             parameters.Add("fields", this.Fields);
             parameters.Add("refund_id", this.RefundId);
-            parameters.Add("v", this.V);
             return parameters;
         }
 

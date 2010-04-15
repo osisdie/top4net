@@ -11,12 +11,10 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class ProductPropimgUploadRequest : ITopUploadRequest
     {
-        public string Id { get; set; }
+        public Nullable<long> Id { get; set; }
         public FileItem Image { get; set; }
-        public string IsMajor { get; set; }
-        public Nullable<long> PicId { get; set; }
-        public string Position { get; set; }
-        public string ProductId { get; set; }
+        public Nullable<int> Position { get; set; }
+        public Nullable<long> ProductId { get; set; }
         public string Props { get; set; }
 
         #region ITopRequest Members
@@ -30,8 +28,6 @@ namespace Taobao.Top.Api.Request
         {
             TopDictionary parameters = new TopDictionary();
             parameters.Add("id", this.Id);
-            parameters.Add("is_major", this.IsMajor);
-            parameters.Add("pic_id", this.PicId);
             parameters.Add("position", this.Position);
             parameters.Add("product_id", this.ProductId);
             parameters.Add("props", this.Props);

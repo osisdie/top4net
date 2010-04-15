@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class NotifyAppSubscribeRequest : ITopRequest
     {
-        public Nullable<long> Duration { get; set; }
+        public Nullable<int> Duration { get; set; }
         public string Status { get; set; }
         public string Topics { get; set; }
 

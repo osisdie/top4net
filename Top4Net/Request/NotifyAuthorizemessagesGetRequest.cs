@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class NotifyAuthorizemessagesGetRequest : ITopRequest
     {
-        public Nullable<long> ExpiredDay { get; set; }
+        public Nullable<int> ExpiredDay { get; set; }
         public string Fields { get; set; }
         public string Nicks { get; set; }
         public Nullable<int> PageNo { get; set; }

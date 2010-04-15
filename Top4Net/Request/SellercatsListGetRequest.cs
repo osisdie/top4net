@@ -8,6 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class SellercatsListGetRequest : ITopRequest
     {
+        public string Fields { get; set; }
         public string Nick { get; set; }
 
         #region ITopRequest Members
@@ -20,6 +21,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
+            parameters.Add("fields", this.Fields);
             parameters.Add("nick", this.Nick);
             return parameters;
         }

@@ -37,7 +37,7 @@ namespace Taobao.Top.Api.Request
         public Nullable<DateTime> ListTime { get; set; }
         public string LocationCity { get; set; }
         public string LocationState { get; set; }
-        public Nullable<long> Num { get; set; }
+        public Nullable<int> Num { get; set; }
         public Nullable<long> NumIid { get; set; }
         public string OuterId { get; set; }
         public string PicPath { get; set; }
@@ -55,7 +55,7 @@ namespace Taobao.Top.Api.Request
         public string SkuQuantities { get; set; }
         public string StuffStatus { get; set; }
         public string Title { get; set; }
-        public Nullable<long> ValidThru { get; set; }
+        public Nullable<int> ValidThru { get; set; }
 
         #region ITopRequest Members
 

@@ -9,9 +9,7 @@ namespace Taobao.Top.Api.Request
     public class ProductImgDeleteRequest : ITopRequest
     {
         public Nullable<long> Id { get; set; }
-        public Nullable<long> PicId { get; set; }
-        public string ProductId { get; set; }
-        public string V { get; set; }
+        public Nullable<long> ProductId { get; set; }
 
         #region ITopRequest Members
 
@@ -24,9 +22,7 @@ namespace Taobao.Top.Api.Request
         {
             TopDictionary parameters = new TopDictionary();
             parameters.Add("id", this.Id);
-            parameters.Add("pic_id", this.PicId);
             parameters.Add("product_id", this.ProductId);
-            parameters.Add("v", this.V);
             return parameters;
         }
 

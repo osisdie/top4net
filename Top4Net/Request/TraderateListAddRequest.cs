@@ -8,12 +8,11 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class TraderateListAddRequest : ITopRequest
     {
-        public string Anony { get; set; }
+        public Nullable<bool> Anony { get; set; }
         public string Content { get; set; }
-        public string Oid { get; set; }
         public string Result { get; set; }
         public string Role { get; set; }
-        public string Tid { get; set; }
+        public Nullable<long> Tid { get; set; }
 
         #region ITopRequest Members
 
@@ -27,7 +26,6 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
             parameters.Add("anony", this.Anony);
             parameters.Add("content", this.Content);
-            parameters.Add("oid", this.Oid);
             parameters.Add("result", this.Result);
             parameters.Add("role", this.Role);
             parameters.Add("tid", this.Tid);

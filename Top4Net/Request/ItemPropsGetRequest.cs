@@ -10,14 +10,14 @@ namespace Taobao.Top.Api.Request
     {
         public string ChildPath { get; set; }
         public Nullable<long> Cid { get; set; }
-        public string Datetime { get; set; }
+        public Nullable<DateTime> Datetime { get; set; }
         public string Fields { get; set; }
-        public string IsColorProp { get; set; }
-        public string IsEnumProp { get; set; }
-        public string IsInputProp { get; set; }
-        public string IsItemProp { get; set; }
-        public string IsKeyProp { get; set; }
-        public string IsSaleProp { get; set; }
+        public Nullable<bool> IsColorProp { get; set; }
+        public Nullable<bool> IsEnumProp { get; set; }
+        public Nullable<bool> IsInputProp { get; set; }
+        public Nullable<bool> IsItemProp { get; set; }
+        public Nullable<bool> IsKeyProp { get; set; }
+        public Nullable<bool> IsSaleProp { get; set; }
         public Nullable<long> ParentPid { get; set; }
         public Nullable<long> Pid { get; set; }
 

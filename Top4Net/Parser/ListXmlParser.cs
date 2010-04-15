@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Xml.Serialization;
 using Taobao.Top.Api.Domain;
 using Taobao.Top.Api.Util;
@@ -10,6 +11,7 @@ namespace Taobao.Top.Api.Parser
     /// </summary>
     public class ListXmlParser<T> : ITopParser<PageList<T>>
     {
+        private static IDictionary<string, XmlSerializer> PARSERS = new Dictionary<string, XmlSerializer>();
         private ParseData parseData;
 
         public ListXmlParser(ParseData parseData)
@@ -21,18 +23,28 @@ namespace Taobao.Top.Api.Parser
 
         public PageList<T> Parse(string body)
         {
-            XmlAttributes rootAttrs = new XmlAttributes();
-            rootAttrs.XmlRoot = new XmlRootAttribute(TopUtils.GetRootElement(parseData.Api));
+            string apiName = TopUtils.GetRootElement(parseData.Api);
+            XmlSerializer serializer;
+            if (PARSERS.ContainsKey(apiName))
+            {
+                serializer = PARSERS[apiName];
+            }
+            else
+            {
+                XmlAttributes rootAttrs = new XmlAttributes();
+                rootAttrs.XmlRoot = new XmlRootAttribute(TopUtils.GetRootElement(parseData.Api));
 
-            XmlAttributes listAttrs = new XmlAttributes();
-            listAttrs.XmlArray = new XmlArrayAttribute(parseData.ListName);
-            listAttrs.XmlArrayItems.Add(new XmlArrayItemAttribute(parseData.ItemName, typeof(T)));
+                XmlAttributes listAttrs = new XmlAttributes();
+                listAttrs.XmlArray = new XmlArrayAttribute(parseData.ListName);
+                listAttrs.XmlArrayItems.Add(new XmlArrayItemAttribute(parseData.ItemName, typeof(T)));
 
-            XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
-            attrOvrs.Add(typeof(PageList<T>), rootAttrs);
-            attrOvrs.Add(typeof(PageList<T>), "Content", listAttrs);
+                XmlAttributeOverrides attrOvrs = new XmlAttributeOverrides();
+                attrOvrs.Add(typeof(PageList<T>), rootAttrs);
+                attrOvrs.Add(typeof(PageList<T>), "Content", listAttrs);
 
-            XmlSerializer serializer = new XmlSerializer(typeof(PageList<T>), attrOvrs);
+                serializer = new XmlSerializer(typeof(PageList<T>), attrOvrs);
+                PARSERS.Add(apiName, serializer);
+            }
             object obj = serializer.Deserialize(new StringReader(body));
             return obj as PageList<T>;
         }

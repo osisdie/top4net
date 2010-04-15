@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class ItempropsVerticalGetRequest : ITopRequest
     {
-        public string Cid { get; set; }
+        public Nullable<long> Cid { get; set; }
         public string Fields { get; set; }
         public string Type { get; set; }
 

@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Request
     public class ItemUpdateListingRequest : ITopRequest
     {
         public string Iid { get; set; }
-        public Nullable<long> Num { get; set; }
+        public Nullable<int> Num { get; set; }
         public Nullable<long> NumIid { get; set; }
 
         #region ITopRequest Members

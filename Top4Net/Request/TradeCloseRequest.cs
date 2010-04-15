@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Request
     public class TradeCloseRequest : ITopRequest
     {
         public string CloseReason { get; set; }
-        public string Tid { get; set; }
+        public Nullable<long> Tid { get; set; }
 
         #region ITopRequest Members
 

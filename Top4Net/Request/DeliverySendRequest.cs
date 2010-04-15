@@ -9,6 +9,7 @@ namespace Taobao.Top.Api.Request
     public class DeliverySendRequest : ITopRequest
     {
         public string CompanyCode { get; set; }
+        public string Fields { get; set; }
         public string Memo { get; set; }
         public string OrderType { get; set; }
         public string OutSid { get; set; }
@@ -31,6 +32,7 @@ namespace Taobao.Top.Api.Request
         {
             TopDictionary parameters = new TopDictionary();
             parameters.Add("company_code", this.CompanyCode);
+            parameters.Add("fields", this.Fields);
             parameters.Add("memo", this.Memo);
             parameters.Add("order_type", this.OrderType);
             parameters.Add("out_sid", this.OutSid);

@@ -9,9 +9,9 @@ namespace Taobao.Top.Api.Request
     public class ItemsGetRequest : ITopRequest
     {
         public Nullable<long> Cid { get; set; }
-        public Nullable<long> EndPrice { get; set; }
-        public Nullable<long> EndScore { get; set; }
-        public Nullable<long> EndVolume { get; set; }
+        public Nullable<int> EndPrice { get; set; }
+        public Nullable<int> EndScore { get; set; }
+        public Nullable<int> EndVolume { get; set; }
         public string Fields { get; set; }
         public Nullable<bool> GenuineSecurity { get; set; }
         public Nullable<bool> Is3D { get; set; }
@@ -30,9 +30,9 @@ namespace Taobao.Top.Api.Request
         public string PromotedService { get; set; }
         public string Props { get; set; }
         public string Q { get; set; }
-        public Nullable<long> StartPrice { get; set; }
-        public Nullable<long> StartScore { get; set; }
-        public Nullable<long> StartVolume { get; set; }
+        public Nullable<int> StartPrice { get; set; }
+        public Nullable<int> StartScore { get; set; }
+        public Nullable<int> StartVolume { get; set; }
         public string StuffStatus { get; set; }
         public Nullable<bool> WwStatus { get; set; }
 

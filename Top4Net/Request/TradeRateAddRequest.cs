@@ -8,12 +8,12 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class TraderateAddRequest : ITopRequest
     {
-        public string Anony { get; set; }
+        public Nullable<bool> Anony { get; set; }
         public string Content { get; set; }
-        public string Oid { get; set; }
+        public Nullable<long> Oid { get; set; }
         public string Result { get; set; }
         public string Role { get; set; }
-        public string Tid { get; set; }
+        public Nullable<long> Tid { get; set; }
 
         #region ITopRequest Members
 

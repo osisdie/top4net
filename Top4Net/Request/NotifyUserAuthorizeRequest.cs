@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class NotifyUserAuthorizeRequest : ITopRequest
     {
-        public Nullable<long> Duration { get; set; }
+        public Nullable<int> Duration { get; set; }
         public string Email { get; set; }
 
         #region ITopRequest Members

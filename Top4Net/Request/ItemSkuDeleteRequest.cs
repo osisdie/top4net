@@ -9,7 +9,7 @@ namespace Taobao.Top.Api.Request
     public class ItemSkuDeleteRequest : ITopRequest
     {
         public string Iid { get; set; }
-        public Nullable<long> ItemNum { get; set; }
+        public Nullable<int> ItemNum { get; set; }
         public string ItemPrice { get; set; }
         public string Lang { get; set; }
         public Nullable<long> NumIid { get; set; }

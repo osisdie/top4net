@@ -18,7 +18,7 @@ namespace Taobao.Top.Api.Request
         public FileItem Image { get; set; }
         public Nullable<bool> Major { get; set; }
         public string Name { get; set; }
-        public string NativeUnKeyProps { get; set; }
+        public string NativeUnkeyprops { get; set; }
         public string OuterId { get; set; }
         public string Price { get; set; }
         public string Props { get; set; }
@@ -40,7 +40,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("desc", this.Desc);
             parameters.Add("major", this.Major);
             parameters.Add("name", this.Name);
-            parameters.Add("nativeUnKeyProps", this.NativeUnKeyProps);
+            parameters.Add("native_unkeyprops", this.NativeUnkeyprops);
             parameters.Add("outer_id", this.OuterId);
             parameters.Add("price", this.Price);
             parameters.Add("props", this.Props);
