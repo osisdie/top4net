@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Xml;
 using Taobao.Top.Api.Parser;
 using Taobao.Top.Api.Request;
@@ -100,6 +101,7 @@ namespace Taobao.Top.Api
                 response = WebUtils.DoPost(this.serverUrl, txtParams);
             }
 
+            response = Regex.Replace(response, @"[\x00-\x08\x0b-\x0c\x0e-\x1f]", "");
             TryParseException(response);
             return parser.Parse(response);
         }

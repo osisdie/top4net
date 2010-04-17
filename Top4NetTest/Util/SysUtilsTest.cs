@@ -42,7 +42,7 @@ namespace Taobao.Top.Api.Test
         [TestMethod]
         public void GetMimeTypeByBytes()
         {
-            FileInfo fileInfo = TestUtils.GetResourceAsFile("item.jpg");
+            FileInfo fileInfo = TestUtils.GetResourceAsFile("Test.png");
             byte[] bytes = null;
             using (Stream stream = fileInfo.OpenRead())
             {
@@ -50,7 +50,7 @@ namespace Taobao.Top.Api.Test
                 stream.Read(bytes, 0, bytes.Length);
             }
             string mimeType = TopUtils.GetMimeType(bytes);
-            Assert.AreEqual("image/jpeg", mimeType);
+            Assert.AreEqual("image/png", mimeType);
         }
 
         [TestMethod]

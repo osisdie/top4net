@@ -26,8 +26,8 @@ namespace Taobao.Top.Api.Test.Util
         [TestMethod]
         public void GetMimeType()
         {
-            FileItem fileItem = TestUtils.GetResourceAsFileItem("item.jpg");
-            Assert.AreEqual("image/jpeg", fileItem.GetMimeType());
+            FileItem fileItem = TestUtils.GetResourceAsFileItem("Test.png");
+            Assert.AreEqual("image/png", fileItem.GetMimeType());
         }
     }
 }
