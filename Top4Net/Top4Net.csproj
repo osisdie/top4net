@@ -64,6 +64,8 @@
     <Compile Include="Domain\NotifyRefund.cs" />
     <Compile Include="Domain\NotifyTrade.cs" />
     <Compile Include="Domain\Order.cs" />
+    <Compile Include="Domain\Picture.cs" />
+    <Compile Include="Domain\PictureCategory.cs" />
     <Compile Include="Domain\PicUrl.cs" />
     <Compile Include="Domain\Postage.cs" />
     <Compile Include="Domain\PostageMode.cs" />
@@ -169,6 +171,11 @@
     <Compile Include="Request\NotifySubscribemessageGetRequest.cs" />
     <Compile Include="Request\NotifyTradesGetRequest.cs" />
     <Compile Include="Request\NotifyUserAuthorizeRequest.cs" />
+    <Compile Include="Request\PictureCategoryAddRequest.cs" />
+    <Compile Include="Request\PictureCategoryGetRequest.cs" />
+    <Compile Include="Request\PictureDeleteRequest.cs" />
+    <Compile Include="Request\PictureGetRequest.cs" />
+    <Compile Include="Request\PictureUploadRequest.cs" />
     <Compile Include="Request\PostageAddRequest.cs" />
     <Compile Include="Request\PostageDeleteRequest.cs" />
     <Compile Include="Request\PostageGetRequest.cs" />

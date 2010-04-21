@@ -1,15 +1,19 @@
 using System;
 using System.Collections.Generic;
 
+using Taobao.Top.Api.Domain;
+using Taobao.Top.Api.Util;
+
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
     /// TOP API: taobao.product.update
     /// </summary>
-    public class ProductUpdateRequest : ITopRequest
+    public class ProductUpdateRequest : ITopUploadRequest
     {
         public string Binds { get; set; }
         public string Desc { get; set; }
+        public FileItem Image { get; set; }
         public Nullable<bool> Major { get; set; }
         public string Name { get; set; }
         public string NativeUnkeyprops { get; set; }
@@ -37,6 +41,17 @@ namespace Taobao.Top.Api.Request
             parameters.Add("price", this.Price);
             parameters.Add("product_id", this.ProductId);
             parameters.Add("sale_props", this.SaleProps);
+            return parameters;
+        }
+
+        #endregion
+
+        #region ITopUploadRequest Members
+
+        public IDictionary<string, FileItem> GetFileParameters()
+        {
+            IDictionary<string, FileItem> parameters = new Dictionary<string, FileItem>();
+            parameters.Add("image", this.Image);
             return parameters;
         }
 

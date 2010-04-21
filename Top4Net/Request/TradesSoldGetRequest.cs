@@ -17,7 +17,6 @@ namespace Taobao.Top.Api.Request
         public Nullable<DateTime> StartCreated { get; set; }
         public string Status { get; set; }
         public string Tag { get; set; }
-        public string Title { get; set; }
         public string Type { get; set; }
 
         #region ITopRequest Members
@@ -39,7 +38,6 @@ namespace Taobao.Top.Api.Request
             parameters.Add("start_created", this.StartCreated);
             parameters.Add("status", this.Status);
             parameters.Add("tag", this.Tag);
-            parameters.Add("title", this.Title);
             parameters.Add("type", this.Type);
             return parameters;
         }

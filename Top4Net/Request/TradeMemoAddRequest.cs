@@ -8,6 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class TradeMemoAddRequest : ITopRequest
     {
+        public Nullable<int> Flag { get; set; }
         public string Memo { get; set; }
         public Nullable<long> Tid { get; set; }
 
@@ -21,6 +22,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
+            parameters.Add("flag", this.Flag);
             parameters.Add("memo", this.Memo);
             parameters.Add("tid", this.Tid);
             return parameters;

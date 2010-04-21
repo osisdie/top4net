@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Request
     {
         public string Area { get; set; }
         public string AutoSend { get; set; }
-        public string Cid { get; set; }
+        public Nullable<int> Cid { get; set; }
         public string EndCommissionNum { get; set; }
         public string EndCommissionRate { get; set; }
         public string EndCredit { get; set; }

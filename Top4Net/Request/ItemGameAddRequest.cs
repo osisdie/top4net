@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Request
         public string EmsFee { get; set; }
         public string ExpressFee { get; set; }
         public string FreightPayer { get; set; }
-        public Nullable<int> GameType { get; set; }
+        public string GameType { get; set; }
         public Nullable<bool> HasDiscount { get; set; }
         public Nullable<bool> HasInvoice { get; set; }
         public Nullable<bool> HasShowcase { get; set; }

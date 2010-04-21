@@ -25,6 +25,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("buyer_email")]
         public string BuyerEmail { get; set; }
 
+        [XmlElement("buyer_flag")]
+        public int BuyerFlag { get; set; }
+
         [XmlElement("buyer_memo")]
         public string BuyerMemo { get; set; }
 
@@ -133,6 +136,9 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("seller_email")]
         public string SellerEmail { get; set; }
+
+        [XmlElement("seller_flag")]
+        public int SellerFlag { get; set; }
 
         [XmlElement("seller_memo")]
         public string SellerMemo { get; set; }

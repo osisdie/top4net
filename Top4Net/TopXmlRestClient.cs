@@ -353,6 +353,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.item.update
+        /// </summary>
+        public Item ItemUpdate(ItemUpdateRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Item>(new ParseData(request.GetApiName(), "item")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.item.update
+        /// </summary>
+        public Item ItemUpdate(ItemUpdateRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Item>(new ParseData(request.GetApiName(), "item")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.item.update.delisting
         /// </summary>
         public Item ItemUpdateDelisting(ItemUpdateDelistingRequest request) {
@@ -377,20 +391,6 @@ namespace Taobao.Top.Api
         /// TOP API: taobao.item.update.listing
         /// </summary>
         public Item ItemUpdateListing(ItemUpdateListingRequest request, string session) {
-            return client.Execute(request, new ObjectXmlParser<Item>(new ParseData(request.GetApiName(), "item")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.item.update
-        /// </summary>
-        public Item ItemUpdate(ItemUpdateRequest request) {
-            return client.Execute(request, new ObjectXmlParser<Item>(new ParseData(request.GetApiName(), "item")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.item.update
-        /// </summary>
-        public Item ItemUpdate(ItemUpdateRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<Item>(new ParseData(request.GetApiName(), "item")), session);
         }
 
@@ -871,6 +871,76 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.picture.category.add
+        /// </summary>
+        public void PictureCategoryAdd(PictureCategoryAddRequest request) {
+            client.Execute(request, new StringParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.category.add
+        /// </summary>
+        public void PictureCategoryAdd(PictureCategoryAddRequest request, string session) {
+            client.Execute(request, new StringParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.category.get
+        /// </summary>
+        public PageList<PictureCategory> PictureCategoryGet(PictureCategoryGetRequest request) {
+            return client.Execute(request, new ListXmlParser<PictureCategory>(new ParseData(request.GetApiName(), "picture_categories", "picture_category")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.category.get
+        /// </summary>
+        public PageList<PictureCategory> PictureCategoryGet(PictureCategoryGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<PictureCategory>(new ParseData(request.GetApiName(), "picture_categories", "picture_category")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.delete
+        /// </summary>
+        public void PictureDelete(PictureDeleteRequest request) {
+            client.Execute(request, new StringParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.delete
+        /// </summary>
+        public void PictureDelete(PictureDeleteRequest request, string session) {
+            client.Execute(request, new StringParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.get
+        /// </summary>
+        public PageList<Picture> PictureGet(PictureGetRequest request) {
+            return client.Execute(request, new ListXmlParser<Picture>(new ParseData(request.GetApiName(), "pictures", "picture")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.get
+        /// </summary>
+        public PageList<Picture> PictureGet(PictureGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<Picture>(new ParseData(request.GetApiName(), "pictures", "picture")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.upload
+        /// </summary>
+        public void PictureUpload(PictureUploadRequest request) {
+            client.Execute(request, new StringParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.picture.upload
+        /// </summary>
+        public void PictureUpload(PictureUploadRequest request, string session) {
+            client.Execute(request, new StringParser(), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.postage.add
         /// </summary>
         public Postage PostageAdd(PostageAddRequest request) {
@@ -1308,14 +1378,14 @@ namespace Taobao.Top.Api
         /// TOP API: taobao.taobaoke.items.detail.get
         /// </summary>
         public PageList<TaobaokeItemDetail> TaobaokeItemsDetailGet(TaobaokeItemsDetailGetRequest request) {
-            return client.Execute(request, new ListXmlParser<TaobaokeItemDetail>(new ParseData(request.GetApiName(), "taobaoke_items", "taobaoke_item_detail")));
+            return client.Execute(request, new ListXmlParser<TaobaokeItemDetail>(new ParseData(request.GetApiName(), "taobaoke_item_details", "taobaoke_item_detail")));
         }
 
         /// <summary>
         /// TOP API: taobao.taobaoke.items.detail.get
         /// </summary>
         public PageList<TaobaokeItemDetail> TaobaokeItemsDetailGet(TaobaokeItemsDetailGetRequest request, string session) {
-            return client.Execute(request, new ListXmlParser<TaobaokeItemDetail>(new ParseData(request.GetApiName(), "taobaoke_items", "taobaoke_item_detail")), session);
+            return client.Execute(request, new ListXmlParser<TaobaokeItemDetail>(new ParseData(request.GetApiName(), "taobaoke_item_details", "taobaoke_item_detail")), session);
         }
 
         /// <summary>

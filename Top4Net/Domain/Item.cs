@@ -138,6 +138,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("props")]
         public string Props { get; set; }
 
+        [XmlElement("props_name")]
+        public string PropsName { get; set; }
+
         [XmlElement("score")]
         public long Score { get; set; }
 

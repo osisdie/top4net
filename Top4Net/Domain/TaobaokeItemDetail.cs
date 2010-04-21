@@ -12,8 +12,8 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("click_url")]
         public string ClickUrl { get; set; }
 
-        [XmlElement("item_detail")]
-        public Item ItemDetail { get; set; }
+        [XmlElement("item")]
+        public Item Item { get; set; }
 
         [XmlElement("seller_credit_score")]
         public long SellerCreditScore { get; set; }

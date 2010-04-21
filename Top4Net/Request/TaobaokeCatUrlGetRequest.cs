@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class TaobaokeCaturlGetRequest : ITopRequest
     {
-        public string Cid { get; set; }
+        public Nullable<int> Cid { get; set; }
         public string Nick { get; set; }
         public string OuterCode { get; set; }
         public string Q { get; set; }

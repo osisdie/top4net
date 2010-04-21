@@ -7,30 +7,28 @@ using Taobao.Top.Api.Util;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.product.img.upload
+    /// TOP API: taobao.picture.upload
     /// </summary>
-    public class ProductImgUploadRequest : ITopUploadRequest
+    public class PictureUploadRequest : ITopUploadRequest
     {
-        public Nullable<long> Id { get; set; }
-        public FileItem Image { get; set; }
-        public Nullable<bool> IsMajor { get; set; }
-        public Nullable<int> Position { get; set; }
-        public Nullable<long> ProductId { get; set; }
+        public string ImageInputTitle { get; set; }
+        public FileItem Img { get; set; }
+        public Nullable<long> PictureCategoryId { get; set; }
+        public string Title { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.product.img.upload";
+            return "taobao.picture.upload";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
-            parameters.Add("id", this.Id);
-            parameters.Add("is_major", this.IsMajor);
-            parameters.Add("position", this.Position);
-            parameters.Add("product_id", this.ProductId);
+            parameters.Add("image_input_title", this.ImageInputTitle);
+            parameters.Add("picture_category_id", this.PictureCategoryId);
+            parameters.Add("title", this.Title);
             return parameters;
         }
 
@@ -41,7 +39,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, FileItem> GetFileParameters()
         {
             IDictionary<string, FileItem> parameters = new Dictionary<string, FileItem>();
-            parameters.Add("image", this.Image);
+            parameters.Add("img", this.Img);
             return parameters;
         }
 

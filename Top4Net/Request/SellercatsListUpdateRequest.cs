@@ -8,7 +8,7 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class SellercatsListUpdateRequest : ITopRequest
     {
-        public string Cid { get; set; }
+        public Nullable<int> Cid { get; set; }
         public string Name { get; set; }
         public string PictUrl { get; set; }
         public Nullable<int> SortOrder { get; set; }
