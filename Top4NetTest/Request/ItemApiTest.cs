@@ -18,5 +18,16 @@ namespace Taobao.Top.Api.Test.Request
             ItemSearch rsp = client.ItemsSearch(req);
             Console.WriteLine(rsp.Items[0].Iid);
         }
+
+        [TestMethod]
+        public void GetItemCats()
+        {
+            TopXmlRestClient client = TestUtils.GetProductTopClient();
+            DynamicTopRequest req = new DynamicTopRequest("taobao.itemcats.get");
+            req.AddTextParameter("parent_cid", "0");
+            req.AddTextParameter("fields", "cid,parent_cid,name,is_parent,status,sort_order");
+            string rsp = client.GetResponse(req);
+            Console.WriteLine(rsp);
+        }
     }
 }
