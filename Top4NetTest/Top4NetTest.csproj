@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Request\ItemApiTest.cs" />
+    <Compile Include="Request\ShopApiTest.cs" />
     <Compile Include="Request\TaobaokeApiTest.cs" />
     <Compile Include="Request\TradeApiTest.cs" />
     <Compile Include="Request\UserApiTest.cs" />
