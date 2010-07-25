@@ -1415,14 +1415,26 @@ namespace Taobao.Top.Api
         public TaobaokeItem TaobaokeListurlGet(TaobaokeListurlGetRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<TaobaokeItem>(new ParseData(request.GetApiName(), "taobaoke_item")), session);
         }
-
+        /// <summary>
+        /// TOP AIP: taobao.taobaoke.interval.report.get
+        /// add by icyker@gmail.com at 2010年6月19日18:24:22
+        /// </summary>
+        public TaobaokeReport TaobaokeIntervalReportGet( TaobaokeIntervalReportGetRequest request ) {
+            return client.Execute( request, new ObjectXmlParser<TaobaokeReport>( new ParseData( request.GetApiName(), "taobaoke_report" ) ) );
+        }
+        /// <summary>
+        /// TOP AIP: taobao.taobaoke.interval.report.get
+        /// add by icyker@gmail.com at 2010年6月19日18:24:22
+        /// </summary>
+        public TaobaokeReport TaobaokeIntervalReportGet( TaobaokeIntervalReportGetRequest request, string session ) {
+            return client.Execute( request, new ObjectXmlParser<TaobaokeReport>( new ParseData( request.GetApiName(), "taobaoke_report" ) ), session );
+        }
         /// <summary>
         /// TOP API: taobao.taobaoke.report.get
         /// </summary>
         public TaobaokeReport TaobaokeReportGet(TaobaokeReportGetRequest request) {
             return client.Execute(request, new ObjectXmlParser<TaobaokeReport>(new ParseData(request.GetApiName(), "taobaoke_report")));
         }
-
         /// <summary>
         /// TOP API: taobao.taobaoke.report.get
         /// </summary>
