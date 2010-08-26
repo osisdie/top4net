@@ -22,7 +22,7 @@ namespace Taobao.Top.Api.Request
         public string Memo { get; set; }
         public Nullable<long> NumIid { get; set; }
         public Nullable<long> Options { get; set; }
-        public string PicUrl { get; set; }
+        public string PicPath { get; set; }
         public string ReservePrice { get; set; }
         public string SellerCids { get; set; }
         public string SkuExtraIds { get; set; }
@@ -54,7 +54,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("memo", this.Memo);
             parameters.Add("num_iid", this.NumIid);
             parameters.Add("options", this.Options);
-            parameters.Add("pic_url", this.PicUrl);
+            parameters.Add("pic_path", this.PicPath);
             parameters.Add("reserve_price", this.ReservePrice);
             parameters.Add("seller_cids", this.SellerCids);
             parameters.Add("sku_extra_ids", this.SkuExtraIds);

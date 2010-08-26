@@ -66,6 +66,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("sale_props_str")]
         public string SalePropsStr { get; set; }
 
+        [XmlElement("status")]
+        public long Status { get; set; }
+
         [XmlElement("tsc")]
         public string Tsc { get; set; }
     }

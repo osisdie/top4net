@@ -87,31 +87,115 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.icp.id.submit
+        /// TOP API: taobao.increment.app.subscribe
         /// </summary>
-        public void IcpIdSubmit(IcpIdSubmitRequest request) {
-            client.Execute(request, new StringParser());
+        public SubscribeMessage IncrementAppSubscribe(IncrementAppSubscribeRequest request) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")));
         }
 
         /// <summary>
-        /// TOP API: taobao.icp.id.submit
+        /// TOP API: taobao.increment.app.subscribe
         /// </summary>
-        public void IcpIdSubmit(IcpIdSubmitRequest request, string session) {
-            client.Execute(request, new StringParser(), session);
+        public SubscribeMessage IncrementAppSubscribe(IncrementAppSubscribeRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")), session);
         }
 
         /// <summary>
-        /// TOP API: taobao.icp.submit
+        /// TOP API: taobao.increment.authorizemessages.get
         /// </summary>
-        public void IcpSubmit(IcpSubmitRequest request) {
-            client.Execute(request, new StringParser());
+        public PageList<AuthorizeMessage> IncrementAuthorizemessagesGet(IncrementAuthorizemessagesGetRequest request) {
+            return client.Execute(request, new ListXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_messages", "authorize_message")));
         }
 
         /// <summary>
-        /// TOP API: taobao.icp.submit
+        /// TOP API: taobao.increment.authorizemessages.get
         /// </summary>
-        public void IcpSubmit(IcpSubmitRequest request, string session) {
-            client.Execute(request, new StringParser(), session);
+        public PageList<AuthorizeMessage> IncrementAuthorizemessagesGet(IncrementAuthorizemessagesGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_messages", "authorize_message")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.items.get
+        /// </summary>
+        public PageList<NotifyItem> IncrementItemsGet(IncrementItemsGetRequest request) {
+            return client.Execute(request, new ListXmlParser<NotifyItem>(new ParseData(request.GetApiName(), "notify_items", "notify_item")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.items.get
+        /// </summary>
+        public PageList<NotifyItem> IncrementItemsGet(IncrementItemsGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<NotifyItem>(new ParseData(request.GetApiName(), "notify_items", "notify_item")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.refunds.get
+        /// </summary>
+        public PageList<NotifyRefund> IncrementRefundsGet(IncrementRefundsGetRequest request) {
+            return client.Execute(request, new ListXmlParser<NotifyRefund>(new ParseData(request.GetApiName(), "notify_refunds", "notify_refund")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.refunds.get
+        /// </summary>
+        public PageList<NotifyRefund> IncrementRefundsGet(IncrementRefundsGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<NotifyRefund>(new ParseData(request.GetApiName(), "notify_refunds", "notify_refund")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.subscribemessage.get
+        /// </summary>
+        public SubscribeMessage IncrementSubscribemessageGet(IncrementSubscribemessageGetRequest request) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.subscribemessage.get
+        /// </summary>
+        public SubscribeMessage IncrementSubscribemessageGet(IncrementSubscribemessageGetRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.trades.get
+        /// </summary>
+        public PageList<NotifyTrade> IncrementTradesGet(IncrementTradesGetRequest request) {
+            return client.Execute(request, new ListXmlParser<NotifyTrade>(new ParseData(request.GetApiName(), "notify_trades", "notify_trade")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.trades.get
+        /// </summary>
+        public PageList<NotifyTrade> IncrementTradesGet(IncrementTradesGetRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<NotifyTrade>(new ParseData(request.GetApiName(), "notify_trades", "notify_trade")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.user.authorize
+        /// </summary>
+        public AuthorizeMessage IncrementUserAuthorize(IncrementUserAuthorizeRequest request) {
+            return client.Execute(request, new ObjectXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_message")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.user.authorize
+        /// </summary>
+        public AuthorizeMessage IncrementUserAuthorize(IncrementUserAuthorizeRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_message")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.xiaoer.subscribe
+        /// </summary>
+        public SubscribeMessage IncrementXiaoerSubscribe(IncrementXiaoerSubscribeRequest request) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.increment.xiaoer.subscribe
+        /// </summary>
+        public SubscribeMessage IncrementXiaoerSubscribe(IncrementXiaoerSubscribeRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")), session);
         }
 
         /// <summary>
@@ -773,104 +857,6 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
-        /// TOP API: taobao.notify.app.subscribe
-        /// </summary>
-        public SubscribeMessage NotifyAppSubscribe(NotifyAppSubscribeRequest request) {
-            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.app.subscribe
-        /// </summary>
-        public SubscribeMessage NotifyAppSubscribe(NotifyAppSubscribeRequest request, string session) {
-            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.authorizemessages.get
-        /// </summary>
-        public PageList<AuthorizeMessage> NotifyAuthorizemessagesGet(NotifyAuthorizemessagesGetRequest request) {
-            return client.Execute(request, new ListXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_messages", "authorize_message")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.authorizemessages.get
-        /// </summary>
-        public PageList<AuthorizeMessage> NotifyAuthorizemessagesGet(NotifyAuthorizemessagesGetRequest request, string session) {
-            return client.Execute(request, new ListXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_messages", "authorize_message")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.items.get
-        /// </summary>
-        public PageList<NotifyItem> NotifyItemsGet(NotifyItemsGetRequest request) {
-            return client.Execute(request, new ListXmlParser<NotifyItem>(new ParseData(request.GetApiName(), "notify_items", "notify_item")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.items.get
-        /// </summary>
-        public PageList<NotifyItem> NotifyItemsGet(NotifyItemsGetRequest request, string session) {
-            return client.Execute(request, new ListXmlParser<NotifyItem>(new ParseData(request.GetApiName(), "notify_items", "notify_item")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.refunds.get
-        /// </summary>
-        public PageList<NotifyRefund> NotifyRefundsGet(NotifyRefundsGetRequest request) {
-            return client.Execute(request, new ListXmlParser<NotifyRefund>(new ParseData(request.GetApiName(), "notify_refunds", "notify_refund")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.refunds.get
-        /// </summary>
-        public PageList<NotifyRefund> NotifyRefundsGet(NotifyRefundsGetRequest request, string session) {
-            return client.Execute(request, new ListXmlParser<NotifyRefund>(new ParseData(request.GetApiName(), "notify_refunds", "notify_refund")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.subscribemessage.get
-        /// </summary>
-        public SubscribeMessage NotifySubscribemessageGet(NotifySubscribemessageGetRequest request) {
-            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.subscribemessage.get
-        /// </summary>
-        public SubscribeMessage NotifySubscribemessageGet(NotifySubscribemessageGetRequest request, string session) {
-            return client.Execute(request, new ObjectXmlParser<SubscribeMessage>(new ParseData(request.GetApiName(), "subscribe_message")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.trades.get
-        /// </summary>
-        public PageList<NotifyTrade> NotifyTradesGet(NotifyTradesGetRequest request) {
-            return client.Execute(request, new ListXmlParser<NotifyTrade>(new ParseData(request.GetApiName(), "notify_trades", "notify_trade")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.trades.get
-        /// </summary>
-        public PageList<NotifyTrade> NotifyTradesGet(NotifyTradesGetRequest request, string session) {
-            return client.Execute(request, new ListXmlParser<NotifyTrade>(new ParseData(request.GetApiName(), "notify_trades", "notify_trade")), session);
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.user.authorize
-        /// </summary>
-        public AuthorizeMessage NotifyUserAuthorize(NotifyUserAuthorizeRequest request) {
-            return client.Execute(request, new ObjectXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_message")));
-        }
-
-        /// <summary>
-        /// TOP API: taobao.notify.user.authorize
-        /// </summary>
-        public AuthorizeMessage NotifyUserAuthorize(NotifyUserAuthorizeRequest request, string session) {
-            return client.Execute(request, new ObjectXmlParser<AuthorizeMessage>(new ParseData(request.GetApiName(), "authorize_message")), session);
-        }
-
-        /// <summary>
         /// TOP API: taobao.picture.category.add
         /// </summary>
         public void PictureCategoryAdd(PictureCategoryAddRequest request) {
@@ -1249,6 +1235,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.shipping.address.add
+        /// </summary>
+        public ShippingAddress ShippingAddressAdd(ShippingAddressAddRequest request) {
+            return client.Execute(request, new ObjectXmlParser<ShippingAddress>(new ParseData(request.GetApiName(), "shipping_address")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.shipping.address.add
+        /// </summary>
+        public ShippingAddress ShippingAddressAdd(ShippingAddressAddRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<ShippingAddress>(new ParseData(request.GetApiName(), "shipping_address")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.shipping.addresses.get
         /// </summary>
         public PageList<ShippingAddress> ShippingAddressesGet(ShippingAddressesGetRequest request) {
@@ -1361,6 +1361,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.taobaoke.interval.report.get
+        /// </summary>
+        public TaobaokeReport TaobaokeIntervalReportGet(TaobaokeIntervalReportGetRequest request) {
+            return client.Execute(request, new ObjectXmlParser<TaobaokeReport>(new ParseData(request.GetApiName(), "taobaoke_report")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.taobaoke.interval.report.get
+        /// </summary>
+        public TaobaokeReport TaobaokeIntervalReportGet(TaobaokeIntervalReportGetRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<TaobaokeReport>(new ParseData(request.GetApiName(), "taobaoke_report")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.taobaoke.items.convert
         /// </summary>
         public PageList<TaobaokeItem> TaobaokeItemsConvert(TaobaokeItemsConvertRequest request) {
@@ -1415,26 +1429,14 @@ namespace Taobao.Top.Api
         public TaobaokeItem TaobaokeListurlGet(TaobaokeListurlGetRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<TaobaokeItem>(new ParseData(request.GetApiName(), "taobaoke_item")), session);
         }
-        /// <summary>
-        /// TOP AIP: taobao.taobaoke.interval.report.get
-        /// add by icyker@gmail.com at 2010年6月19日18:24:22
-        /// </summary>
-        public TaobaokeReport TaobaokeIntervalReportGet( TaobaokeIntervalReportGetRequest request ) {
-            return client.Execute( request, new ObjectXmlParser<TaobaokeReport>( new ParseData( request.GetApiName(), "taobaoke_report" ) ) );
-        }
-        /// <summary>
-        /// TOP AIP: taobao.taobaoke.interval.report.get
-        /// add by icyker@gmail.com at 2010年6月19日18:24:22
-        /// </summary>
-        public TaobaokeReport TaobaokeIntervalReportGet( TaobaokeIntervalReportGetRequest request, string session ) {
-            return client.Execute( request, new ObjectXmlParser<TaobaokeReport>( new ParseData( request.GetApiName(), "taobaoke_report" ) ), session );
-        }
+
         /// <summary>
         /// TOP API: taobao.taobaoke.report.get
         /// </summary>
         public TaobaokeReport TaobaokeReportGet(TaobaokeReportGetRequest request) {
             return client.Execute(request, new ObjectXmlParser<TaobaokeReport>(new ParseData(request.GetApiName(), "taobaoke_report")));
         }
+
         /// <summary>
         /// TOP API: taobao.taobaoke.report.get
         /// </summary>
@@ -1454,6 +1456,20 @@ namespace Taobao.Top.Api
         /// </summary>
         public PageList<TaobaokeShop> TaobaokeShopsConvert(TaobaokeShopsConvertRequest request, string session) {
             return client.Execute(request, new ListXmlParser<TaobaokeShop>(new ParseData(request.GetApiName(), "taobaoke_shops", "taobaoke_shop")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.time.get
+        /// </summary>
+        public void TimeGet(TimeGetRequest request) {
+            client.Execute(request, new StringParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.time.get
+        /// </summary>
+        public void TimeGet(TimeGetRequest request, string session) {
+            client.Execute(request, new StringParser(), session);
         }
 
         /// <summary>
@@ -1482,6 +1498,20 @@ namespace Taobao.Top.Api
         /// </summary>
         public TradeConfirmFee TradeConfirmfeeGet(TradeConfirmfeeGetRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<TradeConfirmFee>(new ParseData(request.GetApiName(), "trade_confirm_fee")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.forum.add
+        /// </summary>
+        public Trade TradeForumAdd(TradeForumAddRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.forum.add
+        /// </summary>
+        public Trade TradeForumAdd(TradeForumAddRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")), session);
         }
 
         /// <summary>
@@ -1541,6 +1571,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.trade.open.add
+        /// </summary>
+        public Trade TradeOpenAdd(TradeOpenAddRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.open.add
+        /// </summary>
+        public Trade TradeOpenAdd(TradeOpenAddRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.trade.ordersku.update
         /// </summary>
         public Order TradeOrderskuUpdate(TradeOrderskuUpdateRequest request) {
@@ -1552,6 +1596,20 @@ namespace Taobao.Top.Api
         /// </summary>
         public Order TradeOrderskuUpdate(TradeOrderskuUpdateRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<Order>(new ParseData(request.GetApiName(), "order")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.price.update
+        /// </summary>
+        public Trade TradePriceUpdate(TradePriceUpdateRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.price.update
+        /// </summary>
+        public Trade TradePriceUpdate(TradePriceUpdateRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")), session);
         }
 
         /// <summary>
@@ -1579,6 +1637,20 @@ namespace Taobao.Top.Api
         /// TOP API: taobao.trade.snapshot.get
         /// </summary>
         public Trade TradeSnapshotGet(TradeSnapshotGetRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.vip.add
+        /// </summary>
+        public Trade TradeVipAdd(TradeVipAddRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.vip.add
+        /// </summary>
+        public Trade TradeVipAdd(TradeVipAddRequest request, string session) {
             return client.Execute(request, new ObjectXmlParser<Trade>(new ParseData(request.GetApiName(), "trade")), session);
         }
 

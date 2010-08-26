@@ -10,7 +10,10 @@ namespace Taobao.Top.Api.Domain
     public class ShippingAddress : BaseObject
     {
         [XmlElement("address_id")]
-        public int AddressId { get; set; }
+        public long AddressId { get; set; }
+
+        [XmlElement("created")]
+        public string Created { get; set; }
 
         [XmlElement("is_default")]
         public bool IsDefault { get; set; }

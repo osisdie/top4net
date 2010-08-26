@@ -14,6 +14,8 @@ namespace Taobao.Top.Api.Request
         public Nullable<int> PageSize { get; set; }
         public string Props { get; set; }
         public string Q { get; set; }
+        public string Status { get; set; }
+        public Nullable<long> VerticalMarket { get; set; }
 
         #region ITopRequest Members
 
@@ -31,6 +33,8 @@ namespace Taobao.Top.Api.Request
             parameters.Add("page_size", this.PageSize);
             parameters.Add("props", this.Props);
             parameters.Add("q", this.Q);
+            parameters.Add("status", this.Status);
+            parameters.Add("vertical_market", this.VerticalMarket);
             return parameters;
         }
 

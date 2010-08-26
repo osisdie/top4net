@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.notify.items.get
+    /// TOP API: taobao.increment.items.get
     /// </summary>
-    public class NotifyItemsGetRequest : ITopRequest
+    public class IncrementItemsGetRequest : ITopRequest
     {
         public Nullable<DateTime> EndModified { get; set; }
         public string Nick { get; set; }
@@ -19,7 +19,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.notify.items.get";
+            return "taobao.increment.items.get";
         }
 
         public IDictionary<string, string> GetParameters()

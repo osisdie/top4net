@@ -170,6 +170,9 @@ namespace Taobao.Top.Api.Domain
         [XmlArrayItem("video")]
         public List<Video> Videos { get; set; }
 
+        [XmlElement("violation")]
+        public bool Violation { get; set; }
+
         [XmlElement("volume")]
         public long Volume { get; set; }
     }

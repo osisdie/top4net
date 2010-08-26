@@ -10,6 +10,7 @@ namespace Taobao.Top.Api.Request
     {
         public string Banner { get; set; }
         public Nullable<long> Cid { get; set; }
+        public Nullable<DateTime> EndModified { get; set; }
         public string Fields { get; set; }
         public Nullable<bool> HasDiscount { get; set; }
         public Nullable<bool> HasShowcase { get; set; }
@@ -20,6 +21,7 @@ namespace Taobao.Top.Api.Request
         public Nullable<int> PageSize { get; set; }
         public string Q { get; set; }
         public string SellerCids { get; set; }
+        public Nullable<DateTime> StartModified { get; set; }
 
         #region ITopRequest Members
 
@@ -33,6 +35,7 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
             parameters.Add("banner", this.Banner);
             parameters.Add("cid", this.Cid);
+            parameters.Add("end_modified", this.EndModified);
             parameters.Add("fields", this.Fields);
             parameters.Add("has_discount", this.HasDiscount);
             parameters.Add("has_showcase", this.HasShowcase);
@@ -43,6 +46,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("page_size", this.PageSize);
             parameters.Add("q", this.Q);
             parameters.Add("seller_cids", this.SellerCids);
+            parameters.Add("start_modified", this.StartModified);
             return parameters;
         }
 

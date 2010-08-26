@@ -12,7 +12,7 @@ namespace Taobao.Top.Api.Request
     public class AppSubappApplyRequest : ITopUploadRequest
     {
         public string CallbackUrl { get; set; }
-        public FileItem Logo { get; set; }
+        public FileItem Image { get; set; }
         public string NotifyUrl { get; set; }
         public string ParentAppKey { get; set; }
         public string ServiceCode { get; set; }
@@ -43,7 +43,7 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, FileItem> GetFileParameters()
         {
             IDictionary<string, FileItem> parameters = new Dictionary<string, FileItem>();
-            parameters.Add("logo", this.Logo);
+            parameters.Add("image", this.Image);
             return parameters;
         }
 

@@ -54,6 +54,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("location")]
         public Location Location { get; set; }
 
+        [XmlElement("magazine_subscribe")]
+        public bool MagazineSubscribe { get; set; }
+
         [XmlElement("mobile")]
         public string Mobile { get; set; }
 
@@ -92,5 +95,8 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("user_id")]
         public long UserId { get; set; }
+
+        [XmlElement("vertical_market")]
+        public string VerticalMarket { get; set; }
     }
 }

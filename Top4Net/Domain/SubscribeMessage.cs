@@ -25,5 +25,8 @@ namespace Taobao.Top.Api.Domain
         [XmlArray("subscriptions")]
         [XmlArrayItem("subscription")]
         public List<Subscription> Subscriptions { get; set; }
+
+        [XmlElement("valid")]
+        public bool Valid { get; set; }
     }
 }

@@ -45,6 +45,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("num")]
         public int Num { get; set; }
 
+        [XmlElement("num_iid")]
+        public long NumIid { get; set; }
+
         [XmlElement("oid")]
         public long Oid { get; set; }
 

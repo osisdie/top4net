@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.notify.user.authorize
+    /// TOP API: taobao.increment.user.authorize
     /// </summary>
-    public class NotifyUserAuthorizeRequest : ITopRequest
+    public class IncrementUserAuthorizeRequest : ITopRequest
     {
         public Nullable<int> Duration { get; set; }
         public string Email { get; set; }
@@ -15,7 +15,7 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.notify.user.authorize";
+            return "taobao.increment.user.authorize";
         }
 
         public IDictionary<string, string> GetParameters()

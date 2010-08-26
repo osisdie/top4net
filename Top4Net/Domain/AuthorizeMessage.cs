@@ -29,5 +29,8 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("status")]
         public string Status { get; set; }
+
+        [XmlElement("valid")]
+        public bool Valid { get; set; }
     }
 }

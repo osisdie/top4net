@@ -12,7 +12,6 @@ namespace Taobao.Top.Api.Request
         public string Iids { get; set; }
         public string Nick { get; set; }
         public string OuterCode { get; set; }
-        public string NumIids { get; set; } //add at 2010年7月25日12:20:23 by icyker@gmail.com
 
         #region ITopRequest Members
 
@@ -24,11 +23,10 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
-            parameters.Add( "fields", this.Fields );
-            parameters.Add( "iids", this.Iids );
-            parameters.Add( "nick", this.Nick );
-            parameters.Add( "outer_code", this.OuterCode );
-            parameters.Add( "num_iids", this.NumIids ); //add at 2010年7月25日12:20:23 by icyker@gmail.com
+            parameters.Add("fields", this.Fields);
+            parameters.Add("iids", this.Iids);
+            parameters.Add("nick", this.Nick);
+            parameters.Add("outer_code", this.OuterCode);
             return parameters;
         }
 

@@ -70,6 +70,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("iid")]
         public string Iid { get; set; }
 
+        [XmlElement("invoice_name")]
+        public string InvoiceName { get; set; }
+
         [XmlElement("is_3D")]
         public bool Is3D { get; set; }
 
@@ -78,6 +81,9 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("num")]
         public int Num { get; set; }
+
+        [XmlElement("num_iid")]
+        public long NumIid { get; set; }
 
         [XmlArray("orders")]
         [XmlArrayItem("order")]
@@ -100,6 +106,13 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("price")]
         public string Price { get; set; }
+
+        [XmlElement("promotion")]
+        public string Promotion { get; set; }
+
+        [XmlArray("promotion_details")]
+        [XmlArrayItem("promotion_detail")]
+        public List<PromotionDetail> PromotionDetails { get; set; }
 
         [XmlElement("real_point_fee")]
         public int RealPointFee { get; set; }

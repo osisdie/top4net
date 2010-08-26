@@ -23,6 +23,9 @@ namespace Taobao.Top.Api.Request
         public string PostageModeOptTypes { get; set; }
         public string PostageModePrices { get; set; }
         public string PostageModeTypes { get; set; }
+        public Nullable<bool> RemoveEms { get; set; }
+        public Nullable<bool> RemoveExpress { get; set; }
+        public Nullable<bool> RemovePost { get; set; }
 
         #region ITopRequest Members
 
@@ -49,6 +52,9 @@ namespace Taobao.Top.Api.Request
             parameters.Add("postage_mode_optTypes", this.PostageModeOptTypes);
             parameters.Add("postage_mode_prices", this.PostageModePrices);
             parameters.Add("postage_mode_types", this.PostageModeTypes);
+            parameters.Add("remove_ems", this.RemoveEms);
+            parameters.Add("remove_express", this.RemoveExpress);
+            parameters.Add("remove_post", this.RemovePost);
             return parameters;
         }
 

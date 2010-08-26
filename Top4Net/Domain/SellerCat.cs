@@ -10,7 +10,7 @@ namespace Taobao.Top.Api.Domain
     public class SellerCat : BaseObject
     {
         [XmlElement("cid")]
-        public string Cid { get; set; }
+        public int Cid { get; set; }
 
         [XmlElement("created")]
         public string Created { get; set; }
@@ -22,7 +22,7 @@ namespace Taobao.Top.Api.Domain
         public string Name { get; set; }
 
         [XmlElement("parent_cid")]
-        public string ParentCid { get; set; }
+        public int ParentCid { get; set; }
 
         [XmlElement("pic_url")]
         public string PicUrl { get; set; }

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.notify.app.subscribe
+    /// TOP API: taobao.increment.xiaoer.subscribe
     /// </summary>
-    public class NotifyAppSubscribeRequest : ITopRequest
+    public class IncrementXiaoerSubscribeRequest : ITopRequest
     {
         public Nullable<int> Duration { get; set; }
+        public string IsvAppKey { get; set; }
         public string Status { get; set; }
         public string Topics { get; set; }
 
@@ -16,13 +17,14 @@ namespace Taobao.Top.Api.Request
 
         public string GetApiName()
         {
-            return "taobao.notify.app.subscribe";
+            return "taobao.increment.xiaoer.subscribe";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
             parameters.Add("duration", this.Duration);
+            parameters.Add("isv_app_key", this.IsvAppKey);
             parameters.Add("status", this.Status);
             parameters.Add("topics", this.Topics);
             return parameters;

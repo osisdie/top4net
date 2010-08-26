@@ -4,35 +4,31 @@ using System.Collections.Generic;
 namespace Taobao.Top.Api.Request
 {
     /// <summary>
-    /// TOP API: taobao.trades.get
+    /// TOP API: taobao.increment.authorizemessages.get
     /// </summary>
-    public class TradesGetRequest : ITopRequest
+    public class IncrementAuthorizemessagesGetRequest : ITopRequest
     {
+        public Nullable<int> ExpiredDay { get; set; }
         public string Fields { get; set; }
-        public string Iid { get; set; }
-        public Nullable<long> NumIid { get; set; }
+        public string Nicks { get; set; }
         public Nullable<int> PageNo { get; set; }
         public Nullable<int> PageSize { get; set; }
-        public string SellerNick { get; set; }
-        public string Type { get; set; }
 
         #region ITopRequest Members
 
         public string GetApiName()
         {
-            return "taobao.trades.get";
+            return "taobao.increment.authorizemessages.get";
         }
 
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
+            parameters.Add("expired_day", this.ExpiredDay);
             parameters.Add("fields", this.Fields);
-            parameters.Add("iid", this.Iid);
-            parameters.Add("num_iid", this.NumIid);
+            parameters.Add("nicks", this.Nicks);
             parameters.Add("page_no", this.PageNo);
             parameters.Add("page_size", this.PageSize);
-            parameters.Add("seller_nick", this.SellerNick);
-            parameters.Add("type", this.Type);
             return parameters;
         }
 
