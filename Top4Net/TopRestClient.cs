@@ -101,10 +101,10 @@ namespace Taobao.Top.Api
                 response = WebUtils.DoPost(this.serverUrl, txtParams);
             }
 
-            if (FORMAT_XML.Equals(format))
-            {
-                response = Regex.Replace(response, @"[\x00-\x08\x0b-\x0c\x0e-\x1f]", "");
-            }
+            //if (FORMAT_XML.Equals(format))
+            //{
+            //    response = Regex.Replace(response, @"[\x00-\x08\x0b-\x0c\x0e-\x1f]", "");
+            //}
             TryParseException(response);
             return parser.Parse(response);
         }
