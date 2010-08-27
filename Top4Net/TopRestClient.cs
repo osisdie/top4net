@@ -136,7 +136,9 @@ namespace Taobao.Top.Api
                     }
                     else
                     {
-                        throw new TopException(subErrCodeNode.InnerText, subErrMsgNode.InnerText);
+                        string errCode = subErrCodeNode != null ? subErrCodeNode.InnerText : null;
+                        string errMsg = subErrMsgNode != null ? subErrMsgNode.InnerText : null;
+                        throw new TopException(errCode, errMsg);
                     }
                 }
             }
