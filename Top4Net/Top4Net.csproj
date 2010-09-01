@@ -111,6 +111,7 @@
     <Compile Include="Request\AppSubappApplyRequest.cs" />
     <Compile Include="Request\AreasGetRequest.cs" />
     <Compile Include="Request\CatstatsGetRequest.cs" />
+    <Compile Include="Request\DeliveryCodSendRequest.cs" />
     <Compile Include="Request\DeliverySendRequest.cs" />
     <Compile Include="Request\DynamicTopRequest.cs" />
     <Compile Include="Request\IncrementAppSubscribeRequest.cs" />

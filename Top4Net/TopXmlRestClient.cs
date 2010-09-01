@@ -73,6 +73,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.delivery.cod.send
+        /// </summary>
+        public Shipping DeliveryCodSend(DeliveryCodSendRequest request) {
+            return client.Execute(request, new ObjectXmlParser<Shipping>(new ParseData(request.GetApiName(), "shipping")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.delivery.cod.send
+        /// </summary>
+        public Shipping DeliveryCodSend(DeliveryCodSendRequest request, string session) {
+            return client.Execute(request, new ObjectXmlParser<Shipping>(new ParseData(request.GetApiName(), "shipping")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.delivery.send
         /// </summary>
         public Shipping DeliverySend(DeliverySendRequest request) {
