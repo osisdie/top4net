@@ -49,6 +49,7 @@
     <Compile Include="Domain\AuthorizeMessage.cs" />
     <Compile Include="Domain\BaseObject.cs" />
     <Compile Include="Domain\Brand.cs" />
+    <Compile Include="Domain\CollectItem.cs" />
     <Compile Include="Domain\Feature.cs" />
     <Compile Include="Domain\Item.cs" />
     <Compile Include="Domain\ItemCat.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Domain\ItemVerticalProp.cs" />
     <Compile Include="Domain\Location.cs" />
     <Compile Include="Domain\LogisticsCompany.cs" />
+    <Compile Include="Domain\NotifyInfo.cs" />
     <Compile Include="Domain\NotifyItem.cs" />
     <Compile Include="Domain\NotifyRefund.cs" />
     <Compile Include="Domain\NotifyTrade.cs" />

@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Domain
         public string Bulletin { get; set; }
 
         [XmlElement("cid")]
-        public string Cid { get; set; }
+        public long Cid { get; set; }
 
         [XmlElement("created")]
         public string Created { get; set; }
@@ -37,7 +37,7 @@ namespace Taobao.Top.Api.Domain
         public ShopScore ShopScore { get; set; }
 
         [XmlElement("sid")]
-        public string Sid { get; set; }
+        public long Sid { get; set; }
 
         [XmlElement("title")]
         public string Title { get; set; }

@@ -71,5 +71,8 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("tsc")]
         public string Tsc { get; set; }
+
+        [XmlElement("vertical_market")]
+        public long VerticalMarket { get; set; }
     }
 }

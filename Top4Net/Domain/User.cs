@@ -39,9 +39,6 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("has_more_pic")]
         public bool HasMorePic { get; set; }
 
-        [XmlElement("id_card")]
-        public string IdCard { get; set; }
-
         [XmlElement("item_img_num")]
         public int ItemImgNum { get; set; }
 

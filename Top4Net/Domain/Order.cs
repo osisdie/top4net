@@ -13,7 +13,7 @@ namespace Taobao.Top.Api.Domain
         public string AdjustFee { get; set; }
 
         [XmlElement("buyer_rate")]
-        public string BuyerRate { get; set; }
+        public bool BuyerRate { get; set; }
 
         [XmlElement("discount_fee")]
         public string DiscountFee { get; set; }
@@ -64,7 +64,7 @@ namespace Taobao.Top.Api.Domain
         public string RefundStatus { get; set; }
 
         [XmlElement("seller_rate")]
-        public string SellerRate { get; set; }
+        public bool SellerRate { get; set; }
 
         [XmlElement("seller_type")]
         public string SellerType { get; set; }

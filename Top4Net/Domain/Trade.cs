@@ -28,6 +28,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("buyer_flag")]
         public int BuyerFlag { get; set; }
 
+        [XmlElement("buyer_ip")]
+        public string BuyerIp { get; set; }
+
         [XmlElement("buyer_memo")]
         public string BuyerMemo { get; set; }
 

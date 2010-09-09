@@ -19,6 +19,13 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("modified")]
         public string Modified { get; set; }
 
+        [XmlArray("notify_infos")]
+        [XmlArrayItem("notify_info")]
+        public List<NotifyInfo> NotifyInfos { get; set; }
+
+        [XmlElement("notify_url")]
+        public string NotifyUrl { get; set; }
+
         [XmlElement("start_date")]
         public string StartDate { get; set; }
 

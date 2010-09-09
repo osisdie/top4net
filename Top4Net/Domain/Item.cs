@@ -76,6 +76,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("is_ex")]
         public bool IsEx { get; set; }
 
+        [XmlElement("is_prepay")]
+        public bool IsPrepay { get; set; }
+
         [XmlElement("is_taobao")]
         public bool IsTaobao { get; set; }
 
@@ -128,6 +131,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("product_id")]
         public long ProductId { get; set; }
 
+        [XmlElement("promoted_service")]
+        public string PromotedService { get; set; }
+
         [XmlArray("prop_imgs")]
         [XmlArrayItem("prop_img")]
         public List<PropImg> PropImgs { get; set; }
@@ -175,5 +181,8 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("volume")]
         public long Volume { get; set; }
+
+        [XmlElement("ww_status")]
+        public bool WwStatus { get; set; }
     }
 }
