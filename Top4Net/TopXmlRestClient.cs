@@ -101,6 +101,34 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.favorite.add
+        /// </summary>
+        public void FavoriteAdd(FavoriteAddRequest request) {
+            client.Execute(request, new StringParser());
+        }
+
+        /// <summary>
+        /// TOP API: taobao.favorite.add
+        /// </summary>
+        public void FavoriteAdd(FavoriteAddRequest request, string session) {
+            client.Execute(request, new StringParser(), session);
+        }
+
+        /// <summary>
+        /// TOP API: taobao.favorite.search
+        /// </summary>
+        public PageList<CollectItem> FavoriteSearch(FavoriteSearchRequest request) {
+            return client.Execute(request, new ListXmlParser<CollectItem>(new ParseData(request.GetApiName(), "collect_items", "collect_item")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.favorite.search
+        /// </summary>
+        public PageList<CollectItem> FavoriteSearch(FavoriteSearchRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<CollectItem>(new ParseData(request.GetApiName(), "collect_items", "collect_item")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.increment.app.subscribe
         /// </summary>
         public SubscribeMessage IncrementAppSubscribe(IncrementAppSubscribeRequest request) {
