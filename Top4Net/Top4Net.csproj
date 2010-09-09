@@ -116,6 +116,8 @@
     <Compile Include="Request\DeliveryCodSendRequest.cs" />
     <Compile Include="Request\DeliverySendRequest.cs" />
     <Compile Include="Request\DynamicTopRequest.cs" />
+    <Compile Include="Request\FavoriteAddRequest.cs" />
+    <Compile Include="Request\FavoriteSearchRequest.cs" />
     <Compile Include="Request\IncrementAppSubscribeRequest.cs" />
     <Compile Include="Request\IncrementAuthorizemessagesGetRequest.cs" />
     <Compile Include="Request\IncrementItemsGetRequest.cs" />

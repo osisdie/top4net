@@ -9,6 +9,8 @@ namespace Taobao.Top.Api.Request
     public class IncrementAppSubscribeRequest : ITopRequest
     {
         public Nullable<int> Duration { get; set; }
+        public string IsNotify { get; set; }
+        public string NotifyUrl { get; set; }
         public string Status { get; set; }
         public string Topics { get; set; }
 
@@ -23,6 +25,8 @@ namespace Taobao.Top.Api.Request
         {
             TopDictionary parameters = new TopDictionary();
             parameters.Add("duration", this.Duration);
+            parameters.Add("is_notify", this.IsNotify);
+            parameters.Add("notify_url", this.NotifyUrl);
             parameters.Add("status", this.Status);
             parameters.Add("topics", this.Topics);
             return parameters;

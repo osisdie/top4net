@@ -16,6 +16,7 @@ namespace Taobao.Top.Api.Request
         public string Status { get; set; }
         public string Tag { get; set; }
         public string Type { get; set; }
+        public Nullable<bool> UseHasNext { get; set; }
 
         #region ITopRequest Members
 
@@ -35,6 +36,7 @@ namespace Taobao.Top.Api.Request
             parameters.Add("status", this.Status);
             parameters.Add("tag", this.Tag);
             parameters.Add("type", this.Type);
+            parameters.Add("use_has_next", this.UseHasNext);
             return parameters;
         }
 

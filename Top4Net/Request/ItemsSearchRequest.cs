@@ -8,12 +8,15 @@ namespace Taobao.Top.Api.Request
     /// </summary>
     public class ItemsSearchRequest : ITopRequest
     {
+        public Nullable<bool> AuctionFlag { get; set; }
+        public Nullable<bool> AutoPost { get; set; }
         public Nullable<long> Cid { get; set; }
         public Nullable<int> EndPrice { get; set; }
         public Nullable<int> EndScore { get; set; }
         public Nullable<int> EndVolume { get; set; }
         public string Fields { get; set; }
         public Nullable<bool> GenuineSecurity { get; set; }
+        public Nullable<bool> HasDiscount { get; set; }
         public Nullable<bool> Is3D { get; set; }
         public Nullable<bool> IsCod { get; set; }
         public Nullable<bool> IsMall { get; set; }
@@ -46,12 +49,15 @@ namespace Taobao.Top.Api.Request
         public IDictionary<string, string> GetParameters()
         {
             TopDictionary parameters = new TopDictionary();
+            parameters.Add("auction_flag", this.AuctionFlag);
+            parameters.Add("auto_post", this.AutoPost);
             parameters.Add("cid", this.Cid);
             parameters.Add("end_price", this.EndPrice);
             parameters.Add("end_score", this.EndScore);
             parameters.Add("end_volume", this.EndVolume);
             parameters.Add("fields", this.Fields);
             parameters.Add("genuine_security", this.GenuineSecurity);
+            parameters.Add("has_discount", this.HasDiscount);
             parameters.Add("is_3D", this.Is3D);
             parameters.Add("is_cod", this.IsCod);
             parameters.Add("is_mall", this.IsMall);
