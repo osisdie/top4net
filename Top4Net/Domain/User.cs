@@ -21,6 +21,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("auto_repost")]
         public string AutoRepost { get; set; }
 
+        [XmlElement("avatar")]
+        public string Avatar { get; set; }
+
         [XmlElement("birthday")]
         public string Birthday { get; set; }
 
@@ -53,6 +56,9 @@ namespace Taobao.Top.Api.Domain
 
         [XmlElement("magazine_subscribe")]
         public bool MagazineSubscribe { get; set; }
+
+        [XmlElement("manage_book")]
+        public bool ManageBook { get; set; }
 
         [XmlElement("mobile")]
         public string Mobile { get; set; }

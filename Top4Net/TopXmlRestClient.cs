@@ -1683,6 +1683,20 @@ namespace Taobao.Top.Api
         }
 
         /// <summary>
+        /// TOP API: taobao.trade.tag.add
+        /// </summary>
+        public PageList<TradeResult> TradeTagAdd(TradeTagAddRequest request) {
+            return client.Execute(request, new ListXmlParser<TradeResult>(new ParseData(request.GetApiName(), "trade_results", "trade_result")));
+        }
+
+        /// <summary>
+        /// TOP API: taobao.trade.tag.add
+        /// </summary>
+        public PageList<TradeResult> TradeTagAdd(TradeTagAddRequest request, string session) {
+            return client.Execute(request, new ListXmlParser<TradeResult>(new ParseData(request.GetApiName(), "trade_results", "trade_result")), session);
+        }
+
+        /// <summary>
         /// TOP API: taobao.trade.vip.add
         /// </summary>
         public Trade TradeVipAdd(TradeVipAddRequest request) {

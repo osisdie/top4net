@@ -101,6 +101,7 @@
     <Compile Include="Domain\Trade.cs" />
     <Compile Include="Domain\TradeConfirmFee.cs" />
     <Compile Include="Domain\TradeRate.cs" />
+    <Compile Include="Domain\TradeResult.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Domain\UserCredit.cs" />
     <Compile Include="Domain\Video.cs" />
@@ -240,6 +241,7 @@
     <Compile Include="Request\TradesSoldGetRequest.cs" />
     <Compile Include="Request\TradesSoldIncrementGetRequest.cs" />
     <Compile Include="Request\TradestatsGetRequest.cs" />
+    <Compile Include="Request\TradeTagAddRequest.cs" />
     <Compile Include="Request\TradeVipAddRequest.cs" />
     <Compile Include="Request\UserDetailGetRequest.cs" />
     <Compile Include="Request\UserGetRequest.cs" />

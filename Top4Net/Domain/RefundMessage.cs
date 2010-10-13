@@ -19,6 +19,9 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("id")]
         public long Id { get; set; }
 
+        [XmlElement("message_type")]
+        public string MessageType { get; set; }
+
         [XmlElement("owner_id")]
         public long OwnerId { get; set; }
 

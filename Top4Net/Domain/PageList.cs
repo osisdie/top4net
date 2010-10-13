@@ -18,6 +18,12 @@ namespace Taobao.Top.Api.Domain
         public long TotalResults { get; set; }
 
         /// <summary>
+        /// 是否存在下一页记录。
+        /// </summary>
+        [XmlElement("has_next")]
+        public bool HasNext { get; set; }
+
+        /// <summary>
         /// 解释后的具体对象。
         /// </summary>
         public List<T> Content { get; set; }

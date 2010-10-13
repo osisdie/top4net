@@ -182,6 +182,12 @@ namespace Taobao.Top.Api.Domain
         [XmlElement("volume")]
         public long Volume { get; set; }
 
+        [XmlElement("wap_desc")]
+        public string WapDesc { get; set; }
+
+        [XmlElement("wap_detail_url")]
+        public string WapDetailUrl { get; set; }
+
         [XmlElement("ww_status")]
         public bool WwStatus { get; set; }
     }

@@ -10,7 +10,6 @@ namespace Taobao.Top.Api.Request
     {
         public string Fields { get; set; }
         public string Iids { get; set; }
-        public string Nick { get; set; }
         public string NumIids { get; set; }
 
         #region ITopRequest Members
@@ -25,7 +24,6 @@ namespace Taobao.Top.Api.Request
             TopDictionary parameters = new TopDictionary();
             parameters.Add("fields", this.Fields);
             parameters.Add("iids", this.Iids);
-            parameters.Add("nick", this.Nick);
             parameters.Add("num_iids", this.NumIids);
             return parameters;
         }
