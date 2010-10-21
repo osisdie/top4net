@@ -13,7 +13,7 @@ namespace Taobao.Top.Api
     /// 基于REST的TOP客户端。
     /// </summary>
     /// <example>
-    /// ITopClient client = new TopRestClient("http://gw.sandbox.taobao.com/router/rest", "test", "test", "json");
+    /// ITopClient client = new TopRestClient("http://gw.api.tbsandbox.com/router/rest", "test", "test", "json");
     /// UserGetRequest request = new UserGetRequest();
     /// request.Fields = "user_id,nick,sex,created,location";
     /// request.Nick = "tbtest520";
